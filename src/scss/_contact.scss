@@ -1,0 +1,122 @@
+.rs-contact{
+    &__float-bg{
+        position: absolute;
+        right: 20px;
+        bottom: 0;
+        // @include media-breakpoint-up(md){
+        //     bottom: -32px;
+        // }
+        // z-index: -1;
+        & svg{
+            & path{
+                fill: $gray-900;
+            }
+            width: 100%;
+            // transform: translate(-10px , 0);
+            // animation: anim 4s forwards infinite;
+        }
+    }
+
+    &__section{
+        padding: 110px 0 78px;
+        position: relative;
+
+        & .container-xl{
+            position: relative;
+        }
+    }
+
+    &__form-wrapper{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        background: #FFFFFF;
+        box-shadow: 0px 3px 49px 9px rgba(0, 0, 0, 0.06);
+        border-radius: 30px;
+        padding: 3rem 2rem;
+        & h2{
+            max-width: 207px;
+            font-weight: 400;
+            font-size: 48px;
+            line-height: 58px;
+            color: $black;
+            margin-bottom: 2rem;
+            & strong{
+                font-weight: 700;
+                color: $primary;
+            }
+        }
+    }
+
+    &__form-col{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    &__form{
+        width: 100%;
+        @include media-breakpoint-up(lg){
+            width: calc(100% - 207px - 16px);
+        }
+        @include media-breakpoint-up(xl){
+            width: calc(100% - 207px - 90px);
+        }
+    }
+
+    &__author-info{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    &__author-name{
+        font-weight: 900;
+        font-size: 48px;
+        line-height: 58px;
+        text-align: center;
+        color: #0000008A;
+    }
+
+    &__author-designation{
+        font-weight: 400;
+        font-size: 28px;
+        line-height: 33.5px;
+        text-align: center;
+        text-transform: uppercase;
+        color: #0000008A;
+    }
+
+    &__social-list{
+        margin-top: 32px;
+        & ul{
+            list-style: none;
+            padding: 0;
+            margin-bottom: 0;
+            display: flex;
+            flex-direction: row;
+            gap: 1rem;
+            & li{
+                & svg{
+                    color: $gray-600;
+                    width: 32px;
+                    height: 32px;
+                }
+            }
+        }
+    }
+
+    &__details{
+        max-width: 165px;
+        font-size: 16px;
+        line-height: 24px;
+        font-weight: 400;
+        text-align: center;
+        color: #0000008A;
+        margin-top: 40px;
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+    }
+}

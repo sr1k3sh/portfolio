@@ -1,0 +1,187 @@
+.rs-services{
+    $self:&;
+    &__section{
+        padding: 50px 0;
+
+        &--dark{
+            #{$self}__card{
+                background-color: $white;
+                box-shadow: 0px 0px 6px 0px #2e2e2e;
+                &--empty{
+                    box-shadow: none;
+                    // width: 280px;
+                    background-color: transparent;
+                    border : 0;
+                    &:hover{
+                        background-image: none;
+                    }
+                }
+            }
+
+            #{$self}__figure{
+                & figcaption{
+
+                    & span{
+                        color: #303030;
+                    }
+
+                    & p{
+
+                    }
+                }
+            }
+
+            #{$self}__my-services{
+                color: $white;
+            }
+        }
+
+        &--light{
+            #{$self}__card{
+                background-color: #303030;
+                &--empty{
+                    box-shadow: none;
+                    // width: 280px;
+                    background-color: transparent;
+                    border : 0;
+                    &:hover{
+                        background-image: none;
+                    }
+                }
+            }
+
+            #{$self}__figure{
+                & figcaption{
+
+                    & span{
+                        color: $white;
+                    }
+
+                    & p{
+
+                    }
+                }
+            }
+        }
+
+        & .slick-arrow{
+            width: 40px;
+            height: 40px;
+            color: $primary;
+            border-radius: 50%;
+            background-color: $gray-100;
+            box-shadow: 1px 2px 9px $primary-light;
+            top: calc(50% - 24px);
+            & svg{
+                width: 32px;
+                height: 32px;
+            }
+        }
+
+        & .slick-next{
+            right: 15px;
+            color: $primary;
+            &::before{
+                content: unset;
+            }
+        }
+
+        & .slick-prev{
+            left: 15px;
+            z-index: 1;
+            &::before{
+                content: unset;
+            }
+        }
+    }
+
+    &__wrapper{
+        position: relative;
+    }
+
+    &__my-services{
+        position: absolute;
+        padding: 1rem;
+        margin: 10px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        max-width: 280px;
+        height: 100%;
+        svg{
+            width: 60px;
+            height: 60px;
+        }
+    }
+
+    &__content{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        text-align: center;
+    }
+
+    &__card{
+        // max-width: 280px;
+        border-radius: 24px;
+        // border: 1px solid $primary;
+        padding: 1rem;
+        height: 200px;
+        margin: 0 auto;
+        background-color: #303030;
+        margin: 10px;
+        box-shadow: 1px 2px 9px $primary-light;
+        &:hover{
+            background-image: linear-gradient(141.51deg, #7327B0 -18.34%, #651FFF 66.03%);
+
+            & svg{
+                fill: $white;
+            }
+        }
+
+        &--empty{
+            box-shadow: none;
+            // width: 280px;
+            background-color: transparent;
+            border : 0;
+            &:hover{
+                background-image: none;
+            }
+        }
+
+
+    }
+
+    &__figure{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        height: 100%;
+
+
+        & figcaption{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            & span{
+                font-size: 24px;
+                font-weight: 200;
+                color: $white;
+            }
+
+            & p{
+                font-size: 14px;
+                font-weight: 400;
+                text-align: center;
+                display: none;
+            }
+        }
+        & svg{
+            width: 100px;
+            height: 100px;
+        }
+    }
+}

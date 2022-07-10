@@ -1,0 +1,241 @@
+.rs-exp{
+    $self: &;
+    &__float-bg{
+        position: absolute;
+        left: 0;
+        top: 0;
+        // z-index: -1;
+        & svg{
+            fill: $gray-100;
+            width: 100%;
+            // transform: translate(-10px , 0);
+            animation: anim 4s forwards infinite;
+        }
+    }
+    &__section{
+        position: relative;
+        overflow-y: clip;
+        overflow-x: clip;
+        // padding: 0 0 50px;
+        &--dark{
+            color: $white;
+            #{$self}__wrapper{
+                &::before{
+                    background-color: $white;
+                }
+            }
+            #{$self}__work-history{
+                border-color: $white;
+                ul{
+                    li{
+                        &::before{
+                            background-color: $white;
+                        }
+                    }
+                }
+            }
+
+            #{$self}__headline{
+                &::before{
+                    background-color: $white;
+                }
+            }
+
+            #{$self}__float-bg{
+                & svg{
+                    fill:#3e3e3e;
+                }
+            }
+        }
+
+        &--light{
+            color: $black;
+            #{$self}__wrapper{
+                &::before{
+                    background-color: $primary;
+                }
+            }
+
+            #{$self}__work-history{
+                border-color: $primary;
+                ul{
+                    li{
+                        &::before{
+                            background-color: $primary;
+                        }
+                    }
+                }
+            }
+
+            #{$self}__headline{
+                &::before{
+                    background-color: $primary;
+                }
+            }
+        }
+    }
+
+    &__headline{
+        position: relative;
+        width: 100%;
+        height: 100%;
+        @include media-breakpoint-down(md){
+            border-right: 4px solid $primary;
+            &::before{
+                content: "";
+                position: absolute;
+                width: calc(100%/2 - 2px);
+                height: 4px;
+                background-color: $primary;
+                top: 0;
+                right: 0;
+            }
+        }
+
+        & h2{
+            @include media-breakpoint-up(md){
+                position: absolute;
+                white-space: nowrap;
+                transform: translateX(-50%) translateY(-50%) rotate(90deg) scale(-1);
+                left: 50%;
+                top: 50%;
+                font-size: 78px;
+            }
+            font-weight: 400;
+            font-size: 64px;
+            color: $gray-500;
+        }
+    }
+
+    &__wrapper{
+        position: relative;
+        &::before{
+            content: "";
+            position: absolute;
+            width: 100%;
+            @include media-breakpoint-up(md){
+                width: calc(100% - 160px);
+            }
+            height: 4px;
+            background-color: $primary;
+            top: 0;
+            left: 0;
+        }
+        display: flex;
+        flex-direction: column;
+        @include media-breakpoint-up(md){
+            flex-direction: row;
+            justify-content: space-between;
+        }
+    }
+
+    &__work-history{
+        padding-left: 30px;
+        border-left: 4px solid $primary;
+        padding-top: 30px;
+        padding-bottom: 3rem;
+        position: relative;
+        width: 100%;
+        @include media-breakpoint-up(md){
+            width: 40%;
+        }
+
+        h3{
+            font-weight: 800;
+            font-size: 24px;
+            line-height: 29px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 30px;
+        }
+
+        & ul{
+            list-style: none;
+            margin: 0;
+            padding: 0;
+
+            & li{
+                padding-left: 1rem;
+                margin-bottom: 40px;
+                position: relative;
+                &:last-child{
+                    margin-bottom: 0;
+                }
+
+                &::before{
+                    content: "";
+                    width: 16px;
+                    height: 16px;
+                    background-color: $primary;
+                    border-radius: 50%;
+                    position: absolute;
+                    left: -40px;
+                    top: 8px;
+                }
+                & header{
+                    h1{
+                        font-weight: 700;
+                        font-size: 22px;
+                        line-height: 26px;
+                    }
+
+                    & h2{
+                        font-weight: 400;
+                        font-size: 16px;
+                        line-height: 19px;
+                    }
+
+                    & span{
+                        font-size: 14px;
+                        font-weight: 700;
+                    }
+                }
+            }
+        }
+    }
+
+    &__work-skills{
+        padding-top: 30px;
+        position: relative;
+        padding-bottom: 3rem;
+        width: 100%;
+        padding-left: 30px;
+        border-left: 4px solid $primary;
+        @include media-breakpoint-up(md){
+            width: 60%;
+            padding-left: 0;
+            border-left: 0;
+        }
+        h3{
+            font-weight: 800;
+            font-size: 24px;
+            line-height: 29px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 30px;
+        }
+
+        & ul{
+            list-style: none;
+            padding: 0;
+            margin-bottom: 0;
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: row;
+            gap: 1rem;
+            li{
+                width: 40px;
+                height: 40px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background: $primary-light;
+                border-radius: 4px;
+                img{
+                    width: 24px;
+                    height: 24px;
+                }
+            }
+        }
+    }
+}
