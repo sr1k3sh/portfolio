@@ -4,7 +4,16 @@ import { getcolorState } from '../AppSlice';
 import { useSelector } from 'react-redux';
 import { debounce } from '../app/utit';
 
+import mapboxgl from 'mapbox-gl/dist/mapbox-gl';
+import MapboxWorker from 'mapbox-gl/dist/mapbox-gl-csp-worker';
+// mapboxgl.workerClass = MapboxWorker;
+// import mapboxgl from "mapbox-gl";
+// eslint-disable-next-line import/no-webpack-loader-syntax
+mapboxgl.workerClass = require("worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker").default;
+
 const REACT_MAPBOX_TOKEN = 'pk.eyJ1IjoicjFrM3NoIiwiYSI6ImNrdGp5Nmx5cDFnczAzMnJ0OHMwaDEwbWkifQ.E2jcYVFQPA6IJ9xLQ4A7sw';
+// mapboxgl.accessToken = REACT_MAPBOX_TOKEN;
+
 export default function Testimonial() {
 
     const [popupInfo, setPopupInfo] = useState(null);
