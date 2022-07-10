@@ -8,7 +8,6 @@
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^14.2.1",
-    "autoprefixer": "10.4.7",
     "bootstrap": "^5.0.1",
     "mapbox-gl": "^2.9.1",
     "node-sass": "^6.0.1",
@@ -22,6 +21,9 @@
     "react-slick": "^0.29.0",
     "slick-carousel": "^1.8.1",
     "web-vitals": "^2.1.4"
+  },
+  "overrides": {
+    "autoprefixer": "10.4.5"
   },
   "scripts": {
     "start": "react-scripts start",
