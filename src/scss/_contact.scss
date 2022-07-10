@@ -1,4 +1,6 @@
 .rs-contact{
+    $self: &;
+
     &__float-bg{
         position: absolute;
         right: 20px;
@@ -20,6 +22,23 @@
     &__section{
         padding: 110px 0 78px;
         position: relative;
+
+        &--dark{
+            #{$self}__author-info{
+                & .rs-banner__logo{
+                    color: $white;
+                }
+            }
+            #{$self}__author-name{
+                color: $white;
+            }
+            #{$self}__author-designation{
+                color: $white;
+            }
+            #{$self}__details{
+                color: $white;
+            }
+        }
 
         & .container-xl{
             position: relative;

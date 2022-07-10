@@ -124,7 +124,7 @@ export default function Header() {
                                         <IoSettingsOutline color="white"></IoSettingsOutline>
                                     </button>
                                     <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                        <li onClick={onModeChange}><Link className='dropdown-item' to="/">{ colorState === "dark" ? "light mode" : "dark mode"}</Link></li>
+                                        <li onClick={onModeChange}><Link className='dropdown-item' to="/">{ colorState === "dark" ? "Light mode" : "Dark mode"}</Link></li>
                                         <li><Link className='dropdown-item' to="/">Download Pdf</Link></li>
                                     </ul>
                                 </div>

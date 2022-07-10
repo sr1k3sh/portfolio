@@ -696,7 +696,7 @@ export default function About() {
                     <div className='col-12 col-md-6 col-lg-3 rs-about__profile-wrapper'>
                         <div className='rs-about__profile'>
                             <figure className="rs-about__figure">
-                                <img src='./profile.jpg' alt="..."></img>
+                                <img src='./profile.png' alt="..."></img>
                             </figure>
                         </div>
                     </div>
