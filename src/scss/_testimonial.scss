@@ -40,7 +40,7 @@
         @include media-breakpoint-up(md){
             padding: 35px;
         }
-        background: linear-gradient(141.51deg, #9C27B0 -18.34%, #651FFF 66.03%);
+        background: $white;//linear-gradient(141.51deg, #9C27B0 -18.34%, #651FFF 66.03%);
 
         &--light{
             & h2{
