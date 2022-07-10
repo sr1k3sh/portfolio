@@ -15,6 +15,11 @@
                     color: $white;
                 }
             }
+
+            & .mapboxgl-popup-content{
+                background-color: $white;
+                border-radius: 20px;
+            }
         }
 
         &--light{
@@ -27,6 +32,15 @@
                 p{
                     color: $black;
                 }
+            }
+
+            & .mapboxgl-popup-content{
+                background-color: #303030;
+                border-radius: 20px;
+            }
+
+            & .mapboxgl-popup-tip{
+                border-top-color: #303030 !important;
             }
         }
     }
@@ -124,10 +138,10 @@
     &__popup-wrapper{
         display: flex;
         flex-direction: column;
-        box-shadow: 0px 2px 14px #d1c4e9;
-        padding: 12px;
-        background-color: $white;
-        border-radius: 20px;
+        // box-shadow: 0px 2px 14px #d1c4e9;
+        // padding: 12px;
+        // background-color: $white;
+        // border-radius: 20px;
         & h3{
             font-size: 14px;
             font-weight: 700;

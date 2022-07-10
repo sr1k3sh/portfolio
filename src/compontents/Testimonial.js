@@ -135,7 +135,7 @@ export default function Testimonial() {
                                         initialViewState={{
                                             longitude: 85.3239595 ,
                                             latitude: 27.7406487,
-                                            zoom: 0.5
+                                            zoom: 1.2
                                         }}
                                         onIdle={onResizeCanvas}
                                         mapStyle= {colorState === "dark" ? "mapbox://styles/mapbox/dark-v10" : "mapbox://styles/mapbox/light-v10"}
