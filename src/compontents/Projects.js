@@ -14,7 +14,7 @@ export default function Projects() {
                         <li>
                             <div className='rs-project__item'>
                                 <div className='rs-project__icon-text'>
-                                    <IoBriefcaseOutline color={colorState === 'dark' ? 'white' :'#651FFF'}></IoBriefcaseOutline>
+                                    <IoBriefcaseOutline color={colorState === 'dark' ? 'white' :'#ffff'}></IoBriefcaseOutline>
                                     <span className='rs-project__count'>123</span>
                                 </div>
                                 <span className='rs-project__sub-title'>Completed Project</span>
@@ -23,7 +23,7 @@ export default function Projects() {
                         <li>
                             <div className='rs-project__item'>
                                 <div className='rs-project__icon-text'>
-                                    <BsClock color={colorState === 'dark' ? 'white' :'#651FFF'}></BsClock>
+                                    <BsClock color={colorState === 'dark' ? 'white' :'#ffff'}></BsClock>
                                     <span className='rs-project__count'>4567</span>
                                 </div>
                                 <span className='rs-project__sub-title'>Working Hours</span>
@@ -32,7 +32,7 @@ export default function Projects() {
                         <li>
                             <div className='rs-project__item'>
                                 <div className='rs-project__icon-text'>
-                                    <BsEmojiHeartEyes color={colorState === 'dark' ? 'white' :'#651FFF'}></BsEmojiHeartEyes>
+                                    <BsEmojiHeartEyes color={colorState === 'dark' ? 'white' :'#ffff'}></BsEmojiHeartEyes>
                                     <span className='rs-project__count'>89</span>
                                 </div>
                                 <span className='rs-project__sub-title'>Happy Clients</span>

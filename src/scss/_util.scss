@@ -32,7 +32,7 @@
     top: 0;
     left: 0;
 
-    border-radius: 49px;
+    // border-radius: 49px;
     // height: 500px;
 
     &::after{
@@ -96,7 +96,9 @@
 }
 .mapboxgl-popup-content {
     text-align: center;
-
+    background-color: transparent;
+    border-radius: 0;
+    padding: 0;
 }
 
 .mapboxgl-canvas-container{
@@ -134,4 +136,12 @@
 
 .mapboxgl-control-container{
     display: none;
+}
+
+.btn{
+    border-radius: 24px;
+    &-primary{
+        border: 0;
+        background: linear-gradient(141.51deg, #7327B0 -18.34%, #651FFF 66.03%);
+    }
 }

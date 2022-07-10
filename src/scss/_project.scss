@@ -16,11 +16,15 @@
         &--light{
             color: $black;
             #{$self}__count{
-                color: $primary;
+                color: $white;
             }
             #{$self}__wrapper{
                 background-color: $gray-300;
                 border-color: $primary;
+            }
+
+            #{$self}__sub-title{
+                color: $white;
             }
         }
     }
@@ -41,7 +45,8 @@
         @include media-breakpoint-down(md){
             border-top-left-radius: 0;
         }
-        background-color: $gray-300;
+        background: linear-gradient(141.51deg, #9C27B0 -18.34%, #651FFF 66.03%);
+        // background-color: $gray-300;
     }
 
     &__item{
