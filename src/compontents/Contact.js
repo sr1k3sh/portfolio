@@ -2,11 +2,17 @@ import React, { useMemo, useState } from 'react'
 import { Link } from 'react-router-dom';
 import { FaFacebook , FaInstagram , FaLinkedin , FaGithubAlt } from 'react-icons/fa';
 import { debounce } from '../app/utit';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { getcolorState } from '../AppSlice';
+import axios from 'axios';
+import { ansycContact, getContactData } from '../features/contact/contactSlice';
 
 export default function Contact() {
     const colorState = useSelector(getcolorState);
+
+    const getContactState = useSelector(getContactData);
+
+    const dispatch = useDispatch();
 
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
@@ -15,19 +21,19 @@ export default function Contact() {
     const requestName = useMemo(() => {
         return debounce((name) => {
             setName(name)
-        }, 300);
+        }, 0);
     }, []);
 
     const requestEmail = useMemo(() => {
         return debounce((name) => {
             setEmail(name)
-        }, 300);
+        }, 0);
     }, []);
 
     const requestMessage = useMemo(() => {
         return debounce((name) => {
             setMessage(name)
-        }, 300);
+        }, 0);
     }, []);
 
     const onChangeName = (e) =>{
@@ -43,6 +49,20 @@ export default function Contact() {
     const onChangeMessage = (e) =>{
         e.preventDefault();
         requestMessage(e.target.value)
+    }
+
+    const onContactFormSubmit = async(e) =>{
+        e.preventDefault();
+        const data = {
+            name:name,email:email,message:message
+        }
+        dispatch(ansycContact(data));
+
+        if( getContactState.data ){
+            setName('');
+            setEmail('');
+            setMessage('');
+        }
     }
 
     return (
@@ -314,19 +334,28 @@ export default function Contact() {
                     </div>
                     <div className='col-md-6 offset-md-2 rs-contact__form-col'>
                         <div className='rs-contact__form-wrapper'>
-                            <h2>Contact <strong>Me.</strong></h2>
+                            <div>
+                                <h2>Contact <strong>Me.</strong></h2>
+                                {
+                                    getContactState.loading ?
+                                        <div>message sending ...</div> :
+                                        getContactState.error ?
+                                        <div>Sorry due to some circumstances i'm not able to recive your message.. Please try again</div> :
+                                        <div>Got your message.. please be patient.. I will come back to you</div>
+                                }
+                            </div>
                             <div className='rs-contact__form'>
-                                <form>
+                                <form onSubmit={onContactFormSubmit}>
                                     <div className='form-element'>
-                                        <input type={'text'} className={ name.length ? 'form-control form-control--filled' : 'form-control'} id="rs_contact_name" onChange={onChangeName}></input>
+                                        <input type={'text'} className={ name.length ? 'form-control form-control--filled' : 'form-control'} id="rs_contact_name" onChange={onChangeName} value={name}></input>
                                         <label htmlFor="rs_contact_name" className='form-label'>What is your name? *</label>
                                     </div>
                                     <div className='form-element'>
-                                        <input type={'email'} className={ email.length ? 'form-control form-control--filled' : 'form-control'} id="rs_contact_email" onChange={onChangeEmail}></input>
+                                        <input type={'email'} className={ email.length ? 'form-control form-control--filled' : 'form-control'} id="rs_contact_email" onChange={onChangeEmail} value={email}></input>
                                         <label htmlFor="rs_contact_email" className='form-label'>What it your email? *</label>
                                     </div>
                                     <div className='form-element'>
-                                        <textarea className={ message.length ? 'form-control form-control--filled' : 'form-control'} id="rs_contact_message" onChange={onChangeMessage}></textarea>
+                                        <textarea className={ message.length ? 'form-control form-control--filled' : 'form-control'} id="rs_contact_message" onChange={onChangeMessage} value={message}></textarea>
                                         <label htmlFor="rs_contact_message" className='form-label'>What it your email? *</label>
                                     </div>
                                     <button type='submit' className='btn btn-primary'>send message</button>
