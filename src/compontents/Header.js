@@ -1,6 +1,8 @@
 import React, { useRef } from 'react'
 import { useSelector, useDispatch } from 'react-redux';
-import {RiHome8Line , RiProfileLine, RiCustomerServiceLine, RiChat1Line, RiMagicLine, RiContactsBook2Line } from 'react-icons/ri';
+import {RiHome8Line , RiServiceLine, RiBriefcase2Fill, RiChat1Line, RiMagicLine, RiMailSendLine } from 'react-icons/ri';
+import { BsPeople } from 'react-icons/bs';
+
 import { IoSettingsOutline } from 'react-icons/io5';
 import { FaFacebook , FaInstagram , FaLinkedin , FaGithubAlt } from 'react-icons/fa';
 import { changeColorState, getcolorState } from '../AppSlice';
@@ -17,8 +19,9 @@ function Tooltip (props){
     )
 }
 
-export default function Header() {
+export default function Header( props ) {
 
+    const {refs} = props;
     const refNav = useRef();
 
     const colorState = useSelector(getcolorState);
@@ -37,7 +40,7 @@ export default function Header() {
     }
 
     return (
-        <section className='rs-banner__section'>
+        <section ref={ refs.home.homeRef } className='rs-banner__section'>
             <div className="container-fluid">
                 <div className="row">
                     <div className="col-12 p-0">
@@ -49,21 +52,27 @@ export default function Header() {
                                 <nav className={menuState ? 'rs-banner__navigation rs-banner__navigation--open' : 'rs-banner__navigation rs-banner__navigation--close'} ref={refNav}>
                                     <ul>
                                         <li>
-                                            <Link to="/"><RiHome8Line></RiHome8Line></Link>
-                                            <Tooltip className="rs-banner__tooltip" title="Home">
+                                            <Link to="/" onClick={()=>refs.home.homeRef?.current.scrollIntoView({ behavior: 'smooth', block: 'start' })}><RiHome8Line></RiHome8Line></Link>
+                                            <Tooltip onClick={()=>refs.home.homeRef?.current.scrollIntoView({ behavior: 'smooth', block: 'start' })} className="rs-banner__tooltip" title="Home">
                                                 <RiHome8Line></RiHome8Line>
                                             </Tooltip>
                                         </li>
                                         <li>
-                                            <Link to="/"><RiProfileLine></RiProfileLine></Link>
-                                            <Tooltip className="rs-banner__tooltip" title="About">
-                                                <RiProfileLine></RiProfileLine>
+                                            <Link to="/" onClick={()=>refs.about.aboutRef?.current.scrollIntoView({ behavior: 'smooth', block: 'start' })}><BsPeople></BsPeople></Link>
+                                            <Tooltip onClick={()=>refs.about.aboutRef?.current.scrollIntoView({ behavior: 'smooth', block: 'start' })} className="rs-banner__tooltip" title="About">
+                                                <BsPeople></BsPeople>
                                             </Tooltip>
                                         </li>
                                         <li>
-                                            <Link to="/"><RiCustomerServiceLine></RiCustomerServiceLine></Link>
+                                            <Link to="/" onClick={()=>refs.experience.experienceRef?.current.scrollIntoView({ behavior: 'smooth', block: 'start' })}><RiBriefcase2Fill></RiBriefcase2Fill></Link>
+                                            <Tooltip className="rs-banner__tooltip" title="Experience">
+                                                <RiBriefcase2Fill></RiBriefcase2Fill>
+                                            </Tooltip>
+                                        </li>
+                                        <li>
+                                            <Link to="/" onClick={()=>refs.services.servicesRef?.current.scrollIntoView({ behavior: 'smooth', block: 'start' })}><RiServiceLine></RiServiceLine></Link>
                                             <Tooltip className="rs-banner__tooltip" title="Services">
-                                                <RiCustomerServiceLine></RiCustomerServiceLine>
+                                                <RiServiceLine></RiServiceLine>
                                             </Tooltip>
                                         </li>
                                         <li>
@@ -73,15 +82,15 @@ export default function Header() {
                                             </Tooltip>
                                         </li>
                                         <li>
-                                            <Link to="/"><RiMagicLine></RiMagicLine></Link>
+                                            <Link to="/" onClick={()=>refs.testimonial.testimonialRef?.current.scrollIntoView({ behavior: 'smooth', block: 'start' })}><RiMagicLine></RiMagicLine></Link>
                                             <Tooltip className="rs-banner__tooltip" title="Testimonial">
                                                 <RiMagicLine></RiMagicLine>
                                             </Tooltip>
                                         </li>
                                         <li>
-                                            <Link to="/"><RiContactsBook2Line></RiContactsBook2Line></Link>
+                                            <Link to="/" onClick={()=>refs.contact.contactRef?.current.scrollIntoView({ behavior: 'smooth', block: 'start' })}><RiMailSendLine></RiMailSendLine></Link>
                                             <Tooltip className="rs-banner__tooltip" title="Contact me">
-                                                <RiContactsBook2Line></RiContactsBook2Line>
+                                                <RiMailSendLine></RiMailSendLine>
                                             </Tooltip>
                                         </li>
                                     </ul>

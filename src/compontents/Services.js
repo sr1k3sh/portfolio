@@ -29,7 +29,9 @@ function PrevArrow(props){
     )
 }
 
-export default function Services() {
+export default function Services(props) {
+    const { refs } = props;
+
     const settings = {
         dots: false,
         infinite: true,
@@ -70,7 +72,7 @@ export default function Services() {
     };
     const colorState = useSelector(getcolorState);
     return (
-        <section className={colorState === 'dark' ? 'rs-services__section rs-services__section--dark' : 'rs-services__section rs-services__section--light'}>
+        <section ref={ refs.services.servicesRef } className={colorState === 'dark' ? 'rs-services__section rs-services__section--dark' : 'rs-services__section rs-services__section--light'}>
             <div className='container-fluid'>
                 <div className='row'>
                     <div className='col-12'>

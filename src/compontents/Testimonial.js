@@ -15,7 +15,9 @@ mapboxgl.workerClass = require("worker-loader!mapbox-gl/dist/mapbox-gl-csp-worke
 const REACT_MAPBOX_TOKEN = 'pk.eyJ1IjoicjFrM3NoIiwiYSI6ImNrdGp5Nmx5cDFnczAzMnJ0OHMwaDEwbWkifQ.E2jcYVFQPA6IJ9xLQ4A7sw';
 // mapboxgl.accessToken = REACT_MAPBOX_TOKEN;
 
-export default function Testimonial() {
+export default function Testimonial(props) {
+
+    const { refs } = props;
 
     const [popupInfo, setPopupInfo] = useState(null);
 
@@ -117,8 +119,13 @@ export default function Testimonial() {
         requestResize(e)
     }
 
+    const onHireClick = (e) =>{
+        e.preventDefault();
+        window.location.href = "mailto:sr1k3sh@gmail.com";
+    }
+
     return (
-        <section className={colorState === 'dark' ? 'rs-testimonial__section rs-testimonial__section--dark' : 'rs-testimonial__section rs-testimonial__section--light'}>
+        <section ref={refs.testimonial.testimonialRef} className={colorState === 'dark' ? 'rs-testimonial__section rs-testimonial__section--dark' : 'rs-testimonial__section rs-testimonial__section--light'}>
             <div className='container-xl'>
                 <div className='row'>
                     <div className='col-12'>
@@ -176,8 +183,8 @@ export default function Testimonial() {
                                 </div>
                                 <div className='rs-testimonial__desc-wrapper'>
                                     <h3>Let’s work together</h3>
-                                    <p>Ut sed eros finibus, placerat orci id, dapibus mauris. Vestibulum consequat hendrerit lacus. In id nisi id neque venenatis molestie. Quisque lacinia purus ut libero facilisis, at vulputate sem maximus. </p>
-                                    <button className='btn btn-primary'>Hire Me</button>
+                                    <p>Do you like my portfolio design? let's make something great out of the box together !! </p>
+                                    <button className='btn btn-primary' onClick={onHireClick}>Hire Me</button>
                                 </div>
                             </div>
                         </div>

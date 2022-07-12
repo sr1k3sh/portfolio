@@ -1,11 +1,13 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { RiWindowsFill , RiAppleFill , RiUbuntuFill } from 'react-icons/ri';
 import { useSelector } from 'react-redux';
 import { getcolorState } from '../AppSlice';
-export default function About() {
+export default function About(props) {
+    const { refs } = props;
     const colorState = useSelector(getcolorState);
+
     return (
-        <section className={colorState === 'dark' ? 'rs-about__section rs-about__section--dark' : 'rs-about__section rs-about__section--light'}>
+        <section ref={ refs.about.aboutRef } id="about" className={colorState === 'dark' ? 'rs-about__section rs-about__section--dark' : 'rs-about__section rs-about__section--light'}>
             <div className='rs-about__float-bg'>
                 <svg version="1.1" id="Layer_1" width="845" height="1099" x="0px" y="0px"
                     viewBox="0 0 845.2 1099.8" >

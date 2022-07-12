@@ -24,10 +24,11 @@ import vscode from './../images/vscode.svg';
 import { useSelector } from 'react-redux';
 import { getcolorState } from '../AppSlice';
 
-export default function Experience() {
+export default function Experience(props) {
+    const { refs } = props;
     const colorState = useSelector(getcolorState);
   return (
-    <section className={colorState === 'dark' ? 'rs-exp__section rs-exp__section--dark' : 'rs-exp__section rs-exp__section--light'}>
+    <section ref={refs.experience.experienceRef} className={colorState === 'dark' ? 'rs-exp__section rs-exp__section--dark' : 'rs-exp__section rs-exp__section--light'}>
         <div className='rs-exp__float-bg'>
             <svg version="1.1" id="Layer_1" width="845" height="1099" x="0px" y="0px"
                 viewBox="0 0 845.2 1099.8" >
