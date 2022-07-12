@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { RiWindowsFill , RiAppleFill , RiUbuntuFill } from 'react-icons/ri';
 import { useSelector } from 'react-redux';
 import { getcolorState } from '../AppSlice';

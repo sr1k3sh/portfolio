@@ -2,18 +2,17 @@ import React, { useMemo, useState } from 'react'
 import { Link } from 'react-router-dom';
 import { FaFacebook , FaInstagram , FaLinkedin , FaGithubAlt } from 'react-icons/fa';
 import { debounce } from '../app/utit';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { getcolorState } from '../AppSlice';
-
-import { ansycContact, getContactData } from '../features/contact/contactSlice';
+import axios from 'axios';
 
 export default function Contact(props) {
     const { refs } = props;
     const colorState = useSelector(getcolorState);
 
-    const getContactState = useSelector(getContactData);
+    const [logMessage , setLogMessage] = useState('');
 
-    const dispatch = useDispatch();
+    const [formClassStatus , setFormClassStatus] = useState('');
 
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
@@ -57,14 +56,35 @@ export default function Contact(props) {
         const data = {
             name:name,email:email,message:message
         }
-        dispatch(ansycContact(data));
+        try{
+            const response = await await axios.post('https://colleges-backend.herokuapp.com/api/contact-forms',
+                {
+                "data": data
+                }
+            )
 
-        if( getContactState.data ){
-            setName('');
-            setEmail('');
-            setMessage('');
+            if(response.status === 200){
+                setLogMessage("Go your message !! will come back to you soon");
+                setName('');
+                setEmail('');
+                setMessage('');
+                setFormClassStatus("success")
+            }
+            else{
+                setLogMessage("Something is wrong. please try again");
+                setName('');
+                setEmail('');
+                setMessage('');
+                setFormClassStatus("error")
+            }
+        }catch(err){
+            setLogMessage("Something is wrong. please try again");
+            setFormClassStatus("error")
         }
+
+
     }
+
 
     return (
         <section ref={ refs.contact.contactRef } className={colorState === 'dark' ? 'rs-contact__section rs-contact__section--dark' : 'rs-contact__section rs-contact__section--light'}>
@@ -337,16 +357,10 @@ export default function Contact(props) {
                         <div className='rs-contact__form-wrapper'>
                             <div>
                                 <h2>Contact <strong>Me.</strong></h2>
-                                {
-                                    getContactState.loading ?
-                                        <div>message sending ...</div> :
-                                        getContactState.error ?
-                                        <div>Sorry due to some circumstances i'm not able to recive your message.. Please try again</div> :
-                                        <div>Got your message.. please be patient.. I will come back to you</div>
-                                }
+
                             </div>
                             <div className='rs-contact__form'>
-                                <form onSubmit={onContactFormSubmit}>
+                                <form className='d-flex flex-column' onSubmit={onContactFormSubmit}>
                                     <div className='form-element'>
                                         <input type={'text'} className={ name.length ? 'form-control form-control--filled' : 'form-control'} id="rs_contact_name" onChange={onChangeName} value={name}></input>
                                         <label htmlFor="rs_contact_name" className='form-label'>What is your name? *</label>
@@ -355,10 +369,14 @@ export default function Contact(props) {
                                         <input type={'email'} className={ email.length ? 'form-control form-control--filled' : 'form-control'} id="rs_contact_email" onChange={onChangeEmail} value={email}></input>
                                         <label htmlFor="rs_contact_email" className='form-label'>What it your email? *</label>
                                     </div>
-                                    <div className='form-element'>
+                                    <div className={formClassStatus ? 'form-element mb-0' : 'form-element'}>
                                         <textarea className={ message.length ? 'form-control form-control--filled' : 'form-control'} id="rs_contact_message" onChange={onChangeMessage} value={message}></textarea>
                                         <label htmlFor="rs_contact_message" className='form-label'>What it your email? *</label>
                                     </div>
+                                    {
+                                        logMessage &&
+                                        <small className='mb-2' style={{color: formClassStatus === "error" ? '#dc3545' : '#198754', fontSize: 12}}>{logMessage}</small>
+                                    }
                                     <button type='submit' className='btn btn-primary'>send message</button>
                                 </form>
                             </div>
