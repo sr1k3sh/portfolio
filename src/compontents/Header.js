@@ -1,13 +1,14 @@
-import React, { useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux';
 import {RiHome8Line , RiServiceLine, RiBriefcase2Fill, RiChat1Line, RiMagicLine, RiMailSendLine } from 'react-icons/ri';
 import { BsPeople } from 'react-icons/bs';
 
 import { IoSettingsOutline } from 'react-icons/io5';
 import { FaFacebook , FaInstagram , FaLinkedin , FaGithubAlt } from 'react-icons/fa';
-import { changeColorState, getcolorState } from '../AppSlice';
+import { changeColorState, getcolorState, getGreetState } from '../AppSlice';
 import { Link } from 'react-router-dom';
 import { changeMenuStatus, getMenuStatus } from '../features/body/BodySlice';
+import { lang } from '../utils/Constant';
 
 function Tooltip (props){
     const { className, children, title } = props;
@@ -28,6 +29,18 @@ export default function Header( props ) {
     const dispatch = useDispatch();
 
     const menuState = useSelector(getMenuStatus);
+
+    const greetState = useSelector(getGreetState);
+
+    const [hello , setHello] = useState("Hello");
+
+    useEffect(()=>{
+        let count = 0;
+        setInterval(function(){
+            setHello(lang[count]);
+          count++;
+        },3000)
+    },[])
 
     const onModeChange = (e) =>{
         e.preventDefault();
@@ -99,7 +112,7 @@ export default function Header( props ) {
 
                             <div className='rs-banner__main-banner'>
                                 <div className="rs-banner__content">
-                                    <h2>Hello World,</h2>
+                                    <h2><strong>{hello ? hello.hello : "Hello"}</strong> {greetState},</h2>
                                     <h3>I am Rikesh, Frontend Dev</h3>
                                     <p>Almost 6 year + experience in software engineering field, most focused on frontend stack.</p>
                                     <nav>

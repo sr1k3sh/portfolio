@@ -56,29 +56,34 @@ export default function Contact(props) {
         const data = {
             name:name,email:email,message:message
         }
-        try{
-            const response = await await axios.post('https://colleges-backend.herokuapp.com/api/contact-forms',
-                {
-                "data": data
+        if(name !== '' && email !== '' && message !== ''){
+            try{
+                const response = await await axios.post('https://colleges-backend.herokuapp.com/api/contact-forms',
+                    {
+                    "data": data
+                    }
+                )
+    
+                if(response.status === 200){
+                    setLogMessage("Go your message !! will come back to you soon");
+                    setName('');
+                    setEmail('');
+                    setMessage('');
+                    setFormClassStatus("success")
                 }
-            )
-
-            if(response.status === 200){
-                setLogMessage("Go your message !! will come back to you soon");
-                setName('');
-                setEmail('');
-                setMessage('');
-                setFormClassStatus("success")
-            }
-            else{
+                else{
+                    setLogMessage("Something is wrong. please try again");
+                    setName('');
+                    setEmail('');
+                    setMessage('');
+                    setFormClassStatus("error")
+                }
+            }catch(err){
                 setLogMessage("Something is wrong. please try again");
-                setName('');
-                setEmail('');
-                setMessage('');
                 setFormClassStatus("error")
             }
-        }catch(err){
-            setLogMessage("Something is wrong. please try again");
+        }else{
+            setLogMessage("Please fill up the form");
             setFormClassStatus("error")
         }
 
@@ -312,7 +317,6 @@ export default function Contact(props) {
     <path fillRule="evenodd" clipRule="evenodd" d="M383.849 470.25C381.833 470.25 380.198 471.885 380.198 473.901C380.198 475.917 381.833 477.552 383.849 477.552C385.865 477.552 387.5 475.917 387.5 473.901C387.5 471.885 385.865 470.25 383.849 470.25Z" fill="black" fillOpacity="0.42"/>
     <path fillRule="evenodd" clipRule="evenodd" d="M383.849 496.933C381.833 496.933 380.198 498.568 380.198 500.584C380.198 502.6 381.833 504.235 383.849 504.235C385.865 504.235 387.5 502.6 387.5 500.584C387.5 498.568 385.865 496.933 383.849 496.933Z" fill="black" fillOpacity="0.42"/>
                 </svg>
-
             </div>
             <div className='container-xl'>
                 <div className='row'>

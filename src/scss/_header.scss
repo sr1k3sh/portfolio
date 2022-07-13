@@ -63,6 +63,16 @@
             line-height: 43px;
             color: $white;
             font-weight: 300;
+            animation: fadeIn 3s forwards infinite;
+            & span{
+                opacity: 0;
+                display: none;
+                transition: 0.6s opacity;
+                &.added{
+                    opacity: 1;
+                    display: inline;
+                }
+            }
         }
 
         & h3{
@@ -231,5 +241,17 @@
                 // }
             }
         }
+    }
+}
+
+@keyframes fadeIn {
+    0%{
+        opacity: 0;
+    }
+    50%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
     }
 }

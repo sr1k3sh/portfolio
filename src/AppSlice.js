@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   colorStatus: "light",
+  greetingStatus: "Good Morning"
 };
 
 export const appSlice = createSlice({
@@ -12,6 +13,10 @@ export const appSlice = createSlice({
 
     changeColorState: (state) =>{
         state.colorStatus = state.colorStatus === "dark" ? "light" : "dark";
+    },
+    changeColorByValue: (state, action) =>{
+      state.colorStatus = action.payload.color;
+      state.greetingStatus = action.payload.greet;
     }
 
   },
@@ -21,12 +26,12 @@ export const appSlice = createSlice({
   },
 });
 
-export const { changeColorState } = appSlice.actions;
+export const { changeColorState , changeColorByValue } = appSlice.actions;
 
 // The function below is called a selector and allows us to select a value from
 // the state. Selectors can also be defined inline where they're used instead of
 // in the slice file. For example: `useSelector((state: RootState) => state.counter.value)`
 export const getcolorState = (state) => state.colorState.colorStatus;
-
+export const getGreetState = (state) => state.colorState.greetingStatus;
 
 export default appSlice.reducer;
