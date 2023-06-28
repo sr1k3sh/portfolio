@@ -1,8 +1,13 @@
 import React from 'react'
 import { RiWindowsFill , RiAppleFill , RiUbuntuFill } from 'react-icons/ri';
 import { useSelector } from 'react-redux';
-import { getcolorState } from '../AppSlice';
-export default function About(props) {
+import { getcolorState } from '../../redux/AppSlice';
+import { Refs } from '../../pages';
+interface Props {
+    refs: Refs
+}
+
+export default function About(props: Props) {
     const { refs } = props;
     const colorState = useSelector(getcolorState);
 
