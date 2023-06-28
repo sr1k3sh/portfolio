@@ -120,7 +120,6 @@ export default function Testimonial(props: Props) {
                             <div className='rs-testimonial__map-content'>
                                 <div className='rs-testimonial__map'>
                                     <Map
-                                        mapContainer="map-container"
                                         id="map"
                                         style={{ position: "absolute" }}
                                         mapboxAccessToken={REACT_MAPBOX_TOKEN}
