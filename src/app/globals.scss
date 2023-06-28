@@ -1,0 +1,77 @@
+// @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+$container-max-widths: (
+  sm: 680px,
+  md: 720px,
+  lg: 1100px,
+  xl: 1200px,
+  xxl: 1320px
+);
+@import '/node_modules/bootstrap//scss//bootstrap.scss';
+@import './scss/variable';
+@import './scss/header';
+
+@import './scss/about';
+@import './scss/experience';
+@import './scss/project';
+@import "~slick-carousel/slick/slick.css";
+@import "~slick-carousel/slick/slick-theme.css";
+@import './scss/services';
+@import './scss/util';
+@import './scss/testimonial';
+@import './scss/form';
+@import './scss/contact';
+
+.rs-app{
+    &__dark{
+        background-color: #303030;
+    }
+
+    &__light{
+        background-color: #fff;
+    }
+
+    &__opened{
+        @include media-breakpoint-down(md){
+            height: 100vh;
+            overflow: hidden;
+            & .rs-banner{
+                &__sidebar{
+                    position: fixed;
+                    width: 100%;
+                    height: 100%;
+                    z-index: 11;
+                    max-width: 320px;
+                    background: linear-gradient(141.51deg, #7327B0 -18.34%, #651FFF 66.03%);
+                }
+
+                &__navigation{
+                    width: 100%;
+                    background: none;
+                    box-shadow: none;
+                    border-radius: 0;
+                    & ul{
+                        align-items: flex-start;
+                        justify-content: flex-start;
+                        padding-left: 28px;
+                    }
+                }
+
+                &__logo{
+                    align-self: flex-start;
+                    position: relative;
+                    left: 23px;
+                }
+
+                &__tooltip{
+                    visibility: visible;
+                    opacity: 1;
+                    pointer-events: auto;
+                }
+            }
+            & .rs-banner__section{
+                z-index: 1;
+            }
+        }
+    }
+}
