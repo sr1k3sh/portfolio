@@ -1,4 +1,4 @@
-import React, { ChangeEvent, FormEvent, InputHTMLAttributes, useMemo, useState } from 'react'
+import React, { ChangeEvent, FormEvent, useMemo, useState } from 'react'
 import { FaFacebook , FaInstagram , FaLinkedin , FaGithubAlt } from 'react-icons/fa'
 import { debounce } from '../../../utils/utils'
 import { useSelector } from 'react-redux'
@@ -6,7 +6,6 @@ import { getcolorState } from '../../../redux/AppSlice'
 import axios from 'axios'
 import Link from 'next/link'
 import { Refs } from '../../../pages'
-import CustomButton from '../Button'
 
 interface ContactSectionProps {
     refs: Refs;

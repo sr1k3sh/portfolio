@@ -1,4 +1,3 @@
-import styles from './page.module.css'
 import HeaderSection from '../app/components/HeaderSection'
 import { MutableRefObject, useEffect, useRef, useState } from 'react'
 import About from '../app/components/AboutSection'
@@ -10,7 +9,6 @@ import Contact from '../app/components/Contact'
 import { metadata } from './_document'
 import { useDispatch, useSelector } from 'react-redux'
 import { changeColorByValue, getcolorState } from 'src/redux/AppSlice'
-import { getMenuStatus } from 'src/redux/features/body/BodySlice'
 
 
 export interface Refs {
