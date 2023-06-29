@@ -1,8 +1,8 @@
-import React, { useEffect, useMemo, useState } from 'react'
-import Map, { Source, Layer, Marker, Popup } from 'react-map-gl'
+import React, { useState } from 'react'
+import Map, { Source, Layer, Marker, Popup, SymbolLayer } from 'react-map-gl'
+import { FeatureCollection, Point, GeoJsonProperties } from 'geojson/index'
 import { getcolorState } from '../../../redux/AppSlice'
 import { useSelector } from 'react-redux'
-import { debounce } from '../../../utils/utils'
 
 import mapboxgl from 'mapbox-gl/dist/mapbox-gl'
 import 'mapbox-gl/dist/mapbox-gl.css'
@@ -28,7 +28,7 @@ export default function Testimonial(props: Props) {
 
     const colorState = useSelector(getcolorState)
 
-    const geojson = {
+    const geojson: FeatureCollection<Point, GeoJsonProperties>  = {
         type: 'FeatureCollection',
         features: [
             {
@@ -83,7 +83,7 @@ export default function Testimonial(props: Props) {
         ]
     }
 
-    const layerStyle = {
+    const layerStyle:SymbolLayer = {
         'id': 'off-leash-areas',
         'type': 'symbol',
         'source': 'places',
@@ -142,7 +142,7 @@ export default function Testimonial(props: Props) {
                                                         setPopupInfo(g)
                                                     }}
                                                 >
-                                                    <img src={g.properties.img} alt=""></img>
+                                                    <img src={g.properties?.img} alt=""></img>
                                                 </Marker>
                                             })
                                         }
