@@ -8,6 +8,10 @@ import Services from '../app/components/Services'
 import Testimonial from '../app/components/Testimonials'
 import Contact from '../app/components/Contact'
 
+export const metadata = {
+  title: 'Rikesh Shrestha | Frontend Developer ',
+  description: 'Best frontend developer in japan, based on ureshino, originally from nepal.',
+}
 export interface Refs {
   home: {
     homeRef: MutableRefObject<any>,
@@ -32,27 +36,16 @@ export interface Refs {
   },
 }
 
-interface HeaderSectionProps {
-  refs: Refs
-}
-
-interface AboutProps {
-  refs: Refs
-}
-
-interface ExperienceProps {
-  refs: Refs
-}
-
-interface ServicesProps {
-  refs: Refs
-}
-
-interface ContactProps {
-  refs: Refs
-}
-
 export default function Home() {
+
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Product',
+    name: 'Rikesh Shrestha',
+    image: '/profile.png',
+    description: metadata.description,
+  }
+
   const refs = {
     home: {
       homeRef: useRef()
@@ -78,6 +71,10 @@ export default function Home() {
   }
   return (
     <main className={styles.main}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <HeaderSection refs={refs}></HeaderSection>
       <About refs={refs}></About>
       <Experience refs={refs}></Experience>
