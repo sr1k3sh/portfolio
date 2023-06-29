@@ -6,7 +6,7 @@ import { Refs } from '../../../pages'
 import Image from 'next/image'
 
 interface AboutSectionProps {
-    refs: Refs;
+    refs: Refs
 }
 
 export default function About(props:AboutSectionProps) {

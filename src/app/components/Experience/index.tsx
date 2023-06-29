@@ -2,10 +2,10 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import { getcolorState } from '../../../redux/AppSlice'
 import Image from 'next/image'
-import { Refs } from '../../../pages';
+import { Refs } from '../../../pages'
 
 interface Props {
-    refs: Refs;
+    refs: Refs
 }
 
 export default function Experience(props: Props) {

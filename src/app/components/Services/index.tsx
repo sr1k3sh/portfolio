@@ -1,14 +1,14 @@
 import React from 'react'
-import Slider from 'react-slick';
+import Slider from 'react-slick'
 
-import { SiProtonvpn } from 'react-icons/si';
-import { MdOutlineFeaturedPlayList , MdOutlineDesignServices , MdDoubleArrow } from 'react-icons/md';
-import { FaConnectdevelop } from 'react-icons/fa';
-import { AiFillShop } from 'react-icons/ai';
-import { IoIosArrowForward , IoIosArrowBack } from 'react-icons/io';
-import { useSelector } from 'react-redux';
-import { getcolorState } from '../../../redux/AppSlice';
-import { Refs } from '../../../pages';
+import { SiProtonvpn } from 'react-icons/si'
+import { MdOutlineFeaturedPlayList , MdOutlineDesignServices , MdDoubleArrow } from 'react-icons/md'
+import { FaConnectdevelop } from 'react-icons/fa'
+import { AiFillShop } from 'react-icons/ai'
+import { IoIosArrowForward , IoIosArrowBack } from 'react-icons/io'
+import { useSelector } from 'react-redux'
+import { getcolorState } from '../../../redux/AppSlice'
+import { Refs } from '../../../pages'
 
 interface buttonProps {
     className: string,
@@ -16,18 +16,18 @@ interface buttonProps {
 }
 
 function NextArrow(props: buttonProps) {
-    const { className, onClick } = props;
+    const { className, onClick } = props
     return (
         <button
         className={className}
         onClick={onClick}>
          <IoIosArrowForward></IoIosArrowForward>
         </button>
-    );
+    )
 }
 
 function PrevArrow(props: buttonProps){
-    const { className , onClick} = props;
+    const { className , onClick} = props
     return (
         <button className={ className } onClick={onClick}>
             <IoIosArrowBack></IoIosArrowBack>
@@ -36,11 +36,11 @@ function PrevArrow(props: buttonProps){
 }
 
 interface Props {
-    refs: Refs;
+    refs: Refs
 }
 
 export default function Services(props:Props) {
-    const { refs } = props;
+    const { refs } = props
 
     const settings = {
         dots: false,
@@ -79,8 +79,8 @@ export default function Services(props:Props) {
               }
             }
         ]
-    };
-    const colorState = useSelector(getcolorState);
+    }
+    const colorState = useSelector(getcolorState)
     return (
         <section ref={ refs.services.servicesRef } className={colorState === 'dark' ? 'rs-services__section rs-services__section--dark' : 'rs-services__section rs-services__section--light'}>
             <div className='container-fluid'>

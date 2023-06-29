@@ -1,16 +1,16 @@
 import React from 'react'
-import { RiWindowsFill , RiAppleFill , RiUbuntuFill } from 'react-icons/ri';
-import { useSelector } from 'react-redux';
-import { getcolorState } from '../../redux/AppSlice';
-import { Refs } from '../../pages';
+import { RiWindowsFill , RiAppleFill , RiUbuntuFill } from 'react-icons/ri'
+import { useSelector } from 'react-redux'
+import { getcolorState } from '../../redux/AppSlice'
+import { Refs } from '../../pages'
 import Image from 'next/image'
 interface Props {
     refs: Refs
 }
 
 export default function About(props: Props) {
-    const { refs } = props;
-    const colorState = useSelector(getcolorState);
+    const { refs } = props
+    const colorState = useSelector(getcolorState)
 
     return (
         <section ref={ refs.about.aboutRef } id="about" className={colorState === 'dark' ? 'rs-about__section rs-about__section--dark' : 'rs-about__section rs-about__section--light'}>

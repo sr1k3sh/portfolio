@@ -1,5 +1,5 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import axios from 'axios';
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
+import axios from 'axios'
 const initState = {
     loading : false,
     data: null,
@@ -15,9 +15,9 @@ export const ansycContact = createAsyncThunk(
             }
         )
 
-        return response.data;
+        return response.data
     }
-);
+)
 
 export const contactSlice = createSlice({
     name: 'contact',
@@ -27,21 +27,21 @@ export const contactSlice = createSlice({
     },
     extraReducers: (builder) =>{
         builder.addCase(ansycContact.pending, (state) =>{
-            state.loading  = true;
+            state.loading  = true
         })
         .addCase(ansycContact.fulfilled, (state , action) =>{
-            state.loading = false;
-            state.data = action.payload;
-            state.error = null;
+            state.loading = false
+            state.data = action.payload
+            state.error = null
         })
         .addCase( ansycContact.rejected, (state , action) =>{
-            state.loading = false;
-            state.data = null;
-            state.error = action;
+            state.loading = false
+            state.data = null
+            state.error = action
         } )
     }
-});
+})
 
-export const getContactData = (state) => state.contact;
+export const getContactData = (state) => state.contact
 
-export default contactSlice.reducer;
+export default contactSlice.reducer

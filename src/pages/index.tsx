@@ -50,7 +50,7 @@ export default function Home() {
   const cursorRef:MutableRefObject<HTMLDivElement|null> = useRef(null)
   const cursorInnerRef:MutableRefObject<HTMLDivElement|null> = useRef(null)
 
-  const [date , setDate ] = useState<number|null>(null);
+  const [date , setDate ] = useState<number|null>(null)
 
   const classes = {
     colorState : colorState === "dark" ? "rs-app__dark " : "rs-app__light "
@@ -58,24 +58,24 @@ export default function Home() {
 
   useEffect(() => {
 
-    setDate(new Date().getHours());
+    setDate(new Date().getHours())
 
     if(date) {
       if(date >= 6 && date <= 18){
         if(date < 12){
-          dispatch(changeColorByValue({color:"light",greet:"Good morning"}));
+          dispatch(changeColorByValue({color:"light",greet:"Good morning"}))
         }else{
           dispatch(changeColorByValue({color:"light",greet:"Good afternoon"}))
         }
       }else{
-        dispatch(changeColorByValue({color:"dark",greet:"Good evening"}));
+        dispatch(changeColorByValue({color:"dark",greet:"Good evening"}))
       }
     }
 
     return () => {
 
     }
-  }, [date, dispatch]);
+  }, [date, dispatch])
 
   const refs = {
     home: {

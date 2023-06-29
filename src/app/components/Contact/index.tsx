@@ -8,7 +8,7 @@ import Link from 'next/link'
 import { Refs } from '../../../pages'
 
 interface ContactSectionProps {
-    refs: Refs;
+    refs: Refs
 }
 
 export default function Contact(props:ContactSectionProps) {

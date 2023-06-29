@@ -18,7 +18,7 @@ const REACT_MAPBOX_TOKEN = 'pk.eyJ1IjoicjFrM3NoIiwiYSI6ImNrdGp5Nmx5cDFnczAzMnJ0O
 // mapboxgl.accessToken = REACT_MAPBOX_TOKEN
 
 interface Props {
-    refs: Refs;
+    refs: Refs
 }
 
 export default function Testimonial(props: Props) {
