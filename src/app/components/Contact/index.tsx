@@ -335,30 +335,30 @@ export default function Contact(props:ContactSectionProps) {
                             <div className='rs-contact__social-list'>
                                 <ul>
                                     <li>
-                                        <Link href="/">
+                                        <Link href="https://www.facebook.com/rikezzzzzzzzzzz">
                                             <FaFacebook className='icon icon-facebook'></FaFacebook>
                                         </Link>
                                     </li>
                                     <li>
-                                        <Link href="/">
+                                        <Link href="https://www.instagram.com/r1k3sh/">
                                             <FaInstagram className='icon icon-instagram'></FaInstagram>
                                         </Link>
                                     </li>
                                     <li>
-                                        <Link href="/">
+                                        <Link href="https://www.linkedin.com/in/rikesh-shrestha-62539b111/">
                                             <FaLinkedin className='icon icon-linkedin'></FaLinkedin>
                                         </Link>
                                     </li>
                                     <li>
-                                        <Link href="/">
+                                        <Link href="https://github.com/sr1k3sh">
                                             <FaGithubAlt className='icon icon-github'></FaGithubAlt>
                                         </Link>
                                     </li>
                                 </ul>
                             </div>
                             <div className='rs-contact__details'>
-                                <span>My personal contact +12 345 678 90</span>
-                                <span>Say hello, on Skype jenadoe.skype</span>
+                                <span>My personal contact +81 080 4739 3928</span>
+                                <span>Please write me on sr1k3sh@gmail.com</span>
                             </div>
                         </div>
                     </div>

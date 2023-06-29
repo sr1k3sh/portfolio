@@ -126,22 +126,22 @@ const HeaderSection: React.FC<HeaderSectionProps> = ({ refs }) => {
                                     <nav>
                                         <ul>
                                             <li>
-                                                <Link href="/">
+                                                <Link href="https://www.facebook.com/rikezzzzzzzzzzz">
                                                     <FaFacebook className='icon icon-facebook'></FaFacebook>
                                                 </Link>
                                             </li>
                                             <li>
-                                                <Link href="/">
+                                                <Link href="https://www.instagram.com/r1k3sh/">
                                                     <FaInstagram className='icon icon-instagram'></FaInstagram>
                                                 </Link>
                                             </li>
                                             <li>
-                                                <Link href="/">
+                                                <Link href="https://www.linkedin.com/in/rikesh-shrestha-62539b111/">
                                                     <FaLinkedin className='icon icon-linkedin'></FaLinkedin>
                                                 </Link>
                                             </li>
                                             <li>
-                                                <Link href="/">
+                                                <Link href="https://github.com/sr1k3sh">
                                                     <FaGithubAlt className='icon icon-github'></FaGithubAlt>
                                                 </Link>
                                             </li>
