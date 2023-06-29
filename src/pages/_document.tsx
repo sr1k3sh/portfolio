@@ -32,6 +32,7 @@ class MyDocument extends Document {
             property="og:image"
             content="/profile.png"
           />
+          <link rel="icon" href="/profile.png" sizes="any" />
         </Head>
         <body>
           <Main />
