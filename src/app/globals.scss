@@ -22,6 +22,10 @@ $container-max-widths: (
 @import './scss/form';
 @import './scss/contact';
 
+* {
+    cursor: none;
+}
+
 .rs-app{
     &__dark{
         background-color: #303030;

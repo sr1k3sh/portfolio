@@ -48,7 +48,9 @@ export default function Home() {
   }
 
   const colorState = useSelector(getcolorState)
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
+  const cursorRef:MutableRefObject<HTMLDivElement|null> = useRef(null)
+  const cursorInnerRef:MutableRefObject<HTMLDivElement|null> = useRef(null)
 
   const [date , setDate ] = useState<number|null>(null);
 
@@ -100,12 +102,85 @@ export default function Home() {
       contactRef: useRef()
     }
   }
+
+  useEffect(() => {
+
+    const  mouseMoveEvent = (e:any) => {
+      let x = e.clientX
+      let y = e.clientY
+      if(cursorRef.current) {
+        cursorRef.current.style.transform = `translate3d(calc(${x}px - 50%), calc(${y}px - 50%), 0)`
+      }
+      if(cursorInnerRef.current) {
+        cursorInnerRef.current.style.left = x + 'px'
+        cursorInnerRef.current.style.top = y + 'px'
+      }
+    }
+
+    const mouseEnter = () => {
+      if(cursorRef.current){
+        cursorRef.current.style.background = '#edb50687'
+      }
+    }
+
+    const mouseLeave = () => {
+      if(cursorRef.current){
+        cursorRef.current.style.background = 'none'
+      }
+    }
+
+    document.querySelectorAll('a').forEach((link) => {
+      link.addEventListener(('mouseover'),mouseEnter)
+      link.addEventListener(('mouseleave'),mouseLeave)
+    })
+
+    document.querySelectorAll('button').forEach((link) => {
+      link.addEventListener(('mouseover'),mouseEnter)
+      link.addEventListener(('mouseleave'),mouseLeave)
+    })
+
+    addEventListener('mousemove',mouseMoveEvent)
+
+    return () => {
+      removeEventListener('mousemove',mouseMoveEvent)
+      removeEventListener('mouseover', mouseEnter)
+      removeEventListener('mouseleave', mouseLeave)
+    }
+  },[])
+
   return (
     <main className={classes.colorState}>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
+      <div ref={cursorRef} style={{
+        position:'fixed',
+        pointerEvents: 'none',
+        border: '1px solid #edb506',
+        borderRadius: '50%',
+        width: 50,
+        height: 50,
+        left: 0,
+        top: 0,
+        zIndex: 100,
+        transition: 'all 0.1s ease-out',
+        transform: `translate(calc(-50% + 15px), -50%)`,
+      }}></div>
+      <div ref={cursorInnerRef} style={{
+        position:'fixed',
+        pointerEvents: 'none',
+        border: '1px solid #D1C4E9',
+        background: '#D1C4E9',
+        width: 20,
+        borderRadius: '50%',
+        height: 20,
+        left: 0,
+        top: 0,
+        zIndex: 100,
+        transition: 'width .3s, height .3s, opacity .3s',
+        transform: `translate(calc(-50%), -50%)`,
+      }}></div>
       <HeaderSection refs={refs}></HeaderSection>
       <About refs={refs}></About>
       <Experience refs={refs}></Experience>
