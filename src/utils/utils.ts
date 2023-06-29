@@ -1,7 +1,7 @@
-export const debounce = (fn, delay = 300) => {
-  let timeout = -1;
+export const debounce = (fn:any, delay = 300) => {
+  let timeout:any = -1;
 
-  return (...args) => {
+  return (...args:any[]) => {
     if (timeout !== -1) {
       clearTimeout(timeout);
     }
