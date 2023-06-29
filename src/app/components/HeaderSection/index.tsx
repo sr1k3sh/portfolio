@@ -2,15 +2,14 @@ import React, { MutableRefObject, useEffect, useRef, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux';
 import {RiHome8Line , RiServiceLine, RiBriefcase2Fill, RiChat1Line, RiMagicLine, RiMailSendLine } from 'react-icons/ri';
 import { BsPeople } from 'react-icons/bs';
-
-import { IoSettingsOutline } from 'react-icons/io5';
 import { FaFacebook , FaInstagram , FaLinkedin , FaGithubAlt } from 'react-icons/fa';
-import { changeColorState, getcolorState, getGreetState } from '../../../redux/AppSlice';
+import { changeColorState, getGreetState } from '../../../redux/AppSlice';
 // import { Link } from 'react-router-dom';
 import Link from 'next/link'
 import { changeMenuStatus, getMenuStatus } from '../../../redux/features/body/BodySlice';
 import { lang } from './../../../utils/Constant'
 import { Refs } from '../../../pages';
+import { Toggle } from '../ToggleButton';
 
 interface ToolTipsProps {
     className: string,
@@ -36,8 +35,6 @@ interface HeaderSectionProps {
 const HeaderSection: React.FC<HeaderSectionProps> = ({ refs }) => {
 
     const refNav:MutableRefObject<HTMLElement | null> = useRef(null);
-
-    const colorState = useSelector(getcolorState);
     const dispatch = useDispatch();
 
     const menuState = useSelector(getMenuStatus);
@@ -54,14 +51,13 @@ const HeaderSection: React.FC<HeaderSectionProps> = ({ refs }) => {
         },3000)
     },[])
 
-    const onModeChange: React.MouseEventHandler<HTMLLIElement> = (e) =>{
-        e.preventDefault();
-        dispatch(changeColorState());
-    }
-
     const toggleMenu: React.MouseEventHandler<HTMLDivElement> = (e) =>{
         e.preventDefault();
         dispatch(changeMenuStatus());
+    }
+
+    const toggleCallback = (isToggled:boolean) => {
+        dispatch(changeColorState());
     }
 
     return (
@@ -154,13 +150,7 @@ const HeaderSection: React.FC<HeaderSectionProps> = ({ refs }) => {
                                     </nav>
                                 </div>
                                 <div className="dropdown rs-banner__dropdown">
-                                    <button className="btn btn-primary" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                        <IoSettingsOutline color="white"></IoSettingsOutline>
-                                    </button>
-                                    <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                        <li onClick={onModeChange}><Link className='dropdown-item' href="/">{ colorState === "dark" ? "Light mode" : "Dark mode"}</Link></li>
-                                        <li><Link className='dropdown-item' href="/">Download Pdf</Link></li>
-                                    </ul>
+                                    <Toggle label="Mode" toggled={true} cb={toggleCallback}></Toggle>
                                 </div>
                             </div>
                         </div>
