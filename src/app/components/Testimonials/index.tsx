@@ -7,6 +7,7 @@ import { useSelector } from 'react-redux'
 import mapboxgl from 'mapbox-gl/dist/mapbox-gl'
 import 'mapbox-gl/dist/mapbox-gl.css'
 import { Refs } from '../../../pages'
+import Image from 'next/image'
 
 // mapboxgl.workerClass = MapboxWorker
 // import mapboxgl from "mapbox-gl"
@@ -40,7 +41,7 @@ export default function Testimonial(props: Props) {
                 properties: {
                     name: 'John Doe',
                     message: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. ",
-                    img: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80'
+                    img: '/vercel.svg'
                 }
             },
             {
@@ -52,7 +53,7 @@ export default function Testimonial(props: Props) {
                 properties: {
                     name: 'John Wick',
                     message: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. ",
-                    img: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80'
+                    img: '/vercel.svg'
                 }
             },
             {
@@ -64,7 +65,7 @@ export default function Testimonial(props: Props) {
                 properties: {
                     name: 'Rajesh Hamal',
                     message: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. ",
-                    img: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80'
+                    img: '/vercel.svg'
                 }
             },
             {
@@ -76,7 +77,7 @@ export default function Testimonial(props: Props) {
                 properties: {
                     name: 'Rajni kanth',
                     message: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. ",
-                    img: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80'
+                    img: '/vercel.svg'
                 }
             },
 
@@ -142,7 +143,7 @@ export default function Testimonial(props: Props) {
                                                         setPopupInfo(g)
                                                     }}
                                                 >
-                                                    <img src={g.properties?.img} alt=""></img>
+                                                    <Image src={g.properties?.img} alt="..." width={40} height={40}></Image>
                                                 </Marker>
                                             })
                                         }

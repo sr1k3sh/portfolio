@@ -3,6 +3,7 @@ import { RiWindowsFill , RiAppleFill , RiUbuntuFill } from 'react-icons/ri';
 import { useSelector } from 'react-redux';
 import { getcolorState } from '../../redux/AppSlice';
 import { Refs } from '../../pages';
+import Image from 'next/image'
 interface Props {
     refs: Refs
 }
@@ -703,7 +704,7 @@ export default function About(props: Props) {
                     <div className='col-12 col-md-6 col-lg-3 rs-about__profile-wrapper'>
                         <div className='rs-about__profile'>
                             <figure className="rs-about__figure">
-                                <img src='./profile.png' alt="..."></img>
+                                <Image src={'/profile.png'} alt={'...'}></Image>
                             </figure>
                         </div>
                     </div>
