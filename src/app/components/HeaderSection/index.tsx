@@ -9,6 +9,12 @@ import { changeMenuStatus, getMenuStatus } from '../../../redux/features/body/Bo
 import { lang } from './../../../utils/Constant'
 import { Refs } from '../../../pages'
 import { Toggle } from '../ToggleButton'
+import { Righteous} from 'next/font/google'
+
+const righteous = Righteous({
+    weight: '400',
+    subsets: ['latin']
+})
 
 interface ToolTipsProps {
     className: string,
@@ -67,7 +73,7 @@ const HeaderSection: React.FC<HeaderSectionProps> = ({ refs }) => {
                         <div className='rs-banner__wrapper'>
                             <div className='rs-banner__sidebar'>
                                 <div className='rs-banner__logo' onClick={toggleMenu}>
-                                    <span>RS</span>
+                                    <span className={righteous.className}>RS</span>
                                 </div>
                                 <nav className={menuState ? 'rs-banner__navigation rs-banner__navigation--open' : 'rs-banner__navigation rs-banner__navigation--close'} ref={refNav}>
                                     <ul>
