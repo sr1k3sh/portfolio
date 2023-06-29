@@ -735,28 +735,28 @@ export default function Experience(props: Props) {
                             <div className='rs-exp__work-skills'>
                                 <h3>SKILL AND EXPERTISE</h3>
                                 <ul>
-                                    <li><Image src='/images/html.svg' width={300} height={300} alt="..."></Image></li>
-                                    <li><Image src={'/images/css.svg'} width={300} height={300} alt="..."></Image></li>
-                                    <li><Image src={'/images/sass.svg'} width={300} height={300} alt="..."></Image></li>
-                                    <li><Image src={'/images/javascript.svg'} width={300} height={300} alt="..."></Image></li>
-                                    <li><Image src={'/images/react.svg'} width={300} height={300} alt="..."></Image></li>
-                                    <li><Image src={'/images/angular.svg'} width={300} height={300} alt="..."></Image></li>
-                                    <li><Image src={'/images/vue.svg'} width={300} height={300} alt="..."></Image></li>
-                                    <li><Image src={'/images/mongodb.svg'} width={300} height={300} alt="..."></Image></li>
-                                    <li><Image src={'/images/mysql.svg'} width={300} height={300} alt="..."></Image></li>
-                                    <li><Image src={'/images/node.svg'} width={300} height={300} alt="..."></Image></li>
-                                    <li><Image src={'/images/firebase.svg'} width={300} height={300} alt="..."></Image></li>
-                                    <li><Image src={'/images/express.svg'} width={300} height={300} alt="..."></Image></li>
-                                    <li><Image src={'/images/figma.svg'} width={300} height={300} alt="..."></Image></li>
-                                    <li><Image src={'/images/xd.svg'} width={300} height={300} alt="..."></Image></li>
-                                    <li><Image src={'/images/zeplin.svg'} width={300} height={300} alt="..."></Image></li>
-                                    <li><Image src={'/images/git.svg'} width={300} height={300} alt="..."></Image></li>
-                                    <li><Image src={'/images/github.svg'} width={300} height={300} alt="..."></Image></li>
-                                    <li><Image src={'/images/bitbucket.svg'} width={300} height={300} alt="..."></Image></li>
-                                    <li><Image src={'/images/jira.svg'} width={300} height={300} alt="..."></Image></li>
-                                    <li><Image src={'/images/netlify.svg'} width={300} height={300} alt="..."></Image></li>
-                                    <li><Image src={'/images/heroku.svg'} width={300} height={300} alt="..."></Image></li>
-                                    <li><Image src={'/images/vscode.svg'} width={300} height={300} alt="..."></Image></li>
+                                    <li><Image src='/images/html.svg' width={300} height={300} alt="Rikesh Shrestha"></Image></li>
+                                    <li><Image src={'/images/css.svg'} width={300} height={300} alt="Rikesh Shrestha"></Image></li>
+                                    <li><Image src={'/images/sass.svg'} width={300} height={300} alt="Rikesh Shrestha"></Image></li>
+                                    <li><Image src={'/images/javascript.svg'} width={300} height={300} alt="Rikesh Shrestha"></Image></li>
+                                    <li><Image src={'/images/react.svg'} width={300} height={300} alt="Rikesh Shrestha"></Image></li>
+                                    <li><Image src={'/images/angular.svg'} width={300} height={300} alt="Rikesh Shrestha"></Image></li>
+                                    <li><Image src={'/images/vue.svg'} width={300} height={300} alt="Rikesh Shrestha"></Image></li>
+                                    <li><Image src={'/images/mongodb.svg'} width={300} height={300} alt="Rikesh Shrestha"></Image></li>
+                                    <li><Image src={'/images/mysql.svg'} width={300} height={300} alt="Rikesh Shrestha"></Image></li>
+                                    <li><Image src={'/images/node.svg'} width={300} height={300} alt="Rikesh Shrestha"></Image></li>
+                                    <li><Image src={'/images/firebase.svg'} width={300} height={300} alt="Rikesh Shrestha"></Image></li>
+                                    <li><Image src={'/images/express.svg'} width={300} height={300} alt="Rikesh Shrestha"></Image></li>
+                                    <li><Image src={'/images/figma.svg'} width={300} height={300} alt="Rikesh Shrestha"></Image></li>
+                                    <li><Image src={'/images/xd.svg'} width={300} height={300} alt="Rikesh Shrestha"></Image></li>
+                                    <li><Image src={'/images/zeplin.svg'} width={300} height={300} alt="Rikesh Shrestha"></Image></li>
+                                    <li><Image src={'/images/git.svg'} width={300} height={300} alt="Rikesh Shrestha"></Image></li>
+                                    <li><Image src={'/images/github.svg'} width={300} height={300} alt="Rikesh Shrestha"></Image></li>
+                                    <li><Image src={'/images/bitbucket.svg'} width={300} height={300} alt="Rikesh Shrestha"></Image></li>
+                                    <li><Image src={'/images/jira.svg'} width={300} height={300} alt="Rikesh Shrestha"></Image></li>
+                                    <li><Image src={'/images/netlify.svg'} width={300} height={300} alt="Rikesh Shrestha"></Image></li>
+                                    <li><Image src={'/images/heroku.svg'} width={300} height={300} alt="Rikesh Shrestha"></Image></li>
+                                    <li><Image src={'/images/vscode.svg'} width={300} height={300} alt="Rikesh Shrestha"></Image></li>
                                 </ul>
                             </div>
                         </div>

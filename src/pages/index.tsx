@@ -7,11 +7,9 @@ import Projects from '../app/components/Projects'
 import Services from '../app/components/Services'
 import Testimonial from '../app/components/Testimonials'
 import Contact from '../app/components/Contact'
+import { metadata } from './_document'
 
-export const metadata = {
-  title: 'Rikesh Shrestha | Frontend Developer ',
-  description: 'Best frontend developer in japan, based on ureshino, originally from nepal.',
-}
+
 export interface Refs {
   home: {
     homeRef: MutableRefObject<any>,

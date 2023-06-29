@@ -4,7 +4,7 @@ import { AppConfig } from '../utils/AppConfig'
 
 // Need to create a custom _document because i18n support is not compatible with `next export`.
 export const metadata = {
-  title: 'Rikesh Shrestha | Frontend Developer ',
+  title: 'Rikesh Shrestha, Frontend Developer ',
   description: 'Best frontend developer in japan, based on ureshino, originally from nepal.',
 }
 class MyDocument extends Document {

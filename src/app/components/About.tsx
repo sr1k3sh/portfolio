@@ -704,7 +704,7 @@ export default function About(props: Props) {
                     <div className='col-12 col-md-6 col-lg-3 rs-about__profile-wrapper'>
                         <div className='rs-about__profile'>
                             <figure className="rs-about__figure">
-                                <Image src={'/profile.png'} alt={'...'}></Image>
+                                <Image src={'/profile.png'} alt={'Front-end developer'}></Image>
                             </figure>
                         </div>
                     </div>
