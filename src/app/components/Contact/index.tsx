@@ -3,7 +3,6 @@ import { FaFacebook , FaInstagram , FaLinkedin , FaGithubAlt } from 'react-icons
 import { debounce } from '../../../utils/utils'
 import { useSelector } from 'react-redux'
 import { getcolorState } from '../../../redux/AppSlice'
-import axios from 'axios'
 import Link from 'next/link'
 import { Refs } from '../../../pages'
 
@@ -58,16 +57,21 @@ export default function Contact(props:ContactSectionProps) {
 
     const onContactFormSubmit = async(e: FormEvent<HTMLFormElement>) =>{
         e.preventDefault()
-        const data = {
-            name:name,email:email,message:message
-        }
+
+        const formData = new FormData(e.target);
+        const object = Object.fromEntries(formData);
+        const json = JSON.stringify(object);
         if(name !== '' && email !== '' && message !== ''){
             try{
-                const response = await await axios.post('https://colleges-backend.herokuapp.com/api/contact-forms',
-                    {
-                    "data": data
-                    }
-                )
+
+                const response = await fetch("https://api.web3forms.com/submit", {
+                    method: "POST",
+                    headers: {
+                    "Content-Type": "application/json",
+                    Accept: "application/json",
+                    },
+                    body: json,
+                })
 
                 if(response.status === 200){
                     setLogMessage("Go your message !! will come back to you soon")
@@ -84,6 +88,7 @@ export default function Contact(props:ContactSectionProps) {
                     setFormClassStatus("error")
                 }
             }catch(err){
+                console.log(err)
                 setLogMessage("Something is wrong. please try again")
                 setFormClassStatus("error")
             }
@@ -370,16 +375,17 @@ export default function Contact(props:ContactSectionProps) {
                             </div>
                             <div className='rs-contact__form'>
                                 <form className='d-flex flex-column' onSubmit={onContactFormSubmit}>
+                                    <input type="hidden" name="access_key" value="3ea290a8-cb27-4518-a371-756dc6e36e5f" />
                                     <div className='form-element'>
-                                        <input type={'text'} className={ name.length ? 'form-control form-control--filled' : 'form-control'} id="rs_contact_name" onChange={onChangeName} value={name}></input>
+                                        <input type={'text'} name='name' className={ name.length ? 'form-control form-control--filled' : 'form-control'} id="rs_contact_name" onChange={onChangeName} value={name}></input>
                                         <label htmlFor="rs_contact_name" className='form-label'>What is your name? *</label>
                                     </div>
                                     <div className='form-element'>
-                                        <input type={'email'} className={ email.length ? 'form-control form-control--filled' : 'form-control'} id="rs_contact_email" onChange={onChangeEmail} value={email}></input>
+                                        <input type={'email'} name='email' className={ email.length ? 'form-control form-control--filled' : 'form-control'} id="rs_contact_email" onChange={onChangeEmail} value={email}></input>
                                         <label htmlFor="rs_contact_email" className='form-label'>What it your email? *</label>
                                     </div>
                                     <div className={formClassStatus ? 'form-element mb-0' : 'form-element'}>
-                                        <textarea className={ message.length ? 'form-control form-control--filled' : 'form-control'} id="rs_contact_message" onChange={onChangeMessage} value={message}></textarea>
+                                        <textarea name='message' className={ message.length ? 'form-control form-control--filled' : 'form-control'} id="rs_contact_message" onChange={onChangeMessage} value={message}></textarea>
                                         <label htmlFor="rs_contact_message" className='form-label'>What it your email? *</label>
                                     </div>
                                     {
