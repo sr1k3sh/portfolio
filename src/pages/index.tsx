@@ -103,16 +103,36 @@ export default function Home() {
   }
 
   useEffect(() => {
+    if (window.innerWidth < 767) {
+      setShowCustomCursor(false)
+    } else {
+      setShowCustomCursor(true)
+    }
+  },[])
+
+  useEffect(() => {
+    let timeoutId:ReturnType<typeof setTimeout>
     const  mouseMoveEvent = (e:any) => {
       let x = e.clientX
       let y = e.clientY
+      clearTimeout(timeoutId);
       if(cursorRef.current) {
         cursorRef.current.style.transform = `translate3d(calc(${x}px - 50%), calc(${y}px - 50%), 0)`
+        cursorRef.current.style.width = '50px'
+        cursorRef.current.style.height = '50px'
       }
       if(cursorInnerRef.current) {
         cursorInnerRef.current.style.left = x + 'px'
         cursorInnerRef.current.style.top = y + 'px'
       }
+
+      timeoutId = setTimeout(() => {
+        // Perform actions when the mouse stops moving
+        if(cursorRef.current) {
+          cursorRef.current.style.width = '0px'
+          cursorRef.current.style.height = '0px'
+        }
+      }, 500);
     }
 
     const mouseEnter = () => {
@@ -138,6 +158,10 @@ export default function Home() {
     })
 
     addEventListener('mousemove',mouseMoveEvent)
+
+    addEventListener('mouseleave', () => {
+      console.log('mouseup')
+    })
 
     let timeout: ReturnType<typeof setTimeout>
     const onResize = () => {
@@ -177,19 +201,20 @@ export default function Home() {
             pointerEvents: 'none',
             border: '1px solid #edb506',
             borderRadius: '50%',
-            width: 50,
-            height: 50,
+            background:'#edb50687',
+            width: 0,
+            height: 0,
             left: 0,
             top: 0,
             zIndex: 100,
-            transition: 'all 0.1s ease-out',
+            transition: 'all 0.3s ease-out',
             transform: `translate(calc(-50% + 15px), -50%)`,
           }}></div>
           <div ref={cursorInnerRef} style={{
             position:'fixed',
             pointerEvents: 'none',
-            border: '1px solid #D1C4E9',
-            background: '#D1C4E9',
+            border: '1px solid #edb506',
+            background: '#edb506',
             width: 20,
             borderRadius: '50%',
             height: 20,
