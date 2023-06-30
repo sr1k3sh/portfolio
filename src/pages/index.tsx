@@ -49,6 +49,7 @@ export default function Home() {
   const dispatch = useDispatch()
   const cursorRef:MutableRefObject<HTMLDivElement|null> = useRef(null)
   const cursorInnerRef:MutableRefObject<HTMLDivElement|null> = useRef(null)
+  const [showCustomCursor, setShowCustomCursor] = useState<boolean>(false)
 
   const [date , setDate ] = useState<number|null>(null)
 
@@ -102,7 +103,6 @@ export default function Home() {
   }
 
   useEffect(() => {
-
     const  mouseMoveEvent = (e:any) => {
       let x = e.clientX
       let y = e.clientY
@@ -139,10 +139,27 @@ export default function Home() {
 
     addEventListener('mousemove',mouseMoveEvent)
 
+    let timeout: ReturnType<typeof setTimeout>
+    const onResize = () => {
+      clearTimeout(timeout)
+
+      timeout = setTimeout(() => {
+        if (window.innerWidth < 767) {
+          setShowCustomCursor(false)
+        } else {
+          setShowCustomCursor(true)
+        }
+      }, 200)
+    }
+
+
+    addEventListener('resize', onResize)
+
     return () => {
       removeEventListener('mousemove',mouseMoveEvent)
       removeEventListener('mouseover', mouseEnter)
       removeEventListener('mouseleave', mouseLeave)
+      removeEventListener('resize', onResize)
     }
   },[])
 
@@ -152,33 +169,38 @@ export default function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <div ref={cursorRef} style={{
-        position:'fixed',
-        pointerEvents: 'none',
-        border: '1px solid #edb506',
-        borderRadius: '50%',
-        width: 50,
-        height: 50,
-        left: 0,
-        top: 0,
-        zIndex: 100,
-        transition: 'all 0.1s ease-out',
-        transform: `translate(calc(-50% + 15px), -50%)`,
-      }}></div>
-      <div ref={cursorInnerRef} style={{
-        position:'fixed',
-        pointerEvents: 'none',
-        border: '1px solid #D1C4E9',
-        background: '#D1C4E9',
-        width: 20,
-        borderRadius: '50%',
-        height: 20,
-        left: 0,
-        top: 0,
-        zIndex: 100,
-        transition: 'width .3s, height .3s, opacity .3s',
-        transform: `translate(calc(-50%), -50%)`,
-      }}></div>
+      {
+        showCustomCursor &&
+        <>
+          <div ref={cursorRef} style={{
+            position:'fixed',
+            pointerEvents: 'none',
+            border: '1px solid #edb506',
+            borderRadius: '50%',
+            width: 50,
+            height: 50,
+            left: 0,
+            top: 0,
+            zIndex: 100,
+            transition: 'all 0.1s ease-out',
+            transform: `translate(calc(-50% + 15px), -50%)`,
+          }}></div>
+          <div ref={cursorInnerRef} style={{
+            position:'fixed',
+            pointerEvents: 'none',
+            border: '1px solid #D1C4E9',
+            background: '#D1C4E9',
+            width: 20,
+            borderRadius: '50%',
+            height: 20,
+            left: 0,
+            top: 0,
+            zIndex: 100,
+            transition: 'width .3s, height .3s, opacity .3s',
+            transform: `translate(calc(-50%), -50%)`,
+          }}></div>
+        </>
+      }
       <HeaderSection refs={refs}></HeaderSection>
       <About refs={refs}></About>
       <Experience refs={refs}></Experience>
