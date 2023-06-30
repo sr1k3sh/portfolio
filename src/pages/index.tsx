@@ -159,10 +159,6 @@ export default function Home() {
 
     addEventListener('mousemove',mouseMoveEvent)
 
-    addEventListener('mouseleave', () => {
-      console.log('mouseup')
-    })
-
     let timeout: ReturnType<typeof setTimeout>
     const onResize = () => {
       clearTimeout(timeout)
