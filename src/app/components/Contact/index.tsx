@@ -64,7 +64,7 @@ export default function Contact(props:ContactSectionProps) {
     const onContactFormSubmit = async(e: FormEvent<HTMLFormElement>) =>{
         e.preventDefault()
 
-        const formData = new FormData(e.target);
+        const formData = new FormData(e.target as HTMLFormElement);
         const object = Object.fromEntries(formData);
         const json = JSON.stringify(object);
         if(name !== '' && email !== '' && message !== ''){
