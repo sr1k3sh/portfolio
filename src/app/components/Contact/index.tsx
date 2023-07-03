@@ -5,10 +5,16 @@ import { useSelector } from 'react-redux'
 import { getcolorState } from '../../../redux/AppSlice'
 import Link from 'next/link'
 import { Refs } from '../../../pages'
+import { Righteous } from 'next/font/google'
 
 interface ContactSectionProps {
     refs: Refs
 }
+
+const righteous = Righteous({
+    weight: '400',
+    subsets: ['latin']
+})
 
 export default function Contact(props:ContactSectionProps) {
     const { refs } = props
@@ -333,9 +339,9 @@ export default function Contact(props:ContactSectionProps) {
                     <div className='col-md-4 mb-5 mb-md-0'>
                         <div className='rs-contact__author-info'>
                             <div className='rs-banner__logo'>
-                                <span>RS</span>
+                                <span className={righteous.className}>RS</span>
                             </div>
-                            <span className='rs-contact__author-name'>Rikesh Shrestha</span>
+                            <span className={`rs-contact__author-name ${righteous.className}`}>Rikesh Shrestha</span>
                             <span className='rs-contact__author-designation'>Frontend Developer</span>
                             <div className='rs-contact__social-list'>
                                 <ul>
@@ -370,7 +376,7 @@ export default function Contact(props:ContactSectionProps) {
                     <div className='col-md-6 offset-md-2 rs-contact__form-col'>
                         <div className='rs-contact__form-wrapper'>
                             <div>
-                                <h2>Contact <strong>Me.</strong></h2>
+                                <h2 className={righteous.className}>Contact <strong className={righteous.className}>Me.</strong></h2>
 
                             </div>
                             <div className='rs-contact__form'>

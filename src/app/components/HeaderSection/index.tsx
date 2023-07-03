@@ -9,7 +9,7 @@ import { changeMenuStatus, getMenuStatus } from '../../../redux/features/body/Bo
 import { lang } from './../../../utils/Constant'
 import { Refs } from '../../../pages'
 import { Toggle } from '../ToggleButton'
-import { Righteous} from 'next/font/google'
+import { Inter, Righteous} from 'next/font/google'
 
 const righteous = Righteous({
     weight: '400',
@@ -154,7 +154,7 @@ const HeaderSection: React.FC<HeaderSectionProps> = ({ refs }) => {
                             <div className='rs-banner__main-banner'>
                                 <div className="rs-banner__content">
                                     <h2><strong>{hello ? hello.hello : "Hello"}</strong> {greetState},</h2>
-                                    <h3>I am Rikesh, Frontend Dev</h3>
+                                    <h3 className={righteous.className}>I am Rikesh, Frontend Dev</h3>
                                     <p>Almost 6 year + experience in software engineering field, most focused on frontend stack.</p>
                                     <nav>
                                         <ul>

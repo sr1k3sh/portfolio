@@ -9,6 +9,7 @@ import { IoIosArrowForward , IoIosArrowBack } from 'react-icons/io'
 import { useSelector } from 'react-redux'
 import { getcolorState } from '../../../redux/AppSlice'
 import { Refs } from '../../../pages'
+import { Righteous } from 'next/font/google'
 
 interface buttonProps {
     className: string,
@@ -38,6 +39,11 @@ function PrevArrow(props: buttonProps){
 interface Props {
     refs: Refs
 }
+
+const righteous = Righteous({
+    weight: '400',
+    subsets: ['latin']
+})
 
 export default function Services(props:Props) {
     const { refs } = props
@@ -89,7 +95,7 @@ export default function Services(props:Props) {
                         <div className='rs-services__wrapper'>
                             <div className='rs-services__my-services'>
                                 <div className='rs-services__content'>
-                                    <h2>Services</h2>
+                                    <h2 className={righteous.className}>Services</h2>
                                     <p>{`I'm happy to assist you to grow your business`}</p>
                                 </div>
                                 <MdDoubleArrow color={colorState === 'dark' ? 'white' :'#651FFF'}></MdDoubleArrow>
@@ -105,7 +111,7 @@ export default function Services(props:Props) {
                                         <figure className='rs-services__figure'>
                                             <MdOutlineDesignServices color={colorState === 'dark' ? '#651FFF' :'#651FFF'}></MdOutlineDesignServices>
                                             <figcaption>
-                                                <span>UI design</span>
+                                                <span className={righteous.className}>UI design</span>
                                                 <p>web design/mobile app design</p>
                                             </figcaption>
                                         </figure>
@@ -116,7 +122,7 @@ export default function Services(props:Props) {
                                         <figure className='rs-services__figure'>
                                             <SiProtonvpn color={colorState === 'dark' ? '#651FFF' :'#651FFF'}></SiProtonvpn>
                                             <figcaption>
-                                                <span>HTML prototyping</span>
+                                                <span className={righteous.className}>HTML prototyping</span>
                                                 <p>I can help you with html prototyping from given design</p>
                                             </figcaption>
                                         </figure>
@@ -127,7 +133,7 @@ export default function Services(props:Props) {
                                         <figure className='rs-services__figure'>
                                             <MdOutlineFeaturedPlayList color={colorState === 'dark' ? '#651FFF' :'#651FFF'}></MdOutlineFeaturedPlayList>
                                             <figcaption>
-                                                <span>Feature request</span>
+                                                <span className={righteous.className}>Feature request</span>
                                                 <p>I can add features to the existing site with proper outcome</p>
                                             </figcaption>
                                         </figure>
@@ -138,7 +144,7 @@ export default function Services(props:Props) {
                                         <figure className='rs-services__figure'>
                                             <FaConnectdevelop color={colorState === 'dark' ? '#651FFF' :'#651FFF'}></FaConnectdevelop>
                                             <figcaption>
-                                                <span>Ecommerce website</span>
+                                                <span className={righteous.className}>Ecommerce website</span>
                                                 <p>I can help you with your ideas into a complete website/webapp</p>
                                             </figcaption>
                                         </figure>
@@ -149,7 +155,7 @@ export default function Services(props:Props) {
                                         <figure className='rs-services__figure'>
                                             <AiFillShop color={colorState === 'dark' ? '#651FFF' :'#651FFF'}></AiFillShop>
                                             <figcaption>
-                                                <span>Feature request</span>
+                                                <span className={righteous.className}>Feature request</span>
                                                 <p>I can add features to the existing site with proper outcome</p>
                                             </figcaption>
                                         </figure>
@@ -160,7 +166,7 @@ export default function Services(props:Props) {
                                         <figure className='rs-services__figure'>
                                             <MdOutlineFeaturedPlayList color={colorState === 'dark' ? '#651FFF' :'#651FFF'}></MdOutlineFeaturedPlayList>
                                             <figcaption>
-                                                <span>Feature request</span>
+                                                <span className={righteous.className}>Feature request</span>
                                                 <p>I can add features to the existing site with proper outcome</p>
                                             </figcaption>
                                         </figure>

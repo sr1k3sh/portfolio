@@ -3,10 +3,16 @@ import { useSelector } from 'react-redux'
 import { getcolorState } from '../../../redux/AppSlice'
 import Image from 'next/image'
 import { Refs } from '../../../pages'
+import { Righteous } from 'next/font/google'
 
 interface Props {
     refs: Refs
 }
+
+const righteous = Righteous({
+    weight: '400',
+    subsets: ['latin']
+})
 
 export default function Experience(props: Props) {
     const { refs } = props
@@ -693,39 +699,39 @@ export default function Experience(props: Props) {
                     <div className='col-md-10'>
                         <div className="rs-exp__wrapper">
                             <div className="rs-exp__work-history">
-                                <h3>Work experience</h3>
+                                <h3 className={righteous.className}>Work experience</h3>
                                 <ul>
                                     <li>
                                         <header>
-                                            <h1>Frontend Developer </h1>
+                                            <h1 className={righteous.className}>Frontend Developer </h1>
                                             <h2>Freelancer </h2>
                                             <span>October 2021 – Present</span>
                                         </header>
                                     </li>
                                     <li>
                                         <header>
-                                            <h1>Frontend Developer</h1>
+                                            <h1 className={righteous.className}>Frontend Developer</h1>
                                             <h2>Itonics Nepal</h2>
                                             <span>January 2020 – October 2021</span>
                                         </header>
                                     </li>
                                     <li>
                                         <header>
-                                            <h1>Web Developer</h1>
+                                            <h1 className={righteous.className}>Web Developer</h1>
                                             <h2>GsignalX Pvt Ltd</h2>
                                             <span> February 2018 – December 2019</span>
                                         </header>
                                     </li>
                                     <li>
                                         <header>
-                                            <h1>Software Engineer</h1>
+                                            <h1 className={righteous.className}>Software Engineer</h1>
                                             <h2>Arrtsm Gmbh</h2>
                                             <span>December 2016 – February 2018</span>
                                         </header>
                                     </li>
                                     <li>
                                         <header>
-                                            <h1>Web Developer</h1>
+                                            <h1 className={righteous.className}>Web Developer</h1>
                                             <h2>North american web</h2>
                                             <span>Aug 2016 – Feb 2017</span>
                                         </header>
@@ -733,7 +739,7 @@ export default function Experience(props: Props) {
                                 </ul>
                             </div>
                             <div className='rs-exp__work-skills'>
-                                <h3>SKILL AND EXPERTISE</h3>
+                                <h3 className={righteous.className}>SKILL AND EXPERTISE</h3>
                                 <ul>
                                     <li><Image src='/images/html.svg' width={300} height={300} alt="Rikesh Shrestha, HTML"></Image></li>
                                     <li><Image src={'/images/css.svg'} width={300} height={300} alt="Rikesh Shrestha, CSS"></Image></li>

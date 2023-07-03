@@ -8,6 +8,7 @@ import mapboxgl from 'mapbox-gl/dist/mapbox-gl'
 import 'mapbox-gl/dist/mapbox-gl.css'
 import { Refs } from '../../../pages'
 import Image from 'next/image'
+import { Righteous } from 'next/font/google'
 
 // mapboxgl.workerClass = MapboxWorker
 // import mapboxgl from "mapbox-gl"
@@ -20,6 +21,11 @@ const REACT_MAPBOX_TOKEN = 'pk.eyJ1IjoicjFrM3NoIiwiYSI6ImNrdGp5Nmx5cDFnczAzMnJ0O
 interface Props {
     refs: Refs
 }
+
+const righteous = Righteous({
+    weight: '400',
+    subsets: ['latin']
+})
 
 export default function Testimonial(props: Props) {
 
@@ -117,7 +123,7 @@ export default function Testimonial(props: Props) {
                 <div className='row'>
                     <div className='col-12'>
                         <div className={colorState === "dark" ? 'rs-testimonial__map-wrapper rs-testimonial__map-wrapper--dark' : "rs-testimonial__map-wrapper rs-testimonial__map-wrapper--light"}>
-                            <h2><span>What</span> <strong>Client Said</strong></h2>
+                            <h2><span className={righteous.className}>What</span> <strong className={righteous.className}>Client Said</strong></h2>
                             <div className='rs-testimonial__map-content'>
                                 <div className='rs-testimonial__map'>
                                     <Map
@@ -169,7 +175,7 @@ export default function Testimonial(props: Props) {
                                     </Map>
                                 </div>
                                 <div className='rs-testimonial__desc-wrapper'>
-                                    <h3>{`Let’s work together`}</h3>
+                                    <h3 className={righteous.className}>{`Let’s work together`}</h3>
                                     <p>{`Do you like my portfolio design? let's make something great out of the box together !! `}</p>
                                     <button className='btn btn-primary' onClick={onHireClick}>Hire Me</button>
                                 </div>
