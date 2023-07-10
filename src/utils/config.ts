@@ -9,6 +9,7 @@ export const GET_ARTICLES_QUERY = gql`
   query {
     blogs {
       data {
+        id
         attributes {
           title
           slug
