@@ -7,6 +7,17 @@ $container-max-widths: (
   xl: 1200px,
   xxl: 1320px
 );
+
+// $font-family-base: var(--font);
+:root {
+    --primary: #651FFF;
+    --primary-light: #D1C4E9;
+    --primary-dark: #311B92;
+    --secondary: #9C27B0;
+    --secondary-light: #E1BEE7;
+    --secondary-dark: #4A148C;
+}
+
 @import '/node_modules/bootstrap//scss//bootstrap.scss';
 @import './scss/variable';
 @import './scss/header';

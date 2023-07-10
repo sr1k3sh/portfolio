@@ -9,8 +9,13 @@ import Contact from '../app/components/Contact'
 import { metadata } from './_document'
 import { useDispatch, useSelector } from 'react-redux'
 import { changeColorByValue, getcolorState } from 'src/redux/AppSlice'
+import { GET_ARTICLES_QUERY, client } from 'src/utils/config'
+import { GetStaticProps } from 'next'
 
 
+interface Props {
+  blogs: any
+}
 export interface Refs {
   home: {
     homeRef: MutableRefObject<any>,
@@ -35,7 +40,21 @@ export interface Refs {
   },
 }
 
-export default function Home() {
+export const getStaticProps: GetStaticProps = async () => {
+  const { data } = await client.query({
+    query: GET_ARTICLES_QUERY
+  })
+
+  return {
+    props: {
+      blogs: data.blogs
+    }
+  }
+}
+
+export default function Home(props: Props) {
+
+  const { blogs } = props
 
   const jsonLd = {
     '@context': 'https://schema.org',
@@ -224,7 +243,7 @@ export default function Home() {
       }
       <HeaderSection refs={refs}></HeaderSection>
       <About refs={refs}></About>
-      <Experience refs={refs}></Experience>
+      <Experience refs={refs} blogs={blogs}></Experience>
       <Projects></Projects>
       <Services refs={refs}></Services>
       <Testimonial refs={refs}></Testimonial>

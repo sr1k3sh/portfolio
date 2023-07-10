@@ -214,7 +214,9 @@
             letter-spacing: 0.5px;
             margin-bottom: 30px;
         }
+    }
 
+    &__skills {
         & ul{
             list-style: none;
             padding: 0;
@@ -237,5 +239,25 @@
                 }
             }
         }
+    }
+
+    &__blogs {
+        margin-top: 2.5rem;
+
+        & ul {
+            list-style: none;
+            padding: 0;
+
+            & li {
+                margin-bottom: 24px;
+                &:last-child {
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+
+    &__more {
+        color: var(--secondary);
     }
 }
