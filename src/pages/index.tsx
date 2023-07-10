@@ -6,13 +6,16 @@ import Projects from '../app/components/Projects'
 import Services from '../app/components/Services'
 import Testimonial from '../app/components/Testimonials'
 import Contact from '../app/components/Contact'
-import { metadata } from './_document'
 import { useDispatch, useSelector } from 'react-redux'
 import { changeColorByValue, getcolorState } from 'src/redux/AppSlice'
 import { GET_ARTICLES_QUERY, client } from 'src/utils/config'
 import { GetStaticProps } from 'next'
+import Head from 'next/head'
 
-
+export const metadata = {
+  title: 'Rikesh Shrestha, Frontend Developer ',
+  description: 'Best frontend developer in japan, based on ureshino, originally from nepal.',
+}
 interface Props {
   blogs: any
 }
@@ -66,25 +69,25 @@ export default function Home(props: Props) {
 
   const colorState = useSelector(getcolorState)
   const dispatch = useDispatch()
-  const [date , setDate ] = useState<number|null>(null)
+  const [date, setDate] = useState<number | null>(null)
 
   const classes = {
-    colorState : colorState === "dark" ? "rs-app__dark " : "rs-app__light "
+    colorState: colorState === "dark" ? "rs-app__dark " : "rs-app__light "
   }
 
   useEffect(() => {
 
     setDate(new Date().getHours())
 
-    if(date) {
-      if(date >= 6 && date <= 18){
-        if(date < 12){
-          dispatch(changeColorByValue({color:"light",greet:"Good morning"}))
-        }else{
-          dispatch(changeColorByValue({color:"light",greet:"Good afternoon"}))
+    if (date) {
+      if (date >= 6 && date <= 18) {
+        if (date < 12) {
+          dispatch(changeColorByValue({ color: "light", greet: "Good morning" }))
+        } else {
+          dispatch(changeColorByValue({ color: "light", greet: "Good afternoon" }))
         }
-      }else{
-        dispatch(changeColorByValue({color:"dark",greet:"Good evening"}))
+      } else {
+        dispatch(changeColorByValue({ color: "dark", greet: "Good evening" }))
       }
     }
 
@@ -97,28 +100,50 @@ export default function Home(props: Props) {
     home: {
       homeRef: useRef()
     },
-    about:{
+    about: {
       aboutRef: useRef()
     },
-    experience:{
+    experience: {
       experienceRef: useRef()
     },
-    projects:{
+    projects: {
       projectsRef: useRef()
     },
-    services:{
+    services: {
       servicesRef: useRef()
     },
-    testimonial:{
+    testimonial: {
       testimonialRef: useRef()
     },
-    contact:{
+    contact: {
       contactRef: useRef()
     }
   }
 
   return (
     <main className={classes.colorState}>
+      <Head>
+        <title>
+          {
+            metadata.title
+          }
+        </title>
+        <meta
+          name="description"
+          content={metadata.description}
+          key="desc"
+        />
+        <meta property="og:title" content={metadata.title} />
+        <meta
+          property="og:description"
+          content={metadata.description}
+        />
+        <meta
+          property="og:image"
+          content="/profile.png"
+        />
+        <link rel="icon" href="/profile.png" sizes="any" />
+      </Head>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

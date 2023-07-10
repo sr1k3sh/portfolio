@@ -9,6 +9,7 @@ import NavBar from 'src/app/components/NavSection'
 import { useSelector } from 'react-redux'
 import { getcolorState } from 'src/redux/AppSlice'
 import { ReactMarkdown } from 'react-markdown/lib/react-markdown'
+import Head from 'next/head'
 
 type Props = {
   blogData: any
@@ -30,8 +31,11 @@ export async function getStaticPaths() {
   // console.log(data.blogs.data)
 
   // Generate an array of objects with the `params` key for each blog ID
-  const paths = data.blogs.data.map((blog:any) => ({
-    params: { id: blog.id },
+  const paths = data.blogs.data.map((blog: any) => ({
+    params: {
+      id: blog.id,
+      slug: blog.attributes.slug,
+    },
   }));
 
   return {
@@ -40,7 +44,7 @@ export async function getStaticPaths() {
   };
 }
 
-export const getStaticProps: GetStaticProps = async ({params}:any) => {
+export const getStaticProps: GetStaticProps = async ({ params }: any) => {
 
   const { data } = await client.query({
     query: GET_BLOG_DETAIL_QUERY,
@@ -70,7 +74,7 @@ export const getStaticProps: GetStaticProps = async ({params}:any) => {
   }
 }
 
-export default function BlogDetail({blogData, dataBlogList}: Props) {
+export default function BlogDetail({ blogData, dataBlogList }: Props) {
 
   const { attributes } = blogData
 
@@ -79,19 +83,39 @@ export default function BlogDetail({blogData, dataBlogList}: Props) {
   const colorState = useSelector(getcolorState)
 
   const classes = {
-    colorState : colorState === "dark" ? "rs-app__dark " : "rs-app__light "
+    colorState: colorState === "dark" ? "rs-app__dark " : "rs-app__light "
   }
-
-  console.log(attributes.blocks)
 
   return (
     <main className={classes.colorState}>
+      <Head>
+        <title>
+          {
+            attributes.title
+          }
+        </title>
+        <meta
+          name="description"
+          content={attributes.description}
+          key="desc"
+        />
+        <meta property="og:title" content={attributes.title} />
+        <meta
+          property="og:description"
+          content={attributes.description}
+        />
+        <meta
+          property="og:image"
+          content="/profile.png"
+        />
+        <link rel="icon" href="/profile.png" sizes="any" />
+      </Head>
       <NavBar></NavBar>
       <section>
         <div className='container-fluid'>
           <article>
             <figure className={styles.figure}>
-              <Image src={attributes.cover.data.attributes.url} alt={attributes.cover.data.attributes.alternativeText || attributes.title || ''} fill={true} style={{objectFit:'cover'}}></Image>
+              <Image src={attributes.cover.data.attributes.url} alt={attributes.cover.data.attributes.alternativeText || attributes.title || ''} fill={true} style={{ objectFit: 'cover' }}></Image>
             </figure>
           </article>
         </div>
@@ -102,10 +126,14 @@ export default function BlogDetail({blogData, dataBlogList}: Props) {
             <div className='col-lg-8 col-xl-7'>
               <h1 className={`${styles.title} ${righteous.className}`}>{attributes.title}</h1>
               {
-                attributes.blocks && attributes.blocks.map((block: any, index:number) => (
+                attributes.blocks && attributes.blocks.map((block: any, index: number) => (
                   <div className={styles.content} key={index}>
                     {
-                      <ReactMarkdown children={block.body}></ReactMarkdown>
+                      <ReactMarkdown>
+                        {
+                          block.body
+                        }
+                      </ReactMarkdown>
                     }
                   </div>
                 ))
@@ -115,8 +143,8 @@ export default function BlogDetail({blogData, dataBlogList}: Props) {
               <h3 className={`${styles.subtitle} ${righteous.className}`}>Related Blogs</h3>
               <ul className='rs-exp__blog-list'>
                 {
-                  blogs.data.map((blog:any,index:number) => <li key={index}>
-                      <BlogListItem blogDetail={blog} ></BlogListItem>
+                  blogs.data.map((blog: any, index: number) => <li key={index}>
+                    <BlogListItem blogDetail={blog} ></BlogListItem>
                   </li>)
                 }
               </ul>
