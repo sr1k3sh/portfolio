@@ -17,6 +17,9 @@ $container-max-widths: (
     --secondary-light: #E1BEE7;
     --secondary-dark: #4A148C;
     --font-light: #767373;
+    --font-white: #ffffff;
+    --font-black: #000000;
+    --font-dark-white: #f4f4f4;
 }
 
 @import '/node_modules/bootstrap//scss//bootstrap.scss';

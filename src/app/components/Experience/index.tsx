@@ -771,7 +771,7 @@ export default function Experience(props: Props) {
                                 </div>
                                 <div className='rs-exp__blogs'>
                                     <h3 className={righteous.className}>Recent blogs</h3>
-                                    <ul>
+                                    <ul className='rs-exp__blog-list'>
                                         {
                                             blogs.data.map((blog:any,index:number) => <li key={index}>
                                                 <BlogListItem blogDetail={blog} ></BlogListItem>

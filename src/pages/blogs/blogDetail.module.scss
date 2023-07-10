@@ -3,4 +3,40 @@
   width: 100%;
   min-height: 600px;
   height: calc(100vh - 200px);
+  border-radius: 34px;
+  overflow: hidden;
+  border-top-right-radius: 0;
+}
+
+.title {
+  color: var(--primary-dark);
+}
+
+
+.darkSection {
+  & .title {
+    color: var(--primary-light);
+  }
+
+  & .subtitle {
+    color: var(--font-dark-white);
+  }
+
+  & .content {
+    color: var(--font-dark-white);
+  }
+}
+
+.lightSection {
+  & .title {
+    color: var(--primary-dark);
+  }
+
+  & .subtitle {
+    color: var(--font-black);
+  }
+
+  & .content {
+    color: var(--font-black);
+  }
 }

@@ -1,10 +1,13 @@
 import { GetStaticProps } from 'next'
 import Image from 'next/image'
-import React, { useEffect } from 'react'
+import React from 'react'
 import { GET_ARTICLES_QUERY, GET_BLOGS_IDS, GET_BLOG_DETAIL_QUERY, client } from 'src/utils/config'
 import styles from './blogDetail.module.scss'
 import { Righteous } from 'next/font/google'
 import BlogListItem from 'src/app/components/blogListItem'
+import NavBar from 'src/app/components/NavSection'
+import { useSelector } from 'react-redux'
+import { getcolorState } from 'src/redux/AppSlice'
 
 type Props = {
   blogData: any
@@ -72,8 +75,15 @@ export default function BlogDetail({blogData, dataBlogList}: Props) {
 
   const { blogs } = dataBlogList
 
+  const colorState = useSelector(getcolorState)
+
+  const classes = {
+    colorState : colorState === "dark" ? "rs-app__dark " : "rs-app__light "
+  }
+
   return (
-    <main>
+    <main className={classes.colorState}>
+      <NavBar></NavBar>
       <section>
         <div className='container-fluid'>
           <article>
@@ -83,14 +93,14 @@ export default function BlogDetail({blogData, dataBlogList}: Props) {
           </article>
         </div>
       </section>
-      <section>
+      <section className={colorState === 'dark' ? styles.darkSection : styles.lightSection}>
         <div className='container'>
           <div className='row'>
-            <div className='col-md-7'>
-              <h1 className={righteous.className}>{attributes.title}</h1>
+            <div className='col-lg-8 col-xl-7'>
+              <h1 className={`${styles.title} ${righteous.className}`}>{attributes.title}</h1>
               {
                 attributes.blocks && attributes.blocks.map((block: any, index:number) => (
-                  <div key={index}>
+                  <div className={styles.content} key={index}>
                     {
                       <div dangerouslySetInnerHTML={{ __html: block.body }} />
                     }
@@ -98,7 +108,8 @@ export default function BlogDetail({blogData, dataBlogList}: Props) {
                 ))
               }
             </div>
-            <div className='offset-md-1 col-md-4'>
+            <div className='offset-xl-1 col-lg-4'>
+              <h3 className={`${styles.subtitle} ${righteous.className}`}>Related Blogs</h3>
               <ul className='rs-exp__blog-list'>
                 {
                   blogs.data.map((blog:any,index:number) => <li key={index}>
