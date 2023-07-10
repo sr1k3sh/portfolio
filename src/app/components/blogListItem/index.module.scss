@@ -9,9 +9,6 @@
   align-items: center;
   justify-content: flex-start;
   &:hover {
-    & .title {
-      // color: var(--secondary-dark);
-    }
     & .fig {
       background-color: var(--secondary-light);
       border: 4px solid var(--secondary-light);;
@@ -62,7 +59,13 @@
   border: 4px solid transparent;
   overflow: hidden;
   transition: 0.3s all;
-
+  position: relative;
+  width: 80px;
+  height: 80px;
+  @media screen and (min-width: 768px) {
+    width: 100px;
+    height: 100px;
+  }
 }
 
 .content{

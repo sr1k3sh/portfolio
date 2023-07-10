@@ -8,7 +8,7 @@ import { Refs } from '../../../pages'
 import { Righteous } from 'next/font/google'
 
 interface ContactSectionProps {
-    refs: Refs
+    refs?: Refs
 }
 
 const righteous = Righteous({
@@ -108,7 +108,7 @@ export default function Contact(props:ContactSectionProps) {
 
 
     return (
-        <section ref={ refs.contact.contactRef } className={colorState === 'dark' ? 'rs-contact__section rs-contact__section--dark' : 'rs-contact__section rs-contact__section--light'}>
+        <section ref={ refs && refs.contact.contactRef } className={colorState === 'dark' ? 'rs-contact__section rs-contact__section--dark' : 'rs-contact__section rs-contact__section--light'}>
             <div className='rs-contact__float-bg'>
                 <svg width="388" height="505" viewBox="0 0 388 505" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path fillRule="evenodd" clipRule="evenodd" d="M3.65091 0.00244141C1.63441 0.00244141 -9.15527e-05 1.63694 -9.15527e-05 3.65344C-9.15527e-05 5.66944 1.63441 7.30444 3.65091 7.30444C5.66741 7.30444 7.30191 5.66944 7.30191 3.65344C7.30191 1.63694 5.66741 0.00244141 3.65091 0.00244141Z" fill="black" fillOpacity="0.42"/>

@@ -10,6 +10,7 @@ import { useSelector } from 'react-redux'
 import { getcolorState } from 'src/redux/AppSlice'
 import { ReactMarkdown } from 'react-markdown/lib/react-markdown'
 import Head from 'next/head'
+import Contact from 'src/app/components/Contact'
 
 type Props = {
   blogData: any
@@ -152,6 +153,7 @@ export default function BlogDetail({ blogData, dataBlogList }: Props) {
           </div>
         </div>
       </section>
+      <Contact></Contact>
     </main>
   )
 }
