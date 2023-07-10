@@ -7,10 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "docker:build": "docker build --platform amd64 -t frontend .",
-    "docker:tag": "docker tag frontend gcr.io/blogofrik/rikeshshrestha",
-    "docker:push": "docker push gcr.io/blogofrik/rikeshshrestha",
-    "docker:release": "yarn docker:build && yarn docker:tag && yarn docker:push",
+    "gcloud:build": "gcloud builds submit --tag gcr.io/blogofrik/rikeshshrestha",
     "gcloud:deploy": "gcloud run deploy web --image=gcr.io/blogofrik/rikeshshrestha"
   },
   "dependencies": {
@@ -19,8 +16,6 @@
     "@types/node": "20.3.2",
     "@types/react": "18.2.14",
     "@types/react-dom": "18.2.6",
-    "apollo-boost": "^0.4.9",
-    "apollo-link-http": "^1.5.17",
     "axios": "^0.27.2",
     "bootstrap": "^5.0.1",
     "eslint": "8.43.0",

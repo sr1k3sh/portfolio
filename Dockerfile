@@ -1,6 +1,6 @@
 # Use the official Node.js LTS image as the base
 FROM node:lts-alpine
-
+RUN apk update && apk add --no-cache build-base gcc autoconf automake zlib-dev libpng-dev vips-dev > /dev/null 2>&1
 # Set the working directory inside the container
 WORKDIR /usr/src/app
 
@@ -8,13 +8,13 @@ WORKDIR /usr/src/app
 COPY package*.json ./
 
 # Install project dependencies
-RUN npm ci
+RUN yarn
 
 # Copy the entire Next.js app to the working directory
 COPY . .
 
 # Build the Next.js app for production
-RUN npm run build
+RUN yarn build
 
 # Expose the port that Next.js uses
 EXPOSE 3000
