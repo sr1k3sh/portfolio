@@ -244,15 +244,17 @@
     &__blogs {
         margin-top: 2.5rem;
 
-        & ul {
-            list-style: none;
-            padding: 0;
 
-            & li {
-                margin-bottom: 24px;
-                &:last-child {
-                    margin-bottom: 0;
-                }
+    }
+
+    &__blog-list {
+        list-style: none;
+        padding: 0;
+
+        & li {
+            margin-bottom: 24px;
+            &:last-child {
+                margin-bottom: 0;
             }
         }
     }

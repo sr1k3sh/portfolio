@@ -6,8 +6,8 @@ export const client = new ApolloClient({
 })
 
 export const GET_ARTICLES_QUERY = gql`
-  query {
-    blogs {
+  query Blogs($filters: BlogFiltersInput) {
+    blogs(filters: $filters) {
       data {
         id
         attributes {

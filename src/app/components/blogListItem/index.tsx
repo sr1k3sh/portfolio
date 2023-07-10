@@ -22,7 +22,7 @@ export default function BlogListItem({ blogDetail }: Props) {
   const { attributes, id }: any = blogDetail
 
   return (
-    <Link href={`/blogs/${id}`}>
+    <Link href={`/blogs/${id}`} className={styles.link}>
       <article className={styles.article}>
         <figure className={styles.fig}>
           <Image src={attributes.cover.data.attributes.url} width={100} height={100} style={{ objectFit: "cover" }} alt='blogs'></Image>
