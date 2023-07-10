@@ -8,6 +8,7 @@ import BlogListItem from 'src/app/components/blogListItem'
 import NavBar from 'src/app/components/NavSection'
 import { useSelector } from 'react-redux'
 import { getcolorState } from 'src/redux/AppSlice'
+import { ReactMarkdown } from 'react-markdown/lib/react-markdown'
 
 type Props = {
   blogData: any
@@ -81,6 +82,8 @@ export default function BlogDetail({blogData, dataBlogList}: Props) {
     colorState : colorState === "dark" ? "rs-app__dark " : "rs-app__light "
   }
 
+  console.log(attributes.blocks)
+
   return (
     <main className={classes.colorState}>
       <NavBar></NavBar>
@@ -102,7 +105,7 @@ export default function BlogDetail({blogData, dataBlogList}: Props) {
                 attributes.blocks && attributes.blocks.map((block: any, index:number) => (
                   <div className={styles.content} key={index}>
                     {
-                      <div dangerouslySetInnerHTML={{ __html: block.body }} />
+                      <ReactMarkdown children={block.body}></ReactMarkdown>
                     }
                   </div>
                 ))
