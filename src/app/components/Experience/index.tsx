@@ -17,27 +17,9 @@ const righteous = Righteous({
     subsets: ['latin']
 })
 
-const blogList = [
-    {
-        category: 'Technology',
-        title: 'How to setup up react native app',
-        date: 'Jan 22 2023',
-        url: '/logo.svg',
-    },
-    {
-        category: 'Technology',
-        title: 'Deploy strapi app in Cloud run',
-        date: 'Jan 23 2023',
-        url: '/bg.avif',
-    }
-]
-
 export default function Experience(props: Props) {
     const { refs , blogs} = props
     const colorState = useSelector(getcolorState)
-
-    console.log(blogs)
-
     return (
         <section ref={refs.experience.experienceRef} className={colorState === 'dark' ? 'rs-exp__section rs-exp__section--dark' : 'rs-exp__section rs-exp__section--light'}>
             <div className='rs-exp__float-bg'>
