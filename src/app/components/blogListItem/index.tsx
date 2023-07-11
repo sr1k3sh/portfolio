@@ -29,7 +29,7 @@ export default function BlogListItem({ blogDetail }: Props) {
     <Link href={`/blogs/${id}`} className={styles.link}>
       <article className={`${colorState === 'dark' ? styles.darkArticle : styles.lightArticle} ${styles.article}`}>
         <figure className={styles.fig}>
-          <Image src={attributes.cover.data.attributes.url} fill={true} style={{ objectFit: "cover" }} alt='blogs'></Image>
+          <Image src={attributes.cover.data.attributes.url} placeholder='blur' blurDataURL={attributes.cover.data.attributes.url} fill={true} style={{ objectFit: "cover" }} alt='blogs'></Image>
         </figure>
         <div className={styles.content}>
           <span className={styles.category}>{attributes.category.data.attributes.name}</span>

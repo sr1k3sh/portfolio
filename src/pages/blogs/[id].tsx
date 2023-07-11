@@ -123,7 +123,7 @@ export default function BlogDetail({ blogData, dataBlogList }: Props) {
         <div className='container-fluid'>
           <article>
             <figure className={styles.figure}>
-              <Image src={attributes.cover.data.attributes.url} alt={attributes.cover.data.attributes.alternativeText || attributes.title || ''} fill={true} style={{ objectFit: 'cover' }}></Image>
+              <Image src={attributes.cover.data.attributes.url} placeholder='blur' blurDataURL={attributes.cover.data.attributes.url} alt={attributes.cover.data.attributes.alternativeText || attributes.title || ''} fill={true} style={{ objectFit: 'cover' }}></Image>
             </figure>
           </article>
         </div>
