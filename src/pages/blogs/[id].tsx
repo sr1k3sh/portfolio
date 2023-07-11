@@ -79,6 +79,8 @@ export default function BlogDetail({ blogData, dataBlogList }: Props) {
 
   const { attributes } = blogData
 
+  console.log(attributes.category.data.id)
+
   const { blogs } = dataBlogList
 
   const colorState = useSelector(getcolorState)
@@ -96,18 +98,24 @@ export default function BlogDetail({ blogData, dataBlogList }: Props) {
           }
         </title>
         <meta
+          name="keywords"
+          content={attributes.description.split(' ').join(',')}
+        />
+        <meta
           name="description"
           content={attributes.description}
           key="desc"
         />
+        <meta property="og:url" content={`/blogs/${attributes.category.data.id}`} />
         <meta property="og:title" content={attributes.title} />
         <meta
           property="og:description"
           content={attributes.description}
         />
+        <meta property="og:site_name" content={attributes.title}></meta>
         <meta
           property="og:image"
-          content="/profile.png"
+          content={attributes.cover.data.attributes.url}
         />
         <link rel="icon" href="/profile.png" sizes="any" />
       </Head>
