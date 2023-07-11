@@ -13,8 +13,8 @@ import { GetStaticProps } from 'next'
 import Head from 'next/head'
 
 export const metadata = {
-  title: 'Rikesh Shrestha, Frontend Developer ',
-  description: 'Best frontend developer in japan, based on ureshino, originally from nepal.',
+  title: 'Rikesh Shrestha - Frontend Developer | Web Design | HTML | CSS | JavaScript | React | React Native | Ureshino, Japan',
+  description: 'Welcome to the portfolio of Rikesh Shrestha, a skilled frontend developer specializing in web design, HTML, CSS, JavaScript, React, and React Native. Based in Ureshino, Japan, he creates visually appealing and user-friendly websites and mobile apps. Explore his projects, expertise, and experience.',
 }
 interface Props {
   blogs: any
@@ -133,21 +133,19 @@ export default function Home(props: Props) {
           content={metadata.description}
           key="desc"
         />
-        <meta
-          name="keywords"
-          content={metadata.description.split(' ').join(',')}
-        />
-        <meta property="og:url" content={'/'} />
-        <meta property="og:title" content={metadata.title} />
-        <meta
-          property="og:description"
-          content={metadata.description}
-        />
-        <meta property="og:site_name" content={metadata.title}></meta>
-        <meta
-          property="og:image"
-          content="/profile.png"
-        />
+
+        <meta name="keywords" content="Rikesh Shrestha, Frontend Developer, Web Design, HTML, CSS, JavaScript, React, React Native, Ureshino, Japan, Portfolio"/>
+        <meta property="og:title" content={metadata.title}/>
+        <meta property="og:description" content={metadata.description}/>
+        <meta property="og:image" content="/profile.png"/>
+        <meta property="og:url" content="https://rikeshshrestha.com/"/>
+        <meta property="og:type" content="website"/>
+        <meta name="twitter:card" content="summary"/>
+        <meta name="twitter:site" content="@rikeshshrestha"/>
+        <meta name="twitter:title" content={metadata.title}/>
+        <meta name="twitter:description" content={metadata.description}/>
+        <meta name="twitter:image" content="/profile.png"/>
+
         <link rel="icon" href="/profile.png" sizes="any" />
       </Head>
       <script
