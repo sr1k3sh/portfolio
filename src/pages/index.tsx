@@ -133,11 +133,17 @@ export default function Home(props: Props) {
           content={metadata.description}
           key="desc"
         />
+        <meta
+          name="keywords"
+          content={metadata.description.split(' ').join(',')}
+        />
+        <meta property="og:url" content={'/'} />
         <meta property="og:title" content={metadata.title} />
         <meta
           property="og:description"
           content={metadata.description}
         />
+        <meta property="og:site_name" content={metadata.title}></meta>
         <meta
           property="og:image"
           content="/profile.png"
