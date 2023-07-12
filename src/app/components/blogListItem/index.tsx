@@ -26,7 +26,7 @@ export default function BlogListItem({ blogDetail }: Props) {
   const colorState = useSelector(getcolorState)
 
   return (
-    <Link href={`/blogs/${id}`} className={styles.link}>
+    <Link href={`/blogs/${attributes.category.data.attributes.slug}/${id}`} className={styles.link}>
       <article className={`${colorState === 'dark' ? styles.darkArticle : styles.lightArticle} ${styles.article}`}>
         <figure className={styles.fig}>
           <Image src={attributes?.cover?.data?.attributes?.url || '/bg.avif'} placeholder='blur' blurDataURL={'/bg.avif'} fill={true} style={{ objectFit: "cover" }} alt='blogs'></Image>

@@ -29,13 +29,11 @@ export async function getStaticPaths() {
     query: GET_BLOGS_IDS,
   })
 
-  // console.log(data.blogs.data)
-
   // Generate an array of objects with the `params` key for each blog ID
   const paths = data.blogs.data.map((blog: any) => ({
     params: {
       id: blog.id,
-      slug: blog.attributes.slug,
+      category: blog.attributes.slug,
     },
   }));
 

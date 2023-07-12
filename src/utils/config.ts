@@ -5,9 +5,42 @@ export const client = new ApolloClient({
   cache: new InMemoryCache()
 })
 
+export const GET_BLOGS_CATEGORY_LIST_QUERY = gql`
+  query Query($pagination: PaginationArg) {
+    categories {
+      data {
+        id
+        attributes {
+          name
+          blogs(pagination: $pagination) {
+            data {
+              id
+              attributes {
+                slug
+                title
+                cover {
+                  data {
+                    id
+                    attributes {
+                      alternativeText
+                      url
+                    }
+                  }
+                }
+                description
+                publishedAt
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`
+
 export const GET_ARTICLES_QUERY = gql`
-  query Blogs($filters: BlogFiltersInput) {
-    blogs(filters: $filters) {
+  query Blogs($pagination: PaginationArg, $filters: BlogFiltersInput) {
+    blogs(pagination: $pagination, filters: $filters) {
       data {
         id
         attributes {

@@ -156,7 +156,12 @@ const Home = (props: Props) => {
 
 export const getStaticProps: GetStaticProps = async () => {
   const { data } = await client.query({
-    query: GET_ARTICLES_QUERY
+    query: GET_ARTICLES_QUERY,
+    variables: {
+      pagination: {
+        limit: 4,
+      },
+    },
   })
 
   return {

@@ -778,7 +778,7 @@ export default function Experience(props: Props) {
                                             </li>)
                                         }
                                     </ul>
-                                    <Link href={'/'} className={`rs-exp__more ${righteous.className}`}> Read more blogs</Link>
+                                    <Link href={'/blogs'} className={`rs-exp__more ${righteous.className}`}> Read more blogs</Link>
                                 </div>
                             </div>
                         </div>
