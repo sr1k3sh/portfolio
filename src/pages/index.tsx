@@ -43,19 +43,10 @@ export interface Refs {
   },
 }
 
-export const getStaticProps: GetStaticProps = async () => {
-  const { data } = await client.query({
-    query: GET_ARTICLES_QUERY
-  })
 
-  return {
-    props: {
-      blogs: data.blogs
-    }
-  }
-}
 
-export default function Home(props: Props) {
+
+const Home = (props: Props) => {
 
   const { blogs } = props
 
@@ -162,3 +153,18 @@ export default function Home(props: Props) {
     </main>
   )
 }
+
+export const getStaticProps: GetStaticProps = async () => {
+  const { data } = await client.query({
+    query: GET_ARTICLES_QUERY
+  })
+
+  return {
+    props: {
+      blogs: data.blogs,
+    },
+    revalidate: 10,
+  }
+}
+
+export default Home

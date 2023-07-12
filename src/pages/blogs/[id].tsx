@@ -41,7 +41,8 @@ export async function getStaticPaths() {
 
   return {
     paths,
-    fallback: false, // Set to `true` if you want to enable fallback behavior
+    fallback: 'blocking',
+     // Set to `true` if you want to enable fallback behavior
   };
 }
 
@@ -108,14 +109,14 @@ export default function BlogDetail({ blogData, dataBlogList }: Props) {
 
         <meta property="og:title" content={attributes.title}/>
         <meta property="og:description" content={attributes.description}/>
-        <meta property="og:image" content={attributes.cover.data.attributes.url}/>
+        <meta property="og:image" content={attributes?.cover?.data?.attributes?.url || '/bg.avif'}/>
         <meta property="og:url" content={`/blogs/${attributes.category.data.id}`} />
         <meta property="og:type" content="website"/>
         <meta name="twitter:card" content="summary"/>
         <meta name="twitter:site" content="@rikeshshrestha"/>
         <meta name="twitter:title" content={attributes.title}/>
         <meta name="twitter:description" content={attributes.description}/>
-        <meta name="twitter:image" content={attributes.cover.data.attributes.url}/>
+        <meta name="twitter:image" content={attributes?.cover?.data?.attributes?.url || '/bg.avif'}/>
         <link rel="icon" href="/profile.png" sizes="any" />
       </Head>
       <NavBar></NavBar>
@@ -123,7 +124,7 @@ export default function BlogDetail({ blogData, dataBlogList }: Props) {
         <div className='container-fluid'>
           <article>
             <figure className={styles.figure}>
-              <Image src={attributes.cover.data.attributes.url} placeholder='blur' blurDataURL={attributes.cover.data.attributes.url} alt={attributes.cover.data.attributes.alternativeText || attributes.title || ''} fill={true} style={{ objectFit: 'cover' }}></Image>
+              <Image src={attributes?.cover?.data?.attributes?.url || '/bg.avif'} placeholder='blur' blurDataURL={'/bg.avif'} alt={attributes?.cover?.data?.attributes?.alternativeText || attributes?.title || ''} fill={true} style={{ objectFit: 'cover' }}></Image>
             </figure>
           </article>
         </div>
