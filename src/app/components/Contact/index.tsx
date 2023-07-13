@@ -94,7 +94,6 @@ export default function Contact(props:ContactSectionProps) {
                     setFormClassStatus("error")
                 }
             }catch(err){
-                console.log(err)
                 setLogMessage("Something is wrong. please try again")
                 setFormClassStatus("error")
             }

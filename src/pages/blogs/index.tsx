@@ -50,8 +50,6 @@ export default function BlogListingPage({ categories }: Props) {
 
 
   const { data } = categories
-  console.log(data)
-  // return <>test</>
 
   const colorState = useSelector(getcolorState)
 

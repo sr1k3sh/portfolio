@@ -9,7 +9,6 @@ type Props = {
 
 export default function CustomButton({children, onMouseEnter, className, type}: Props) {
   const onmouseEnter = () => {
-    console.log('enetered')
     onMouseEnter && onMouseEnter()
   }
   return (

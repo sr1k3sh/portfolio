@@ -27,6 +27,16 @@ export const GET_BLOGS_CATEGORY_LIST_QUERY = gql`
                     }
                   }
                 }
+                category {
+                  data {
+                    attributes {
+                      name
+                      slug
+                      createdAt
+                      description
+                    }
+                  }
+                }
                 description
                 publishedAt
               }

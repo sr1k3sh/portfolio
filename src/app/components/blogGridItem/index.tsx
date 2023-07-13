@@ -8,15 +8,16 @@ type Props = {
 }
 
 export default function BlogGridItem({blog}: Props) {
+  const {attributes, id} = blog
   return (
-    <Link className={styles.link} href="/">
+    <Link href={`/blogs/${attributes.slug}/${id}`} className={styles.link} >
       <article>
         <figure className={styles.fig}>
-          <Image loading='lazy' style={{ objectFit: 'cover' }} src={blog?.attributes?.cover?.data?.attributes?.url || '/bg.avif'} blurDataURL='/bg.avif' fill={true} alt={blog?.attributes?.cover?.data?.attributes.alternativeText || ''} />
+          <Image loading='lazy' style={{ objectFit: 'cover' }} src={attributes?.cover?.data?.attributes?.url || '/bg.avif'} blurDataURL='/bg.avif' fill={true} alt={attributes?.cover?.data?.attributes.alternativeText || ''} />
         </figure>
-        <h3 className={styles.title}>{blog.attributes.title}</h3>
-        <p className={styles.content}>{blog.attributes.description}</p>
-        <span className={styles.date}>{blog.attributes.publishedAt && new Date(blog.attributes.publishedAt).toLocaleDateString('en-US', {
+        <h3 className={styles.title}>{attributes.title}</h3>
+        <p className={styles.content}>{attributes.description}</p>
+        <span className={styles.date}>{attributes.publishedAt && new Date(attributes.publishedAt).toLocaleDateString('en-US', {
           year: 'numeric',
           month: 'short',
           day: '2-digit'
