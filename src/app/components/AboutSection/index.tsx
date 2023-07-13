@@ -705,7 +705,7 @@ export default function About(props:AboutSectionProps) {
                     <div className='col-12 col-md-6 col-lg-3 rs-about__profile-wrapper'>
                         <div className='rs-about__profile'>
                             <figure className="rs-about__figure">
-                                <Image priority={true} src='/profile.png' alt="Rikesh Shrestha, Frontend Developer in japan" width={500} height={600} loading={'lazy'}></Image>
+                                <Image priority={true} src='/profile.png' alt="Rikesh Shrestha, Frontend Developer in japan" width={500} height={600} ></Image>
                             </figure>
                         </div>
                     </div>

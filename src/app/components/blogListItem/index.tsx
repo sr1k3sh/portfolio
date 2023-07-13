@@ -29,7 +29,7 @@ export default function BlogListItem({ blogDetail }: Props) {
     <Link href={`/blogs/${attributes.category.data.attributes.slug}/${id}`} className={styles.link}>
       <article className={`${colorState === 'dark' ? styles.darkArticle : styles.lightArticle} ${styles.article}`}>
         <figure className={styles.fig}>
-          <Image loading='lazy' priority={true} src={attributes?.cover?.data?.attributes?.url || '/bg.avif'} placeholder='blur' blurDataURL={'/bg.avif'} fill={true} style={{ objectFit: "cover" }} alt='blogs'></Image>
+          <Image loading='lazy' src={attributes?.cover?.data?.attributes?.url || '/bg.avif'} placeholder='blur' blurDataURL={'/bg.avif'} fill={true} style={{ objectFit: "cover" }} alt='blogs'></Image>
         </figure>
         <div className={styles.content}>
           <span className={styles.category}>{attributes.category.data.attributes.name}</span>

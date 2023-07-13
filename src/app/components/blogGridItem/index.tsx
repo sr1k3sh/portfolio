@@ -12,7 +12,7 @@ export default function BlogGridItem({blog}: Props) {
     <Link className={styles.link} href="/">
       <article>
         <figure className={styles.fig}>
-          <Image loading='lazy' priority={true} style={{ objectFit: 'cover' }} src={blog?.attributes?.cover?.data?.attributes?.url || '/bg.avif'} blurDataURL='/bg.avif' fill={true} alt={blog?.attributes?.cover?.data?.attributes.alternativeText || ''} />
+          <Image loading='lazy' style={{ objectFit: 'cover' }} src={blog?.attributes?.cover?.data?.attributes?.url || '/bg.avif'} blurDataURL='/bg.avif' fill={true} alt={blog?.attributes?.cover?.data?.attributes.alternativeText || ''} />
         </figure>
         <h3 className={styles.title}>{blog.attributes.title}</h3>
         <p className={styles.content}>{blog.attributes.description}</p>
