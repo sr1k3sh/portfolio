@@ -3,7 +3,7 @@
     $self: &;
 
     &__section{
-        overflow: hidden;
+        // overflow: hidden;
         &--dark{
             #{$self}__desc-wrapper{
                 background: linear-gradient(141.51deg, #9c27b09c -18.34%, #651fff91 66.03%);
@@ -35,12 +35,12 @@
             }
 
             & .mapboxgl-popup-content{
-                background-color: #303030;
+                background-color: #ffffff78;
                 border-radius: 20px;
             }
 
             & .mapboxgl-popup-tip{
-                border-top-color: #303030 !important;
+                border-top-color: #ffffff78 !important;
             }
         }
     }
@@ -64,8 +64,8 @@
             }
 
             #{$self}__popup-wrapper{
-                background-color: #303030;
-                color: $white;
+                // background-color: #303030;
+                color: #303030;
             }
         }
 
@@ -76,8 +76,8 @@
             }
 
             #{$self}__popup-wrapper{
-                background-color: $white;
-                color: #303030;
+                // background-color: $white;
+                color: $white;
             }
         }
         & h2{

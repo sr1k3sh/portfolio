@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import Map, { Source, Layer, Marker, Popup, SymbolLayer } from 'react-map-gl'
+import Map, { Marker, Popup } from 'react-map-gl'
 import { FeatureCollection, Point, GeoJsonProperties } from 'geojson/index'
 import { getcolorState } from '../../../redux/AppSlice'
 import { useSelector } from 'react-redux'
@@ -7,8 +7,8 @@ import { useSelector } from 'react-redux'
 import mapboxgl from 'mapbox-gl/dist/mapbox-gl'
 import 'mapbox-gl/dist/mapbox-gl.css'
 import { Refs } from '../../../pages'
-import Image from 'next/image'
 import { Righteous } from 'next/font/google'
+import { MdEmojiPeople } from 'react-icons/md'
 
 // mapboxgl.workerClass = MapboxWorker
 // import mapboxgl from "mapbox-gl"
@@ -46,7 +46,7 @@ export default function Testimonial(props: Props) {
                 },
                 properties: {
                     name: 'John Doe',
-                    message: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. ",
+                    message: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. ",
                     img: '/vercel.svg'
                 }
             },
@@ -58,7 +58,7 @@ export default function Testimonial(props: Props) {
                 },
                 properties: {
                     name: 'John Wick',
-                    message: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. ",
+                    message: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. ",
                     img: '/vercel.svg'
                 }
             },
@@ -70,7 +70,7 @@ export default function Testimonial(props: Props) {
                 },
                 properties: {
                     name: 'Rajesh Hamal',
-                    message: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. ",
+                    message: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. ",
                     img: '/vercel.svg'
                 }
             },
@@ -82,34 +82,12 @@ export default function Testimonial(props: Props) {
                 },
                 properties: {
                     name: 'Rajni kanth',
-                    message: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. ",
+                    message: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. ",
                     img: '/vercel.svg'
                 }
             },
 
         ]
-    }
-
-    const layerStyle:SymbolLayer = {
-        'id': 'off-leash-areas',
-        'type': 'symbol',
-        'source': 'places',
-        'layout': {
-            'text-field': [
-                'format',
-                ['upcase', ['get', 'name']],
-                { 'font-scale': 0.8 },
-                '\n',
-                {},
-            ],
-            'text-size': 11,
-            'text-transform': 'uppercase',
-            'text-letter-spacing': 0.05,
-            'text-offset': [0, 3],
-        },
-        'paint': {
-            'text-color': '#651FFF',
-        },
     }
 
     const onHireClick: React.MouseEventHandler<HTMLButtonElement> = (e) => {
@@ -130,10 +108,11 @@ export default function Testimonial(props: Props) {
                                         id="map"
                                         style={{ position: "absolute" }}
                                         mapboxAccessToken={REACT_MAPBOX_TOKEN}
+                                        scrollZoom={false}
                                         initialViewState={{
                                             longitude: 85.3239595,
                                             latitude: 27.7406487,
-                                            zoom: 1.2
+                                            zoom: 0.8,
                                         }}
                                         mapStyle={colorState === "dark" ? "mapbox://styles/mapbox/dark-v10" : "mapbox://styles/mapbox/light-v10"}
                                     >
@@ -149,13 +128,15 @@ export default function Testimonial(props: Props) {
                                                         setPopupInfo(g)
                                                     }}
                                                 >
-                                                    <Image priority={false} src={g.properties?.img} alt="Front-end developer, Rikesh" width={40} height={40}></Image>
+                                                    <MdEmojiPeople size={32} color={colorState === 'dark' ? '#fff' : '#651FFF'}></MdEmojiPeople>
                                                 </Marker>
                                             })
                                         }
                                         {
-                                            popupInfo?.geometry && <Popup longitude={popupInfo.geometry.coordinates[0]} latitude={popupInfo.geometry.coordinates[1]}
-                                                anchor="bottom"
+                                            popupInfo?.geometry && <Popup
+                                                longitude={popupInfo.geometry.coordinates[0]}
+                                                latitude={popupInfo.geometry.coordinates[1]}
+                                                // anchor="bottom"
                                                 closeButton={false}
                                                 onClose={() => setPopupInfo(null)}
                                                 offset={30}
@@ -165,12 +146,6 @@ export default function Testimonial(props: Props) {
                                                     <p>{popupInfo.properties.message}</p>
                                                 </div>
                                             </Popup>
-                                        }
-                                        {
-                                            geojson &&
-                                            <Source id="my-data" type="geojson" data={geojson}>
-                                                <Layer {...layerStyle} />
-                                            </Source>
                                         }
                                     </Map>
                                 </div>
