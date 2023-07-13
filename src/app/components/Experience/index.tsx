@@ -745,28 +745,28 @@ export default function Experience(props: Props) {
                                 <div className='rs-exp__skills'>
                                     <h3 className={righteous.className}>SKILL AND EXPERTISE</h3>
                                     <ul>
-                                        <li><Image src='/images/html.svg' width={300} height={300} alt="Rikesh Shrestha, HTML"></Image></li>
-                                        <li><Image src={'/images/css.svg'} width={300} height={300} alt="Rikesh Shrestha, CSS"></Image></li>
-                                        <li><Image src={'/images/sass.svg'} width={300} height={300} alt="Rikesh Shrestha, SASS"></Image></li>
-                                        <li><Image src={'/images/js.svg'} width={300} height={300} alt="Rikesh Shrestha, Javascript"></Image></li>
-                                        <li><Image src={'/images/react.svg'} width={300} height={300} alt="Rikesh Shrestha, React"></Image></li>
-                                        <li><Image src={'/images/angular.svg'} width={300} height={300} alt="Rikesh Shrestha, Angular"></Image></li>
-                                        <li><Image src={'/images/vue.svg'} width={300} height={300} alt="Rikesh Shrestha, Vue"></Image></li>
-                                        <li><Image src={'/images/mongodb.svg'} width={300} height={300} alt="Rikesh Shrestha, MongoDb"></Image></li>
-                                        <li><Image src={'/images/mysql.svg'} width={300} height={300} alt="Rikesh Shrestha, mysql"></Image></li>
-                                        <li><Image src={'/images/node.svg'} width={300} height={300} alt="Rikesh Shrestha, Node.js"></Image></li>
-                                        <li><Image src={'/images/firebase.svg'} width={300} height={300} alt="Rikesh Shrestha, Firebase"></Image></li>
-                                        <li><Image src={'/images/express.svg'} width={300} height={300} alt="Rikesh Shrestha, EXpress"></Image></li>
-                                        <li><Image src={'/images/figma-1.svg'} width={300} height={300} alt="Rikesh Shrestha, Figma"></Image></li>
-                                        <li><Image src={'/images/xd.svg'} width={300} height={300} alt="Rikesh Shrestha, xd"></Image></li>
-                                        <li><Image src={'/images/zeplin.svg'} width={300} height={300} alt="Rikesh Shrestha, Zeplin"></Image></li>
-                                        <li><Image src={'/images/git.svg'} width={300} height={300} alt="Rikesh Shrestha, git"></Image></li>
-                                        <li><Image src={'/images/github.svg'} width={300} height={300} alt="Rikesh Shrestha, github"></Image></li>
-                                        <li><Image src={'/images/bitbucket.svg'} width={300} height={300} alt="Rikesh Shrestha, bitbucket"></Image></li>
-                                        <li><Image src={'/images/jira.svg'} width={300} height={300} alt="Rikesh Shrestha, jira"></Image></li>
-                                        <li><Image src={'/images/netlify.svg'} width={300} height={300} alt="Rikesh Shrestha, netlify"></Image></li>
-                                        <li><Image src={'/images/heroku.svg'} width={300} height={300} alt="Rikesh Shrestha, heroku"></Image></li>
-                                        <li><Image src={'/images/vscode.svg'} width={300} height={300} alt="Rikesh Shrestha, vscode"></Image></li>
+                                        <li><Image priority={false} src='/images/html.svg' width={300} height={300} alt="Rikesh Shrestha, HTML"></Image></li>
+                                        <li><Image priority={false} src={'/images/css.svg'} width={300} height={300} alt="Rikesh Shrestha, CSS"></Image></li>
+                                        <li><Image priority={false} src={'/images/sass.svg'} width={300} height={300} alt="Rikesh Shrestha, SASS"></Image></li>
+                                        <li><Image priority={false} src={'/images/js.svg'} width={300} height={300} alt="Rikesh Shrestha, Javascript"></Image></li>
+                                        <li><Image priority={false} src={'/images/react.svg'} width={300} height={300} alt="Rikesh Shrestha, React"></Image></li>
+                                        <li><Image priority={false} src={'/images/angular.svg'} width={300} height={300} alt="Rikesh Shrestha, Angular"></Image></li>
+                                        <li><Image priority={false} src={'/images/vue.svg'} width={300} height={300} alt="Rikesh Shrestha, Vue"></Image></li>
+                                        <li><Image priority={false} src={'/images/mongodb.svg'} width={300} height={300} alt="Rikesh Shrestha, MongoDb"></Image></li>
+                                        <li><Image priority={false} src={'/images/mysql.svg'} width={300} height={300} alt="Rikesh Shrestha, mysql"></Image></li>
+                                        <li><Image priority={false} src={'/images/node.svg'} width={300} height={300} alt="Rikesh Shrestha, Node.js"></Image></li>
+                                        <li><Image priority={false} src={'/images/firebase.svg'} width={300} height={300} alt="Rikesh Shrestha, Firebase"></Image></li>
+                                        <li><Image priority={false} src={'/images/express.svg'} width={300} height={300} alt="Rikesh Shrestha, EXpress"></Image></li>
+                                        <li><Image priority={false} src={'/images/figma-1.svg'} width={300} height={300} alt="Rikesh Shrestha, Figma"></Image></li>
+                                        <li><Image priority={false} src={'/images/xd.svg'} width={300} height={300} alt="Rikesh Shrestha, xd"></Image></li>
+                                        <li><Image priority={false} src={'/images/zeplin.svg'} width={300} height={300} alt="Rikesh Shrestha, Zeplin"></Image></li>
+                                        <li><Image priority={false} src={'/images/git.svg'} width={300} height={300} alt="Rikesh Shrestha, git"></Image></li>
+                                        <li><Image priority={false} src={'/images/github.svg'} width={300} height={300} alt="Rikesh Shrestha, github"></Image></li>
+                                        <li><Image priority={false} src={'/images/bitbucket.svg'} width={300} height={300} alt="Rikesh Shrestha, bitbucket"></Image></li>
+                                        <li><Image priority={false} src={'/images/jira.svg'} width={300} height={300} alt="Rikesh Shrestha, jira"></Image></li>
+                                        <li><Image priority={false} src={'/images/netlify.svg'} width={300} height={300} alt="Rikesh Shrestha, netlify"></Image></li>
+                                        <li><Image priority={false} src={'/images/heroku.svg'} width={300} height={300} alt="Rikesh Shrestha, heroku"></Image></li>
+                                        <li><Image priority={false} src={'/images/vscode.svg'} width={300} height={300} alt="Rikesh Shrestha, vscode"></Image></li>
                                     </ul>
                                 </div>
                                 <div className='rs-exp__blogs'>

@@ -149,7 +149,7 @@ export default function Testimonial(props: Props) {
                                                         setPopupInfo(g)
                                                     }}
                                                 >
-                                                    <Image src={g.properties?.img} alt="Front-end developer, Rikesh" width={40} height={40}></Image>
+                                                    <Image priority={false} src={g.properties?.img} alt="Front-end developer, Rikesh" width={40} height={40}></Image>
                                                 </Marker>
                                             })
                                         }

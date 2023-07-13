@@ -159,7 +159,7 @@ export const getStaticProps: GetStaticProps = async () => {
     query: GET_ARTICLES_QUERY,
     variables: {
       pagination: {
-        limit: 4,
+        limit: 5,
       },
     },
   })

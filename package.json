@@ -8,6 +8,10 @@
     "start": "next start",
     "lint": "next lint",
     "gcloud:build": "gcloud builds submit --tag gcr.io/blogofrik/rikeshshrestha",
+    "docker:build": "docker build --progress=plain --no-cache --platform linux/amd64 -t rikeshshrestha . ",
+    "docker:tag": "docker tag rikeshshrestha gcr.io/blogofrik/rikeshshrestha",
+    "docker:push": "docker push gcr.io/blogofrik/rikeshshrestha",
+    "docker:release": "yarn docker:build && yarn docker:tag && yarn docker:push",
     "gcloud:deploy": "gcloud run deploy web --image=gcr.io/blogofrik/rikeshshrestha"
   },
   "dependencies": {

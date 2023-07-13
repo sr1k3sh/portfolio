@@ -94,7 +94,7 @@ export default function BlogListingPage({ categories }: Props) {
         <div className='container-fluid'>
           <article>
             <figure className={styles.figure}>
-              <Image src={'/bg.avif'} placeholder='blur' blurDataURL={'/bg.avif'} alt={metadata?.title || ''} fill={true} style={{ objectFit: 'cover' }}></Image>
+              <Image src={'/bg.avif'} loading='lazy' placeholder='blur' blurDataURL={'/bg.avif'} alt={metadata?.title || ''} fill={true} style={{ objectFit: 'cover' }}></Image>
             </figure>
           </article>
         </div>
