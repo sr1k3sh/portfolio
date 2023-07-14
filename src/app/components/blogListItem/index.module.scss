@@ -17,6 +17,9 @@
 }
 
 .darkArticle.article {
+  background: #00000047;
+  backdrop-filter: blur(24px);
+  border-radius: 15px;
   & .title {
     color: var(--font-white);
     &:hover {
@@ -34,6 +37,9 @@
 }
 
 .lightArticle.article {
+  background: #ffffff47;
+  backdrop-filter: blur(24px);
+  border-radius: 15px;
   & .title {
     color: var(--font-black);
     &:hover {
