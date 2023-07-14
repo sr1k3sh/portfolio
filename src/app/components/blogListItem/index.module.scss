@@ -20,6 +20,7 @@
   background: #00000047;
   backdrop-filter: blur(24px);
   border-radius: 15px;
+  border-top-right-radius: 0;
   & .title {
     color: var(--font-white);
     &:hover {
@@ -40,6 +41,7 @@
   background: #ffffff47;
   backdrop-filter: blur(24px);
   border-radius: 15px;
+  border-top-right-radius: 0;
   & .title {
     color: var(--font-black);
     &:hover {

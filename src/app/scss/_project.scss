@@ -44,6 +44,7 @@
         padding: 40px 32px;
         gap: 2rem;
         flex-wrap: wrap;
+        border-top-right-radius: 0;
         @include media-breakpoint-down(md){
             border-top-left-radius: 0;
         }

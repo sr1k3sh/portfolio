@@ -83,11 +83,12 @@
             height: 100%;
             object-fit: cover;
             background-color: #edb506;
+            border-top-right-radius: 0;
             @include media-breakpoint-down(md){
                 aspect-ratio: 1;
             }
             aspect-ratio: 1/1.5;
-            box-shadow: 0px 2px 14px #d1c4e9;
+            // box-shadow: 0px 2px 14px #d1c4e9;
             @include media-breakpoint-up(md){
                 width: 269px;
                 height: 344px;
@@ -120,6 +121,7 @@
             left: 16px;
             top: 16px;
             border-radius: 14px;
+            border-top-right-radius: 0;
         }
         &::after{
             content: "";
