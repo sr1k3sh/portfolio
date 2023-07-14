@@ -137,6 +137,7 @@ export default function SliderV2() {
         // gap: 20,
         focus  : 'center',
         pagination: false,
+        autoplay: true,
     }
 
     const onActive = ( cur:any, ind:any) => {
