@@ -3,7 +3,7 @@ const nextConfig = {
   images: {
     formats: ['image/avif', 'image/webp'],
     // domains: ['res.cloudinary.com'],
-    domains: ['storage.googleapis.com','res.cloudinary.com'],
+    domains: ['storage.googleapis.com','res.cloudinary.com', 'images.unsplash.com'],
     // formats: ['image/avif', 'image/webp'],
     // minimumCacheTTL: 1500000,
   },

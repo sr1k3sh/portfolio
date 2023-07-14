@@ -11,6 +11,8 @@ import { changeColorByValue, getcolorState } from 'src/redux/AppSlice'
 import { GET_ARTICLES_QUERY, client } from 'src/utils/config'
 import { GetStaticProps } from 'next'
 import Head from 'next/head'
+import SliderV2 from 'src/app/components/SliderV2'
+import NavBar from 'src/app/components/NavSection'
 
 export const metadata = {
   title: 'Rikesh Shrestha - Frontend Developer | Web Design | HTML | CSS | JavaScript | React | React Native | Ureshino, Japan',
@@ -143,11 +145,13 @@ const Home = (props: Props) => {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
+      <NavBar isHome refs={refs}></NavBar>
       <HeaderSection refs={refs}></HeaderSection>
       <About refs={refs}></About>
       <Experience refs={refs} blogs={blogs}></Experience>
       <Projects></Projects>
       <Services refs={refs}></Services>
+      <SliderV2></SliderV2>
       <Testimonial refs={refs}></Testimonial>
       <Contact refs={refs}></Contact>
     </main>

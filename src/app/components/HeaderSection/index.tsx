@@ -6,29 +6,11 @@ import Link from 'next/link'
 import { lang } from './../../../utils/Constant'
 import { Refs } from '../../../pages'
 import { Righteous} from 'next/font/google'
-import NavBar from '../NavSection'
 
 const righteous = Righteous({
     weight: '400',
     subsets: ['latin']
 })
-
-interface ToolTipsProps {
-    className: string,
-    children: string | JSX.Element | JSX.Element
-    title: string
-    onClick?: () => void
-}
-
-function Tooltip (props:ToolTipsProps){
-    const { className, children, title } = props
-    return(
-        <div className={ className } >
-            { children }
-            <span>{ title }</span>
-        </div>
-    )
-}
 
 interface HeaderSectionProps {
     refs: Refs
@@ -53,7 +35,7 @@ const HeaderSection: React.FC<HeaderSectionProps> = ({ refs }) => {
             <div className="container-fluid">
                 <div className="row">
                     <div className="col-12 p-0">
-                        <NavBar refs={refs} isHome={true}></NavBar>
+                        {/* <NavBar refs={refs} isHome={true}></NavBar> */}
                         <div className='rs-banner__wrapper'>
                             <div className='rs-banner__main-banner'>
                                 <div className="rs-banner__content">

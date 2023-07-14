@@ -6,7 +6,7 @@
         top: 0;
         // z-index: -1;
         & svg{
-            fill: $gray-100;
+            fill: #f8f9fa2e;
             width: 100%;
             // transform: translate(-10px , 0);
             animation: anim 4s forwards infinite;
@@ -16,6 +16,7 @@
         position: relative;
         overflow-y: clip;
         overflow-x: clip;
+        z-index: 1;
         // padding: 0 0 50px;
         &--dark{
             color: $white;

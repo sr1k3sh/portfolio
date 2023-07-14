@@ -1,6 +1,8 @@
 .rs-project{
     $self: &;
     &__section{
+        z-index: 1;
+        position: relative;
         &--dark{
             color: $white;
             #{$self}__count{

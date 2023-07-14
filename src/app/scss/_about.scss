@@ -6,7 +6,7 @@
         bottom: 0;
         // z-index: -1;
         & svg{
-            fill: $gray-100;
+            fill: #f8f9fa2e;
             width: 100%;
             // transform: translate(-10px , 0);
             animation: anim 4s forwards infinite;
@@ -25,7 +25,7 @@
 
         @include media-breakpoint-down(md){
             padding-bottom: 14px;
-            z-index: 0;
+            z-index: 1;
         }
         &--light{
             color: $black;
