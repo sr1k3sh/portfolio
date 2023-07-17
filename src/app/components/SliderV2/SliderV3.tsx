@@ -70,84 +70,84 @@ const services = [
     description: "Building responsive and user-friendly websites using HTML, CSS, and JavaScript.",
     url: 'https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80',
     imageUrl: "url-to-image-website-development",
-    icon: (color:string) => <SiSemanticuireact className={styles.icon} size={100} color={color}></SiSemanticuireact>
+    icon: (color:string) => <SiSemanticuireact className={styles.icon} size={84} color={color}></SiSemanticuireact>
   },
   {
     title: "UI/UX Design",
     description: "Creating visually appealing and intuitive user interfaces and user experience designs.",
     url: 'https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80',
     imageUrl: "url-to-image-ui-ux-design",
-    icon: (color:string) => <PiFigmaLogoDuotone className={styles.icon} size={100} color={color}></PiFigmaLogoDuotone>
+    icon: (color:string) => <PiFigmaLogoDuotone className={styles.icon} size={84} color={color}></PiFigmaLogoDuotone>
   },
   {
     title: "Responsive Design",
     description: "Ensuring that websites and applications adapt and function well across different devices and screen sizes.",
     url: 'https://images.unsplash.com/photo-1516471845540-98fd378beb4c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80',
     imageUrl: "url-to-image-responsive-design",
-    icon: (color:string) => <LuScreenShare className={styles.icon} size={100} color={color}></LuScreenShare>
+    icon: (color:string) => <LuScreenShare className={styles.icon} size={84} color={color}></LuScreenShare>
   },
   {
     title: "Frontend Optimization",
     description: "Optimizing website performance, speed, and efficiency by minimizing file sizes and optimizing code.",
     url: 'https://images.unsplash.com/photo-1570641963303-92ce4845ed4c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80',
     imageUrl: "url-to-image-frontend-optimization",
-    icon: (color:string) => <SiGoogleoptimize className={styles.icon} size={100} color={color}></SiGoogleoptimize>
+    icon: (color:string) => <SiGoogleoptimize className={styles.icon} size={84} color={color}></SiGoogleoptimize>
   },
   {
     title: "Cross-Browser Compatibility",
     description: "Ensuring consistent website functionality and appearance across different web browsers and versions.",
     url: '/bg.avif',
     imageUrl: "url-to-image-cross-browser-compatibility",
-    icon: (color:string) => <FaFirefoxBrowser className={styles.icon} size={100} color={color}></FaFirefoxBrowser>
+    icon: (color:string) => <FaFirefoxBrowser className={styles.icon} size={84} color={color}></FaFirefoxBrowser>
   },
   {
     title: "Wireframing and Prototyping",
     description: "Creating wireframes and interactive prototypes to visualize and test user flows and interactions.",
     url: 'https://images.unsplash.com/photo-1502512571217-6a08d302fe5a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=688&q=80',
     imageUrl: "url-to-image-wireframing-prototyping",
-    icon: (color:string) => <GiWireframeGlobe className={styles.icon} size={100} color={color}></GiWireframeGlobe>
+    icon: (color:string) => <GiWireframeGlobe className={styles.icon} size={84} color={color}></GiWireframeGlobe>
   },
   {
       title: "Mobile App Design",
       description: "Designing engaging and intuitive mobile app interfaces for iOS and Android platforms.",
       url: '/bg.avif',
       imageUrl: "url-to-image-mobile-app-design",
-      icon: (color:string) => <FaApple className={styles.icon} size={100} color={color}></FaApple>
+      icon: (color:string) => <FaApple className={styles.icon} size={84} color={color}></FaApple>
   },
   {
       title: "Frontend Testing and Debugging",
       description: "Conducting testing and debugging to ensure frontend code is error-free and functions as intended.",
       url: '/bg.avif',
       imageUrl: "url-to-image-frontend-testing-debugging",
-      icon: (color:string) => <SiVitest className={styles.icon} size={100} color={color}></SiVitest>
+      icon: (color:string) => <SiVitest className={styles.icon} size={84} color={color}></SiVitest>
   },
   {
       title: "CMS Integration",
       description: "Integrating content management systems to enable easy content updates and management.",
       url: '/bg.avif',
       imageUrl: "url-to-image-cms-integration",
-      icon: (color:string) => <MdOutlineIntegrationInstructions className={styles.icon} size={100} color={color}></MdOutlineIntegrationInstructions>
+      icon: (color:string) => <MdOutlineIntegrationInstructions className={styles.icon} size={84} color={color}></MdOutlineIntegrationInstructions>
   },
   {
       title: "Animation and Motion Graphics",
       description: "Creating interactive and visually appealing animations and motion graphics for websites and applications.",
       url: '/bg.avif',
       imageUrl: "url-to-image-animation-motion-graphics",
-      icon: (color:string) => <MdAnimation className={styles.icon} size={100} color={color}></MdAnimation>
+      icon: (color:string) => <MdAnimation className={styles.icon} size={84} color={color}></MdAnimation>
   },
   {
       title: "Frontend Consulting and Strategy",
       description: "Providing guidance and strategic planning for frontend development projects, including technology stack selection and architecture design.",
       url: '/bg.avif',
       imageUrl: "url-to-image-frontend-consulting-strategy",
-      icon: (color:string) => <FiHelpCircle className={styles.icon} size={100} color={color}></FiHelpCircle>
+      icon: (color:string) => <FiHelpCircle className={styles.icon} size={84} color={color}></FiHelpCircle>
   },
   {
       title: "Performance Optimization",
       description: "Analyzing and improving website and application performance to ensure fast loading times and smooth user experiences.",
       url: '/bg.avif',
       imageUrl: "url-to-image-performance-optimization",
-      icon: (color:string) => <CgPerformance className={styles.icon} size={100} color={color}></CgPerformance>
+      icon: (color:string) => <CgPerformance className={styles.icon} size={84} color={color}></CgPerformance>
   }
 ]
 
@@ -211,7 +211,7 @@ export default function SliderV3tar({parallex=false, refs, title}:Props) {
                 effect={'coverflow'}
                 grabCursor={true}
                 centeredSlides={true}
-                slidesPerView={3}
+                slidesPerView={1}
                 loop={true}
                 navigation
                 coverflowEffect={{
@@ -228,6 +228,20 @@ export default function SliderV3tar({parallex=false, refs, title}:Props) {
                 autoplay={{
                   delay: 2500,
                   disableOnInteraction: false,
+                }}
+                breakpoints={{
+                  640: {
+                    slidesPerView: 2,
+                    // spaceBetween: 20,
+                  },
+                  1100: {
+                    slidesPerView: 3,
+                    // spaceBetween: 40,
+                  },
+                  // 1024: {
+                  //   slidesPerView: 5,
+                  //   spaceBetween: 50,
+                  // },
                 }}
               >
                 {
@@ -247,9 +261,8 @@ export default function SliderV3tar({parallex=false, refs, title}:Props) {
                             >
                               <article
                                 ref={currentSlideRef}
-                                style={{
-                                  height: 550,
-                                }}>
+                                className={styles.article}
+                              >
                                 <figure
                                   style={{
                                     position: 'relative',

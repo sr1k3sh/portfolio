@@ -75,17 +75,22 @@
 
 .activeDescription {
   position: absolute;
-  bottom: 100px;
-  left: -80px;
   padding: 1rem;
   border-radius: 12px;
   border-top-right-radius: 0;
   background: #00000029;
   backdrop-filter: blur(32px);
-
+  left: 0;
+  bottom: 0;
+  @media screen and (min-width: 768px) {
+    left: -80px;
+    bottom: 100px;
+  }
 
   & h2 {
-    font-size: 2rem;
+    @media screen and (min-width: 768px) {
+      font-size: 2rem;
+    }
     color: var(--white);
     // animation: anim 3s forwards;
   }
@@ -118,5 +123,12 @@
 
   & strong {
     color: var(--primary);
+  }
+}
+
+.article {
+  height: 350px;
+  @media screen and (min-width: 768px) {
+    height: 500px
   }
 }
