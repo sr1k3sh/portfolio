@@ -3,6 +3,7 @@ import { IoBriefcaseOutline } from 'react-icons/io5'
 import { BsClock, BsEmojiHeartEyes } from 'react-icons/bs'
 import { useSelector } from 'react-redux'
 import { getcolorState } from '../../../redux/AppSlice'
+import { colors } from 'src/utils/utils'
 
 export default function Projects() {
     const colorState = useSelector(getcolorState)
@@ -15,7 +16,7 @@ export default function Projects() {
                             <li>
                                 <div className='rs-project__item'>
                                     <div className='rs-project__icon-text'>
-                                        <IoBriefcaseOutline color={colorState === 'dark' ? 'white' : '#ffff'}></IoBriefcaseOutline>
+                                        <IoBriefcaseOutline color={colorState === 'dark' ? colors.white : colors.white}></IoBriefcaseOutline>
                                         <span className='rs-project__count'>123</span>
                                     </div>
                                     <span className='rs-project__sub-title'>Completed Project</span>
@@ -24,7 +25,7 @@ export default function Projects() {
                             <li>
                                 <div className='rs-project__item'>
                                     <div className='rs-project__icon-text'>
-                                        <BsClock color={colorState === 'dark' ? 'white' : '#ffff'}></BsClock>
+                                        <BsClock color={colorState === 'dark' ? colors.white : colors.white}></BsClock>
                                         <span className='rs-project__count'>4567</span>
                                     </div>
                                     <span className='rs-project__sub-title'>Working Hours</span>
@@ -33,7 +34,7 @@ export default function Projects() {
                             <li>
                                 <div className='rs-project__item'>
                                     <div className='rs-project__icon-text'>
-                                        <BsEmojiHeartEyes color={colorState === 'dark' ? 'white' : '#ffff'}></BsEmojiHeartEyes>
+                                        <BsEmojiHeartEyes color={colorState === 'dark' ? colors.white : colors.white}></BsEmojiHeartEyes>
                                         <span className='rs-project__count'>89</span>
                                     </div>
                                     <span className='rs-project__sub-title'>Happy Clients</span>

@@ -1,6 +1,6 @@
 .link {
   text-decoration: none;
-  color: #000;
+  color: var(--font-dark);
 }
 
 .article {
@@ -43,14 +43,14 @@
   border-radius: 15px;
   border-top-right-radius: 0;
   & .title {
-    color: var(--font-black);
+    color: var(--font-dark);
     &:hover {
       color: var(--secondary-dark);
     }
   }
 
   & .category {
-    color: var(--secondary);
+    color: var(--tertinary);
   }
 
   & .date {

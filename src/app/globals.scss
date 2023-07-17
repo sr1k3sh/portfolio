@@ -10,16 +10,19 @@ $container-max-widths: (
 
 // $font-family-base: var(--font);
 :root {
-    --primary: #651FFF;
-    --primary-light: #D1C4E9;
-    --primary-dark: #311B92;
-    --secondary: #9C27B0;
-    --secondary-light: #E1BEE7;
+    --primary: #C03221;
+    --primary-light: #FD5D63;
+    --primary-dark: #650104;
+    --secondary: #F2D0A4;
+    --secondary-light: #FFD270;
     --secondary-dark: #4A148C;
-    --font-light: #767373;
     --font-white: #ffffff;
     --font-black: #000000;
     --font-dark-white: #f4f4f4;
+    --font-dark: #545E75;
+    --font-light: #437F97;
+    --tertinary: #849324;
+    --white: #F7F7FF;
 }
 
 @import '/node_modules/bootstrap//scss//bootstrap.scss';
@@ -43,16 +46,21 @@ html {
 
 * {
     cursor: none;
-
 }
 
 .rs-app{
     &__dark{
-        background-color: #303030;
+        background-color: var(--font-dark);
+        h1, h2, h3, h4, p, span, input, strong {
+            color: var(--white);
+        }
     }
 
     &__light{
-        background-color: #fff;
+        background-color: var(--white);
+        h1, h2, h3, h4, p, span, input, strong {
+            color: var(--font-dark);
+        }
     }
 
     &__opened{
@@ -66,7 +74,7 @@ html {
                     height: 100%;
                     z-index: 11;
                     max-width: 320px;
-                    background: linear-gradient(141.51deg, #7327B0 -18.34%, #651FFF 66.03%);
+                    background: linear-gradient(141.51deg, #7327B0 -18.34%, var(--primary) 66.03%);
                 }
 
                 &__navigation{
@@ -150,7 +158,7 @@ html {
 
 .swiper-button-prev:after, .swiper-button-next:after {
     font-size: 29px !important;
-    color: white;
+    color: var(--white);
 }
 
 @keyframes anim {

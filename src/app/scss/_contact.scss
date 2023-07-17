@@ -26,17 +26,30 @@
         &--dark{
             #{$self}__author-info{
                 & .rs-banner__logo{
-                    color: $white;
+                    color: var(--white);
                 }
             }
             #{$self}__author-name{
-                color: $white;
+                color: var(--white);
             }
             #{$self}__author-designation{
-                color: $white;
+                color: var(--white);
             }
             #{$self}__details{
-                color: $white;
+                color: var(--white);
+
+                & span {
+                    color: var(--white);
+                }
+            }
+            #{$self}__social-list{
+                & ul {
+                    & li {
+                        & svg {
+                            color: var(--white);
+                        }
+                    }
+                }
             }
         }
 
@@ -50,7 +63,7 @@
         flex-direction: row;
         justify-content: space-between;
         flex-wrap: wrap;
-        background: #FFFFFF;
+        background: var(--white);
         box-shadow: 0px 3px 49px 9px rgba(0, 0, 0, 0.06);
         border-radius: 30px;
         padding: 3rem 2rem;
@@ -119,7 +132,7 @@
             gap: 1rem;
             & li{
                 & svg{
-                    color: $gray-600;
+                    color: var(--font-dark);
                     width: 32px;
                     height: 32px;
                 }

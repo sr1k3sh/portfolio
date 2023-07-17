@@ -6,18 +6,18 @@
         // overflow: hidden;
         &--dark{
             #{$self}__desc-wrapper{
-                background: linear-gradient(141.51deg, #9c27b09c -18.34%, #651fff91 66.03%);
+                background: linear-gradient(141.51deg, #9c27b09c -18.34%, var(--primary)91 66.03%);
                 h3{
-                    color: $white;
+                    color: var(--white);
                 }
 
                 p{
-                    color: $white;
+                    color: var(--white);
                 }
             }
 
             & .mapboxgl-popup-content{
-                background-color: $white;
+                background-color: var(--white);
                 border-radius: 20px;
             }
         }
@@ -26,11 +26,11 @@
             #{$self}__desc-wrapper{
                 background-color: #ffffff69;
                 h3{
-                    color: $black;
+                    color: var(--font-dark);
                 }
 
                 p{
-                    color: $black;
+                    color: var(--font-dark);
                 }
             }
 
@@ -56,11 +56,11 @@
         @include media-breakpoint-up(md){
             padding: 35px;
         }
-        background: #cad2d3;//linear-gradient(141.51deg, #9C27B0 -18.34%, #651FFF 66.03%);
+        background: #cad2d3;//linear-gradient(141.51deg, #9C27B0 -18.34%, var(--primary) 66.03%);
 
         &--light{
             & h2{
-                color: $black;
+                color: var(--font-dark);
             }
 
             #{$self}__popup-wrapper{
@@ -76,8 +76,8 @@
             }
 
             #{$self}__popup-wrapper{
-                // background-color: $white;
-                color: $white;
+                // background-color: var(--white);
+                color: var(--white);
             }
         }
         & h2{
@@ -130,7 +130,7 @@
             font-weight: 400;
             font-size: 18px;
             line-height: 28px;
-            color: $white;
+            color: var(--white);
             margin-bottom: 24px;
         }
 
@@ -144,7 +144,7 @@
         flex-direction: column;
         // box-shadow: 0px 2px 14px #d1c4e9;
         // padding: 12px;
-        // background-color: $white;
+        // background-color: var(--white);
         // border-radius: 20px;
         & h3{
             font-size: 14px;

@@ -19,26 +19,47 @@
         z-index: 1;
         // padding: 0 0 50px;
         &--dark{
-            color: $white;
+            color: var(--white);
             #{$self}__wrapper{
                 &::before{
-                    background-color: $white;
+                    background-color: var(--white);
                 }
             }
             #{$self}__work-history{
-                border-color: $white;
+                border-color: var(--white);
+
+                & h3 {
+                    color: var(--white);
+                }
+
                 ul{
                     li{
+                        & header {
+                            h1 {
+                                color: var(--white);
+                            }
+
+                            & h2 {
+                                color: var(--white);
+                            }
+
+                            & span {
+                                color: var(--white);
+                            }
+                        }
                         &::before{
-                            background-color: $white;
+                            background-color: var(--white);
                         }
                     }
                 }
             }
 
             #{$self}__headline{
+                & h2 {
+                    color: var(--secondary);
+                }
                 &::before{
-                    background-color: $white;
+                    background-color: var(--white);
                 }
             }
 
@@ -53,16 +74,16 @@
             color: $black;
             #{$self}__wrapper{
                 &::before{
-                    background-color: $primary;
+                    background-color: var(--secondary);
                 }
             }
 
             #{$self}__work-history{
-                border-color: $primary;
+                border-color: var(--secondary);
                 ul{
                     li{
                         &::before{
-                            background-color: $primary;
+                            background-color: var(--secondary);
                         }
                     }
                 }
@@ -70,7 +91,7 @@
 
             #{$self}__headline{
                 &::before{
-                    background-color: $primary;
+                    background-color: var(--secondary);
                 }
             }
         }
@@ -81,13 +102,13 @@
         width: 100%;
         height: 100%;
         @include media-breakpoint-down(md){
-            border-right: 4px solid $primary;
+            border-right: 4px solid var(--secondary);
             &::before{
                 content: "";
                 position: absolute;
                 width: calc(100%/2 - 2px);
                 height: 4px;
-                background-color: $primary;
+                background-color: var(--secondary);
                 top: 0;
                 right: 0;
             }
@@ -104,7 +125,7 @@
             }
             font-weight: 400;
             font-size: 64px;
-            color: $gray-500;
+            color: var(--font-dark);
         }
     }
 
@@ -118,7 +139,7 @@
                 width: calc(100% - 160px);
             }
             height: 4px;
-            background-color: $primary;
+            background-color: var(--secondary);
             top: 0;
             left: 0;
         }
@@ -132,7 +153,7 @@
 
     &__work-history{
         padding-left: 30px;
-        border-left: 4px solid $primary;
+        border-left: 4px solid var(--secondary);
         padding-top: 30px;
         padding-bottom: 3rem;
         position: relative;
@@ -148,6 +169,7 @@
             text-transform: uppercase;
             letter-spacing: 0.5px;
             margin-bottom: 30px;
+            color: var(--font-dark);
         }
 
         & ul{
@@ -159,6 +181,7 @@
                 padding-left: 1rem;
                 margin-bottom: 40px;
                 position: relative;
+                color: var(--font-dark);
                 &:last-child{
                     margin-bottom: 0;
                 }
@@ -167,7 +190,7 @@
                     content: "";
                     width: 16px;
                     height: 16px;
-                    background-color: $primary;
+                    background-color: var(--secondary);
                     border-radius: 50%;
                     position: absolute;
                     left: -40px;
@@ -178,17 +201,20 @@
                         font-weight: 700;
                         font-size: 22px;
                         line-height: 26px;
+                        color: var(--font-dark);
                     }
 
                     & h2{
                         font-weight: 400;
                         font-size: 16px;
                         line-height: 19px;
+                        color: var(--font-dark);
                     }
 
                     & span{
                         font-size: 14px;
                         font-weight: 700;
+                        color: var(--font-dark);
                     }
                 }
             }
@@ -201,7 +227,7 @@
         padding-bottom: 3rem;
         width: 100%;
         padding-left: 30px;
-        border-left: 4px solid $primary;
+        border-left: 4px solid var(--secondary);
         @include media-breakpoint-up(md){
             width: 60%;
             padding-left: 0;
@@ -214,6 +240,7 @@
             text-transform: uppercase;
             letter-spacing: 0.5px;
             margin-bottom: 30px;
+            color: var(--font-dark);
         }
     }
 
@@ -232,9 +259,10 @@
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                background: $primary-light;
+                background: var(--font-dark-white);
                 border-radius: 8px;
                 border-top-right-radius: 0;
+                color: var(--font-dark);
                 img{
                     width: 24px;
                     height: 24px;
@@ -262,6 +290,6 @@
     }
 
     &__more {
-        color: var(--secondary);
+        color: var(--primary);
     }
 }

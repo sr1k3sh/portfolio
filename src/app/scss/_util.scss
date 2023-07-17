@@ -108,7 +108,7 @@
 }
 
 .icon{
-    color: $white;
+    color: var(--white);
     &.icon-facebook{
         &:hover{
             color: #4267B2;
@@ -144,9 +144,9 @@
     &-primary{
         border: 0;
         transition: 0.3s all;
-        background: linear-gradient(141.51deg, #7327B0 -18.34%, #651FFF 66.03%);
+        background: linear-gradient(141.51deg, #7327B0 -18.34%, var(--primary) 66.03%);
         &:hover {
-            background: linear-gradient(141.51deg, #651FFF -18.34%, #7327B0 66.03%);
+            background: linear-gradient(141.51deg, var(--primary) -18.34%, #7327B0 66.03%);
             transform: scale(1.01);
         }
     }

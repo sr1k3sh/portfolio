@@ -9,6 +9,7 @@ import 'mapbox-gl/dist/mapbox-gl.css'
 import { Refs } from '../../../pages'
 import { Righteous } from 'next/font/google'
 import { MdEmojiPeople } from 'react-icons/md'
+import { colors } from 'src/utils/utils'
 
 // mapboxgl.workerClass = MapboxWorker
 // import mapboxgl from "mapbox-gl"
@@ -128,7 +129,7 @@ export default function Testimonial(props: Props) {
                                                         setPopupInfo(g)
                                                     }}
                                                 >
-                                                    <MdEmojiPeople size={32} color={colorState === 'dark' ? '#fff' : '#651FFF'}></MdEmojiPeople>
+                                                    <MdEmojiPeople size={32} color={colorState === 'dark' ? '#fff' : colors.primary}></MdEmojiPeople>
                                                 </Marker>
                                             })
                                         }

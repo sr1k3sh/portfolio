@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { FaFacebook , FaInstagram , FaLinkedin , FaGithubAlt } from 'react-icons/fa'
-import { getGreetState } from '../../../redux/AppSlice'
+import { getGreetState, getcolorState } from '../../../redux/AppSlice'
 import Link from 'next/link'
 import { lang } from './../../../utils/Constant'
 import { Refs } from '../../../pages'
@@ -20,6 +20,8 @@ const HeaderSection: React.FC<HeaderSectionProps> = ({ refs }) => {
 
     const greetState = useSelector(getGreetState)
 
+    const colorState = useSelector(getcolorState)
+
     const [hello , setHello] = useState({language:"Hello", hello: 'Welcome!'})
 
     useEffect(()=>{
@@ -31,7 +33,7 @@ const HeaderSection: React.FC<HeaderSectionProps> = ({ refs }) => {
     },[])
 
     return (
-        <section ref={ refs.home.homeRef } className='rs-banner__section'>
+        <section ref={ refs.home.homeRef } className={`${colorState === 'dark' ? 'dark' : 'light'} rs-banner__section`}>
             <div className="container-fluid">
                 <div className="row">
                     <div className="col-12 p-0">

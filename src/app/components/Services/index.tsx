@@ -10,6 +10,7 @@ import { useSelector } from 'react-redux'
 import { getcolorState } from '../../../redux/AppSlice'
 import { Refs } from '../../../pages'
 import { Righteous } from 'next/font/google'
+import { colors } from 'src/utils/utils'
 
 interface buttonProps {
     className: string,
@@ -162,7 +163,7 @@ export default function Services(props: Props) {
                                     <h2 className={righteous.className}>Services</h2>
                                     <p>{`I'm happy to assist you to grow your business`}</p>
                                 </div>
-                                <MdDoubleArrow color={colorState === 'dark' ? 'white' : '#651FFF'}></MdDoubleArrow>
+                                <MdDoubleArrow color={colorState === 'dark' ? 'white' : colors.primary}></MdDoubleArrow>
                             </div>
                             <Slider {...settings}>
                                 <div>
@@ -175,7 +176,7 @@ export default function Services(props: Props) {
                                         <div key={`servic-${index}`}>
                                             <article className='rs-services__card'>
                                                 <figure className='rs-services__figure'>
-                                                    <MdOutlineDesignServices color={colorState === 'dark' ? '#651FFF' : '#651FFF'}></MdOutlineDesignServices>
+                                                    <MdOutlineDesignServices color={colorState === 'dark' ? colors.primary : colors.primary}></MdOutlineDesignServices>
                                                     <figcaption>
                                                         <span className={righteous.className}>{service.title}</span>
                                                         <p>{service.description}</p>

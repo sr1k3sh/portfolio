@@ -13,6 +13,7 @@ import Head from 'next/head'
 import NavBar from 'src/app/components/NavSection'
 import SliderV3tar from 'src/app/components/SliderV2/SliderV3'
 import { Righteous } from 'next/font/google'
+import { colors } from 'src/utils/utils'
 
 export const metadata = {
   title: 'Rikesh Shrestha - Frontend Developer | Web Design | HTML | CSS | JavaScript | React | React Native | Ureshino, Japan',

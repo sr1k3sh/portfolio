@@ -1,6 +1,6 @@
 .link {
   text-decoration: none;
-  color: #000;
+  color: var(--font-dark);
 }
 
 .article {
@@ -35,7 +35,7 @@
 
 .lightArticle.article {
   & .title {
-    color: var(--font-black);
+    color: var(--font-dark);
     &:hover {
       color: var(--secondary-dark);
     }
