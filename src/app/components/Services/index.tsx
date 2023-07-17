@@ -105,7 +105,7 @@ const services = [
         title: "Performance Optimization",
         description: "Analyzing and improving website and application performance to ensure fast loading times and smooth user experiences.",
         imageUrl: "url-to-image-performance-optimization"
-    }
+    },
 ]
 
 export default function Services(props: Props) {

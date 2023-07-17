@@ -40,6 +40,7 @@
     "react-slick": "^0.29.0",
     "sass": "^1.53.0",
     "slick-carousel": "^1.8.1",
+    "swiper": "^10.0.4",
     "typescript": "5.1.5",
     "worker-loader": "^3.0.8"
   },

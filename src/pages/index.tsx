@@ -3,7 +3,6 @@ import { MutableRefObject, useEffect, useRef, useState } from 'react'
 import About from '../app/components/AboutSection'
 import Experience from '../app/components/Experience'
 import Projects from '../app/components/Projects'
-import Services from '../app/components/Services'
 import Testimonial from '../app/components/Testimonials'
 import Contact from '../app/components/Contact'
 import { useDispatch, useSelector } from 'react-redux'
@@ -11,8 +10,9 @@ import { changeColorByValue, getcolorState } from 'src/redux/AppSlice'
 import { GET_ARTICLES_QUERY, client } from 'src/utils/config'
 import { GetStaticProps } from 'next'
 import Head from 'next/head'
-import SliderV2 from 'src/app/components/SliderV2'
 import NavBar from 'src/app/components/NavSection'
+import SliderV3tar from 'src/app/components/SliderV2/SliderV3'
+import { Righteous } from 'next/font/google'
 
 export const metadata = {
   title: 'Rikesh Shrestha - Frontend Developer | Web Design | HTML | CSS | JavaScript | React | React Native | Ureshino, Japan',
@@ -45,8 +45,10 @@ export interface Refs {
   },
 }
 
-
-
+const righteous = Righteous({
+  weight: '400',
+  subsets: ['latin']
+})
 
 const Home = (props: Props) => {
 
@@ -150,8 +152,7 @@ const Home = (props: Props) => {
       <About refs={refs}></About>
       <Experience refs={refs} blogs={blogs}></Experience>
       <Projects></Projects>
-      <Services refs={refs}></Services>
-      <SliderV2></SliderV2>
+      <SliderV3tar refs={refs} title={<><span className={righteous.className}>What</span> <strong className={righteous.className}>I Do</strong></>}></SliderV3tar>
       <Testimonial refs={refs}></Testimonial>
       <Contact refs={refs}></Contact>
     </main>

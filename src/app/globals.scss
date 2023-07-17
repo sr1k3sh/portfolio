@@ -100,59 +100,66 @@ html {
     }
 }
 
-.slick-slide {
-    scale: 1;
-    opacity: 0.8;
-    transition: 0.3s all;
-}
+.swiper-slide {
+    opacity: 0.6;
+    scale: 0.8;
 
-.slick-center {
-    // scale: 1.1;
-    // padding: 1rem;
-    opacity: 1;
-
-    & img {
-        // transform: matrix3d(1, 0, 1, 0.001, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1) scale(0.8);
-        // transform: translate(-50%, -50%) translateX(var(--card-translateX-offset)) translateY(var(--card-translateY-offset)) rotateY(var(--card-rotation-offset)) scale(var(--card-scale-offset));
-    }
-}
-
-.splide{
-    &__slide{
+    & h2 {
         transition: 0.3s all;
+        transform: translateY(-100px);
         opacity: 0;
-        &.is-prev{
-            opacity: 0.5;
-            transform: perspective(2000px) rotateY(20deg);
-            // transform: matrix3d(1, 0, 1, 0.001, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1) scale(0.8);
-        }
-        &.is-next{
-            opacity: 0.5;
-            transform-style: preserve-3d;
-            transform: perspective(2000px) rotateY(-20deg);
-            // & > div {
-            //     transform: perspective(200px) rotateY(10deg);
-            // }
-            // transform: rotateY('30deg');
-            // --card-translateY-offset: 0%;
-            // --card-width: 234px;
-            // --card-scale-offset: 0.9;
-            // --card-translateX-offset: calc(var(--card-width) * 1.1);
-            // --card-rotation-offset: 18deg;
-            // transform: translate(-50%, -50%) translateX(var(--card-translateX-offset)) translateY(var(--card-translateY-offset)) rotateY(var(--card-rotation-offset)) scale(var(--card-scale-offset));
-            // transform: matrix3d(1, 0, 1, -0.001, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1) scale(0.8);
-        }
-        &.is-active{
-            opacity: 1;
-            transform: scale(1.1);
-        }
+    }
+
+    & h3 {
+        transition: 0.3s all;
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+
+    & p {
+        transition: 0.3s all;
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+}
+.swiper-slide-active {
+    opacity: 1;
+    scale: 0.9;
+    transition: 0.3s all !important;
+
+    & h2 {
+        animation: anim 2s forwards;
+    }
+
+    & h3 {
+        animation: anim 2s forwards 0.3s;
+    }
+
+    & p {
+        animation: anim 2s forwards 0.6s;
+    }
+
+    &.left {
+        rotate: y 20deg;
+    }
+
+    &.right {
+        rotate: y -20deg;
     }
 }
 
-.splide__arrow svg {
-    fill: #ffff !important;
+.swiper-button-prev:after, .swiper-button-next:after {
+    font-size: 29px !important;
+    color: white;
 }
-// .splide__track {
-//     overflow: visible !important;
-//     overflow-x: clip;
-// }
+
+@keyframes anim {
+    from {
+        opacity: 0;
+        transform: translateY(100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
