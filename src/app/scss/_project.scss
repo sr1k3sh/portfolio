@@ -13,6 +13,18 @@
                 background-color: var(--white);
                 border-color: var(--white);
             }
+
+            #{$self}__count{
+                color: var(--font-dark);
+            }
+
+            #{$self}__sub-title{
+                color: var(--font-dark);
+            }
+
+            svg {
+                color: var(--font-dark) !important;
+            }
         }
 
         &--light{
@@ -75,7 +87,7 @@
         color: var(--secondary);
     }
 
-    &__subtitle{
+    &__sub-title{
         font-size: 14px;
         color: $gray-500;
     }
