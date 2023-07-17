@@ -6,7 +6,7 @@
         &.dark {
             #{$self}__content {
                 &::before {
-                    background-color: var(--font-dark);
+                    background-color: #545e7570;//var(--font-dark);
                 }
 
                 & h2 {
@@ -28,7 +28,7 @@
 
     &__main-banner{
         background-color: $secondary;
-        background-image: url('./../../../public/bg.avif');
+        background-image: url('./../../../public/bgnew.jpg');
         background-size: cover;
         background-position: center;
         border-radius: 34px;
@@ -65,11 +65,12 @@
             top: 0;
             // background: linear-gradient(141.51deg, #7327B0 -18.34%, var(--primary) 66.03%);
             mix-blend-mode: normal;
-            opacity: 0.79;
+            // opacity: 0.79;
             border-radius: 34px;
             z-index: -1;
             border-top-right-radius: 0;
-            background-color: var(--white);
+            background-color: #f7f7ff9e;//var(--white);
+            backdrop-filter: blur(20px);
             // box-shadow: 0px 2px 14px #d1c4e96e;
         }
 
