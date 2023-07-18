@@ -67,13 +67,13 @@
   }
 
   .figure {
-    background-color: var(--black-600);
+    // background-color: var(--black-600);
     box-shadow: var(--box-shadow-light);
   }
 }
 
 .wrapper {
-  max-width: 1100px;
+  // max-width: 1100px;
   margin: 0 auto;
 }
 
@@ -93,16 +93,17 @@
   backdrop-filter: blur(32px);
   left: 0;
   bottom: 0;
-  @media screen and (min-width: 768px) {
-    left: -80px;
-    bottom: 100px;
-  }
+  // @media screen and (min-width: 768px) {
+  //   left: -80px;
+  //   bottom: 100px;
+  // }
 
   & h2 {
     @media screen and (min-width: 768px) {
-      font-size: 2rem;
+      font-size: 1.75rem;
     }
     color: var(--white);
+    text-align: center;
     // animation: anim 3s forwards;
   }
 
@@ -114,6 +115,7 @@
   & p {
     font-size: 1rem;
     color: var(--white);
+    text-align: center;
   }
 }
 

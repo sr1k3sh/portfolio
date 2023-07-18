@@ -199,7 +199,7 @@ export default function SliderV3tar({parallex=false, refs, title}:Props) {
           </div>
         </div>
       }
-      <div className='container'>
+      <div className='container-fluid'>
         <div className='row'>
           <div className='col-12'>
             {
@@ -235,7 +235,7 @@ export default function SliderV3tar({parallex=false, refs, title}:Props) {
                     // spaceBetween: 20,
                   },
                   1100: {
-                    slidesPerView: 4,
+                    slidesPerView: 6,
                     // spaceBetween: 40,
                   },
                   // 1024: {

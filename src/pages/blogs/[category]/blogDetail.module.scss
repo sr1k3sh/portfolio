@@ -20,7 +20,7 @@
 }
 
 .topHeader {
-  background-color: var(--white-100);
+  // background-color: var(--white-100);
   padding: 5rem 0 10rem 0;
   @media screen and (min-width: 768px) {
     padding: 5rem 0 20rem 0;
@@ -29,7 +29,7 @@
 
 .dark {
   &.topHeader{
-    background-color: var(--black-200);
+    // background-color: var(--black-200);
   }
 }
 

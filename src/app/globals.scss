@@ -19,12 +19,12 @@ $container-max-widths: (
     --font-white: #ffffff;
     --font-black: #000000;
     --font-dark-white: #f4f4f4;
-    --font-dark: #454755;
+    --font-dark: #000000;
     --font-light: #437F97;
     --tertinary: #849324;
-    --black-100: #1d2134;
-    --black-200: #333648;
-    --black-300: #494c5c;
+    --black-100: #000000;
+    --black-200: #161616;
+    --black-300: #2b2a2a;
     --black-400: #616372;
     --black-500: #797b88;
     --black-600: #92949e;
@@ -70,14 +70,15 @@ html {
 
     & h2 {
         transition: 0.3s all;
-        transform: translateY(-100px);
-        opacity: 0;
+        transform: translateY(-150px);
+        opacity: 0.8;
+        text-align: center;
     }
 
     & h3 {
         transition: 0.3s all;
-        transform: translateY(-100px);
-        opacity: 0;
+        transform: translateY(0px);
+        opacity: 0.8;
     }
 
     & p {
