@@ -4,7 +4,7 @@ import '../app/globals.scss'
 import { DM_Sans, Inter } from 'next/font/google'
 
 // const inter = Inter({ subsets: ['latin'] })
-const inter = DM_Sans({ subsets: ['latin'] , weight: '400'})
+const inter = DM_Sans({ subsets: ['latin'] , weight: ['400','500','700']})
 
 import type { AppProps } from 'next/app'
 import { Provider } from 'react-redux'

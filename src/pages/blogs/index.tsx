@@ -12,6 +12,7 @@ import { ReactMarkdown } from 'react-markdown/lib/react-markdown'
 import Head from 'next/head'
 import Contact from 'src/app/components/Contact'
 import BlogGridItem from 'src/app/components/blogGridItem'
+import HeaderTitleDesc from 'src/app/components/headerTitleDesc'
 
 type Props = {
   categories: any
@@ -89,10 +90,15 @@ export default function BlogListingPage({ categories }: Props) {
       </Head>
       <NavBar></NavBar>
       <section>
-        <div className='container-fluid'>
+        <div className='container'>
+          <div className='row'>
+            <div className='col-12'>
+              <HeaderTitleDesc></HeaderTitleDesc>
+            </div>
+          </div>
           <article>
             <figure className={styles.figure}>
-              <Image src={'/bg.avif'} placeholder='blur' blurDataURL={'/bg.avif'} alt={metadata?.title || ''} fill={true} style={{ objectFit: 'cover' }}></Image>
+              <Image src={'/bgnew.jpg'} placeholder='blur' blurDataURL={'/bg.avif'} alt={metadata?.title || ''} fill={true} style={{ objectFit: 'cover' }}></Image>
             </figure>
           </article>
         </div>
@@ -102,9 +108,9 @@ export default function BlogListingPage({ categories }: Props) {
           <div className='row'>
             {
               data.map((category: any, index: number) => (
-                <div className='col-12' key={`category-${index}`}>
+                category.attributes.blogs ? <div className={`${styles.categoryContainer} ' col-12'`} key={`category-${index}`}>
                   <h2 className={`${styles.subtitle} ${righteous.className}`}>{category.attributes.name}</h2>
-                  <div className='row'>
+                  <div className='row gy-3'>
                     {
                       category.attributes.blogs.data.length ? category.attributes.blogs.data.map((blog: any, ind: any) => (
                         <div className='col-md-4' key={`category-blog-${ind}`}>
@@ -113,15 +119,10 @@ export default function BlogListingPage({ categories }: Props) {
                       )) : null
                     }
                   </div>
-                </div>
-              )
+                </div> : null
+                )
               )
             }
-            <div className='offset-xl-1 col-lg-4'>
-              <h3 className={`${styles.subtitle} ${righteous.className}`}>Related Blogs</h3>
-              {/* <ul className='rs-exp__blog-list'> */}
-              {/* </ul> */}
-            </div>
           </div>
         </div>
       </section>

@@ -235,7 +235,7 @@ export default function SliderV3tar({parallex=false, refs, title}:Props) {
                     // spaceBetween: 20,
                   },
                   1100: {
-                    slidesPerView: 3,
+                    slidesPerView: 4,
                     // spaceBetween: 40,
                   },
                   // 1024: {
@@ -273,7 +273,8 @@ export default function SliderV3tar({parallex=false, refs, title}:Props) {
                                     backdropFilter: 'blur(24px)'
                                   }}>
                                   {
-                                    service.icon ? service.icon(colorState === 'dark' ? colors.white : colors.primary ) : //<LiaConnectdevelop ></LiaConnectdevelop> :
+                                    service.icon ?
+                                    service.icon(colorState === 'dark' ? colors.white : colors.primary ) : //<LiaConnectdevelop ></LiaConnectdevelop> :
                                       <Image src={service.url} fill style={{ objectFit: 'cover' }} alt=".."></Image>
                                   }
                                 </figure>

@@ -118,20 +118,33 @@ export default function BlogDetail({ blogData, dataBlogList }: Props) {
         <link rel="icon" href="/profile.png" sizes="any" />
       </Head>
       <NavBar></NavBar>
-      <section>
-        <div className='container-fluid'>
-          <article>
-            <figure className={styles.figure}>
-              <Image src={attributes?.cover?.data?.attributes?.url || '/bg.avif'} placeholder='blur' blurDataURL={'/bg.avif'} alt={attributes?.cover?.data?.attributes?.alternativeText || attributes?.title || ''} fill={true} style={{ objectFit: 'cover' }}></Image>
-            </figure>
-          </article>
+      <section className={`${styles.topHeader}  ${colorState === "dark" ? styles.dark  : styles.light }`}>
+        <div className='container'>
+          <div className='row'>
+            <div className='col-12'>
+              <h1 className={`${styles.title} ${righteous.className}`}>{attributes.title}</h1>
+            </div>
+          </div>
         </div>
       </section>
-      <section className={colorState === 'dark' ? styles.darkSection : styles.lightSection}>
+      <section className={styles.banner}>
+        <div className='container'>
+          <div className='row'>
+            <div className='col-12'>
+              <article>
+                <figure className={styles.figure}>
+                  <Image src={attributes?.cover?.data?.attributes?.url || '/bg.avif'} placeholder='blur' blurDataURL={'/bg.avif'} alt={attributes?.cover?.data?.attributes?.alternativeText || attributes?.title || ''} fill={true} style={{ objectFit: 'cover' }}></Image>
+                </figure>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section className={`${colorState === 'dark' ? styles.darkSection : styles.lightSection} ${styles.containerSection}`}>
         <div className='container'>
           <div className='row'>
             <div className='col-lg-8 col-xl-7'>
-              <h1 className={`${styles.title} ${righteous.className}`}>{attributes.title}</h1>
+
               {
                 attributes.blocks && attributes.blocks.map((block: any, index: number) => (
                   <div className={styles.content} key={index}>
