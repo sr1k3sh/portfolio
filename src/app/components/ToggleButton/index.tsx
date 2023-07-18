@@ -1,17 +1,23 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import styles from './index.module.scss'
+import { useSelector } from 'react-redux'
+import { getcolorState } from 'src/redux/AppSlice'
 
 interface Props {
   label: string,
-  toggled: boolean,
-  cb: (isToggled:boolean) => void
+  cb: () => void
 }
-export const Toggle = ({ label, toggled = false, cb }: Props) => {
-    const [isToggled, toggle] = useState<boolean>(toggled)
+export const Toggle = ({ label, cb }: Props) => {
+    const [isToggled, toggle] = useState<boolean>(false)
+    const colorState = useSelector(getcolorState)
+
+    useEffect(() => {
+        toggle(colorState === 'light' ? false : true)
+    },[colorState])
 
     const callback = () => {
         toggle(!isToggled)
-        cb && cb(!isToggled)
+        cb && cb()
     }
 
     return (

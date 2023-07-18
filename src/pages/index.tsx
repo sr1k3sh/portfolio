@@ -76,7 +76,7 @@ const Home = (props: Props) => {
     setDate(new Date().getHours())
 
     if (date) {
-      if (date >= 6 && date <= 18) {
+      if (date >= 6 && date < 18) {
         if (date < 12) {
           dispatch(changeColorByValue({ color: "light", greet: "Good morning" }))
         } else {

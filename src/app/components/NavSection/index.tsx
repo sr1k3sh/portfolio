@@ -49,7 +49,7 @@ export default function NavBar({ refs, isHome = false }: NavBarSectionProps) {
     dispatch(changeMenuStatus())
   }
 
-  const toggleCallback = (isToggled:boolean) => {
+  const toggleCallback = () => {
     dispatch(changeColorState())
   }
 
@@ -147,7 +147,7 @@ export default function NavBar({ refs, isHome = false }: NavBarSectionProps) {
               }
             </div>
             <div className="dropdown rs-banner__dropdown">
-                <Toggle label="Mode" toggled={true} cb={toggleCallback}></Toggle>
+                <Toggle label="Mode" cb={toggleCallback}></Toggle>
             </div>
           </div>
         </div>
