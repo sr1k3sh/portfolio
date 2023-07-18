@@ -214,14 +214,14 @@ export default function SliderV3tar({parallex=false, refs, title}:Props) {
                 slidesPerView={1}
                 loop={true}
                 navigation
-                coverflowEffect={{
-                  rotate: 20,
-                  stretch: 0,
-                  depth: 100,
-                  modifier: 1,
-                  slideShadows: true,
-                }}
-                modules={[EffectCoverflow, Pagination, Navigation]}
+                // coverflowEffect={{
+                //   rotate: 20,
+                //   stretch: 0,
+                //   depth: 100,
+                //   modifier: 1,
+                //   slideShadows: true,
+                // }}
+                modules={[Pagination, Navigation]}
                 className="mySwiper"
                 onSwiper={onSwiper}
                 onSlideChange={onSlideChange}
@@ -264,15 +264,16 @@ export default function SliderV3tar({parallex=false, refs, title}:Props) {
                                 className={styles.article}
                               >
                                 <figure
+                                  className={styles.figure}
+
                                   style={{
                                     position: 'relative',
                                     width: '100%',
                                     height: '100%',
-                                    background: colorState === 'dark' ? colors.fontDarkWhite : colors.fontDark,
                                     backdropFilter: 'blur(24px)'
                                   }}>
                                   {
-                                    service.icon ? service.icon(colorState === 'dark' ? colors.primary : colors.white ) : //<LiaConnectdevelop ></LiaConnectdevelop> :
+                                    service.icon ? service.icon(colorState === 'dark' ? colors.white : colors.primary ) : //<LiaConnectdevelop ></LiaConnectdevelop> :
                                       <Image src={service.url} fill style={{ objectFit: 'cover' }} alt=".."></Image>
                                   }
                                 </figure>

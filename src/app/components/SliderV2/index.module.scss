@@ -32,18 +32,24 @@
   }
 
   .activeDescription {
-    background: var(--secondary);
+    background: var(--primary);
+    box-shadow: var(--box-shadow-light);
     & h2 {
-      color: var(--font-dark);
+      color: var(--white);
     }
 
     & h3 {
-      color: var(--font-dark);
+      color: var(--white);
     }
 
     & p {
-      color: var(--font-dark);
+      color: var(--white);
     }
+  }
+
+  .figure {
+    background-color: var(--white-700);
+    box-shadow: var(--box-shadow-light);
   }
 }
 
@@ -58,6 +64,11 @@
     & span {
       color: var(--white);
     }
+  }
+
+  .figure {
+    background-color: var(--black-600);
+    box-shadow: var(--box-shadow-light);
   }
 }
 

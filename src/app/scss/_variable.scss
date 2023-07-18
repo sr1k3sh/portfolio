@@ -1,11 +1,11 @@
 :root{
-    --font: 'Montserrat', sans-serif;
+    // --font: 'Montserrat', sans-serif;
     --header: 'Righteous', cursive;
 }
 
-*{
-    font-family: var(--font);
-}
+// *{
+//     font-family: var(--font);
+// }
 
 $font-family-base: var(--font);
 $primary: var(--primary);

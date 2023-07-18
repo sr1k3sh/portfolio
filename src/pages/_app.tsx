@@ -1,9 +1,10 @@
 
 import '../app/globals.scss'
 
-import { Inter } from 'next/font/google'
+import { DM_Sans, Inter } from 'next/font/google'
 
-const inter = Inter({ subsets: ['latin'] })
+// const inter = Inter({ subsets: ['latin'] })
+const inter = DM_Sans({ subsets: ['latin'] , weight: '400'})
 
 import type { AppProps } from 'next/app'
 import { Provider } from 'react-redux'
@@ -100,6 +101,11 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
   return (
   <Provider store={store}>
     <main className={inter.className}>
+      <style jsx global>{`
+        html {
+          font-family: ${inter.style.fontFamily};
+        }
+      `}</style>
       {
         showCustomCursor &&
         <>
