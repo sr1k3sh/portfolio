@@ -226,7 +226,7 @@ export default function SliderV3tar({parallex=false, refs, title}:Props) {
                 onSwiper={onSwiper}
                 onSlideChange={onSlideChange}
                 autoplay={{
-                  delay: 2500,
+                  delay: 1000,
                   disableOnInteraction: false,
                 }}
                 breakpoints={{

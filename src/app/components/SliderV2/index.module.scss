@@ -82,6 +82,9 @@
   // min-height: 600px;
   height: 100%;
   padding: 2.5rem 0;
+  @media screen and (min-width: 768px) {
+    padding: 5rem 0;
+  }
 }
 
 .activeDescription {

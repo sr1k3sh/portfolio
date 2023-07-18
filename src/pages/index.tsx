@@ -153,7 +153,7 @@ const Home = (props: Props) => {
       <About refs={refs}></About>
       <Experience refs={refs} blogs={blogs}></Experience>
       <Projects></Projects>
-      <SliderV3tar refs={refs} title={<><span className={righteous.className}>What</span> <strong className={righteous.className}>I Do</strong></>}></SliderV3tar>
+      <SliderV3tar refs={refs} title={<><span className={righteous.className}>Things</span> <strong className={righteous.className}>I Do</strong></>}></SliderV3tar>
       <Testimonial refs={refs}></Testimonial>
       <Contact refs={refs}></Contact>
     </main>
