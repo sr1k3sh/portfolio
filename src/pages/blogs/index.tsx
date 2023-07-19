@@ -11,6 +11,12 @@ import Contact from 'src/app/components/Contact'
 import BlogGridItem from 'src/app/components/blogGridItem'
 import HeaderTitleDesc from 'src/app/components/headerTitleDesc'
 import { getThemeMode } from 'src/redux/ThemeSlice'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { Navigation, Pagination } from 'swiper/modules'
+import 'swiper/css'
+import 'swiper/css/effect-coverflow'
+import 'swiper/css/navigation'
+import 'swiper/css'
 
 type Props = {
   categories: any
@@ -108,7 +114,7 @@ export default function BlogListingPage({ categories }: Props) {
               data.map((category: any, index: number) => (
                 category.attributes.blogs ? <div className={`${styles.categoryContainer} ' col-12'`} key={`category-${index}`}>
                   <h2 className={`${styles.subtitle} ${righteous.className}`}>{category.attributes.name}</h2>
-                  <div className='row gy-3'>
+                  <div className='row gy-3 d-none'>
                     {
                       category.attributes.blogs.data.length ? category.attributes.blogs.data.map((blog: any, ind: any) => (
                         <div className='col-md-4' key={`category-blog-${ind}`}>
@@ -116,6 +122,45 @@ export default function BlogListingPage({ categories }: Props) {
                         </div>
                       )) : null
                     }
+                  </div>
+                  <div className='row gy-3'>
+                    <div className='col-12'>
+                      <Swiper
+                        // effect={'coverflow'}
+                        grabCursor={true}
+                        spaceBetween={30}
+                        width={300}
+                        // centeredSlides={true}
+                        // slidesPerView={'auto'}
+                        // loop={true}
+                        navigation
+                        modules={[Pagination, Navigation]}
+                        className="blogSwiper"
+                        // onSwiper={onSwiper}
+                        // onSlideChange={onSlideChange}
+                        // autoplay={{
+                        //   delay: 1000,
+                        //   disableOnInteraction: false,
+                        // }}
+                      >
+                        {
+                          category.attributes.blogs.data.length ? category.attributes.blogs.data.map((blog: any, ind: any) => (
+                            <SwiperSlide
+                              key={`swiper-index-${index}`}
+                              // className={`${movedLeft === null ? '' : movedLeft ? 'left' : 'right'}`}
+                              >
+                                <div style={{
+                                  width: '100%',
+                                }}>
+                                  <BlogGridItem blog={blog}></BlogGridItem>
+                                </div>
+                            </SwiperSlide>
+                            // <div className='col-md-4' key={`category-blog-${ind}`}>
+                            // </div>
+                          )) : null
+                        }
+                      </Swiper>
+                    </div>
                   </div>
                 </div> : null
                 )
