@@ -1,9 +1,9 @@
 import React from 'react'
 import { RiWindowsFill , RiAppleFill , RiUbuntuFill } from 'react-icons/ri'
 import { useSelector } from 'react-redux'
-import { getcolorState } from '../../../redux/AppSlice'
 import { Refs } from '../../../pages'
 import Image from 'next/image'
+import { getThemeMode } from 'src/redux/ThemeSlice'
 
 interface AboutSectionProps {
     refs: Refs
@@ -11,7 +11,7 @@ interface AboutSectionProps {
 
 export default function About(props:AboutSectionProps) {
     const { refs } = props
-    const colorState = useSelector(getcolorState)
+    const colorState = useSelector(getThemeMode)
 
     return (
         <section ref={ refs.about.aboutRef } id="about" className={colorState === 'dark' ? 'rs-about__section rs-about__section--dark' : 'rs-about__section rs-about__section--light'}>

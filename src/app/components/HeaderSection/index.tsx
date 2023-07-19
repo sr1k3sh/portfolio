@@ -6,6 +6,7 @@ import Link from 'next/link'
 import { lang } from './../../../utils/Constant'
 import { Refs } from '../../../pages'
 import { Righteous} from 'next/font/google'
+import { getThemeMode } from 'src/redux/ThemeSlice'
 
 const righteous = Righteous({
     weight: '400',
@@ -20,7 +21,7 @@ const HeaderSection: React.FC<HeaderSectionProps> = ({ refs }) => {
 
     const greetState = useSelector(getGreetState)
 
-    const colorState = useSelector(getcolorState)
+    const colorState = useSelector(getThemeMode)
 
     const [hello , setHello] = useState({language:"Hello", hello: 'Welcome!'})
 

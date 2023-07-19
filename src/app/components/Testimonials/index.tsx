@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import Map, { Marker, Popup } from 'react-map-gl'
 import { FeatureCollection, Point, GeoJsonProperties } from 'geojson/index'
-import { getcolorState } from '../../../redux/AppSlice'
 import { useSelector } from 'react-redux'
 
 import mapboxgl from 'mapbox-gl/dist/mapbox-gl'
@@ -10,6 +9,7 @@ import { Refs } from '../../../pages'
 import { Righteous } from 'next/font/google'
 import { MdEmojiPeople } from 'react-icons/md'
 import { colors } from 'src/utils/utils'
+import { getThemeMode } from 'src/redux/ThemeSlice'
 
 // mapboxgl.workerClass = MapboxWorker
 // import mapboxgl from "mapbox-gl"
@@ -34,7 +34,7 @@ export default function Testimonial(props: Props) {
 
     const [popupInfo, setPopupInfo] = useState<any>(null)
 
-    const colorState = useSelector(getcolorState)
+    const colorState = useSelector(getThemeMode)
 
     const geojson: FeatureCollection<Point, GeoJsonProperties>  = {
         type: 'FeatureCollection',

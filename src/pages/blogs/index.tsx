@@ -1,18 +1,16 @@
 import { GetStaticProps } from 'next'
 import Image from 'next/image'
 import React from 'react'
-import { GET_ARTICLES_QUERY, GET_BLOGS_CATEGORY_LIST_QUERY, GET_BLOGS_IDS, GET_BLOG_DETAIL_QUERY, client } from 'src/utils/config'
+import { GET_BLOGS_CATEGORY_LIST_QUERY, client } from 'src/utils/config'
 import styles from './[category]/blogDetail.module.scss'
 import { Righteous } from 'next/font/google'
-import BlogListItem from 'src/app/components/blogListItem'
 import NavBar from 'src/app/components/NavSection'
 import { useSelector } from 'react-redux'
-import { getcolorState } from 'src/redux/AppSlice'
-import { ReactMarkdown } from 'react-markdown/lib/react-markdown'
 import Head from 'next/head'
 import Contact from 'src/app/components/Contact'
 import BlogGridItem from 'src/app/components/blogGridItem'
 import HeaderTitleDesc from 'src/app/components/headerTitleDesc'
+import { getThemeMode } from 'src/redux/ThemeSlice'
 
 type Props = {
   categories: any
@@ -52,7 +50,7 @@ export default function BlogListingPage({ categories }: Props) {
 
   const { data } = categories
 
-  const colorState = useSelector(getcolorState)
+  const colorState = useSelector(getThemeMode)
 
   const classes = {
     colorState: colorState === "dark" ? "rs-app__dark " : "rs-app__light "

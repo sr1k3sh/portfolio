@@ -2,10 +2,10 @@ import React, { ChangeEvent, FormEvent, useMemo, useState } from 'react'
 import { FaFacebook , FaInstagram , FaLinkedin , FaGithubAlt } from 'react-icons/fa'
 import { debounce } from '../../../utils/utils'
 import { useSelector } from 'react-redux'
-import { getcolorState } from '../../../redux/AppSlice'
 import Link from 'next/link'
 import { Refs } from '../../../pages'
 import { Righteous } from 'next/font/google'
+import { getThemeMode } from 'src/redux/ThemeSlice'
 
 interface ContactSectionProps {
     refs?: Refs
@@ -18,7 +18,7 @@ const righteous = Righteous({
 
 export default function Contact(props:ContactSectionProps) {
     const { refs } = props
-    const colorState = useSelector(getcolorState)
+    const colorState = useSelector(getThemeMode)
 
     const [logMessage , setLogMessage] = useState('')
 

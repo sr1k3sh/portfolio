@@ -6,7 +6,7 @@ import Projects from '../app/components/Projects'
 import Testimonial from '../app/components/Testimonials'
 import Contact from '../app/components/Contact'
 import { useDispatch, useSelector } from 'react-redux'
-import { changeColorByValue, getcolorState } from 'src/redux/AppSlice'
+import { changeColorByValue, changeColorState, getcolorState } from 'src/redux/AppSlice'
 import { GET_ARTICLES_QUERY, client } from 'src/utils/config'
 import { GetStaticProps } from 'next'
 import Head from 'next/head'
@@ -14,6 +14,7 @@ import NavBar from 'src/app/components/NavSection'
 import SliderV3tar from 'src/app/components/SliderV2/SliderV3'
 import { Righteous } from 'next/font/google'
 import { colors } from 'src/utils/utils'
+import { getThemeMode, setTheme, toggleTheme } from 'src/redux/ThemeSlice'
 
 export const metadata = {
   title: 'Rikesh Shrestha - Frontend Developer | Web Design | HTML | CSS | JavaScript | React | React Native | Ureshino, Japan',
@@ -63,34 +64,12 @@ const Home = (props: Props) => {
     description: metadata.description,
   }
 
-  const colorState = useSelector(getcolorState)
-  const dispatch = useDispatch()
-  const [date, setDate] = useState<number | null>(null)
+  const colorState = useSelector(getThemeMode)
+
 
   const classes = {
     colorState: colorState === "dark" ? "rs-app__dark " : "rs-app__light "
   }
-
-  useEffect(() => {
-
-    setDate(new Date().getHours())
-
-    if (date) {
-      if (date >= 6 && date < 18) {
-        if (date < 12) {
-          dispatch(changeColorByValue({ color: "light", greet: "Good morning" }))
-        } else {
-          dispatch(changeColorByValue({ color: "light", greet: "Good afternoon" }))
-        }
-      } else {
-        dispatch(changeColorByValue({ color: "dark", greet: "Good evening" }))
-      }
-    }
-
-    return () => {
-
-    }
-  }, [date, dispatch])
 
   const refs = {
     home: {

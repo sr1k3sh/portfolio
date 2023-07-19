@@ -9,6 +9,7 @@ import { Refs } from 'src/pages'
 import { Toggle } from '../ToggleButton'
 import { changeColorState } from 'src/redux/AppSlice'
 import styles from './index.module.scss'
+import { getThemeMode, toggleTheme } from 'src/redux/ThemeSlice'
 
 const righteous = Righteous({
   weight: '400',
@@ -41,6 +42,7 @@ export default function NavBar({ refs, isHome = false }: NavBarSectionProps) {
 
   const dispatch = useDispatch()
   const menuState = useSelector(getMenuStatus)
+  const currentTheme = useSelector(getThemeMode)
 
   const refNav:MutableRefObject<HTMLElement | null> = useRef(null)
 
@@ -50,7 +52,9 @@ export default function NavBar({ refs, isHome = false }: NavBarSectionProps) {
   }
 
   const toggleCallback = () => {
-    dispatch(changeColorState())
+    // const newTheme = currentTheme === 'dark' ? 'light' : 'dark'
+    dispatch(toggleTheme())
+    // localStorage.setItem('theme', newTheme)
   }
 
   return (
@@ -147,7 +151,7 @@ export default function NavBar({ refs, isHome = false }: NavBarSectionProps) {
               }
             </div>
             <div className="dropdown rs-banner__dropdown">
-                <Toggle label="Mode" cb={toggleCallback}></Toggle>
+                <Toggle label="Mode"></Toggle>
             </div>
           </div>
         </div>

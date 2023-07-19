@@ -1,11 +1,11 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import { getcolorState } from '../../../redux/AppSlice'
 import Image from 'next/image'
 import { Refs } from '../../../pages'
 import { Righteous } from 'next/font/google'
 import BlogListItem from '../blogListItem'
 import Link from 'next/link'
+import { getThemeMode } from 'src/redux/ThemeSlice'
 
 interface Props {
     refs: Refs
@@ -19,7 +19,7 @@ const righteous = Righteous({
 
 export default function Experience(props: Props) {
     const { refs , blogs} = props
-    const colorState = useSelector(getcolorState)
+    const colorState = useSelector(getThemeMode)
     return (
         <section ref={refs.experience.experienceRef} className={colorState === 'dark' ? 'rs-exp__section rs-exp__section--dark' : 'rs-exp__section rs-exp__section--light'}>
             <div className='rs-exp__float-bg'>

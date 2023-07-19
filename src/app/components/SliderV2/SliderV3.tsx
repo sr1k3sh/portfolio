@@ -1,7 +1,6 @@
-import React, { MutableRefObject, useCallback, useEffect, useRef, useState } from 'react'
+import React, { MutableRefObject, useCallback, useRef, useState } from 'react'
 import { IoIosArrowForward, IoIosArrowBack } from 'react-icons/io'
 import { useSelector } from 'react-redux'
-import { getcolorState } from '../../../redux/AppSlice'
 import { Refs } from '../../../pages'
 import { Righteous } from 'next/font/google'
 import Image from 'next/image'
@@ -15,7 +14,7 @@ import 'swiper/css/effect-coverflow'
 import 'swiper/css/navigation'
 import 'swiper/css'
 
-import { EffectCoverflow, Pagination, Navigation } from 'swiper/modules'
+import { Pagination, Navigation } from 'swiper/modules'
 
 import { SiVitest, SiGoogleoptimize, SiSemanticuireact } from 'react-icons/si'
 import { PiFigmaLogoDuotone } from 'react-icons/pi'
@@ -26,6 +25,7 @@ import { MdOutlineIntegrationInstructions, MdAnimation } from 'react-icons/md'
 import { FiHelpCircle } from 'react-icons/fi'
 import { CgPerformance } from 'react-icons/cg'
 import { colors } from 'src/utils/utils'
+import { getThemeMode } from 'src/redux/ThemeSlice'
 
 
 interface buttonProps {
@@ -158,7 +158,7 @@ export default function SliderV3tar({parallex=false, refs, title}:Props) {
   const [movedLeft, setMoveLeft] = useState<boolean | null>(null)
   const [currenSwiper, setCurrentSwiper] = useState<SwiperClass | null>(null)
 
-  const colorState = useSelector(getcolorState)
+  const colorState = useSelector(getThemeMode)
 
   const onMouseMove = useCallback((event: any) => {
     if (currentSlideRef?.current) {

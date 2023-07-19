@@ -7,10 +7,10 @@ import { Righteous } from 'next/font/google'
 import BlogListItem from 'src/app/components/blogListItem'
 import NavBar from 'src/app/components/NavSection'
 import { useSelector } from 'react-redux'
-import { getcolorState } from 'src/redux/AppSlice'
 import { ReactMarkdown } from 'react-markdown/lib/react-markdown'
 import Head from 'next/head'
 import Contact from 'src/app/components/Contact'
+import { getThemeMode } from 'src/redux/ThemeSlice'
 
 type Props = {
   blogData: any
@@ -81,7 +81,7 @@ export default function BlogDetail({ blogData, dataBlogList }: Props) {
 
   const { blogs } = dataBlogList
 
-  const colorState = useSelector(getcolorState)
+  const colorState = useSelector(getThemeMode)
 
   const classes = {
     colorState: colorState === "dark" ? "rs-app__dark " : "rs-app__light "

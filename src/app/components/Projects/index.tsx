@@ -2,11 +2,11 @@ import React from 'react'
 import { IoBriefcaseOutline } from 'react-icons/io5'
 import { BsClock, BsEmojiHeartEyes } from 'react-icons/bs'
 import { useSelector } from 'react-redux'
-import { getcolorState } from '../../../redux/AppSlice'
 import { colors } from 'src/utils/utils'
+import { getThemeMode } from 'src/redux/ThemeSlice'
 
 export default function Projects() {
-    const colorState = useSelector(getcolorState)
+    const colorState = useSelector(getThemeMode)
     return (
         <section className={colorState === 'dark' ? 'rs-project__section rs-project__section--dark' : 'rs-project__section rs-project__section--light'}>
             <div className='container'>

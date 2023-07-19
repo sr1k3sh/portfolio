@@ -4,7 +4,7 @@ import styles from './index.module.scss'
 import { Righteous } from 'next/font/google'
 import Link from 'next/link'
 import { useSelector } from 'react-redux'
-import { getcolorState } from 'src/redux/AppSlice'
+import { getThemeMode } from 'src/redux/ThemeSlice'
 
 type Props = {
   blogDetail: {
@@ -23,7 +23,7 @@ const righteous = Righteous({
 export default function BlogListItem({ blogDetail }: Props) {
   const { attributes, id }: any = blogDetail
 
-  const colorState = useSelector(getcolorState)
+  const colorState = useSelector(getThemeMode)
 
   return (
     <Link href={`/blogs/${attributes.category.data.attributes.slug}/${id}`} className={styles.link}>

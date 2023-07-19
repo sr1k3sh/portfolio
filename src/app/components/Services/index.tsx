@@ -1,16 +1,12 @@
 import React from 'react'
 import Slider from 'react-slick'
-
-import { SiProtonvpn } from 'react-icons/si'
-import { MdOutlineFeaturedPlayList, MdOutlineDesignServices, MdDoubleArrow } from 'react-icons/md'
-import { FaConnectdevelop } from 'react-icons/fa'
-import { AiFillShop } from 'react-icons/ai'
+import { MdOutlineDesignServices, MdDoubleArrow } from 'react-icons/md'
 import { IoIosArrowForward, IoIosArrowBack } from 'react-icons/io'
 import { useSelector } from 'react-redux'
-import { getcolorState } from '../../../redux/AppSlice'
 import { Refs } from '../../../pages'
 import { Righteous } from 'next/font/google'
 import { colors } from 'src/utils/utils'
+import { getThemeMode } from 'src/redux/ThemeSlice'
 
 interface buttonProps {
     className: string,
@@ -150,7 +146,7 @@ export default function Services(props: Props) {
             }
         ]
     }
-    const colorState = useSelector(getcolorState)
+    const colorState = useSelector(getThemeMode)
 
     return (
         <section ref={refs.services.servicesRef} className={colorState === 'dark' ? 'rs-services__section rs-services__section--dark' : 'rs-services__section rs-services__section--light'}>
