@@ -7,9 +7,7 @@ import {RiHome8Line , RiServiceLine, RiBriefcase2Fill, RiChat1Line, RiMagicLine,
 import { BsPeople } from 'react-icons/bs'
 import { Refs } from 'src/pages'
 import { Toggle } from '../ToggleButton'
-import { changeColorState } from 'src/redux/AppSlice'
 import styles from './index.module.scss'
-import { getThemeMode, toggleTheme } from 'src/redux/ThemeSlice'
 
 const righteous = Righteous({
   weight: '400',
@@ -42,19 +40,12 @@ export default function NavBar({ refs, isHome = false }: NavBarSectionProps) {
 
   const dispatch = useDispatch()
   const menuState = useSelector(getMenuStatus)
-  const currentTheme = useSelector(getThemeMode)
 
   const refNav:MutableRefObject<HTMLElement | null> = useRef(null)
 
   const toggleMenu: React.MouseEventHandler<HTMLDivElement> = (e) =>{
     e.preventDefault()
     dispatch(changeMenuStatus())
-  }
-
-  const toggleCallback = () => {
-    // const newTheme = currentTheme === 'dark' ? 'light' : 'dark'
-    dispatch(toggleTheme())
-    // localStorage.setItem('theme', newTheme)
   }
 
   return (

@@ -12,6 +12,7 @@ const themeSlice = createSlice({
     },
     setTheme: (state, action) => {
       state.mode = action.payload.mode
+      localStorage.setItem('mode', action.payload.mode)
     }
   }
 })

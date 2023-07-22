@@ -21,54 +21,58 @@ const isLocalStorageAvailable = () => {
 }
 
 export const Toggle = ({ label }: Props) => {
-    const [isToggled, toggle] = useState<boolean>(false)
     const dispatch = useDispatch()
     const [date, setDate] = useState<number | null>(null)
 
     const currentTheme = useSelector(getThemeMode)
 
     useEffect(() => {
-        toggle(currentTheme === 'light' ? false : true)
         isLocalStorageAvailable()
-        localStorage.setItem('mode', currentTheme)
-        console.log(localStorage.getItem('mode'), currentTheme)
-        // if(currentTheme === 'dark') {
-        // } else {
-        //     localStorage.setItem('mode', 'light')
-        // }
     }, [currentTheme])
 
     useEffect(() => {
-
         setDate(new Date().getHours())
-
-        if (date && !localStorage.getItem('mode')) {
-            if (date >= 6 && date < 18) {
-                if (date < 12) {
-                    dispatch(changeColorByValue({ greet: "Good morning" }))
-                    dispatch(setTheme({ mode: 'light' }))
-                } else {
-                    dispatch(changeColorByValue({ greet: "Good afternoon" }))
-                    dispatch(setTheme({ mode: 'light' }))
-                }
-            } else {
-                dispatch(changeColorByValue({ greet: "Good evening" }))
-                dispatch(setTheme({ mode: 'dark' }))
-            }
-        }
 
         return () => {
 
         }
-    }, [date, dispatch])
+    }, [])
+
+    useEffect(() => {
+        if (date) {
+            if (date >= 6 && date < 18) {
+                if (date < 12) {
+                    dispatch(changeColorByValue({ greet: "Good morning" }))
+                } else {
+                    dispatch(changeColorByValue({ greet: "Good afternoon" }))
+                }
+            } else {
+                dispatch(changeColorByValue({ greet: "Good evening" }))
+            }
+        }
+    },[date])
+
+    useEffect(() => {
+        console.log(localStorage.getItem('mode'), typeof localStorage.getItem('mode'))
+        if (date && localStorage.getItem('mode') === 'null'){
+            if (date < 12) {
+                dispatch(setTheme({mode: 'light'}))
+            } else {
+                dispatch(setTheme({mode: 'dark'}))
+                console.log('here',localStorage)
+            }
+        } else {
+            dispatch(setTheme({mode: localStorage.getItem('mode')}))
+        }
+    },[date])
 
     const callback = () => {
-        dispatch(toggleTheme())
+        dispatch(setTheme({mode: currentTheme === 'dark' ? 'light' : 'dark' }))
     }
 
     return (
         <label className={styles.label}>
-            <input className={styles.input} type="checkbox" defaultChecked={isToggled} onClick={callback} />
+            <input className={styles.input} type="checkbox" defaultChecked={currentTheme === 'light' ? false : true} onClick={callback} />
             <span className={styles.span} />
             <strong>{label}</strong>
         </label>
