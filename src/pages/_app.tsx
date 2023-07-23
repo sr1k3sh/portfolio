@@ -105,7 +105,9 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
     <AnimatePresence
         // exitBeforeEnter
         initial={false}
-        onExitComplete={() => window.scrollTo(0, 0)}>
+        mode='wait'
+        // onExitComplete={() => window.scrollTo(0, 0)}
+      >
       <main className={inter.className}>
         <style jsx global>{`
           html {
