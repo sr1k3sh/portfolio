@@ -79,11 +79,12 @@ export const getStaticProps: GetStaticProps = async ({ params }: any) => {
 
 export default function BlogDetail({ dataBlogList, category }: Props) {
 
+  const colorState = useSelector(getThemeMode)
+
   if(!dataBlogList) return <></>
 
   const { blogs } = dataBlogList
 
-  const colorState = useSelector(getThemeMode)
 
   const classes = {
     colorState: colorState === "dark" ? "rs-app__dark " : "rs-app__light "
