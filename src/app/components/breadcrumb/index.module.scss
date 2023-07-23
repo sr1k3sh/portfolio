@@ -14,6 +14,7 @@
 
   &.light {
     & li {
+      color: var(--primary);
       &:not(:first-child) {
         &::before {
           content: '>';
@@ -29,6 +30,7 @@
 
   &.dark {
     & li {
+      color: var(--white);
       &:not(:first-child) {
         &::before {
           content: '>';

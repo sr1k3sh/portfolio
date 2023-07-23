@@ -1,13 +1,11 @@
 import { GetStaticProps } from 'next'
 import Image from 'next/image'
-import React, { useEffect } from 'react'
-import { GET_ARTICLES_QUERY, GET_BLOGS_CATEGORY_LIST_QUERY, GET_BLOGS_IDS, GET_BLOG_DETAIL_QUERY, client } from 'src/utils/config'
-import styles from './blogDetail.module.scss'
+import React from 'react'
+import { GET_ARTICLES_QUERY, GET_BLOGS_IDS, client } from 'src/utils/config'
+import styles from './blogListing.module.scss'
 import { Righteous } from 'next/font/google'
-import BlogListItem from 'src/app/components/blogListItem'
 import NavBar from 'src/app/components/NavSection'
 import { useSelector } from 'react-redux'
-import { ReactMarkdown } from 'react-markdown/lib/react-markdown'
 import Head from 'next/head'
 import Contact from 'src/app/components/Contact'
 import { getThemeMode } from 'src/redux/ThemeSlice'
@@ -16,7 +14,6 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, Pagination } from 'swiper/modules'
 import HeaderTitleDesc from 'src/app/components/headerTitleDesc'
 import Link from 'next/link'
-
 type Props = {
   blogData: any
   dataBlogList: any
@@ -139,64 +136,59 @@ export default function BlogDetail({ dataBlogList, category }: Props) {
       </section>
       <section className={colorState === 'dark' ? styles.darkSection : styles.lightSection}>
         <div className='container'>
-          <div className='row'>
-            {
-              <>
-                <div className='row gy-3 d-none d-lg-flex'>
+          <>
+            <div className='row gy-3 d-none d-lg-flex'>
+              {
+                blogs.data.length ? blogs.data.map((blog: any, ind: any) => (
+                  <div className='col-md-4' key={`category-blog-${ind}`}>
+                    <BlogGridItem blog={blog}></BlogGridItem>
+                  </div>
+                )) : null
+              }
+            </div>
+            <div className='row gy-3 d-flex d-lg-none'>
+              <div className='col-12'>
+                <Swiper
+                  grabCursor={true}
+                  spaceBetween={30}
+                  width={300}
+                  navigation
+                  modules={[Pagination, Navigation]}
+                  className="blogSwiper"
+                >
                   {
                     blogs.data.length ? blogs.data.map((blog: any, ind: any) => (
-                      <div className='col-md-4' key={`category-blog-${ind}`}>
-                        <BlogGridItem blog={blog}></BlogGridItem>
-                      </div>
+                      <SwiperSlide
+                        key={`swiper-index-${ind}`}
+                        >
+                          <div style={{
+                            width: '100%',
+                          }}>
+                            <BlogGridItem blog={blog}></BlogGridItem>
+                          </div>
+                      </SwiperSlide>
                     )) : null
                   }
-                </div>
-                <div className='row gy-3 d-flex d-lg-none'>
-                  <div className='col-12'>
-                    <Swiper
-                      grabCursor={true}
-                      spaceBetween={30}
-                      width={300}
-                      navigation
-                      modules={[Pagination, Navigation]}
-                      className="blogSwiper"
-                    >
-                      {
-                        blogs.data.length ? blogs.data.map((blog: any, ind: any) => (
-                          <SwiperSlide
-                            key={`swiper-index-${ind}`}
-                            >
-                              <div style={{
-                                width: '100%',
-                              }}>
-                                <BlogGridItem blog={blog}></BlogGridItem>
-                              </div>
-                          </SwiperSlide>
-                        )) : null
-                      }
-                    </Swiper>
-                  </div>
-                </div>
-                {
-                  !blogs.data.length ?
-                    <header style={{
-                      display: 'flex',
-                      flexDirection: 'column',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                    }}>
-                      <h2 className={righteous.className} style={{
-                        textAlign: 'center',
-                        marginBottom: '2rem',
-                      }}>Sorry There are no blogs related to {category}</h2>
-                      <Link href="/" className='btn btn-primary'>Go back?</Link>
-                    </header>
-                  : null
-                }
-              </>
+                </Swiper>
+              </div>
+            </div>
+            {
+              !blogs.data.length ?
+                <header style={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                }}>
+                  <h2 className={righteous.className} style={{
+                    textAlign: 'center',
+                    marginBottom: '2rem',
+                  }}>Sorry There are no blogs related to {category}</h2>
+                  <Link href="/" className='btn btn-primary'>Go back?</Link>
+                </header>
+              : null
             }
-
-          </div>
+          </>
         </div>
       </section>
       <Contact></Contact>
