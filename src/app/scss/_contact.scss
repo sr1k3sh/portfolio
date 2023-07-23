@@ -110,6 +110,7 @@
         line-height: 58px;
         text-align: center;
         color: #0000008A;
+        @include gradient;
     }
 
     &__author-designation{

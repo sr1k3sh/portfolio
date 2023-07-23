@@ -21,22 +21,9 @@
 
 .topHeader {
   // background-color: var(--white-100);
-  padding: 5rem 0 10rem 0;
+  padding: 5rem 0 2rem;
   @media screen and (min-width: 768px) {
-    padding: 5rem 0 20rem 0;
-  }
-}
-
-.dark {
-  &.topHeader{
-    // background-color: var(--black-200);
-  }
-}
-
-.banner {
-  margin-top: -120px;
-  @media screen and (min-width: 768px) {
-    margin-top: -250px;
+    padding: 5rem 0 2rem;
   }
 }
 
@@ -48,16 +35,9 @@
 }
 
 .categoryContainer {
-  margin-bottom: 2rem;
+  margin-bottom: 0.75rem;
   @media screen and (min-width: 768px) {
-    margin-bottom: 3.5rem;
-  }
-}
-
-.subtitle {
-  margin-bottom: 1rem;
-  @media screen and (min-width: 768px) {
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
   }
 }
 

@@ -17,6 +17,8 @@ import 'swiper/css'
 import 'swiper/css/effect-coverflow'
 import 'swiper/css/navigation'
 import 'swiper/css'
+import Link from 'next/link'
+import stylesMain from './index.module.scss'
 
 type Props = {
   categories: any
@@ -52,7 +54,6 @@ export const getStaticProps: GetStaticProps = async ({ params }: any) => {
 }
 
 export default function BlogListingPage({ categories }: Props) {
-
 
   const { data } = categories
 
@@ -102,7 +103,7 @@ export default function BlogListingPage({ categories }: Props) {
           </div>
           <article>
             <figure className={styles.figure}>
-              <Image src={'/bgnew.jpg'} placeholder='blur' blurDataURL={'/bg.avif'} alt={metadata?.title || ''} fill={true} style={{ objectFit: 'cover' }}></Image>
+              <Image src={'/bgnew.jpg'} priority={true} placeholder='blur' blurDataURL={'/bg.avif'} alt={metadata?.title || ''} fill={true} style={{ objectFit: 'cover' }}></Image>
             </figure>
           </article>
         </div>
@@ -112,9 +113,12 @@ export default function BlogListingPage({ categories }: Props) {
           <div className='row'>
             {
               data.map((category: any, index: number) => (
-                category.attributes.blogs ? <div className={`${styles.categoryContainer} ' col-12'`} key={`category-${index}`}>
-                  <h2 className={`${styles.subtitle} ${righteous.className}`}>{category.attributes.name}</h2>
-                  <div className='row gy-3 d-none'>
+                category.attributes.blogs.data.length ? <div className={`${styles.categoryContainer} ' col-12'`} key={`category-${index}`}>
+                  <div className={stylesMain.titleWrapper}>
+                    <h2 className={`${stylesMain.subtitle} ${righteous.className}`}>{category.attributes.name}</h2>
+                    <Link href={`/blogs/${category.attributes.slug}`} className={`${stylesMain.link} ${righteous.className}`}>More related blogs</Link>
+                  </div>
+                  <div className='row gy-3 d-none d-lg-flex'>
                     {
                       category.attributes.blogs.data.length ? category.attributes.blogs.data.map((blog: any, ind: any) => (
                         <div className='col-md-4' key={`category-blog-${ind}`}>
@@ -123,7 +127,7 @@ export default function BlogListingPage({ categories }: Props) {
                       )) : null
                     }
                   </div>
-                  <div className='row gy-3'>
+                  <div className='row gy-3 d-flex d-lg-none'>
                     <div className='col-12'>
                       <Swiper
                         // effect={'coverflow'}

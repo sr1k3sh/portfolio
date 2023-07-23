@@ -7,12 +7,15 @@
 }
 
 .sidebar{
-  width: 100px;
+  // width: 100px;
   display: flex;
   flex-direction: column;
   align-items: center;
   position: fixed;
   z-index: 10;
   top: 0;
-  left: 0;
+  left: 12px;
+  @media screen and (min-width: 768px) {
+    left: 30px;
+  }
 }

@@ -55,6 +55,9 @@
             }
 
             #{$self}__headline{
+                @include media-breakpoint-down(md){
+                    border-right: 4px solid var(--white);
+                }
                 & h2 {
                     color: var(--white-600);
                 }
@@ -66,6 +69,14 @@
             #{$self}__float-bg{
                 & svg{
                     fill:#3e3e3e;
+                }
+            }
+
+            #{$self}__work-skills{
+                border-left-color: var(--white);
+
+                & h3 {
+                    color: var(--white);
                 }
             }
         }
@@ -91,7 +102,7 @@
 
             #{$self}__headline{
                 &::before{
-                    background-color: var(--white-600);
+                    background-color: var(--secondary);
                 }
             }
         }
@@ -170,6 +181,7 @@
             letter-spacing: 0.5px;
             margin-bottom: 30px;
             color: var(--font-dark);
+
         }
 
         & ul{
@@ -241,6 +253,7 @@
             letter-spacing: 0.5px;
             margin-bottom: 30px;
             color: var(--font-dark);
+
         }
     }
 
@@ -290,6 +303,7 @@
     }
 
     &__more {
-        color: var(--primary);
+        color: var(--secondary);
+        text-decoration: none;
     }
 }

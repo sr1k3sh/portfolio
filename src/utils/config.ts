@@ -12,6 +12,7 @@ export const GET_BLOGS_CATEGORY_LIST_QUERY = gql`
         id
         attributes {
           name
+          slug
           blogs(pagination: $pagination) {
             data {
               id
@@ -29,6 +30,13 @@ export const GET_BLOGS_CATEGORY_LIST_QUERY = gql`
                 }
                 description
                 publishedAt
+                category {
+                  data {
+                    attributes {
+                      name
+                    }
+                  }
+                }
               }
             }
           }

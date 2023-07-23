@@ -1,5 +1,4 @@
 import React, { MutableRefObject, useCallback, useRef, useState } from 'react'
-import { IoIosArrowForward, IoIosArrowBack } from 'react-icons/io'
 import { useSelector } from 'react-redux'
 import { Refs } from '../../../pages'
 import { Righteous } from 'next/font/google'
@@ -26,32 +25,6 @@ import { FiHelpCircle } from 'react-icons/fi'
 import { CgPerformance } from 'react-icons/cg'
 import { colors } from 'src/utils/utils'
 import { getThemeMode } from 'src/redux/ThemeSlice'
-
-
-interface buttonProps {
-  className: string,
-  onClick?: () => void
-}
-
-function NextArrow(props: buttonProps) {
-  const { className, onClick } = props
-  return (
-    <button
-      className={className}
-      onClick={onClick}>
-      <IoIosArrowForward></IoIosArrowForward>
-    </button>
-  )
-}
-
-function PrevArrow(props: buttonProps) {
-  const { className, onClick } = props
-  return (
-    <button className={className} onClick={onClick}>
-      <IoIosArrowBack></IoIosArrowBack>
-    </button>
-  )
-}
 
 interface Props {
   refs: Refs
