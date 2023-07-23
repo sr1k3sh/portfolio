@@ -87,22 +87,25 @@ export default function BlogDetail({ blogData, dataBlogList }: Props) {
   const [scrollClass , setScrollClass] = useState<string|null>('')
 
   useEffect(() => {
-    if (attributes.category) {
-      setBreadCrumbData(prev => [...prev,
-      {
-        url: `/blogs/${attributes.category.data.attributes.slug}`,
-        name: attributes.category.data.attributes.name,
-      },
-      {
-        url: null,
-        name: attributes.title,
-      },
-      ])
+    if(attributes) {
+      const { category, title } = attributes
+      if (category) {
+        setBreadCrumbData(prev => [...prev,
+        {
+          url: `/blogs/${category.data.attributes.slug}`,
+          name: category.data.attributes.name,
+        },
+        {
+          url: null,
+          name: title,
+        },
+        ])
+      }
     }
     return () => {
       setBreadCrumbData([])
     }
-  }, [blogs])
+  }, [attributes])
 
   useEffect(() => {
     const onScroll = () => {

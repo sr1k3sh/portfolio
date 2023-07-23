@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import styles from './index.module.scss'
 import { useDispatch, useSelector } from 'react-redux'
-import { getThemeMode, setTheme, toggleTheme } from 'src/redux/ThemeSlice'
+import { getThemeMode, setTheme } from 'src/redux/ThemeSlice'
 import { changeColorByValue } from 'src/redux/AppSlice'
 
 interface Props {
@@ -50,21 +50,19 @@ export const Toggle = ({ label }: Props) => {
                 dispatch(changeColorByValue({ greet: "Good evening" }))
             }
         }
-    },[date])
+    },[date, dispatch])
 
     useEffect(() => {
-        console.log(localStorage.getItem('mode'), typeof localStorage.getItem('mode'))
         if (date && localStorage.getItem('mode') === 'null'){
             if (date < 12) {
                 dispatch(setTheme({mode: 'light'}))
             } else {
                 dispatch(setTheme({mode: 'dark'}))
-                console.log('here',localStorage)
             }
         } else {
             dispatch(setTheme({mode: localStorage.getItem('mode')}))
         }
-    },[date])
+    },[date, dispatch])
 
     const callback = () => {
         dispatch(setTheme({mode: currentTheme === 'dark' ? 'light' : 'dark' }))
