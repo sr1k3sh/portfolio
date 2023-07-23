@@ -1,6 +1,6 @@
 import { GetStaticProps } from 'next'
 import Image from 'next/image'
-import React from 'react'
+import React, { useEffect } from 'react'
 import { GET_ARTICLES_QUERY, GET_BLOGS_CATEGORY_LIST_QUERY, GET_BLOGS_IDS, GET_BLOG_DETAIL_QUERY, client } from 'src/utils/config'
 import styles from './blogDetail.module.scss'
 import { Righteous } from 'next/font/google'

@@ -1,6 +1,6 @@
 import { GetStaticProps } from 'next'
 import Image from 'next/image'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { GET_ARTICLES_QUERY, GET_BLOGS_IDS, GET_BLOG_DETAIL_QUERY, client } from 'src/utils/config'
 import styles from './blogDetail.module.scss'
 import { Righteous } from 'next/font/google'
@@ -11,6 +11,7 @@ import { ReactMarkdown } from 'react-markdown/lib/react-markdown'
 import Head from 'next/head'
 import Contact from 'src/app/components/Contact'
 import { getThemeMode } from 'src/redux/ThemeSlice'
+import BreadCrumb, { IbreadCrumb } from 'src/app/components/breadcrumb'
 
 type Props = {
   blogData: any
@@ -40,7 +41,7 @@ export async function getStaticPaths() {
   return {
     paths,
     fallback: 'blocking',
-     // Set to `true` if you want to enable fallback behavior
+    // Set to `true` if you want to enable fallback behavior
   };
 }
 
@@ -81,6 +82,42 @@ export default function BlogDetail({ blogData, dataBlogList }: Props) {
 
   const { blogs } = dataBlogList
 
+  const [breadCrumbData, setBreadCrumbData] = useState<IbreadCrumb[]>([])
+
+  const [scrollClass , setScrollClass] = useState<string|null>('')
+
+  useEffect(() => {
+    if (attributes.category) {
+      setBreadCrumbData(prev => [...prev,
+      {
+        url: `/blogs/${attributes.category.data.attributes.slug}`,
+        name: attributes.category.data.attributes.name,
+      },
+      {
+        url: null,
+        name: attributes.title,
+      },
+      ])
+    }
+    return () => {
+      setBreadCrumbData([])
+    }
+  }, [blogs])
+
+  useEffect(() => {
+    const onScroll = () => {
+      if(window.scrollY >= 50) {
+        setScrollClass('scroll')
+      } else {
+        setScrollClass('')
+      }
+    }
+    window.addEventListener('scroll',onScroll)
+    return () => {
+      window.removeEventListener('scroll' ,onScroll)
+    }
+  },[])
+
   const colorState = useSelector(getThemeMode)
 
   const classes = {
@@ -105,20 +142,20 @@ export default function BlogDetail({ blogData, dataBlogList }: Props) {
           key="desc"
         />
 
-        <meta property="og:title" content={attributes.title}/>
-        <meta property="og:description" content={attributes.description}/>
-        <meta property="og:image" content={attributes?.cover?.data?.attributes?.url || '/bg.avif'}/>
+        <meta property="og:title" content={attributes.title} />
+        <meta property="og:description" content={attributes.description} />
+        <meta property="og:image" content={attributes?.cover?.data?.attributes?.url || '/bg.avif'} />
         <meta property="og:url" content={`/blogs/${attributes.category.data.id}`} />
-        <meta property="og:type" content="website"/>
-        <meta name="twitter:card" content="summary"/>
-        <meta name="twitter:site" content="@rikeshshrestha"/>
-        <meta name="twitter:title" content={attributes.title}/>
-        <meta name="twitter:description" content={attributes.description}/>
-        <meta name="twitter:image" content={attributes?.cover?.data?.attributes?.url || '/bg.avif'}/>
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:site" content="@rikeshshrestha" />
+        <meta name="twitter:title" content={attributes.title} />
+        <meta name="twitter:description" content={attributes.description} />
+        <meta name="twitter:image" content={attributes?.cover?.data?.attributes?.url || '/bg.avif'} />
         <link rel="icon" href="/profile.png" sizes="any" />
       </Head>
       <NavBar></NavBar>
-      <section className={`${styles.topHeader}  ${colorState === "dark" ? styles.dark  : styles.light }`}>
+      <section className={`${styles.topHeader} ${scrollClass ? styles.start : ''}  ${colorState === "dark" ? styles.dark : styles.light}`}>
         <div className='container'>
           <div className='row'>
             <div className='col-12'>
@@ -136,6 +173,7 @@ export default function BlogDetail({ blogData, dataBlogList }: Props) {
                   <Image src={attributes?.cover?.data?.attributes?.url || '/bg.avif'} placeholder='blur' blurDataURL={'/bg.avif'} alt={attributes?.cover?.data?.attributes?.alternativeText || attributes?.title || ''} fill={true} style={{ objectFit: 'cover' }}></Image>
                 </figure>
               </article>
+              <BreadCrumb data={breadCrumbData}></BreadCrumb>
             </div>
           </div>
         </div>
