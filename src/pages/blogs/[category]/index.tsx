@@ -14,6 +14,11 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, Pagination } from 'swiper/modules'
 import HeaderTitleDesc from 'src/app/components/headerTitleDesc'
 import Link from 'next/link'
+import 'swiper/css'
+import 'swiper/css/effect-coverflow'
+import 'swiper/css/navigation'
+import 'swiper/css'
+
 type Props = {
   blogData: any
   dataBlogList: any

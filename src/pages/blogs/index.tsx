@@ -159,8 +159,6 @@ export default function BlogListingPage({ categories }: Props) {
                                   <BlogGridItem blog={blog}></BlogGridItem>
                                 </div>
                             </SwiperSlide>
-                            // <div className='col-md-4' key={`category-blog-${ind}`}>
-                            // </div>
                           )) : null
                         }
                       </Swiper>
