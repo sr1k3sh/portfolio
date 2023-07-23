@@ -19,6 +19,7 @@ import 'swiper/css/navigation'
 import 'swiper/css'
 import Link from 'next/link'
 import stylesMain from './index.module.scss'
+import Layout from 'src/app/components/Layout'
 
 type Props = {
   categories: any
@@ -64,7 +65,7 @@ export default function BlogListingPage({ categories }: Props) {
   }
 
   return (
-    <main className={classes.colorState}>
+    <Layout className={classes.colorState}>
       <Head>
         <title>
           {
@@ -172,6 +173,6 @@ export default function BlogListingPage({ categories }: Props) {
         </div>
       </section>
       <Contact></Contact>
-    </main>
+    </Layout>
   )
 }

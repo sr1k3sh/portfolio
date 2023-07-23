@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import React from 'react'
 import { useSelector } from 'react-redux'
+import Layout from 'src/app/components/Layout'
 import { getThemeMode } from 'src/redux/ThemeSlice'
 
 type Props = {}
@@ -22,7 +23,7 @@ export default function Custom404({}: Props) {
   }
 
   return (
-    <div style={{
+    <Layout style={{
       position:'relative',
       width: '100%',
       height: '100vh',
@@ -47,6 +48,6 @@ export default function Custom404({}: Props) {
           <button className='btn btn-primary' onClick={onClick}>go home</button>
         </div>
       </div>
-    </div>
+    </Layout>
   )
 }

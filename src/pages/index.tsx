@@ -15,6 +15,7 @@ import SliderV3tar from 'src/app/components/SliderV2/SliderV3'
 import { Righteous } from 'next/font/google'
 import { colors } from 'src/utils/utils'
 import { getThemeMode, setTheme, toggleTheme } from 'src/redux/ThemeSlice'
+import Layout from 'src/app/components/Layout'
 
 export const metadata = {
   title: 'Rikesh Shrestha - Frontend Developer | Web Design | HTML | CSS | JavaScript | React | React Native | Ureshino, Japan',
@@ -96,7 +97,7 @@ const Home = (props: Props) => {
   }
 
   return (
-    <main className={classes.colorState}>
+    <Layout className={classes.colorState}>
       <Head>
         <title>
           {
@@ -135,7 +136,7 @@ const Home = (props: Props) => {
       <SliderV3tar refs={refs} title={<><span className={righteous.className}>Things</span> <strong className={righteous.className}>I Do</strong></>}></SliderV3tar>
       <Testimonial refs={refs}></Testimonial>
       <Contact refs={refs}></Contact>
-    </main>
+    </Layout>
   )
 }
 

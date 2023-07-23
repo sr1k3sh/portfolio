@@ -12,6 +12,7 @@ import Head from 'next/head'
 import Contact from 'src/app/components/Contact'
 import { getThemeMode } from 'src/redux/ThemeSlice'
 import BreadCrumb, { IbreadCrumb } from 'src/app/components/breadcrumb'
+import Layout from 'src/app/components/Layout'
 
 type Props = {
   blogData: any
@@ -128,7 +129,7 @@ export default function BlogDetail({ blogData, dataBlogList }: Props) {
   }
 
   return (
-    <main className={classes.colorState}>
+    <Layout className={classes.colorState}>
       <Head>
         <title>
           {
@@ -214,6 +215,6 @@ export default function BlogDetail({ blogData, dataBlogList }: Props) {
         </div>
       </section>
       <Contact></Contact>
-    </main>
+    </Layout>
   )
 }

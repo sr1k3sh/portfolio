@@ -18,6 +18,7 @@ import 'swiper/css'
 import 'swiper/css/effect-coverflow'
 import 'swiper/css/navigation'
 import 'swiper/css'
+import Layout from 'src/app/components/Layout'
 
 type Props = {
   blogData: any
@@ -96,7 +97,7 @@ export default function BlogDetail({ dataBlogList, category }: Props) {
   }
 
   return (
-    <main className={classes.colorState}>
+    <Layout className={classes.colorState}>
       <Head>
         {/* <title>
           {
@@ -198,6 +199,6 @@ export default function BlogDetail({ dataBlogList, category }: Props) {
         </div>
       </section>
       <Contact></Contact>
-    </main>
+    </Layout>
   )
 }
