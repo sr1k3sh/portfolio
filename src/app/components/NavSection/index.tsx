@@ -1,6 +1,6 @@
 import { Righteous } from 'next/font/google'
 import Link from 'next/link'
-import React, { MutableRefObject, useRef } from 'react'
+import React, { MutableRefObject, useRef, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { changeMenuStatus, getMenuStatus } from 'src/redux/features/body/BodySlice'
 import {RiHome8Line , RiServiceLine, RiBriefcase2Fill, RiChat1Line, RiMagicLine, RiMailSendLine } from 'react-icons/ri'
@@ -39,13 +39,15 @@ interface NavBarSectionProps {
 export default function NavBar({ refs, isHome = false }: NavBarSectionProps) {
 
   const dispatch = useDispatch()
-  const menuState = useSelector(getMenuStatus)
+  const [ menuState, setMenuState ] = useState<boolean>(false)
 
   const refNav:MutableRefObject<HTMLElement | null> = useRef(null)
 
   const toggleMenu: React.MouseEventHandler<HTMLDivElement> = (e) =>{
     e.preventDefault()
-    dispatch(changeMenuStatus())
+    console.log('clicked')
+    setMenuState(prev => !prev)
+    // dispatch(changeMenuStatus())
   }
 
   return (
@@ -60,7 +62,7 @@ export default function NavBar({ refs, isHome = false }: NavBarSectionProps) {
                   <div className='rs-banner__logo' onClick={toggleMenu}>
                     <span className={righteous.className}>RS</span>
                   </div>
-                  <nav className={menuState ? 'rs-banner__navigation rs-banner__navigation--open' : 'rs-banner__navigation rs-banner__navigation--close'} ref={refNav}>
+                  <nav className={`rs-banner__navigation ${menuState ? 'rs-banner__navigation--open' : 'rs-banner__navigation--close'} `} ref={refNav}>
                     <ul>
                       <li>
                         <Link href="/" onClick={() => refs && refs.home.homeRef?.current.scrollIntoView({ behavior: 'smooth', block: 'start' })}><RiHome8Line></RiHome8Line></Link>

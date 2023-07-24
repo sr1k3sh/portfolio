@@ -43,8 +43,12 @@ html {
     scroll-snap-type: y mandatory;
 }
 
-* {
-    cursor: none;
+body {
+    &.default-cursor {
+        * {
+            cursor: none;
+        }
+    }
 }
 
 .rs-app{

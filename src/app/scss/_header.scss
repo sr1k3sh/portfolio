@@ -186,12 +186,13 @@
         height: calc(100% - 1rem - 55px);
         transition: 0.5s;
         &--open{
-            overflow: visible;
+            // overflow: visible;
+            display: flex;
         }
         &--close{
-
-            height: 0;
-            visibility: hidden;
+            display: none;
+            // height: 0;
+            // visibility: hidden;
         }
 
         ul{

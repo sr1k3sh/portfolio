@@ -22,7 +22,11 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
   useEffect(() => {
     if (window.innerWidth < 767) {
       setShowCustomCursor(false)
+      if(document.querySelector('body')?.classList.contains('default-cursor')) {
+        document.querySelector('body')?.classList.remove('default-cursor')
+      }
     } else {
+      document.querySelector('body')?.classList.add('default-cursor')
       setShowCustomCursor(true)
     }
   },[])
@@ -83,8 +87,12 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
       timeout = setTimeout(() => {
         if (window.innerWidth < 767) {
           setShowCustomCursor(false)
+          if(document.querySelector('body')?.classList.contains('default-cursor')) {
+            document.querySelector('body')?.classList.remove('default-cursor')
+          }
         } else {
           setShowCustomCursor(true)
+          document.querySelector('body')?.classList.add('default-cursor')
         }
       }, 200)
     }
