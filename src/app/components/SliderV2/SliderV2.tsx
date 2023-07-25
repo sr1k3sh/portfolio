@@ -160,118 +160,102 @@ export default function SliderV2tar({ parallex = false, refs, title, data }: Pro
   }
 
   return (
-    <section ref={refs && refs.services.servicesRef} className={`${styles.section} ${colorState === 'dark' ? styles.dark : styles.light}`}>
+    <section ref={refs && refs.services.servicesRef} className={`${colorState === 'dark' ? styles.dark : styles.light}`}>
       {
-        parallex &&
-        <div className='container-fluid'>
-          <div className='row'>
-            <figure className={styles.bgImage}>
-              <Image src={services[activeSlide].url} placeholder='blur' blurDataURL={services[activeSlide].url} fill style={{ objectFit: 'cover' }} alt="..."></Image>
-            </figure>
-          </div>
-        </div>
+        title &&
+        <h2 className={`${styles.title} ${righteous.className}`}>{title}</h2>
       }
-      <div className='container-fluid'>
-        <div className='row'>
-          <div className='col-12'>
-            {
-              title &&
-              <h2 className={`${styles.title} ${righteous.className}`}>{title}</h2>
-            }
-            <div className={`${styles.wrapper} rs-services__wrapper`}>
-              <Swiper
-                effect={'coverflow'}
-                grabCursor={true}
-                centeredSlides={true}
-                slidesPerView={1}
-                loop={true}
-                navigation
-                coverflowEffect={{
-                  rotate: 50,
-                  stretch: 0,
-                  depth: 100,
-                  modifier: 1,
-                  slideShadows: false
-                }}
-                modules={[Pagination, Navigation, EffectCoverflow]}
-                className="mySwiper"
-                onSwiper={onSwiper}
-                onSlideChange={onSlideChange}
-                autoplay={{
-                  delay: 1000,
-                  disableOnInteraction: false,
-                }}
-                breakpoints={{
-                  640: {
-                    slidesPerView: 2,
-                    // spaceBetween: 20,
-                  },
-                  1100: {
-                    slidesPerView: 3,
-                    // spaceBetween: 40,
-                  },
-                  // 1024: {
-                  //   slidesPerView: 5,
-                  //   spaceBetween: 50,
-                  // },
-                }}
-              >
-                {
-                  data.map((d: any, index: number) => {
+      <div className={`${styles.wrapper} rs-services__wrapper`}>
+        <Swiper
+          effect={'coverflow'}
+          grabCursor={true}
+          centeredSlides={true}
+          slidesPerView={1}
+          loop={true}
+          navigation
+          coverflowEffect={{
+            rotate: 50,
+            stretch: 0,
+            depth: 100,
+            modifier: 1,
+            slideShadows: false
+          }}
+          modules={[Pagination, Navigation, EffectCoverflow]}
+          className="mySwiper"
+          onSwiper={onSwiper}
+          onSlideChange={onSlideChange}
+          autoplay={{
+            delay: 1000,
+            disableOnInteraction: false,
+          }}
+          breakpoints={{
+            640: {
+              slidesPerView: 2,
+              // spaceBetween: 20,
+            },
+            1100: {
+              slidesPerView: 3,
+              // spaceBetween: 40,
+            },
+            // 1024: {
+            //   slidesPerView: 5,
+            //   spaceBetween: 50,
+            // },
+          }}
+        >
+          {
+            data.map((d: any, index: number) => {
+              return (
+                <SwiperSlide
+                  key={`swiper-index-${index}`}
+                  className={`${movedLeft === null ? '' : movedLeft ? 'left' : 'right'}`}
+                >
+                  {({ isActive }) => {
                     return (
-                      <SwiperSlide
-                        key={`swiper-index-${index}`}
-                        className={`${movedLeft === null ? '' : movedLeft ? 'left' : 'right'}`}
+                      <div
+                        onMouseMove={(e) => isActive && onMouseMove(e)}
+                        onMouseLeave={() => isActive && onMouseLeave()}
+
                       >
-                        {({ isActive }) => {
-                          return (
+                        <article
+                          ref={currentSlideRef}
+                          className={styles.article}
+                        >
+                          <figure
+                            className={styles.figure}
+
+                            style={{
+                              position: 'relative',
+                              width: '100%',
+                              height: '100%',
+                              backdropFilter: 'blur(24px)'
+                            }}>
+                            <Image src={d.attributes.url} placeholder='blur' blurDataURL={d.attributes.url} fill style={{ objectFit: 'cover' }} alt=".."></Image>
+                          </figure>
+                          {
                             <div
-                              onMouseMove={(e) => isActive && onMouseMove(e)}
-                              onMouseLeave={() => isActive && onMouseLeave()}
+                              className={`${isActive && styles.activeDescription} ${styles.descriptionV2}`}>
+                              {
+                                d.attributes.caption &&
+                                <h2 className={righteous.className}>{d.attributes.caption}</h2>
+                              }
 
-                            >
-                              <article
-                                ref={currentSlideRef}
-                                className={styles.article}
-                              >
-                                <figure
-                                  className={styles.figure}
-
-                                  style={{
-                                    position: 'relative',
-                                    width: '100%',
-                                    height: '100%',
-                                    backdropFilter: 'blur(24px)'
-                                  }}>
-                                  <Image src={d.attributes.url} placeholder='blur' blurDataURL={d.attributes.url} fill style={{ objectFit: 'cover' }} alt=".."></Image>
-                                </figure>
-                                {
-                                  <div
-                                    className={`${isActive && styles.activeDescription} ${styles.descriptionV2}`}>
-                                    {
-                                      d.attributes.caption &&
-                                      <h2 className={righteous.className}>{d.attributes.caption}</h2>
-                                    }
-
-                                    {
-                                      d.attributes.alternativeText &&
-                                      <p>- {d.attributes.alternativeText}</p>
-                                    }
-                                  </div>
-                                }
-                              </article>
+                              {
+                                d.attributes.alternativeText &&
+                                <p>- {d.attributes.alternativeText}</p>
+                              }
                             </div>
-                          )
-                        }
-                        }
-                      </SwiperSlide>
+                          }
+                        </article>
+                      </div>
                     )
-                  })
-                }
-              </Swiper>
-            </div>
-          </div>
-        </div>
+                  }
+                  }
+                </SwiperSlide>
+              )
+            })
+          }
+        </Swiper>
       </div>
     </section>
   )
