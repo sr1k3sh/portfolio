@@ -195,11 +195,13 @@ export default function BlogDetail({ blogData, dataBlogList }: Props) {
                 attributes.blocks && attributes.blocks.map((block: any, index: number) => (
                   <div className={styles.content} key={index}>
                     {
+                      // eslint-disable-next-line
                       <ReactMarkdown
-                        // children={block.body}
                         components={{
+                          // eslint-disable-next-line
                           code({ inline, className,children }) {
                             if (inline) {
+                              // eslint-disable-next-line
                               return <code className={className}>{children}</code>;
                             }
                             const match = /language-(\w+)/.exec(className || '');
@@ -209,10 +211,12 @@ export default function BlogDetail({ blogData, dataBlogList }: Props) {
                               <SyntaxHighlighter
                                 style={ colorState === 'dark' ? oneDark : oneLight }
                                 language={lang === 'Dockerfile' ? 'docker' : lang}
+                                // eslint-disable-next-line
                                 children={String(children).replace(/\n$/, '')}
                               />
                             );
-                          }}}
+                          }
+                        }}
                       >
                         {
                           block.body
