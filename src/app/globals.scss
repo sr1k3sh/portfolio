@@ -57,12 +57,19 @@ body {
         h1, h2, h3, h4, p, span, input, strong {
             color: var(--white);
         }
+
+        & code span {
+            color: unset;
+        }
     }
 
     &__light{
         background-color: var(--white);
         h1, h2, h3, h4, p, span, input, strong {
             color: var(--font-dark);
+        }
+        & code span  {
+            color: unset;
         }
     }
 

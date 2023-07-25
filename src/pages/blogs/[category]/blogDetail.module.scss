@@ -71,16 +71,16 @@
     color: var(--font-dark-white);
   }
 
-  & code {
-    display: block;
-    padding: 1em;
-    margin: 0;
-    font-size: 0.9em;
-    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
-    color: #333;
-    background-color: #f5f5f5;
-    border-radius: 3px;
-  }
+  // & code {
+  //   display: block;
+  //   padding: 1em;
+  //   margin: 0;
+  //   font-size: 0.9em;
+  //   font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  //   color: #333;
+  //   background-color: #f5f5f5;
+  //   border-radius: 3px;
+  // }
 
   .topHeader {
     background-color: var(--black-200);
@@ -100,16 +100,16 @@
     color: var(--font-dark);
   }
 
-  & code {
-    display: block;
-    padding: 1em;
-    margin: 0;
-    font-size: 0.9em;
-    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
-    color: #f5f5f5;
-    background-color: #333;
-    border-radius: 3px;
-  }
+  // & code {
+  //   display: block;
+  //   padding: 1em;
+  //   margin: 0;
+  //   font-size: 0.9em;
+  //   font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  //   color: #f5f5f5;
+  //   background-color: #333;
+  //   border-radius: 3px;
+  // }
 }
 
 .content {

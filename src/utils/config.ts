@@ -5,6 +5,10 @@ export const client = new ApolloClient({
   cache: new InMemoryCache()
 })
 
+export const clientInsta = new ApolloClient({
+  uri: 'https://www.instagram.com/graphql/query/',
+  cache: new InMemoryCache()
+})
 export const GET_BLOGS_CATEGORY_LIST_QUERY = gql`
   query Query($pagination: PaginationArg) {
     categories {
@@ -174,4 +178,20 @@ export const GET_BLOGS_IDS = gql`
       }
     }
   }
+`
+
+export const GET_INSTA_BLOGS = gql`
+ query Query {
+  users {
+    id
+    username
+    email
+    posts {
+      id
+      title
+      description
+      createdAt
+    }
+  }
+ }
 `

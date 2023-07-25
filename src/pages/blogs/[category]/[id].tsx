@@ -13,6 +13,11 @@ import Contact from 'src/app/components/Contact'
 import { getThemeMode } from 'src/redux/ThemeSlice'
 import BreadCrumb, { IbreadCrumb } from 'src/app/components/breadcrumb'
 import Layout from 'src/app/components/Layout'
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
+import {
+  oneLight,
+  oneDark,
+} from 'react-syntax-highlighter/dist/cjs/styles/prism'
 
 type Props = {
   blogData: any
@@ -186,16 +191,29 @@ export default function BlogDetail({ blogData, dataBlogList }: Props) {
         <div className='container'>
           <div className='row'>
             <div className='col-lg-8 col-xl-7'>
-
               {
                 attributes.blocks && attributes.blocks.map((block: any, index: number) => (
                   <div className={styles.content} key={index}>
                     {
-                      <ReactMarkdown>
-                        {
-                          block.body
-                        }
-                      </ReactMarkdown>
+                      <ReactMarkdown
+                        children={block.body}
+                        components={{
+                          code({ inline, className,children }) {
+                            if (inline) {
+                              return <code className={className}>{children}</code>;
+                            }
+                            const match = /language-(\w+)/.exec(className || '');
+                            const lang = match && match[1] ? match[1] : 'tsx';
+
+                            return (
+                              <SyntaxHighlighter
+                                style={ colorState === 'dark' ? oneDark : oneLight }
+                                language={lang === 'Dockerfile' ? 'docker' : lang}
+                                children={String(children).replace(/\n$/, '')}
+                              />
+                            );
+                          }}}
+                      />
                     }
                   </div>
                 ))
