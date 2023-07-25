@@ -18,6 +18,7 @@ import {
   oneLight,
   oneDark,
 } from 'react-syntax-highlighter/dist/cjs/styles/prism'
+import SliderV2tar from 'src/app/components/SliderV2/SliderV2'
 
 type Props = {
   blogData: any
@@ -90,10 +91,10 @@ export default function BlogDetail({ blogData, dataBlogList }: Props) {
 
   const [breadCrumbData, setBreadCrumbData] = useState<IbreadCrumb[]>([])
 
-  const [scrollClass , setScrollClass] = useState<string|null>('')
+  const [scrollClass, setScrollClass] = useState<string | null>('')
 
   useEffect(() => {
-    if(attributes) {
+    if (attributes) {
       const { category, title } = attributes
       if (category) {
         setBreadCrumbData(prev => [...prev,
@@ -115,17 +116,17 @@ export default function BlogDetail({ blogData, dataBlogList }: Props) {
 
   useEffect(() => {
     const onScroll = () => {
-      if(window.scrollY >= 50) {
+      if (window.scrollY >= 50) {
         setScrollClass('scroll')
       } else {
         setScrollClass('')
       }
     }
-    window.addEventListener('scroll',onScroll)
+    window.addEventListener('scroll', onScroll)
     return () => {
-      window.removeEventListener('scroll' ,onScroll)
+      window.removeEventListener('scroll', onScroll)
     }
-  },[])
+  }, [])
 
   const colorState = useSelector(getThemeMode)
 
@@ -179,7 +180,7 @@ export default function BlogDetail({ blogData, dataBlogList }: Props) {
             <div className='col-12'>
               <article>
                 <figure className={styles.figure}>
-                  <Image src={attributes?.cover?.data?.attributes?.url || '/bg.avif'} placeholder='blur' blurDataURL={'/bg.avif'} alt={attributes?.cover?.data?.attributes?.alternativeText || attributes?.title || ''} fill={true} style={{ objectFit: 'cover' }}></Image>
+                  <Image src={attributes?.cover?.data?.attributes?.url || '/bg.avif'} placeholder='blur' blurDataURL={attributes?.cover?.data?.attributes?.url || '/bg.avif'} alt={attributes?.cover?.data?.attributes?.alternativeText || attributes?.title || ''} fill={true} style={{ objectFit: 'cover' }}></Image>
                 </figure>
               </article>
               <BreadCrumb data={breadCrumbData}></BreadCrumb>
@@ -192,39 +193,44 @@ export default function BlogDetail({ blogData, dataBlogList }: Props) {
           <div className='row'>
             <div className='col-lg-8 col-xl-7'>
               {
-                attributes.blocks && attributes.blocks.map((block: any, index: number) => (
-                  <div className={styles.content} key={index}>
-                    {
-                      // eslint-disable-next-line
-                      <ReactMarkdown
-                        components={{
-                          // eslint-disable-next-line
-                          code({ inline, className,children }) {
-                            if (inline) {
-                              // eslint-disable-next-line
-                              return <code className={className}>{children}</code>;
-                            }
-                            const match = /language-(\w+)/.exec(className || '');
-                            const lang = match && match[1] ? match[1] : 'tsx';
-
-                            return (
-                              <SyntaxHighlighter
-                                style={ colorState === 'dark' ? oneDark : oneLight }
-                                language={lang === 'Dockerfile' ? 'docker' : lang}
+                attributes.blocks && attributes.blocks.map((block: any, index: number) => {
+                  return (
+                    <div className={styles.content} key={index}>
+                      {
+                        // eslint-disable-next-line
+                        <ReactMarkdown
+                          components={{
+                            // eslint-disable-next-line
+                            code({ inline, className, children }) {
+                              if (inline) {
                                 // eslint-disable-next-line
-                                children={String(children).replace(/\n$/, '')}
-                              />
-                            );
+                                return <code className={className}>{children}</code>;
+                              }
+                              const match = /language-(\w+)/.exec(className || '');
+                              const lang = match && match[1] ? match[1] : 'tsx';
+
+                              return (
+                                <SyntaxHighlighter
+                                  style={colorState === 'dark' ? oneDark : oneLight}
+                                  language={lang === 'Dockerfile' ? 'docker' : lang}
+                                  // eslint-disable-next-line
+                                  children={String(children).replace(/\n$/, '')}
+                                />
+                              );
+                            }
+                          }}
+                        >
+                          {
+                            block.body
                           }
-                        }}
-                      >
-                        {
-                          block.body
-                        }
-                      </ReactMarkdown>
-                    }
-                  </div>
-                ))
+                        </ReactMarkdown>
+
+
+                      }
+                    </div>
+                  )
+                }
+                )
               }
             </div>
             <div className='offset-xl-1 col-lg-4'>
@@ -236,6 +242,28 @@ export default function BlogDetail({ blogData, dataBlogList }: Props) {
                   </li>)
                 }
               </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section className={`${colorState === 'dark' ? styles.darkSection : styles.lightSection} ${styles.containerSection}`}>
+        <div className='container'>
+          <div className='row'>
+            <div className='col-12'>
+            {
+                attributes.blocks && attributes.blocks.map((block: any, index: number) => {
+                  return (
+                    <div className={styles.content} key={index}>
+                      {
+                        block.files && block.files.data.length?
+                          <SliderV2tar title={'Checkout Galleries'} data={block.files.data}></SliderV2tar>
+                        : null
+                      }
+                    </div>
+                  )
+                }
+                )
+              }
             </div>
           </div>
         </div>
