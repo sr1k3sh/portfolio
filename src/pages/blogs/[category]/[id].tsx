@@ -196,7 +196,7 @@ export default function BlogDetail({ blogData, dataBlogList }: Props) {
                   <div className={styles.content} key={index}>
                     {
                       <ReactMarkdown
-                        children={block.body}
+                        // children={block.body}
                         components={{
                           code({ inline, className,children }) {
                             if (inline) {
@@ -213,7 +213,11 @@ export default function BlogDetail({ blogData, dataBlogList }: Props) {
                               />
                             );
                           }}}
-                      />
+                      >
+                        {
+                          block.body
+                        }
+                      </ReactMarkdown>
                     }
                   </div>
                 ))
