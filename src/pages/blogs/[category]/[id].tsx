@@ -61,23 +61,23 @@ export const getStaticProps: GetStaticProps = async ({ params }: any) => {
     }
   })
 
+  // console.log(data)
+
   const { data: dataBlogList } = await client.query({
     query: GET_ARTICLES_QUERY,
-    variables: {
-      filters: {
-        not: {
-          id: {
-            contains: params.id
-          }
-        }
-      }
-    }
+    // variables: {
+    //   filters: {
+    //     id: {
+    //       contains: params.id
+    //     }
+    //   }
+    // }
   })
 
   return {
     props: {
       blogData: data.blog.data,
-      dataBlogList,
+      dataBlogList
     },
     revalidate: 10,
   }
@@ -237,7 +237,7 @@ export default function BlogDetail({ blogData, dataBlogList }: Props) {
               <h3 className={`${styles.subtitle} ${righteous.className}`}>Related Blogs</h3>
               <ul className='rs-exp__blog-list'>
                 {
-                  blogs.data.map((blog: any, index: number) => <li key={index}>
+                  blogs.data.filter((blog:any) => blog.id !== attributes.category.data.id ).map((blog: any, index: number) => <li key={index}>
                     <BlogListItem blogDetail={blog} ></BlogListItem>
                   </li>)
                 }

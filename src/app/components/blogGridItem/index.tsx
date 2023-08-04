@@ -11,7 +11,7 @@ export default function BlogGridItem({blog}: Props) {
   const {attributes, id} = blog
 
   return (
-    <Link href={`/blogs/${attributes.category.data.attributes.name}/${id}`} className={styles.link} >
+    <Link href={`/blogs/${attributes.category.data.attributes.slug}/${id}`} className={styles.link} >
       <article>
         <figure className={styles.fig}>
           <Image loading='lazy' style={{ objectFit: 'cover' }} src={attributes?.cover?.data?.attributes?.url || '/bg.avif'} blurDataURL='/bg.avif' fill={true} alt={attributes?.cover?.data?.attributes.alternativeText || ''} />

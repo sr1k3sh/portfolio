@@ -38,6 +38,7 @@ export const GET_BLOGS_CATEGORY_LIST_QUERY = gql`
                   data {
                     attributes {
                       name
+                      slug
                     }
                   }
                 }
