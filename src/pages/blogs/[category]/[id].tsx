@@ -61,8 +61,6 @@ export const getStaticProps: GetStaticProps = async ({ params }: any) => {
     }
   })
 
-  // console.log(data)
-
   const { data: dataBlogList } = await client.query({
     query: GET_ARTICLES_QUERY,
     // variables: {
