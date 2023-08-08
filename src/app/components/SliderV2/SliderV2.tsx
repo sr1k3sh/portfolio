@@ -39,12 +39,12 @@ export default function SliderV2tar({ refs, title, data }: Props) {
     <section ref={refs && refs.services.servicesRef} className={``}>
       {
         title &&
-        <h2 className={`text-3xl font-bold font-sans uppercase mb-4`}>{title}</h2>
+        <h2 className={`text:2xl md:text-3xl font-bold font-sans uppercase mb-4`}>{title}</h2>
       }
       <div className='columns-3 gap-2'>
         {
           data.map((d: any, index: number) => {
-            return <figure key={`${index}-image-gallery`} className='relative aspect-square roudned-xl overflow-hidden group mt-2 first:mt-0'>
+            return <figure key={`${index}-image-gallery`} className='relative aspect-square rounded-xl overflow-hidden group mt-2 first:mt-0'>
               <Image className='object-cover transition-all duration-300 group-hover:scale-105' src={d.attributes.url} placeholder='blur' blurDataURL={d.attributes.url} fill alt=".."></Image>
             </figure>
           })

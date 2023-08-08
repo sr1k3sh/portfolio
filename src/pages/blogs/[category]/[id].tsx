@@ -143,10 +143,10 @@ export default function BlogDetail({ blogData, dataBlogList }: Props) {
         <link rel="icon" href="/profile.png" sizes="any" />
       </Head>
       <NavBar></NavBar>
-      <section className={`w-full md:w-[calc(100%_-_7rem)] pb-4 pt-20 lg:py-10 m-auto`}>
+      <section className={`w-full md:w-[calc(100%_-_7rem)] pb-2 pt-20 lg:py-10 m-auto`}>
         <div className='container m-auto'>
           <div className='flex'>
-            <h1 className={`text-3xl lg:text-5xl uppercase font-bold tracking-normal`}>{attributes.title}</h1>
+            <h1 className={`text-2xl md:text-3xl lg:text-5xl uppercase font-bold tracking-normal`}>{attributes.title}</h1>
           </div>
         </div>
       </section>
@@ -253,9 +253,9 @@ export default function BlogDetail({ blogData, dataBlogList }: Props) {
 
                       {
                         block.video ? <div className='mt-8'>
-                          <h2 className='text-3xl font-bold font-sans uppercase mb-4'>Checkout my vlog on youtube</h2>
+                          <h2 className='text-2xl md:text-3xl font-bold font-sans uppercase mb-4'>Checkout my vlog on youtube</h2>
                           <iframe
-                            className='w-full h-64 md:h-96 rounded-xl'
+                            className={`w-full h-64 md:h-96 rounded-xl`}
                             src={`https://www.youtube.com/embed/${block.video.providerUid}`}
                             title="YouTube video player"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

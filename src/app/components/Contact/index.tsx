@@ -382,7 +382,7 @@ export default function Contact(props:ContactSectionProps) {
                         </div>
                     </div>
                     <div className='w-full md:w-2/4'>
-                        <div className='p-12 flex flex-col bg-white-500 rounded-2xl dark:bg-black-500'>
+                        <div className='p-6 md:p-12 flex flex-col bg-white-500 rounded-2xl dark:bg-black-500'>
                             <div className='mb-10'>
                                 <h2 className={'text-3xl font-bold uppercase'}>Contact Me.</h2>
                             </div>
