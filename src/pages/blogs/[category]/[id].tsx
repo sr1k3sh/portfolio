@@ -143,7 +143,7 @@ export default function BlogDetail({ blogData, dataBlogList }: Props) {
         <link rel="icon" href="/profile.png" sizes="any" />
       </Head>
       <NavBar></NavBar>
-      <section className={`w-full md:w-[calc(100%_-_5rem)] pb-4 pt-20 lg:py-10`}>
+      <section className={`w-full md:w-[calc(100%_-_7rem)] pb-4 pt-20 lg:py-10 m-auto`}>
         <div className='container m-auto'>
           <div className='flex'>
             <h1 className={`text-3xl lg:text-5xl uppercase font-bold tracking-normal`}>{attributes.title}</h1>
