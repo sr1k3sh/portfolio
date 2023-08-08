@@ -6,7 +6,6 @@ import { useSelector } from 'react-redux'
 import mapboxgl from 'mapbox-gl/dist/mapbox-gl'
 import 'mapbox-gl/dist/mapbox-gl.css'
 import { Refs } from '../../../pages'
-import { Righteous } from 'next/font/google'
 import { MdEmojiPeople } from 'react-icons/md'
 import { colors } from 'src/utils/utils'
 import { getThemeMode } from 'src/redux/ThemeSlice'
@@ -22,11 +21,6 @@ const REACT_MAPBOX_TOKEN = 'pk.eyJ1IjoicjFrM3NoIiwiYSI6ImNrdGp5Nmx5cDFnczAzMnJ0O
 interface Props {
     refs: Refs
 }
-
-const righteous = Righteous({
-    weight: '400',
-    subsets: ['latin']
-})
 
 export default function Testimonial(props: Props) {
 
@@ -97,65 +91,59 @@ export default function Testimonial(props: Props) {
     }
 
     return (
-        <section ref={refs.testimonial.testimonialRef} className={colorState === 'dark' ? 'rs-testimonial__section rs-testimonial__section--dark' : 'rs-testimonial__section rs-testimonial__section--light'}>
-            <div className='container-xl'>
-                <div className='row'>
-                    <div className='col-12'>
-                        <div className={colorState === "dark" ? 'rs-testimonial__map-wrapper rs-testimonial__map-wrapper--dark' : "rs-testimonial__map-wrapper rs-testimonial__map-wrapper--light"}>
-                            <h2><span className={righteous.className}>What</span> <strong className={righteous.className}>Client Said</strong></h2>
-                            <div className='rs-testimonial__map-content'>
-                                <div className='rs-testimonial__map'>
-                                    <Map
-                                        id="map"
-                                        style={{ position: "absolute" }}
-                                        mapboxAccessToken={REACT_MAPBOX_TOKEN}
-                                        scrollZoom={false}
-                                        initialViewState={{
-                                            longitude: 85.3239595,
-                                            latitude: 27.7406487,
-                                            zoom: 0.8,
+        <section ref={refs.testimonial.testimonialRef} className={'py-10 pb-0'}>
+            <div className='container-none m-auto'>
+                <div className={'flex flex-col h-screen'}>
+                    <h2 className='text-center text-3xl uppercase font-bold mb-10'>What Client Says</h2>
+                    <div className='relative h-full'>
+                        <Map
+                            id="map"
+                            mapboxAccessToken={REACT_MAPBOX_TOKEN}
+                            scrollZoom={false}
+                            initialViewState={{
+                                longitude: 85.3239595,
+                                latitude: 27.7406487,
+                                zoom: 0.8,
+                            }}
+                            mapStyle={colorState === "dark" ? "mapbox://styles/mapbox/dark-v10" : "mapbox://styles/mapbox/light-v10"}
+                        >
+                            {
+                                geojson.features.map((g, i) => {
+                                    return <Marker key={i + 'test'} longitude={g.geometry.coordinates[0]}
+                                        latitude={g.geometry.coordinates[1]}
+                                        anchor="center"
+                                        onClick={e => {
+                                            // If we let the click event propagates to the map, it will immediately close the popup
+                                            // with `closeOnClick: true`
+                                            e.originalEvent.stopPropagation()
+                                            setPopupInfo(g)
                                         }}
-                                        mapStyle={colorState === "dark" ? "mapbox://styles/mapbox/dark-v10" : "mapbox://styles/mapbox/light-v10"}
                                     >
-                                        {
-                                            geojson.features.map((g, i) => {
-                                                return <Marker key={i + 'test'} longitude={g.geometry.coordinates[0]}
-                                                    latitude={g.geometry.coordinates[1]}
-                                                    anchor="center"
-                                                    onClick={e => {
-                                                        // If we let the click event propagates to the map, it will immediately close the popup
-                                                        // with `closeOnClick: true`
-                                                        e.originalEvent.stopPropagation()
-                                                        setPopupInfo(g)
-                                                    }}
-                                                >
-                                                    <MdEmojiPeople size={32} color={colorState === 'dark' ? '#fff' : colors.primary}></MdEmojiPeople>
-                                                </Marker>
-                                            })
-                                        }
-                                        {
-                                            popupInfo?.geometry && <Popup
-                                                longitude={popupInfo.geometry.coordinates[0]}
-                                                latitude={popupInfo.geometry.coordinates[1]}
-                                                // anchor="bottom"
-                                                closeButton={false}
-                                                onClose={() => setPopupInfo(null)}
-                                                offset={30}
-                                            >
-                                                <div className='rs-testimonial__popup-wrapper'>
-                                                    <h3>{popupInfo.properties.name}</h3>
-                                                    <p>{popupInfo.properties.message}</p>
-                                                </div>
-                                            </Popup>
-                                        }
-                                    </Map>
-                                </div>
-                                <div className='rs-testimonial__desc-wrapper'>
-                                    <h3 className={righteous.className}>{`Let’s work together`}</h3>
-                                    <p>{`Do you like my portfolio design? let's make something great out of the box together !! `}</p>
-                                    <button className='btn btn-primary' onClick={onHireClick}>Hire Me</button>
-                                </div>
-                            </div>
+                                        <MdEmojiPeople size={32} color={colorState === 'dark' ? '#fff' : colors.primary}></MdEmojiPeople>
+                                    </Marker>
+                                })
+                            }
+                            {
+                                popupInfo?.geometry && <Popup
+                                    longitude={popupInfo.geometry.coordinates[0]}
+                                    latitude={popupInfo.geometry.coordinates[1]}
+                                    // anchor="bottom"
+                                    closeButton={false}
+                                    onClose={() => setPopupInfo(null)}
+                                    offset={30}
+                                    className='p-0'
+                                >
+                                    <div className='bg-white-300 dark:bg-black-300 px-4 py-3'>
+                                        <h3 className='uppercase mb-2 font-bold text-base'>{popupInfo.properties.name}</h3>
+                                        <p className='text-sm'>{popupInfo.properties.message}</p>
+                                    </div>
+                                </Popup>
+                            }
+                        </Map>
+                        <div className='absolute bottom-10 p-10 bg-white-300 bg-opacity-40 backdrop-blur-md rounded-2xl overflow-hidden -translate-y-1/2 right-10 dark:bg-black-300'>
+                            <h3 className={'text-xl font-bold uppercase mb-2'}>{`Let’s work together`}</h3>
+                            <p className='text-base font-normal mb-6'>{`Do you like my portfolio design? let's make something great out of the box together !! `}</p>
+                            <button className='rounded-full bg-white-600 px-6 py-2 font-base text-primary font-semibold hover:bg-primary hover:text-white-600 transition-all duration-300' onClick={onHireClick}>Hire Me</button>
                         </div>
                     </div>
                 </div>

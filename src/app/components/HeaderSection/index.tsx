@@ -7,6 +7,7 @@ import { lang } from './../../../utils/Constant'
 import { Refs } from '../../../pages'
 import { Righteous} from 'next/font/google'
 import { getThemeMode } from 'src/redux/ThemeSlice'
+import Image from 'next/image'
 
 const righteous = Righteous({
     weight: '400',
@@ -35,42 +36,41 @@ const HeaderSection: React.FC<HeaderSectionProps> = ({ refs }) => {
 
     return (
         <section ref={ refs.home.homeRef } className={`${colorState === 'dark' ? 'dark' : 'light'} rs-banner__section`}>
-            <div className="container-fluid">
-                <div className="row">
-                    <div className="col-12 p-0">
-                        {/* <NavBar refs={refs} isHome={true}></NavBar> */}
-                        <div className='rs-banner__wrapper'>
-                            <div className='rs-banner__main-banner'>
-                                <div className="rs-banner__content">
-                                    <h2><strong>{hello ? hello.hello : "Hello"}</strong> {greetState},</h2>
-                                    <h3 className={righteous.className}>I am Rikesh, Frontend Dev</h3>
-                                    <p>Almost 6 year + experience in software engineering field, most focused on frontend stack.</p>
-                                    <nav>
-                                        <ul>
-                                            <li>
-                                                <Link href="https://www.facebook.com/rikezzzzzzzzzzz">
-                                                    <FaFacebook className='icon icon-facebook'></FaFacebook>
-                                                </Link>
-                                            </li>
-                                            <li>
-                                                <Link href="https://www.instagram.com/r1k3sh/">
-                                                    <FaInstagram className='icon icon-instagram'></FaInstagram>
-                                                </Link>
-                                            </li>
-                                            <li>
-                                                <Link href="https://www.linkedin.com/in/rikesh-shrestha-62539b111/">
-                                                    <FaLinkedin className='icon icon-linkedin'></FaLinkedin>
-                                                </Link>
-                                            </li>
-                                            <li>
-                                                <Link href="https://github.com/sr1k3sh">
-                                                    <FaGithubAlt className='icon icon-github'></FaGithubAlt>
-                                                </Link>
-                                            </li>
-                                        </ul>
+            <div className="m-auto container-none">
+                <div className="columns-1 flex justify-end">
+                    {/* <NavBar refs={refs} isHome={true}></NavBar> */}
+                    <div className='w-full md:w-[calc(100%_-_5rem)] relative rounded-3xl overflow-hidden'>
+                        <Image src='/bgnew.jpg' className='z-0' fill style={{objectFit: 'cover'}} alt="rikesh, developer, engineer, frontend, japan"></Image>
+                        <div className='container m-auto rs-banner__main-banner py-28 z-1 relative'>
+                            <div className="rs-banner__content px-16 py-20 bg-white-600 bg-opacity-70 backdrop-blur-md rounded-3xl max-w-3xl dark:bg-black-500">
+                                <h2 className='text-4xl mb-2'><strong className='text-primary'>{hello ? hello.hello : "Hello"}</strong> {greetState},</h2>
+                                <h3 className={`${righteous.className} text-5xl mb-3`}>I am Rikesh, Frontend Dev</h3>
+                                <p className='text-base mb-5'>Almost 6 year + experience in software engineering field, most focused on frontend stack.</p>
+                                <nav>
+                                    <ul className='flex flex-row gap-4'>
+                                        <li className='bg-black-300 p-2 rounded-full border-4 border-black-600 dark:bg-white-200 dark:border-white-600'>
+                                            <Link className='w-full' href="https://www.facebook.com/rikezzzzzzzzzzz">
+                                                <FaFacebook className='icon text-primary-light icon-facebook w-6 h-6 dark:text-black-300'></FaFacebook>
+                                            </Link>
+                                        </li>
+                                        <li className='bg-black-300 p-2 rounded-full border-4 border-black-600 dark:bg-white-200 dark:border-white-600'>
+                                            <Link href="https://www.instagram.com/r1k3sh/">
+                                                <FaInstagram className='icon text-primary-light icon-instagram w-6 h-6 dark:text-black-300'></FaInstagram>
+                                            </Link>
+                                        </li>
+                                        <li className='bg-black-300 p-2 rounded-full border-4 border-black-600 dark:bg-white-200 dark:border-white-600'>
+                                            <Link href="https://www.linkedin.com/in/rikesh-shrestha-62539b111/">
+                                                <FaLinkedin className='icon text-primary-light icon-linkedin w-6 h-6 dark:text-black-300'></FaLinkedin>
+                                            </Link>
+                                        </li>
+                                        <li className='bg-black-300 p-2 rounded-full border-4 border-black-600 dark:bg-white-200 dark:border-white-600'>
+                                            <Link href="https://github.com/sr1k3sh">
+                                                <FaGithubAlt className='icon text-primary-light icon-github w-6 h-6 dark:text-black-300'></FaGithubAlt>
+                                            </Link>
+                                        </li>
+                                    </ul>
 
-                                    </nav>
-                                </div>
+                                </nav>
                             </div>
                         </div>
                     </div>

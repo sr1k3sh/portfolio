@@ -1,20 +1,17 @@
 import HeaderSection from '../app/components/HeaderSection'
-import { MutableRefObject, useEffect, useRef, useState } from 'react'
+import { MutableRefObject, useRef, useState } from 'react'
 import About from '../app/components/AboutSection'
 import Experience from '../app/components/Experience'
 import Projects from '../app/components/Projects'
 import Testimonial from '../app/components/Testimonials'
 import Contact from '../app/components/Contact'
-import { useDispatch, useSelector } from 'react-redux'
-import { changeColorByValue, changeColorState, getcolorState } from 'src/redux/AppSlice'
+import { useSelector } from 'react-redux'
 import { GET_ARTICLES_QUERY, client } from 'src/utils/config'
 import { GetStaticProps } from 'next'
 import Head from 'next/head'
 import NavBar from 'src/app/components/NavSection'
 import SliderV3tar from 'src/app/components/SliderV2/SliderV3'
-import { Righteous } from 'next/font/google'
-import { colors } from 'src/utils/utils'
-import { getThemeMode, setTheme, toggleTheme } from 'src/redux/ThemeSlice'
+import { getThemeMode } from 'src/redux/ThemeSlice'
 import Layout from 'src/app/components/Layout'
 
 export const metadata = {
@@ -48,11 +45,6 @@ export interface Refs {
   },
 }
 
-const righteous = Righteous({
-  weight: '400',
-  subsets: ['latin']
-})
-
 const Home = (props: Props) => {
 
   const { blogs } = props
@@ -69,7 +61,7 @@ const Home = (props: Props) => {
 
 
   const classes = {
-    colorState: colorState === "dark" ? "rs-app__dark " : "rs-app__light "
+    colorState: colorState === "dark" ? "dark " : "light "
   }
 
   const refs = {
@@ -97,7 +89,7 @@ const Home = (props: Props) => {
   }
 
   return (
-    <Layout className={classes.colorState}>
+    <Layout className={`${classes.colorState} bg-white-700 dark:bg-black-200 dark:text-white`}>
       <Head>
         <title>
           {
@@ -133,7 +125,7 @@ const Home = (props: Props) => {
       <About refs={refs}></About>
       <Experience refs={refs} blogs={blogs}></Experience>
       <Projects></Projects>
-      <SliderV3tar refs={refs} title={<><span className={righteous.className}>Things</span> <strong className={righteous.className}>I Do</strong></>}></SliderV3tar>
+      <SliderV3tar refs={refs} title={'Things enjoy doing'}></SliderV3tar>
       <Testimonial refs={refs}></Testimonial>
       <Contact refs={refs}></Contact>
     </Layout>

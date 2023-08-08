@@ -1,5 +1,5 @@
 
-import '../app/globals.scss'
+import '../app/globals.css'
 
 import { DM_Sans } from 'next/font/google'
 

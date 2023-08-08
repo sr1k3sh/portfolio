@@ -1,9 +1,8 @@
 import { useEffect, useState } from 'react'
-import styles from './index.module.scss'
 import { useDispatch, useSelector } from 'react-redux'
 import { getThemeMode, setTheme } from 'src/redux/ThemeSlice'
 import { changeColorByValue } from 'src/redux/AppSlice'
-
+import { MdLightMode, MdDarkMode } from 'react-icons/md'
 interface Props {
     label: string,
     cb?: () => void
@@ -56,23 +55,41 @@ export const Toggle = ({ label }: Props) => {
         if (date && localStorage.getItem('mode') === 'null'){
             if (date < 12) {
                 dispatch(setTheme({mode: 'light'}))
+                document.documentElement.classList.remove('dark');
             } else {
                 dispatch(setTheme({mode: 'dark'}))
+                document.documentElement.classList.add('dark');
             }
         } else {
             dispatch(setTheme({mode: localStorage.getItem('mode')}))
+            if(localStorage.getItem('mode') === 'dark') {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
         }
     },[date, dispatch])
 
     const callback = () => {
+        if(currentTheme === 'dark') {
+            document.documentElement.classList.remove('dark');
+        } else {
+            document.documentElement.classList.add('dark');
+        }
         dispatch(setTheme({mode: currentTheme === 'dark' ? 'light' : 'dark' }))
     }
 
     return (
-        <label className={styles.label}>
-            <input className={styles.input} type="checkbox" defaultChecked={currentTheme === 'light' ? false : true} onClick={callback} />
-            <span className={styles.span} />
-            <strong>{label}</strong>
+        <label className={'bg-black-600 relative flex w-16 h-8 rounded-full overflow-hidden'}>
+            <input className={'peer invisible'} type="checkbox" defaultChecked={currentTheme === 'light' ? false : true} onClick={callback} />
+            <span className={'w-full absolute h-full peer-checked:bg-white-600'} />
+            <span className={'absolute transition duration-300 w-8 h-8 rounded-full bg-white-100 dark:bg-black-100 left:0 top:0 peer-checked:translate-x-8 flex justify-center items-center'}>
+                {
+                    currentTheme === 'light' ?
+                    <MdLightMode/> :
+                    <MdDarkMode/>
+                }
+            </span>
         </label>
     )
 }

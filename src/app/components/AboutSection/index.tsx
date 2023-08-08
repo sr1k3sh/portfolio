@@ -14,8 +14,8 @@ export default function About(props:AboutSectionProps) {
     const colorState = useSelector(getThemeMode)
 
     return (
-        <section ref={ refs.about.aboutRef } id="about" className={colorState === 'dark' ? 'rs-about__section rs-about__section--dark' : 'rs-about__section rs-about__section--light'}>
-            <div className='rs-about__float-bg'>
+        <section ref={ refs.about.aboutRef } id="about" className={`${colorState === 'dark' ? 'rs-about__section rs-about__section--dark' : 'rs-about__section rs-about__section--light'} py-8`}>
+            {/* <div className='rs-about__float-bg'>
                 <svg version="1.1" id="Layer_1" width="845" height="1099" x="0px" y="0px"
                     viewBox="0 0 845.2 1099.8" >
                     <g>
@@ -684,31 +684,20 @@ export default function About(props:AboutSectionProps) {
                         </g>
                     </g>
                 </svg>
-            </div>
-            <div className='container'>
-                <div className='row'>
-                    <div className='col-4 col-md-2 col-lg-3'>
-                        <figure className='rs-about__figure-system'>
-                            <RiWindowsFill color='#01004f'></RiWindowsFill>
-                        </figure>
+            </div> */}
+            <div className='container m-auto'>
+                <div className='flex flex-col justify-center gap-10 md:flex-row md:items-center'>
+                    <div className='md:w-3/4'>
+                        <p className='first-letter:text-7xl first-letter:text-primary first-letter:font-bold first-letter:text-black first-letter:mr-3  first-letter:float-left'>As a frontend developer, I code with a brush of creativity and a palette of pixels, crafting immersive experiences that dance at the intersection of aesthetics and functionality. With each line of code, I sculpt user journeys, painting interfaces that not only work seamlessly but also breathe life into design dreams. For me, coding is an art, and UI/UX is my canvas – a canvas where pixels come alive, telling stories of beauty and interaction.</p>
                     </div>
-                    <div className='col-4 col-md-2 col-lg-3'>
-                        <figure className='rs-about__figure-system'>
-                            <RiAppleFill color="#a1aaac"></RiAppleFill>
-                        </figure>
-                    </div>
-                    <div className='col-4 col-md-2 col-lg-3'>
-                        <figure className='rs-about__figure-system'>
-                            <RiUbuntuFill color="#dd4814"></RiUbuntuFill>
-                        </figure>
-                    </div>
-                    <div className='col-12 col-md-6 col-lg-3 rs-about__profile-wrapper'>
-                        <div className='rs-about__profile'>
-                            <figure className="rs-about__figure">
-                                <Image priority={true} src='/profile.png' alt="Rikesh Shrestha, Frontend Developer in japan" width={500} height={600} ></Image>
+                    <div className='w-1/4'>
+                        <div className='flex justify-center items-center w-64 height-64'>
+                            <figure className='relative rounded-full overflow-hidden w-64 h-64 border-solid border-8 border-white-400'>
+                                <Image className='w-64 h-64 rounded-full overflow-hidden object-cover' priority={true} src='/profile.png' alt="Rikesh Shrestha, Frontend Developer in japan" width={300} height={300} ></Image>
                             </figure>
                         </div>
                     </div>
+
                 </div>
             </div>
         </section>

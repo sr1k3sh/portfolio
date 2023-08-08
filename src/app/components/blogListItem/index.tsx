@@ -26,15 +26,15 @@ export default function BlogListItem({ blogDetail }: Props) {
   const colorState = useSelector(getThemeMode)
 
   return (
-    <Link href={`/blogs/${attributes.category.data.attributes.slug}/${id}`} className={styles.link}>
-      <article className={`${colorState === 'dark' ? styles.darkArticle : styles.lightArticle} ${styles.article}`}>
-        <figure className={styles.fig}>
-          <Image loading='lazy' src={attributes?.cover?.data?.attributes?.url || '/bg.avif'} placeholder='blur' blurDataURL={'/bg.avif'} fill={true} style={{ objectFit: "cover" }} alt='blogs'></Image>
+    <Link href={`/blogs/${attributes.category.data.attributes.slug}/${id}`} className={'group'}>
+      <article className={`flex flex-row items-start`}>
+        <figure className={'relative rounded-lg overflow-hidden border-4 border-white transition-all duration-300 bg-primary-light w-28 h-28 me-2 group-hover:border-white-200'}>
+          <Image loading='lazy' src={attributes?.cover?.data?.attributes?.url || '/bg.avif'} placeholder='blur' blurDataURL={'/bg.avif'} fill={true} style={{ objectFit: "cover" }} className='transition-all duration-300 group-hover:scale-105' alt='blogs'></Image>
         </figure>
-        <div className={styles.content}>
-          <span className={styles.category}>{attributes.category.data.attributes.name}</span>
-          <h4 className={`${styles.title} ${righteous.className}`}>{attributes.title}</h4>
-          <span className={styles.date}>{attributes.publishedAt && new Date(attributes.publishedAt).toLocaleDateString('en-US', {
+        <div className={'flex flex-col w-[calc(100%_-_7rem)]'}>
+          <span className={'text-sm uppercase font-semibold mb-1'}>{attributes.category.data.attributes.name}</span>
+          <h4 className={`text-base mb-1 text-black-200 transition-all duration-300 group-hover:text-primary dark:text-white-200 line-clamp-2`}>{attributes.title}</h4>
+          <span className={'text-xs text-black-500'}>{attributes.publishedAt && new Date(attributes.publishedAt).toLocaleDateString('en-US', {
             year: 'numeric',
             month: 'short',
             day: '2-digit'

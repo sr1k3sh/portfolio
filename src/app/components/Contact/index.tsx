@@ -1,5 +1,6 @@
 import React, { ChangeEvent, FormEvent, useMemo, useState } from 'react'
 import { FaFacebook , FaInstagram , FaLinkedin , FaGithubAlt } from 'react-icons/fa'
+import { RiSendPlaneFill } from 'react-icons/ri'
 import { debounce } from '../../../utils/utils'
 import { useSelector } from 'react-redux'
 import Link from 'next/link'
@@ -107,8 +108,8 @@ export default function Contact(props:ContactSectionProps) {
 
 
     return (
-        <section ref={ refs && refs.contact.contactRef } className={colorState === 'dark' ? 'rs-contact__section rs-contact__section--dark' : 'rs-contact__section rs-contact__section--light'}>
-            <div className='rs-contact__float-bg'>
+        <section ref={ refs && refs.contact.contactRef } className={'py-10 md:py-20'}>
+            {/* <div className='rs-contact__float-bg'>
                 <svg width="388" height="505" viewBox="0 0 388 505" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path fillRule="evenodd" clipRule="evenodd" d="M3.65091 0.00244141C1.63441 0.00244141 -9.15527e-05 1.63694 -9.15527e-05 3.65344C-9.15527e-05 5.66944 1.63441 7.30444 3.65091 7.30444C5.66741 7.30444 7.30191 5.66944 7.30191 3.65344C7.30191 1.63694 5.66741 0.00244141 3.65091 0.00244141Z" fill="black" fillOpacity="0.42"/>
     <path fillRule="evenodd" clipRule="evenodd" d="M3.65091 31.6855C1.63441 31.6855 -9.15527e-05 33.32 -9.15527e-05 35.3365C-9.15527e-05 37.3525 1.63441 38.9875 3.65091 38.9875C5.66741 38.9875 7.30191 37.3525 7.30191 35.3365C7.30191 33.32 5.66741 31.6855 3.65091 31.6855Z" fill="black" fillOpacity="0.42"/>
@@ -332,72 +333,84 @@ export default function Contact(props:ContactSectionProps) {
     <path fillRule="evenodd" clipRule="evenodd" d="M383.849 470.25C381.833 470.25 380.198 471.885 380.198 473.901C380.198 475.917 381.833 477.552 383.849 477.552C385.865 477.552 387.5 475.917 387.5 473.901C387.5 471.885 385.865 470.25 383.849 470.25Z" fill="black" fillOpacity="0.42"/>
     <path fillRule="evenodd" clipRule="evenodd" d="M383.849 496.933C381.833 496.933 380.198 498.568 380.198 500.584C380.198 502.6 381.833 504.235 383.849 504.235C385.865 504.235 387.5 502.6 387.5 500.584C387.5 498.568 385.865 496.933 383.849 496.933Z" fill="black" fillOpacity="0.42"/>
                 </svg>
-            </div>
-            <div className='container-xl'>
-                <div className='row'>
-                    <div className='col-md-4 mb-5 mb-md-0'>
-                        <div className='rs-contact__author-info'>
-                            <div className='rs-banner__logo'>
-                                <span className={righteous.className}>RS</span>
+            </div> */}
+            <div className='container m-auto'>
+                <div className='flex flex-col-reverse md:flex-row justify-between items-start gap-10'>
+                    <div className='w-full md:w-2/4'>
+                        <div className='flex flex-col items-center'>
+                            <div className='w-16 h-16 rounded-xl bg-primary flex justify-center items-center mb-6'>
+                                <Link href={'/'}>
+                                    <span className={`${righteous.className} text-white text-2xl`}>RS</span>
+                                </Link>
                             </div>
-                            <span className={`rs-contact__author-name ${righteous.className}`}>Rikesh Shrestha</span>
-                            <span className='rs-contact__author-designation'>Frontend Developer</span>
-                            <div className='rs-contact__social-list'>
-                                <ul>
-                                    <li>
+                            <span className={`${righteous.className} text-6xl font-bold text-center text-black-300 mb-4 dark:text-white-300`}>Rikesh Shrestha</span>
+                            <span className='text-center uppercase text-3xl mb-4'>Frontend Developer</span>
+                            <div className='flex flex-col items-center mb-4'>
+                                <ul className='flex flex-row items-center gap-4'>
+                                    <li className='bg-black-400 dark:bg-white-200 p-2 rounded-full border-4 border-black-600 dark:border-white-600'>
                                         <Link href="https://www.facebook.com/rikezzzzzzzzzzz">
-                                            <FaFacebook className='icon icon-facebook'></FaFacebook>
+                                            <FaFacebook className='icon text-white-600 dark:text-black-300 w-6 h-6 icon-facebook'></FaFacebook>
                                         </Link>
                                     </li>
-                                    <li>
+                                    <li className='bg-black-400 dark:bg-white-200 p-2 rounded-full border-4 border-black-600 dark:border-white-600'>
                                         <Link href="https://www.instagram.com/r1k3sh/">
-                                            <FaInstagram className='icon icon-instagram'></FaInstagram>
+                                            <FaInstagram className='icon text-white-600 dark:text-black-300 w-6 h-6 icon-instagram'></FaInstagram>
                                         </Link>
                                     </li>
-                                    <li>
+                                    <li className='bg-black-400 dark:bg-white-200 p-2 rounded-full border-4 border-black-600 dark:border-white-600'>
                                         <Link href="https://www.linkedin.com/in/rikesh-shrestha-62539b111/">
-                                            <FaLinkedin className='icon icon-linkedin'></FaLinkedin>
+                                            <FaLinkedin className='icon text-white-600 dark:text-black-300 w-6 h-6 icon-linkedin'></FaLinkedin>
                                         </Link>
                                     </li>
-                                    <li>
+                                    <li className='bg-black-400 dark:bg-white-200 p-2 rounded-full border-4 border-black-600 dark:border-white-600'>
                                         <Link href="https://github.com/sr1k3sh">
-                                            <FaGithubAlt className='icon icon-github'></FaGithubAlt>
+                                            <FaGithubAlt className='icon text-white-600 dark:text-black-300 w-6 h-6 icon-github'></FaGithubAlt>
                                         </Link>
                                     </li>
                                 </ul>
                             </div>
-                            <div className='rs-contact__details'>
-                                <span>My personal contact +81 080 4739 3928</span>
-                                <span>Please write me on sr1k3sh@gmail.com</span>
+                            <div className='flex flex-col items-center'>
+                                <div className='flex flex-col items-center mb-2'>
+                                    <span className='text-sm font-semibold text-black-400'>My personal contact</span>
+                                    <span className='text-base font-bold  text-primary'>+81 080 4739 3928</span>
+                                </div>
+                                <div className='flex flex-col items-center mb-2'>
+                                    <span className='text-sm font-semibold text-black-400'>Please write me on</span>
+                                    <span className='text-base font-bold text-primary'>sr1k3sh@gmail.com</span>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div className='col-md-6 offset-md-2 rs-contact__form-col'>
-                        <div className='rs-contact__form-wrapper'>
-                            <div>
-                                <h2 className={righteous.className}>Contact <strong className={righteous.className}>Me.</strong></h2>
-
+                    <div className='w-full md:w-2/4'>
+                        <div className='p-12 flex flex-col bg-white-500 rounded-2xl dark:bg-black-500'>
+                            <div className='mb-10'>
+                                <h2 className={'text-3xl font-bold uppercase'}>Contact Me.</h2>
                             </div>
-                            <div className='rs-contact__form'>
-                                <form className='d-flex flex-column' onSubmit={onContactFormSubmit}>
+                            <div className='flex flex-col'>
+                                <form className='flex flex-col' onSubmit={onContactFormSubmit}>
                                     <input type="hidden" name="access_key" value="3ea290a8-cb27-4518-a371-756dc6e36e5f" />
-                                    <div className='form-element'>
-                                        <input type={'text'} name='name' className={ name.length ? 'form-control form-control--filled' : 'form-control'} id="rs_contact_name" onChange={onChangeName} value={name}></input>
-                                        <label htmlFor="rs_contact_name" className='form-label'>What is your name? *</label>
+                                    <div className={`flex flex-col relative mb-6 group ${name.length > 0 ? 'filled-name' : ''}`}>
+                                        <input type={'text'} name='name' className={ `peer p-2 border-b-0 bg-white-700 border-black border-solid rounded-lg focus:border-primary focus:outline-none focus:ring-0 dark:bg-black-600`} id="rs_contact_name" onChange={onChangeName} value={name}></input>
+                                        <label htmlFor="rs_contact_name" className='absolute top-4 left-2 text-sm text-black-500 -mt-2 transition-all peer-focus:text-black-200 peer-focus:top-0 dark:text-white-500 dark:peer-focus:text-white-200 group-[.filled-name]:top-0'>What is your name? *</label>
                                     </div>
-                                    <div className='form-element'>
-                                        <input type={'email'} name='email' className={ email.length ? 'form-control form-control--filled' : 'form-control'} id="rs_contact_email" onChange={onChangeEmail} value={email}></input>
-                                        <label htmlFor="rs_contact_email" className='form-label'>What it your email? *</label>
+                                    <div className={`group ${email.length > 0 ? 'filled-email' : ''} flex flex-col relative mb-6`}>
+                                        <input type={'email'} name='email' className={`peer p-2 border-b-0 bg-white-700 border-black border-solid rounded-lg focus:border-primary focus:outline-none focus:ring-0 dark:bg-black-600`} id="rs_contact_email" onChange={onChangeEmail} value={email}></input>
+                                        <label htmlFor="rs_contact_email" className='absolute top-4 left-2 text-sm text-black-500 -mt-2 transition-all peer-focus:text-black-200 peer-focus:top-0 dark:text-white-500  dark:peer-focus:text-white-200 group-[.filled-email]:top-0'>What it your email? *</label>
                                     </div>
-                                    <div className={formClassStatus ? 'form-element mb-0' : 'form-element'}>
-                                        <textarea name='message' className={ message.length ? 'form-control form-control--filled' : 'form-control'} id="rs_contact_message" onChange={onChangeMessage} value={message}></textarea>
-                                        <label htmlFor="rs_contact_message" className='form-label'>What it your email? *</label>
+                                    <div className={`${formClassStatus ? 'flex flex-col relative mb-0' : 'flex flex-col relative'} group ${message.length > 0 ? 'filled-message' : ''}`}>
+                                        <textarea name='message' className={`peer p-2 border-b-0 bg-white-700 border-black border-solid rounded-lg focus:border-primary focus:outline-none focus:ring-0 dark:bg-black-600`} id="rs_contact_message" onChange={onChangeMessage} value={message}></textarea>
+                                        <label htmlFor="rs_contact_message" className='absolute top-4 left-2 text-sm text-black-500 -mt-2 transition-all peer-focus:text-black-200 peer-focus:top-0 dark:text-white-500  dark:peer-focus:text-white-200 group-[.filled-message]:top-0'>What it your email? *</label>
                                     </div>
                                     {
                                         logMessage &&
                                         <small className='mb-2' style={{color: formClassStatus === "error" ? '#dc3545' : '#198754', fontSize: 12}}>{logMessage}</small>
                                     }
-                                    <button type='submit' className='btn btn-primary'>send message</button>
+                                    <button type='submit' className='flex flex-row justify-center gap-2 items-center mt-6 uppercase font-semibold bg-black-600 p-2 rounded-lg hover:bg-black-300 transition-all duration-300 dark:bg-white-300 dark:hover:bg-white-200'>
+                                        <RiSendPlaneFill className='text-white-600 dark:text-black-500'/>
+                                        <span className='text-white-600 dark:text-black-500'>
+                                            send message
+                                        </span>
+                                    </button>
                                 </form>
                             </div>
                         </div>

@@ -3,7 +3,6 @@ import Image from 'next/image'
 import React, { useEffect, useState } from 'react'
 import { GET_ARTICLES_QUERY, GET_BLOGS_IDS, GET_BLOG_DETAIL_QUERY, client } from 'src/utils/config'
 import styles from './blogDetail.module.scss'
-import { Righteous } from 'next/font/google'
 import BlogListItem from 'src/app/components/blogListItem'
 import NavBar from 'src/app/components/NavSection'
 import { useSelector } from 'react-redux'
@@ -24,11 +23,6 @@ type Props = {
   blogData: any
   dataBlogList: any
 }
-
-const righteous = Righteous({
-  weight: '400',
-  subsets: ['latin']
-})
 
 export async function getStaticPaths() {
   // Fetch the IDs of the blogs from your data source
@@ -75,7 +69,7 @@ export const getStaticProps: GetStaticProps = async ({ params }: any) => {
   return {
     props: {
       blogData: data.blog.data,
-      dataBlogList
+      dataBlogList,
     },
     revalidate: 10,
   }
@@ -83,13 +77,13 @@ export const getStaticProps: GetStaticProps = async ({ params }: any) => {
 
 export default function BlogDetail({ blogData, dataBlogList }: Props) {
 
+  // return <></>
+
   const { attributes } = blogData
 
   const { blogs } = dataBlogList
 
   const [breadCrumbData, setBreadCrumbData] = useState<IbreadCrumb[]>([])
-
-  const [scrollClass, setScrollClass] = useState<string | null>('')
 
   useEffect(() => {
     if (attributes) {
@@ -112,20 +106,6 @@ export default function BlogDetail({ blogData, dataBlogList }: Props) {
     }
   }, [attributes])
 
-  useEffect(() => {
-    const onScroll = () => {
-      if (window.scrollY >= 50) {
-        setScrollClass('scroll')
-      } else {
-        setScrollClass('')
-      }
-    }
-    window.addEventListener('scroll', onScroll)
-    return () => {
-      window.removeEventListener('scroll', onScroll)
-    }
-  }, [])
-
   const colorState = useSelector(getThemeMode)
 
   const classes = {
@@ -133,7 +113,7 @@ export default function BlogDetail({ blogData, dataBlogList }: Props) {
   }
 
   return (
-    <Layout className={classes.colorState}>
+    <Layout className={`${classes.colorState} bg-white-700 dark:bg-black-200 dark:text-white`}>
       <Head>
         <title>
           {
@@ -163,33 +143,42 @@ export default function BlogDetail({ blogData, dataBlogList }: Props) {
         <link rel="icon" href="/profile.png" sizes="any" />
       </Head>
       <NavBar></NavBar>
-      <section className={`${styles.topHeader} ${scrollClass ? styles.start : ''}  ${colorState === "dark" ? styles.dark : styles.light}`}>
-        <div className='container'>
-          <div className='row'>
-            <div className='col-12'>
-              <h1 className={`${styles.title} ${righteous.className}`}>{attributes.title}</h1>
+      <section className={`w-full md:w-[calc(100%_-_5rem)] pb-4 pt-20 lg:py-10`}>
+        <div className='container m-auto'>
+          <div className='flex'>
+            <h1 className={`text-3xl lg:text-5xl uppercase font-bold tracking-normal`}>{attributes.title}</h1>
+          </div>
+        </div>
+      </section>
+      <section className='py-4'>
+        <div className='container-none mb-4'>
+          <div className='flex flex-col'>
+            <article className='px-4 md:px-10'>
+              <figure className={'relative h-[200px] lg:h-[500px] rounded-2xl overflow-hidden'}>
+                <Image className='object-cover' src={attributes?.cover?.data?.attributes?.url || '/bg.avif'} placeholder='blur' blurDataURL={attributes?.cover?.data?.attributes?.url || '/bg.avif'} alt={attributes?.cover?.data?.attributes?.alternativeText || attributes?.title || ''} fill={true} style={{ objectFit: 'cover' }}></Image>
+              </figure>
+            </article>
+          </div>
+        </div>
+        <div className='container m-auto'>
+          <div className='flex flex-col'>
+            <BreadCrumb data={breadCrumbData}></BreadCrumb>
+            <div className='flex flex-row items-center mt-4'>
+              <figure className='relative w-10 h-10 overflow-hidden rounded-full border-2 me-2 border-white-600'>
+                <Image className='rounded-full object-cover' fill={true} src={attributes?.author?.data?.attributes?.Avatar?.data?.attributes?.url} alt={attributes?.author?.data?.attributes?.Avatar?.data?.attributes?.alternativeText}></Image>
+              </figure>
+              <div className='flex flex-col'>
+                <span className='text-sm text-black-300 capitalize font-semibold dark:text-white-300'>{attributes?.author?.data?.attributes?.Name}</span>
+                <span className='text-xs text-black-400 font-regular dark:text-white-400'>{attributes?.author?.data?.attributes?.Email}</span>
+              </div>
             </div>
           </div>
         </div>
       </section>
-      <section className={styles.banner}>
-        <div className='container'>
-          <div className='row'>
-            <div className='col-12'>
-              <article>
-                <figure className={styles.figure}>
-                  <Image src={attributes?.cover?.data?.attributes?.url || '/bg.avif'} placeholder='blur' blurDataURL={attributes?.cover?.data?.attributes?.url || '/bg.avif'} alt={attributes?.cover?.data?.attributes?.alternativeText || attributes?.title || ''} fill={true} style={{ objectFit: 'cover' }}></Image>
-                </figure>
-              </article>
-              <BreadCrumb data={breadCrumbData}></BreadCrumb>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section className={`${colorState === 'dark' ? styles.darkSection : styles.lightSection} ${styles.containerSection}`}>
-        <div className='container'>
-          <div className='row'>
-            <div className='col-lg-8 col-xl-7'>
+      <section className={``}>
+        <div className='container m-auto'>
+          <div className='flex flex-col lg:flex-row lg:justify-between'>
+            <div className='w-full md:w-7/12 mb-6 md:mb-0'>
               {
                 attributes.blocks && attributes.blocks.map((block: any, index: number) => {
                   return (
@@ -215,7 +204,11 @@ export default function BlogDetail({ blogData, dataBlogList }: Props) {
                                   children={String(children).replace(/\n$/, '')}
                                 />
                               );
-                            }
+                            },
+                            h1: ({children}) => <h1 className='text-2xl md:text-4xl font-bold mb-4'>{children}</h1>,
+                            h2: ({children}) => <h2 className='text-lg md:text-3xl font-bold mb-4'>{children}</h2>,
+                            h3: ({children}) => <h3 className='text-base font-semibold md:text-2xl md:font-bold mb-4'>{children}</h3>,
+                            p: ({children}) => <p className='text-base font-regular mb-4'>{children}</p>,
                           }}
                         >
                           {
@@ -231,8 +224,8 @@ export default function BlogDetail({ blogData, dataBlogList }: Props) {
                 )
               }
             </div>
-            <div className='offset-xl-1 col-lg-4'>
-              <h3 className={`${styles.subtitle} ${righteous.className}`}>Related Blogs</h3>
+            <div className='w-full md:w-4/12'>
+              <h3 className={`mb-4 font-bold text-xl md:text-2xl uppercase`}>Related Blogs</h3>
               <ul className='rs-exp__blog-list'>
                 {
                   blogs.data.filter((blog:any) => blog.id !== attributes.category.data.id ).map((blog: any, index: number) => <li key={index}>
@@ -244,8 +237,8 @@ export default function BlogDetail({ blogData, dataBlogList }: Props) {
           </div>
         </div>
       </section>
-      <section className={`${colorState === 'dark' ? styles.darkSection : styles.lightSection} ${styles.containerSection}`}>
-        <div className='container'>
+      <section className={`${colorState === 'dark' ? styles.darkSection : styles.lightSection} ${styles.containerSection} py-5 md:py-10`}>
+        <div className='container m-auto'>
           <div className='row'>
             <div className='col-12'>
             {
@@ -256,6 +249,19 @@ export default function BlogDetail({ blogData, dataBlogList }: Props) {
                         block.files && block.files.data.length?
                           <SliderV2tar title={'Checkout Galleries'} data={block.files.data}></SliderV2tar>
                         : null
+                      }
+
+                      {
+                        block.video ? <div className='mt-8'>
+                          <h2 className='text-3xl font-bold font-sans uppercase mb-4'>Checkout my vlog on youtube</h2>
+                          <iframe
+                            className='w-full h-64 md:h-96 rounded-xl'
+                            src={`https://www.youtube.com/embed/${block.video.providerUid}`}
+                            title="YouTube video player"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            // allowfullscreen
+                          ></iframe>
+                        </div> : null
                       }
                     </div>
                   )

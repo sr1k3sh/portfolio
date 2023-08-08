@@ -65,7 +65,7 @@ export default function BlogListingPage({ categories }: Props) {
   }
 
   return (
-    <Layout className={classes.colorState}>
+    <Layout className={`${classes.colorState} bg-white-700 dark:bg-black-200 dark:text-white`}>
       <Head>
         <title>
           {
@@ -95,76 +95,63 @@ export default function BlogListingPage({ categories }: Props) {
         <link rel="icon" href="/profile.png" sizes="any" />
       </Head>
       <NavBar></NavBar>
-      <section>
-        <div className='container'>
-          <div className='row'>
-            <div className='col-12'>
-              <HeaderTitleDesc></HeaderTitleDesc>
-            </div>
+      <section className='py-10'>
+        <div className='container m-auto'>
+          <div className='flex'>
+            <HeaderTitleDesc></HeaderTitleDesc>
           </div>
           <article>
-            <figure className={styles.figure}>
-              <Image src={'/bgnew.jpg'} priority={true} placeholder='blur' blurDataURL={'/bg.avif'} alt={metadata?.title || ''} fill={true} style={{ objectFit: 'cover' }}></Image>
+            <figure className={'relative h-[400px]'}>
+              <Image className='object-cover rounded-xl' src={'/bgnew.jpg'} priority={true} placeholder='blur' blurDataURL={'/bg.avif'} alt={metadata?.title || ''} fill={true} style={{ objectFit: 'cover' }}></Image>
             </figure>
           </article>
         </div>
       </section>
       <section className={colorState === 'dark' ? styles.darkSection : styles.lightSection}>
-        <div className='container'>
-          <div className='row'>
+        <div className='container m-auto'>
+          <div className='flex flex-col'>
             {
               data.map((category: any, index: number) => (
-                category.attributes.blogs.data.length ? <div className={`${styles.categoryContainer} ' col-12'`} key={`category-${index}`}>
-                  <div className={stylesMain.titleWrapper}>
-                    <h2 className={`${stylesMain.subtitle} ${righteous.className}`}>{category.attributes.name}</h2>
-                    <Link href={`/blogs/${category.attributes.slug}`} className={`${stylesMain.link} ${righteous.className}`}>More related blogs</Link>
+                category.attributes.blogs.data.length ? <div className={`flex flex-col mb-8`} key={`category-${index}`}>
+                  <div className={'mb-4 flex justify-center'}>
+                    <h2 className={`text-2xl uppercase font-bold font-sans`}>{category.attributes.name}</h2>
+
                   </div>
-                  <div className='row gy-3 d-none d-lg-flex'>
+                  <div className='hidden md:flex flew-row flex-wrap mb-4 gap-4'>
                     {
                       category.attributes.blogs.data.length ? category.attributes.blogs.data.map((blog: any, ind: any) => (
-                        <div className='col-md-4' key={`category-blog-${ind}`}>
+                        <div className='w-1/3' key={`category-blog-${ind}`}>
                           <BlogGridItem blog={blog}></BlogGridItem>
                         </div>
                       )) : null
                     }
                   </div>
-                  <div className='row gy-3 d-flex d-lg-none'>
-                    <div className='col-12'>
-                      <Swiper
-                        // effect={'coverflow'}
-                        grabCursor={true}
-                        spaceBetween={30}
-                        width={300}
-                        // centeredSlides={true}
-                        // slidesPerView={'auto'}
-                        // loop={true}
-                        navigation
-                        modules={[Pagination, Navigation]}
-                        className="blogSwiper"
-                        // onSwiper={onSwiper}
-                        // onSlideChange={onSlideChange}
-                        // autoplay={{
-                        //   delay: 1000,
-                        //   disableOnInteraction: false,
-                        // }}
-                      >
-                        {
-                          category.attributes.blogs.data.length ? category.attributes.blogs.data.map((blog: any, ind: any) => (
-                            <SwiperSlide
-                              key={`swiper-index-${index}`}
-                              // className={`${movedLeft === null ? '' : movedLeft ? 'left' : 'right'}`}
-                              >
-                                <div style={{
-                                  width: '100%',
-                                }}>
-                                  <BlogGridItem blog={blog}></BlogGridItem>
-                                </div>
-                            </SwiperSlide>
-                          )) : null
-                        }
-                      </Swiper>
-                    </div>
+                  <div className='flex md:hidden'>
+                    <Swiper
+                      grabCursor={true}
+                      spaceBetween={30}
+                      width={300}
+                      navigation
+                      modules={[Pagination, Navigation]}
+                      className="blogSwiper"
+                    >
+                      {
+                        category.attributes.blogs.data.length ? category.attributes.blogs.data.map((blog: any, ind: any) => (
+                          <SwiperSlide
+                            key={`swiper-index-${index}`}
+                            // className={`${movedLeft === null ? '' : movedLeft ? 'left' : 'right'}`}
+                            >
+                              <div style={{
+                                width: '100%',
+                              }}>
+                                <BlogGridItem blog={blog}></BlogGridItem>
+                              </div>
+                          </SwiperSlide>
+                        )) : null
+                      }
+                    </Swiper>
                   </div>
+                  <Link href={`/blogs/${category.attributes.slug}`} className={`block text-sm text-right text-secondary font-semibold`}>More related blogs</Link>
                 </div> : null
                 )
               )

@@ -1,7 +1,7 @@
 import { ApolloClient, InMemoryCache, gql } from '@apollo/client'
 
 export const client = new ApolloClient({
-  uri: process.env.API_URL || 'http://127.0.0.1:1337/graphql',
+  uri: process.env.API_URL ?? 'http://127.0.0.1:1337/graphql',
   cache: new InMemoryCache()
 })
 
@@ -131,6 +131,10 @@ export const GET_BLOG_DETAIL_QUERY = gql`
               }
               id
             }
+            ... on ComponentSharedVideo {
+              id
+              video
+            }
             ... on Error {
               code
               message
@@ -162,6 +166,24 @@ export const GET_BLOG_DETAIL_QUERY = gql`
           slug
           title
           updatedAt
+          author {
+            data {
+              id
+              attributes {
+                Avatar {
+                  data {
+                    id
+                    attributes {
+                      alternativeText
+                      url
+                    }
+                  }
+                }
+                Email
+                Name
+              }
+            }
+          }
         }
       }
     }

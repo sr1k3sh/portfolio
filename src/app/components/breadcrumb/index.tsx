@@ -17,14 +17,14 @@ export default function BreadCrumb({data}: Props) {
   const colorState = useSelector(getThemeMode)
 
   return (
-    <ul className={`${styles.wrapper} ${colorState === 'light' ? styles.light : styles.dark}`}>
+    <ul className={`flex flex-row flex-wrap items-center gap-2`}>
       <li>
         <Link href="/">
-          <HiHome color={colorState === 'light' ? 'var(--primary)' : 'var(--white)'}></HiHome>
+          <HiHome className='text-primary dark:white-400'></HiHome>
         </Link>
       </li>
       {
-        data.map((d:IbreadCrumb,index:number) => <li key={`bread-${index}`}>
+        data.map((d:IbreadCrumb,index:number) => <li key={`bread-${index}`} className={`text-sm before:content-['>'] before:me-2 text-black-400 dark:text-white-400`}>
           {
             d.url == null ? d.name :
             <Link href={`${d.url}`}>

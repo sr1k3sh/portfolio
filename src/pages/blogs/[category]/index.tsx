@@ -91,13 +91,8 @@ export default function BlogDetail({ dataBlogList, category }: Props) {
 
   const { blogs } = dataBlogList
 
-
-  const classes = {
-    colorState: colorState === "dark" ? "rs-app__dark " : "rs-app__light "
-  }
-
   return (
-    <Layout className={classes.colorState}>
+    <Layout className={'bg-white-700 dark:bg-black-200 dark:text-white'}>
       <Head>
         {/* <title>
           {
@@ -127,57 +122,53 @@ export default function BlogDetail({ dataBlogList, category }: Props) {
         <link rel="icon" href="/profile.png" sizes="any" /> */}
       </Head>
       <NavBar></NavBar>
-      <section>
-        <div className='container'>
-          <div className='row'>
-            <div className='col-12'>
-              <HeaderTitleDesc></HeaderTitleDesc>
-            </div>
+      <section className='py-10'>
+        <div className='container m-auto'>
+          <div className='flex'>
+            <HeaderTitleDesc></HeaderTitleDesc>
           </div>
           <article>
-            <figure className={styles.figure}>
-              <Image src={'/bgnew.jpg'} priority={true} placeholder='blur' blurDataURL={'/bg.avif'} alt={''} fill={true} style={{ objectFit: 'cover' }}></Image>
+            <figure className={'relative h-[400px]'}>
+              <Image className='object-cover rounded-xl' src={'/bgnew.jpg'} priority={true} placeholder='blur' blurDataURL={'/bg.avif'} alt={''} fill={true} style={{ objectFit: 'cover' }}></Image>
             </figure>
           </article>
         </div>
       </section>
       <section className={colorState === 'dark' ? styles.darkSection : styles.lightSection}>
-        <div className='container'>
+        <div className='container m-auto'>
           <>
-            <div className='row gy-3 d-none d-lg-flex'>
+            <div className='hidden md:flex flew-row flex-wrap mb-4 gap-4'>
               {
                 blogs.data.length ? blogs.data.map((blog: any, ind: any) => (
-                  <div className='col-md-4' key={`category-blog-${ind}`}>
+                  <div className='w-1/3' key={`category-blog-${ind}`}>
                     <BlogGridItem blog={blog}></BlogGridItem>
                   </div>
                 )) : null
               }
             </div>
-            <div className='row gy-3 d-flex d-lg-none'>
-              <div className='col-12'>
-                <Swiper
-                  grabCursor={true}
-                  spaceBetween={30}
-                  width={300}
-                  navigation
-                  modules={[Pagination, Navigation]}
-                  className="blogSwiper"
-                >
-                  {
-                    blogs.data.length ? blogs.data.map((blog: any, ind: any) => (
-                      <SwiperSlide
-                        key={`swiper-index-${ind}`}
-                        >
-                          <div style={{
-                            width: '100%',
-                          }}>
-                            <BlogGridItem blog={blog}></BlogGridItem>
-                          </div>
-                      </SwiperSlide>
-                    )) : null
-                  }
-                </Swiper>
-              </div>
+            <div className='flex md:hidden'>
+              <Swiper
+                grabCursor={true}
+                spaceBetween={30}
+                width={300}
+                navigation
+                modules={[Pagination, Navigation]}
+                className="blogSwiper"
+              >
+                {
+                  blogs.data.length ? blogs.data.map((blog: any, ind: any) => (
+                    <SwiperSlide
+                      key={`swiper-index-${ind}`}
+                      >
+                        <div style={{
+                          width: '100%',
+                        }}>
+                          <BlogGridItem blog={blog}></BlogGridItem>
+                        </div>
+                    </SwiperSlide>
+                  )) : null
+                }
+              </Swiper>
             </div>
             {
               !blogs.data.length ?
@@ -191,7 +182,7 @@ export default function BlogDetail({ dataBlogList, category }: Props) {
                     textAlign: 'center',
                     marginBottom: '2rem',
                   }}>Sorry There are no blogs related to {category}</h2>
-                  <Link href="/" className='btn btn-primary'>Go back?</Link>
+                  <Link href="/" className='px-8 py-2 transition-all duration-300 bg-white-300 hover:bg-primary hover:text-white rounded-full dark:bg-black-600 dark:text-white-700 dark:hover:bg-black-100'>Go back?</Link>
                 </header>
               : null
             }

@@ -2,7 +2,7 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import Image from 'next/image'
 import { Refs } from '../../../pages'
-import { Righteous } from 'next/font/google'
+import { DM_Sans, Righteous } from 'next/font/google'
 import BlogListItem from '../blogListItem'
 import Link from 'next/link'
 import { getThemeMode } from 'src/redux/ThemeSlice'
@@ -12,17 +12,14 @@ interface Props {
     blogs: any
 }
 
-const righteous = Righteous({
-    weight: '400',
-    subsets: ['latin']
-})
+const righteous = DM_Sans({ subsets: ['latin'] , weight: ['400','500','700']})
 
 export default function Experience(props: Props) {
     const { refs , blogs} = props
     const colorState = useSelector(getThemeMode)
     return (
-        <section ref={refs.experience.experienceRef} className={colorState === 'dark' ? 'rs-exp__section rs-exp__section--dark' : 'rs-exp__section rs-exp__section--light'}>
-            <div className='rs-exp__float-bg'>
+        <section ref={refs.experience.experienceRef} className={'py-10'}>
+            {/* <div className='rs-exp__float-bg'>
                 <svg version="1.1" id="Layer_1" width="845" height="1099" x="0px" y="0px"
                     viewBox="0 0 845.2 1099.8" >
                     <g>
@@ -691,94 +688,101 @@ export default function Experience(props: Props) {
                         </g>
                     </g>
                 </svg>
-            </div>
-            <div className='container'>
-                <div className='row'>
-                    <div className='col-md-2'>
-                        <div className='rs-exp__headline'>
-                            <h2>Rikesh Shrestha</h2>
+            </div> */}
+            <div className='container m-auto'>
+                <div className='flex flex-col md:flex-row'>
+                    <div className='w-full md:w-1/12'>
+                        <div className='rs-exp__headline h-full relative mb-6 md:mb-0'>
+                            <h2 className={`${righteous.className} text-7xl font-semibold md:whitespace-nowrap text-secondary md:-rotate-90 md:-translate-x-1/2 md:-translate-y-1/2 md:absolute md:left-1/2 md:top-1/2 md:tracking-wider dark:text-white-400`}>Rikesh Shrestha</h2>
                         </div>
                     </div>
-                    <div className='col-md-10'>
-                        <div className="rs-exp__wrapper">
-                            <div className="rs-exp__work-history">
-                                <h3 className={righteous.className}>Work experience</h3>
+                    <div className='w-full md:w-11/12 md:ps-8'>
+                        <div className="flex flex-col md:flex-row">
+                            <div className="w-full md:w-1/2">
+                                <h3 className={`${righteous.className} font-bold text-3xl uppercase mb-8`}>Work experience</h3>
                                 <ul>
-                                    <li>
+                                    <li className='mb-6'>
                                         <header>
-                                            <h1 className={righteous.className}>Frontend Developer </h1>
-                                            <h2>Freelancer </h2>
-                                            <span>October 2021 – Present</span>
+                                            <h1 className={`${righteous.className} uppercase tracking-wide font-semibold text-black-400 mb-0 text-lg dark:text-white`}>D&S Inc. </h1>
+                                            <h2 className='text-base font-bold text-black-100 mb-0 dark:text-white-500'>Frontend Developer </h2>
+                                            <span className='text-xs text-black-400 dark:text-white-700'>October 2023 – Present</span>
                                         </header>
                                     </li>
-                                    <li>
+                                    <li className='mb-6'>
                                         <header>
-                                            <h1 className={righteous.className}>Frontend Developer</h1>
-                                            <h2>Itonics Nepal</h2>
-                                            <span>January 2020 – October 2021</span>
+                                            <h1 className={`${righteous.className} uppercase tracking-wide font-semibold text-black-400 mb-0 text-lg dark:text-white`}>Freelancer </h1>
+                                            <h2 className='text-base font-bold text-black-100 mb-0 dark:text-white-500'>Frontend Developer </h2>
+                                            <span className='text-xs text-black-400 dark:text-white-700'>October 2021 – October 2022</span>
                                         </header>
                                     </li>
-                                    <li>
+                                    <li className='mb-6'>
                                         <header>
-                                            <h1 className={righteous.className}>Web Developer</h1>
-                                            <h2>GsignalX Pvt Ltd</h2>
-                                            <span> February 2018 – December 2019</span>
+                                            <h1 className={`${righteous.className} uppercase tracking-wide font-semibold text-black-400 mb-0 text-lg dark:text-white`}>Itonics Nepal</h1>
+                                            <h2 className='text-base font-bold text-black-100 mb-0 dark:text-white-500'>Frontend Developer</h2>
+                                            <span className='text-xs text-black-400 dark:text-white-700'>January 2020 – October 2021</span>
                                         </header>
                                     </li>
-                                    <li>
+                                    <li className='mb-6'>
                                         <header>
-                                            <h1 className={righteous.className}>Software Engineer</h1>
-                                            <h2>Arrtsm Gmbh</h2>
-                                            <span>December 2016 – February 2018</span>
+                                            <h1 className={`${righteous.className} uppercase tracking-wide font-semibold text-black-400 mb-0 text-lg dark:text-white`}>GsignalX Pvt Ltd</h1>
+                                            <h2 className='text-base font-bold text-black-100 mb-0 dark:text-white-500'>Web Developer</h2>
+                                            <span className='text-xs text-black-400 dark:text-white-700'> February 2018 – December 2019</span>
                                         </header>
                                     </li>
-                                    <li>
+                                    <li className='mb-6'>
                                         <header>
-                                            <h1 className={righteous.className}>Web Developer</h1>
-                                            <h2>North american web</h2>
-                                            <span>Aug 2016 – Feb 2017</span>
+                                            <h1 className={`${righteous.className} uppercase tracking-wide font-semibold text-black-400 mb-0 text-lg dark:text-white`}>Arrtsm Gmbh</h1>
+                                            <h2 className='text-base font-bold text-black-100 mb-0 dark:text-white-500'>Software Engineer</h2>
+                                            <span className='text-xs text-black-400 dark:text-white-700'>December 2016 – February 2018</span>
+                                        </header>
+                                    </li>
+                                    <li className='mb-6'>
+                                        <header>
+                                            <h1 className={`${righteous.className} uppercase tracking-wide font-semibold text-black-400 mb-0 text-lg dark:text-white`}>North american web</h1>
+                                            <h2 className='text-base font-bold text-black-100 mb-0 dark:text-white-500'>Web Developer</h2>
+                                            <span className='text-xs text-black-400 dark:text-white-700'>Aug 2016 – Feb 2017</span>
                                         </header>
                                     </li>
                                 </ul>
                             </div>
-                            <div className='rs-exp__work-skills'>
-                                <div className='rs-exp__skills'>
-                                    <h3 className={righteous.className}>SKILL AND EXPERTISE</h3>
-                                    <ul>
-                                        <li><Image priority={false} src='/images/html.svg' width={300} height={300} alt="Rikesh Shrestha, HTML"></Image></li>
-                                        <li><Image priority={false} src={'/images/css.svg'} width={300} height={300} alt="Rikesh Shrestha, CSS"></Image></li>
-                                        <li><Image priority={false} src={'/images/sass.svg'} width={300} height={300} alt="Rikesh Shrestha, SASS"></Image></li>
-                                        <li><Image priority={false} src={'/images/js.svg'} width={300} height={300} alt="Rikesh Shrestha, Javascript"></Image></li>
-                                        <li><Image priority={false} src={'/images/react.svg'} width={300} height={300} alt="Rikesh Shrestha, React"></Image></li>
-                                        <li><Image priority={false} src={'/images/angular.svg'} width={300} height={300} alt="Rikesh Shrestha, Angular"></Image></li>
-                                        <li><Image priority={false} src={'/images/vue.svg'} width={300} height={300} alt="Rikesh Shrestha, Vue"></Image></li>
-                                        <li><Image priority={false} src={'/images/mongodb.svg'} width={300} height={300} alt="Rikesh Shrestha, MongoDb"></Image></li>
-                                        <li><Image priority={false} src={'/images/mysql.svg'} width={300} height={300} alt="Rikesh Shrestha, mysql"></Image></li>
-                                        <li><Image priority={false} src={'/images/node.svg'} width={300} height={300} alt="Rikesh Shrestha, Node.js"></Image></li>
-                                        <li><Image priority={false} src={'/images/firebase.svg'} width={300} height={300} alt="Rikesh Shrestha, Firebase"></Image></li>
-                                        <li><Image priority={false} src={'/images/express.svg'} width={300} height={300} alt="Rikesh Shrestha, EXpress"></Image></li>
-                                        <li><Image priority={false} src={'/images/figma-1.svg'} width={300} height={300} alt="Rikesh Shrestha, Figma"></Image></li>
-                                        <li><Image priority={false} src={'/images/xd.svg'} width={300} height={300} alt="Rikesh Shrestha, xd"></Image></li>
-                                        <li><Image priority={false} src={'/images/zeplin.svg'} width={300} height={300} alt="Rikesh Shrestha, Zeplin"></Image></li>
-                                        <li><Image priority={false} src={'/images/git.svg'} width={300} height={300} alt="Rikesh Shrestha, git"></Image></li>
-                                        <li><Image priority={false} src={'/images/github.svg'} width={300} height={300} alt="Rikesh Shrestha, github"></Image></li>
-                                        <li><Image priority={false} src={'/images/bitbucket.svg'} width={300} height={300} alt="Rikesh Shrestha, bitbucket"></Image></li>
-                                        <li><Image priority={false} src={'/images/jira.svg'} width={300} height={300} alt="Rikesh Shrestha, jira"></Image></li>
-                                        <li><Image priority={false} src={'/images/netlify.svg'} width={300} height={300} alt="Rikesh Shrestha, netlify"></Image></li>
-                                        <li><Image priority={false} src={'/images/heroku.svg'} width={300} height={300} alt="Rikesh Shrestha, heroku"></Image></li>
-                                        <li><Image priority={false} src={'/images/vscode.svg'} width={300} height={300} alt="Rikesh Shrestha, vscode"></Image></li>
+                            <div className='w-full md:w-1/2'>
+                                <div className='mb-12'>
+                                    <h3 className={`${righteous.className} font-bold text-3xl uppercase mb-8`}>SKILL AND EXPERTISE</h3>
+                                    <ul className='flex flex-wrap gap-4 items-center justify-start'>
+                                        <li className='relative rounded-lg bg-white-500 p-2 dark:bg-black-300'><Image className='object-contain w-8 h-8' priority={false} src='/images/html.svg' width={32} height={32} alt="Rikesh Shrestha, HTML"></Image></li>
+                                        <li className='relative rounded-lg bg-white-500 p-2 dark:bg-black-300'><Image className='object-contain w-8 h-8' priority={false} src={'/images/css.svg'} width={32} height={32} alt="Rikesh Shrestha, CSS"></Image></li>
+                                        <li className='relative rounded-lg bg-white-500 p-2 dark:bg-black-300'><Image className='object-contain w-8 h-8' priority={false} src={'/images/sass.svg'} width={32} height={32} alt="Rikesh Shrestha, SASS"></Image></li>
+                                        <li className='relative rounded-lg bg-white-500 p-2 dark:bg-black-300'><Image className='object-contain w-8 h-8' priority={false} src={'/images/js.svg'} width={32} height={32} alt="Rikesh Shrestha, Javascript"></Image></li>
+                                        <li className='relative rounded-lg bg-white-500 p-2 dark:bg-black-300'><Image className='object-contain w-8 h-8' priority={false} src={'/images/react.svg'} width={32} height={32} alt="Rikesh Shrestha, React"></Image></li>
+                                        <li className='relative rounded-lg bg-white-500 p-2 dark:bg-black-300'><Image className='object-contain w-8 h-8' priority={false} src={'/images/angular.svg'} width={32} height={32} alt="Rikesh Shrestha, Angular"></Image></li>
+                                        <li className='relative rounded-lg bg-white-500 p-2 dark:bg-black-300'><Image className='object-contain w-8 h-8' priority={false} src={'/images/vue.svg'} width={32} height={32} alt="Rikesh Shrestha, Vue"></Image></li>
+                                        <li className='relative rounded-lg bg-white-500 p-2 dark:bg-black-300'><Image className='object-contain w-8 h-8' priority={false} src={'/images/mongodb.svg'} width={32} height={32} alt="Rikesh Shrestha, MongoDb"></Image></li>
+                                        <li className='relative rounded-lg bg-white-500 p-2 dark:bg-black-300'><Image className='object-contain w-8 h-8' priority={false} src={'/images/mysql.svg'} width={32} height={32} alt="Rikesh Shrestha, mysql"></Image></li>
+                                        <li className='relative rounded-lg bg-white-500 p-2 dark:bg-black-300'><Image className='object-contain w-8 h-8' priority={false} src={'/images/node.svg'} width={32} height={32} alt="Rikesh Shrestha, Node.js"></Image></li>
+                                        <li className='relative rounded-lg bg-white-500 p-2 dark:bg-black-300'><Image className='object-contain w-8 h-8' priority={false} src={'/images/firebase.svg'} width={32} height={32} alt="Rikesh Shrestha, Firebase"></Image></li>
+                                        <li className='relative rounded-lg bg-white-500 p-2 dark:bg-black-300'><Image className='object-contain w-8 h-8' priority={false} src={'/images/express.svg'} width={32} height={32} alt="Rikesh Shrestha, EXpress"></Image></li>
+                                        <li className='relative rounded-lg bg-white-500 p-2 dark:bg-black-300'><Image className='object-contain w-8 h-8' priority={false} src={'/images/figma-1.svg'} width={32} height={32} alt="Rikesh Shrestha, Figma"></Image></li>
+                                        <li className='relative rounded-lg bg-white-500 p-2 dark:bg-black-300'><Image className='object-contain w-8 h-8' priority={false} src={'/images/xd.svg'} width={32} height={32} alt="Rikesh Shrestha, xd"></Image></li>
+                                        <li className='relative rounded-lg bg-white-500 p-2 dark:bg-black-300'><Image className='object-contain w-8 h-8' priority={false} src={'/images/zeplin.svg'} width={32} height={32} alt="Rikesh Shrestha, Zeplin"></Image></li>
+                                        <li className='relative rounded-lg bg-white-500 p-2 dark:bg-black-300'><Image className='object-contain w-8 h-8' priority={false} src={'/images/git.svg'} width={32} height={32} alt="Rikesh Shrestha, git"></Image></li>
+                                        <li className='relative rounded-lg bg-white-500 p-2 dark:bg-black-300'><Image className='object-contain w-8 h-8' priority={false} src={'/images/github.svg'} width={32} height={32} alt="Rikesh Shrestha, github"></Image></li>
+                                        <li className='relative rounded-lg bg-white-500 p-2 dark:bg-black-300'><Image className='object-contain w-8 h-8' priority={false} src={'/images/bitbucket.svg'} width={32} height={32} alt="Rikesh Shrestha, bitbucket"></Image></li>
+                                        <li className='relative rounded-lg bg-white-500 p-2 dark:bg-black-300'><Image className='object-contain w-8 h-8' priority={false} src={'/images/jira.svg'} width={32} height={32} alt="Rikesh Shrestha, jira"></Image></li>
+                                        <li className='relative rounded-lg bg-white-500 p-2 dark:bg-black-300'><Image className='object-contain w-8 h-8' priority={false} src={'/images/netlify.svg'} width={32} height={32} alt="Rikesh Shrestha, netlify"></Image></li>
+                                        <li className='relative rounded-lg bg-white-500 p-2 dark:bg-black-300'><Image className='object-contain w-8 h-8' priority={false} src={'/images/heroku.svg'} width={32} height={32} alt="Rikesh Shrestha, heroku"></Image></li>
+                                        <li className='relative rounded-lg bg-white-500 p-2 dark:bg-black-300'><Image className='object-contain w-8 h-8' priority={false} src={'/images/vscode.svg'} width={32} height={32} alt="Rikesh Shrestha, vscode"></Image></li>
                                     </ul>
                                 </div>
                                 <div className='rs-exp__blogs'>
-                                    <h3 className={righteous.className}>Recent blogs</h3>
-                                    <ul className='rs-exp__blog-list'>
+                                    <h3 className={`${righteous.className} font-bold text-3xl uppercase mb-8`}>Recent blogs</h3>
+                                    <ul className='flex flex-col mb-4'>
                                         {
-                                            blogs.data.map((blog:any,index:number) => <li key={index}>
+                                            blogs ? blogs.data.map((blog:any,index:number) => <li key={index} className='mb-4 last:mb-0'>
                                                 <BlogListItem blogDetail={blog} ></BlogListItem>
-                                            </li>)
+                                            </li>) : null
                                         }
                                     </ul>
-                                    <Link href={'/blogs'} className={`rs-exp__more ${righteous.className}`}> Read more blogs</Link>
+                                    <Link href={'/blogs'} className={`font-semibold text-sm text-secondary`}> Read more blogs.. </Link>
                                 </div>
                             </div>
                         </div>
