@@ -28,7 +28,7 @@ export default function BlogListItem({ blogDetail }: Props) {
 
   return (
     <Link href={`/blogs/${attributes.category.data.attributes.slug}/${id}`} className={'group'}>
-      <article className={`flex flex-row items-start`}>
+      <article className={`flex flex-row items-center`}>
         <figure className={'relative rounded-lg overflow-hidden border-4 border-white transition-all duration-300 bg-primary-light w-28 h-28 me-2 group-hover:border-white-200'}>
           <Image loading='lazy' src={attributes?.cover?.data?.attributes?.url || '/bg.avif'} placeholder='blur' blurDataURL={'/bg.avif'} fill={true} style={{ objectFit: "cover" }} className='transition-all duration-300 group-hover:scale-105' alt='blogs'></Image>
         </figure>
