@@ -129,6 +129,7 @@ export default function SliderV3tar({parallex=false, refs, title}:Props) {
               services.map((service: any, index: number) => {
                 return (
                   <article
+                  key={`${index}-service-1`}
                     ref={currentSlideRef}
                     className={'flex flex-col items-center'}
                   >
@@ -156,6 +157,7 @@ export default function SliderV3tar({parallex=false, refs, title}:Props) {
               services.map((service: any, index: number) => {
                 return (
                   <article
+                    key={`${index}-service-2`}
                     ref={currentSlideRef}
                     className={'flex flex-col items-center'}
                   >
