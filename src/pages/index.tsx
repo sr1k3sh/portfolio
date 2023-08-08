@@ -106,7 +106,7 @@ const Home = (props: Props) => {
         <meta property="og:title" content={metadata.title}/>
         <meta property="og:description" content={metadata.description}/>
         <meta property="og:image" content="/profile.png"/>
-        <meta property="og:url" content="https://rikeshshrestha.com/"/>
+        <meta property="og:url" content="https://rikesh.codes/"/>
         <meta property="og:type" content="website"/>
         <meta name="twitter:card" content="summary"/>
         <meta name="twitter:site" content="@rikeshshrestha"/>

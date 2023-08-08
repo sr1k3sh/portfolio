@@ -1,14 +1,14 @@
 ---
 additions:
 - kind: dns#resourceRecordSet
-  name: rikeshshrestha.com.
+  name: rikesh.codes.
   rrdatas:
   - ns-cloud-c1.googledomains.com. cloud-dns-hostmaster.google.com. 2 21600 3600 259200
     300
   ttl: 21600
   type: SOA
 - kind: dns#resourceRecordSet
-  name: _acme-challenge.rikeshshrestha.com.
+  name: _acme-challenge.rikesh.codes.
   rrdatas:
   - blogorik
   ttl: 30
@@ -21,7 +21,7 @@ additions:
   type: CNAME
 deletions:
 - kind: dns#resourceRecordSet
-  name: rikeshshrestha.com.
+  name: rikesh.codes.
   rrdatas:
   - ns-cloud-c1.googledomains.com. cloud-dns-hostmaster.google.com. 1 21600 3600 259200
     300
