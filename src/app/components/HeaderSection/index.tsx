@@ -39,7 +39,7 @@ const HeaderSection: React.FC<HeaderSectionProps> = ({ refs }) => {
             <div className="m-auto container-none">
                 <div className="columns-1 flex justify-end">
                     {/* <NavBar refs={refs} isHome={true}></NavBar> */}
-                    <div className='w-full md:w-[calc(100%_-_5rem)] relative rounded-3xl overflow-hidden'>
+                    <div className='w-full md:w-[calc(100%_-_6rem)] relative rounded-3xl overflow-hidden'>
                         <Image src='/bgnew.jpg' className='z-0' fill style={{objectFit: 'cover'}} alt="rikesh, developer, engineer, frontend, japan"></Image>
                         <div className='container m-auto rs-banner__main-banner py-28 z-1 relative'>
                             <div className="rs-banner__content px-16 py-20 bg-white-600 bg-opacity-70 backdrop-blur-md rounded-3xl max-w-3xl dark:bg-black-500">
