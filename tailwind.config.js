@@ -53,8 +53,9 @@ module.exports = {
     },
     fontFamily: {
       // sans: ['sansFont', 'sans-serif'],
-      serif: ['Merriweather', 'serif'],
-      sans: ['var(--font-dm_sans)'],
+      // serif: ['var(--poiret_one)'],
+      sans: 'var(--font-montserrat)',
+      // header: ['var(--poiret_one)'],
     },
     extend: {
       spacing: {

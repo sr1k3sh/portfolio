@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux'
 import { Refs } from '../../../pages'
 import Image from 'next/image'
 import { getThemeMode } from 'src/redux/ThemeSlice'
+import { proza, sansFont } from 'src/utils/fonts'
 
 interface AboutSectionProps {
     refs: Refs
@@ -688,7 +689,7 @@ export default function About(props:AboutSectionProps) {
             <div className='container m-auto'>
                 <div className='flex flex-col justify-center gap-10 md:flex-row md:items-center'>
                     <div className='md:w-3/4'>
-                        <p className='first-letter:text-7xl first-letter:text-primary first-letter:font-bold first-letter:text-black first-letter:mr-3  first-letter:float-left'>As a frontend developer, I code with a brush of creativity and a palette of pixels, crafting immersive experiences that dance at the intersection of aesthetics and functionality. With each line of code, I sculpt user journeys, painting interfaces that not only work seamlessly but also breathe life into design dreams. For me, coding is an art, and UI/UX is my canvas – a canvas where pixels come alive, telling stories of beauty and interaction.</p>
+                        <p className={`${sansFont.className} first-letter:text-7xl first-letter:${proza.className} first-letter:text-primary first-letter:font-bold first-letter:text-black first-letter:mr-3  first-letter:float-left`}>As a frontend developer, I code with a brush of creativity and a palette of pixels, crafting immersive experiences that dance at the intersection of aesthetics and functionality. With each line of code, I sculpt user journeys, painting interfaces that not only work seamlessly but also breathe life into design dreams. For me, coding is an art, and UI/UX is my canvas – a canvas where pixels come alive, telling stories of beauty and interaction.</p>
                     </div>
                     <div className='w-1/4'>
                         <div className='flex justify-center items-center w-64 height-64'>

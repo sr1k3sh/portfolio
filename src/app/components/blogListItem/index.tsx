@@ -5,6 +5,7 @@ import { Righteous } from 'next/font/google'
 import Link from 'next/link'
 import { useSelector } from 'react-redux'
 import { getThemeMode } from 'src/redux/ThemeSlice'
+import { proza, sansFont } from 'src/utils/fonts'
 
 type Props = {
   blogDetail: {
@@ -32,8 +33,8 @@ export default function BlogListItem({ blogDetail }: Props) {
           <Image loading='lazy' src={attributes?.cover?.data?.attributes?.url || '/bg.avif'} placeholder='blur' blurDataURL={'/bg.avif'} fill={true} style={{ objectFit: "cover" }} className='transition-all duration-300 group-hover:scale-105' alt='blogs'></Image>
         </figure>
         <div className={'flex flex-col w-[calc(100%_-_7rem)]'}>
-          <span className={'text-sm uppercase font-semibold mb-1'}>{attributes.category.data.attributes.name}</span>
-          <h4 className={`text-base mb-1 text-black-200 transition-all duration-300 group-hover:text-primary dark:text-white-200 line-clamp-2`}>{attributes.title}</h4>
+          <span className={`text-sm uppercase font-semibold mb-1 ${proza.className}`}>{attributes.category.data.attributes.name}</span>
+          <h4 className={`text-sm mb-1 text-black-200 transition-all duration-300 group-hover:text-primary dark:text-white-200 line-clamp-2 ${sansFont.className}`}>{attributes.title}</h4>
           <span className={'text-xs text-black-500'}>{attributes.publishedAt && new Date(attributes.publishedAt).toLocaleDateString('en-US', {
             year: 'numeric',
             month: 'short',

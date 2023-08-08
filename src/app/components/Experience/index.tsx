@@ -1,22 +1,17 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
 import Image from 'next/image'
 import { Refs } from '../../../pages'
-import { DM_Sans, Righteous } from 'next/font/google'
 import BlogListItem from '../blogListItem'
 import Link from 'next/link'
-import { getThemeMode } from 'src/redux/ThemeSlice'
+import { proza, sansFont } from 'src/utils/fonts'
 
 interface Props {
     refs: Refs
     blogs: any
 }
 
-const righteous = DM_Sans({ subsets: ['latin'] , weight: ['400','500','700']})
-
 export default function Experience(props: Props) {
     const { refs , blogs} = props
-    const colorState = useSelector(getThemeMode)
     return (
         <section ref={refs.experience.experienceRef} className={'py-10'}>
             {/* <div className='rs-exp__float-bg'>
@@ -693,61 +688,61 @@ export default function Experience(props: Props) {
                 <div className='flex flex-col md:flex-row'>
                     <div className='w-full md:w-1/12'>
                         <div className='rs-exp__headline h-full relative mb-6 md:mb-0'>
-                            <h2 className={`${righteous.className} text-7xl font-semibold md:whitespace-nowrap text-secondary md:-rotate-90 md:-translate-x-1/2 md:-translate-y-1/2 md:absolute md:left-1/2 md:top-1/2 md:tracking-wider dark:text-white-400`}>Rikesh Shrestha</h2>
+                            <h2 className={`${proza.className} text-7xl font-[400] md:whitespace-nowrap text-secondary md:-rotate-90 md:-translate-x-1/2 md:-translate-y-1/2 md:absolute md:left-1/2 md:top-1/2 md:tracking-wider dark:text-white-400`}>Rikesh Shrestha</h2>
                         </div>
                     </div>
                     <div className='w-full md:w-11/12 md:ps-8'>
                         <div className="flex flex-col md:flex-row">
                             <div className="w-full md:w-1/2">
-                                <h3 className={`${righteous.className} font-bold text-3xl uppercase mb-8`}>Work experience</h3>
+                                <h3 className={`${proza.className} font-bold text-3xl uppercase mb-8`}>Work experience</h3>
                                 <ul>
                                     <li className='mb-6'>
                                         <header>
-                                            <h1 className={`${righteous.className} uppercase tracking-wide font-semibold text-black-400 mb-0 text-lg dark:text-white`}>D&S Inc. </h1>
-                                            <h2 className='text-base font-bold text-black-100 mb-0 dark:text-white-500'>Frontend Developer </h2>
-                                            <span className='text-xs text-black-400 dark:text-white-700'>October 2023 – Present</span>
+                                            <h1 className={`${proza.className} uppercase tracking-wide font-[400] text-black-400 mb-0 text-lg dark:text-white`}>D&S Inc. </h1>
+                                            <h2 className={`${sansFont} text-base font-bold text-black-100 mb-0 dark:text-white-500`}>Frontend Developer </h2>
+                                            <span className={`text-xs text-black-400 dark:text-white-700 ${sansFont.className}`}>October 2023 – Present</span>
                                         </header>
                                     </li>
                                     <li className='mb-6'>
                                         <header>
-                                            <h1 className={`${righteous.className} uppercase tracking-wide font-semibold text-black-400 mb-0 text-lg dark:text-white`}>Freelancer </h1>
-                                            <h2 className='text-base font-bold text-black-100 mb-0 dark:text-white-500'>Frontend Developer </h2>
-                                            <span className='text-xs text-black-400 dark:text-white-700'>October 2021 – October 2022</span>
+                                            <h1 className={`${proza.className} uppercase tracking-wide font-[400] text-black-400 mb-0 text-lg dark:text-white`}>Freelancer </h1>
+                                            <h2 className={`${sansFont} text-base font-bold text-black-100 mb-0 dark:text-white-500`}>Frontend Developer </h2>
+                                            <span className={`text-xs text-black-400 dark:text-white-700 ${sansFont.className}`}>October 2021 – October 2022</span>
                                         </header>
                                     </li>
                                     <li className='mb-6'>
                                         <header>
-                                            <h1 className={`${righteous.className} uppercase tracking-wide font-semibold text-black-400 mb-0 text-lg dark:text-white`}>Itonics Nepal</h1>
-                                            <h2 className='text-base font-bold text-black-100 mb-0 dark:text-white-500'>Frontend Developer</h2>
-                                            <span className='text-xs text-black-400 dark:text-white-700'>January 2020 – October 2021</span>
+                                            <h1 className={`${proza.className} uppercase tracking-wide font-[400] text-black-400 mb-0 text-lg dark:text-white`}>Itonics Nepal</h1>
+                                            <h2 className={`${sansFont} text-base font-bold text-black-100 mb-0 dark:text-white-500`}>Frontend Developer</h2>
+                                            <span className={`text-xs text-black-400 dark:text-white-700 ${sansFont.className}`}>January 2020 – October 2021</span>
                                         </header>
                                     </li>
                                     <li className='mb-6'>
                                         <header>
-                                            <h1 className={`${righteous.className} uppercase tracking-wide font-semibold text-black-400 mb-0 text-lg dark:text-white`}>GsignalX Pvt Ltd</h1>
-                                            <h2 className='text-base font-bold text-black-100 mb-0 dark:text-white-500'>Web Developer</h2>
-                                            <span className='text-xs text-black-400 dark:text-white-700'> February 2018 – December 2019</span>
+                                            <h1 className={`${proza.className} uppercase tracking-wide font-[400] text-black-400 mb-0 text-lg dark:text-white`}>GsignalX Pvt Ltd</h1>
+                                            <h2 className={`${sansFont} text-base font-bold text-black-100 mb-0 dark:text-white-500`}>Web Developer</h2>
+                                            <span className={`text-xs text-black-400 dark:text-white-700 ${sansFont.className}`}> February 2018 – December 2019</span>
                                         </header>
                                     </li>
                                     <li className='mb-6'>
                                         <header>
-                                            <h1 className={`${righteous.className} uppercase tracking-wide font-semibold text-black-400 mb-0 text-lg dark:text-white`}>Arrtsm Gmbh</h1>
-                                            <h2 className='text-base font-bold text-black-100 mb-0 dark:text-white-500'>Software Engineer</h2>
-                                            <span className='text-xs text-black-400 dark:text-white-700'>December 2016 – February 2018</span>
+                                            <h1 className={`${proza.className} uppercase tracking-wide font-[400] text-black-400 mb-0 text-lg dark:text-white`}>Arrtsm Gmbh</h1>
+                                            <h2 className={`${sansFont} text-base font-bold text-black-100 mb-0 dark:text-white-500`}>Software Engineer</h2>
+                                            <span className={`text-xs text-black-400 dark:text-white-700 ${sansFont.className}`}>December 2016 – February 2018</span>
                                         </header>
                                     </li>
                                     <li className='mb-6'>
                                         <header>
-                                            <h1 className={`${righteous.className} uppercase tracking-wide font-semibold text-black-400 mb-0 text-lg dark:text-white`}>North american web</h1>
-                                            <h2 className='text-base font-bold text-black-100 mb-0 dark:text-white-500'>Web Developer</h2>
-                                            <span className='text-xs text-black-400 dark:text-white-700'>Aug 2016 – Feb 2017</span>
+                                            <h1 className={`${proza.className} uppercase tracking-wide font-semibold text-black-400 mb-0 text-lg dark:text-white`}>North american web</h1>
+                                            <h2 className={`${sansFont} text-base font-bold text-black-100 mb-0 dark:text-white-500`}>Web Developer</h2>
+                                            <span className={`text-xs text-black-400 dark:text-white-700 ${sansFont.className}`}>Aug 2016 – Feb 2017</span>
                                         </header>
                                     </li>
                                 </ul>
                             </div>
                             <div className='w-full md:w-1/2'>
                                 <div className='mb-12'>
-                                    <h3 className={`${righteous.className} font-bold text-3xl uppercase mb-8`}>SKILL AND EXPERTISE</h3>
+                                    <h3 className={`${proza.className} font-bold text-3xl uppercase mb-8`}>SKILL AND EXPERTISE</h3>
                                     <ul className='flex flex-wrap gap-4 items-center justify-start'>
                                         <li className='relative rounded-lg bg-white-500 p-2 dark:bg-black-300'><Image className='object-contain w-8 h-8' priority={false} src='/images/html.svg' width={32} height={32} alt="Rikesh Shrestha, HTML"></Image></li>
                                         <li className='relative rounded-lg bg-white-500 p-2 dark:bg-black-300'><Image className='object-contain w-8 h-8' priority={false} src={'/images/css.svg'} width={32} height={32} alt="Rikesh Shrestha, CSS"></Image></li>
@@ -774,7 +769,7 @@ export default function Experience(props: Props) {
                                     </ul>
                                 </div>
                                 <div className='rs-exp__blogs'>
-                                    <h3 className={`${righteous.className} font-bold text-3xl uppercase mb-8`}>Recent blogs</h3>
+                                    <h3 className={`${proza.className} font-bold text-3xl uppercase mb-8`}>Recent blogs</h3>
                                     <ul className='flex flex-col mb-4'>
                                         {
                                             blogs ? blogs.data.map((blog:any,index:number) => <li key={index} className='mb-4 last:mb-0'>
@@ -782,7 +777,7 @@ export default function Experience(props: Props) {
                                             </li>) : null
                                         }
                                     </ul>
-                                    <Link href={'/blogs'} className={`font-semibold text-sm text-secondary`}> Read more blogs.. </Link>
+                                    <Link href={'/blogs'} className={`${proza.className} font-[400] text-sm text-secondary`}> Read more blogs.. </Link>
                                 </div>
                             </div>
                         </div>

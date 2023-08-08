@@ -1,10 +1,8 @@
 import React, { MutableRefObject, useCallback, useRef, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { Refs } from '../../../pages'
-import { Righteous } from 'next/font/google'
 import Image from 'next/image'
 import '@splidejs/react-splide/css/sea-green'
-import styles from './index.module.scss'
 
 import { Swiper, SwiperClass, SwiperSlide } from 'swiper/react'
 
@@ -25,17 +23,13 @@ import { FiHelpCircle } from 'react-icons/fi'
 import { CgPerformance } from 'react-icons/cg'
 import { colors } from 'src/utils/utils'
 import { getThemeMode } from 'src/redux/ThemeSlice'
+import { proza, sansFont } from 'src/utils/fonts'
 
 interface Props {
   refs: Refs
   parallex?: boolean
   title?: string | Element | any
 }
-
-const righteous = Righteous({
-  weight: '400',
-  subsets: ['latin']
-})
 
 const services = [
   {
@@ -166,7 +160,7 @@ export default function SliderV3tar({parallex=false, refs, title}:Props) {
         <div className='flex flex-col'>
           {
             title &&
-            <h2 className={'text-center text-3xl uppercase font-bold mb-10'}>{title}</h2>
+            <h2 className={`text-center text-3xl uppercase font-bold mb-10 ${proza.className}`}>{title}</h2>
           }
           <div className={``}>
             <Swiper
@@ -226,7 +220,7 @@ export default function SliderV3tar({parallex=false, refs, title}:Props) {
                                 <div
                                   className={``}>
                                   <h2
-                                    className={'text-center text-primary font-bold text-md mt-4 dark:text-white-600'}>{service.title}</h2>
+                                    className={`text-center text-primary font-[500] text-sm text-md mt-4 dark:text-white-600 ${proza.className}`}>{service.title}</h2>
                                   {/* <h3
                                     className={righteous.className}></h3> */}
                                   {/* <p

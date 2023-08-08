@@ -4,9 +4,9 @@ import { MdOutlineDesignServices, MdDoubleArrow } from 'react-icons/md'
 import { IoIosArrowForward, IoIosArrowBack } from 'react-icons/io'
 import { useSelector } from 'react-redux'
 import { Refs } from '../../../pages'
-import { Righteous } from 'next/font/google'
 import { colors } from 'src/utils/utils'
 import { getThemeMode } from 'src/redux/ThemeSlice'
+import { proza, sansFont } from 'src/utils/fonts'
 
 interface buttonProps {
     className: string,
@@ -36,11 +36,6 @@ function PrevArrow(props: buttonProps) {
 interface Props {
     refs: Refs
 }
-
-const righteous = Righteous({
-    weight: '400',
-    subsets: ['latin']
-})
 
 const services = [
     {
@@ -156,7 +151,7 @@ export default function Services(props: Props) {
                         <div className='rs-services__wrapper'>
                             <div className='rs-services__my-services'>
                                 <div className='rs-services__content'>
-                                    <h2 className={righteous.className}>Services</h2>
+                                    <h2 className={proza.className}>Services</h2>
                                     <p>{`I'm happy to assist you to grow your business`}</p>
                                 </div>
                                 <MdDoubleArrow color={colorState === 'dark' ? 'white' : colors.primary}></MdDoubleArrow>
@@ -174,7 +169,7 @@ export default function Services(props: Props) {
                                                 <figure className='rs-services__figure'>
                                                     <MdOutlineDesignServices color={colorState === 'dark' ? colors.primary : colors.primary}></MdOutlineDesignServices>
                                                     <figcaption>
-                                                        <span className={righteous.className}>{service.title}</span>
+                                                        <span className={`${sansFont.className}`}>{service.title}</span>
                                                         <p>{service.description}</p>
                                                     </figcaption>
                                                 </figure>

@@ -8,6 +8,7 @@ import { Refs } from '../../../pages'
 import { Righteous} from 'next/font/google'
 import { getThemeMode } from 'src/redux/ThemeSlice'
 import Image from 'next/image'
+import { proza, sansFont } from 'src/utils/fonts'
 
 const righteous = Righteous({
     weight: '400',
@@ -43,9 +44,9 @@ const HeaderSection: React.FC<HeaderSectionProps> = ({ refs }) => {
                         <Image src='/bgnew.jpg' className='z-0' fill style={{objectFit: 'cover'}} alt="rikesh, developer, engineer, frontend, japan"></Image>
                         <div className='container m-auto rs-banner__main-banner py-28 z-1 relative'>
                             <div className="rs-banner__content px-16 py-20 bg-white-600 bg-opacity-70 backdrop-blur-md rounded-3xl max-w-3xl dark:bg-black-500">
-                                <h2 className='text-4xl mb-2'><strong className='text-primary'>{hello ? hello.hello : "Hello"}</strong> {greetState},</h2>
-                                <h3 className={`${righteous.className} text-5xl mb-3`}>I am Rikesh, Frontend Dev</h3>
-                                <p className='text-base mb-5'>Almost 6 year + experience in software engineering field, most focused on frontend stack.</p>
+                                <h2 className={`${proza.className} text-4xl mb-2`}><strong className='text-primary'>{hello ? hello.hello : "Hello"}</strong> {greetState},</h2>
+                                <h3 className={`${proza.className} font-[500] text-5xl mb-3`}>I am Rikesh, Frontend Dev</h3>
+                                <p className={`${sansFont.className} text-base mb-5`}>Almost 6 year + experience in software engineering field, most focused on frontend stack.</p>
                                 <nav>
                                     <ul className='flex flex-row gap-4'>
                                         <li className='bg-black-300 p-2 rounded-full border-4 border-black-600 dark:bg-white-200 dark:border-white-600'>

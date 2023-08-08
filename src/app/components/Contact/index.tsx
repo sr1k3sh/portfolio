@@ -7,6 +7,7 @@ import Link from 'next/link'
 import { Refs } from '../../../pages'
 import { Righteous } from 'next/font/google'
 import { getThemeMode } from 'src/redux/ThemeSlice'
+import { proza, sansFont } from 'src/utils/fonts'
 
 interface ContactSectionProps {
     refs?: Refs
@@ -384,30 +385,30 @@ export default function Contact(props:ContactSectionProps) {
                     <div className='w-full md:w-2/4'>
                         <div className='p-6 md:p-12 flex flex-col bg-white-500 rounded-2xl dark:bg-black-500'>
                             <div className='mb-10'>
-                                <h2 className={'text-3xl font-bold uppercase'}>Contact Me.</h2>
+                                <h2 className={`text-3xl font-bold uppercase ${proza.className}`}>Contact Me.</h2>
                             </div>
                             <div className='flex flex-col'>
                                 <form className='flex flex-col' onSubmit={onContactFormSubmit}>
                                     <input type="hidden" name="access_key" value="3ea290a8-cb27-4518-a371-756dc6e36e5f" />
                                     <div className={`flex flex-col relative mb-6 group ${name.length > 0 ? 'filled-name' : ''}`}>
                                         <input type={'text'} name='name' className={ `peer p-2 border-b-0 bg-white-700 border-black border-solid rounded-lg focus:border-primary focus:outline-none focus:ring-0 dark:bg-black-600`} id="rs_contact_name" onChange={onChangeName} value={name}></input>
-                                        <label htmlFor="rs_contact_name" className='absolute top-4 left-2 text-sm text-black-500 -mt-2 transition-all peer-focus:text-black-200 peer-focus:top-0 dark:text-white-500 dark:peer-focus:text-white-200 group-[.filled-name]:top-0'>What is your name? *</label>
+                                        <label htmlFor="rs_contact_name" className={`absolute top-4 left-2 text-sm text-black-500 -mt-2 transition-all peer-focus:text-black-200 peer-focus:top-0 dark:text-white-500 dark:peer-focus:text-white-200 group-[.filled-name]:top-0 ${sansFont.className}`}>What is your name? *</label>
                                     </div>
                                     <div className={`group ${email.length > 0 ? 'filled-email' : ''} flex flex-col relative mb-6`}>
                                         <input type={'email'} name='email' className={`peer p-2 border-b-0 bg-white-700 border-black border-solid rounded-lg focus:border-primary focus:outline-none focus:ring-0 dark:bg-black-600`} id="rs_contact_email" onChange={onChangeEmail} value={email}></input>
-                                        <label htmlFor="rs_contact_email" className='absolute top-4 left-2 text-sm text-black-500 -mt-2 transition-all peer-focus:text-black-200 peer-focus:top-0 dark:text-white-500  dark:peer-focus:text-white-200 group-[.filled-email]:top-0'>What it your email? *</label>
+                                        <label htmlFor="rs_contact_email" className={`${sansFont.className} absolute top-4 left-2 text-sm text-black-500 -mt-2 transition-all peer-focus:text-black-200 peer-focus:top-0 dark:text-white-500  dark:peer-focus:text-white-200 group-[.filled-email]:top-0`}>What it your email? *</label>
                                     </div>
                                     <div className={`${formClassStatus ? 'flex flex-col relative mb-0' : 'flex flex-col relative'} group ${message.length > 0 ? 'filled-message' : ''}`}>
                                         <textarea name='message' className={`peer p-2 border-b-0 bg-white-700 border-black border-solid rounded-lg focus:border-primary focus:outline-none focus:ring-0 dark:bg-black-600`} id="rs_contact_message" onChange={onChangeMessage} value={message}></textarea>
-                                        <label htmlFor="rs_contact_message" className='absolute top-4 left-2 text-sm text-black-500 -mt-2 transition-all peer-focus:text-black-200 peer-focus:top-0 dark:text-white-500  dark:peer-focus:text-white-200 group-[.filled-message]:top-0'>What it your email? *</label>
+                                        <label htmlFor="rs_contact_message" className={`absolute top-4 left-2 text-sm text-black-500 -mt-2 transition-all peer-focus:text-black-200 peer-focus:top-0 dark:text-white-500  dark:peer-focus:text-white-200 group-[.filled-message]:top-0 ${sansFont.className}`}>What it your email? *</label>
                                     </div>
                                     {
                                         logMessage &&
                                         <small className='mb-2' style={{color: formClassStatus === "error" ? '#dc3545' : '#198754', fontSize: 12}}>{logMessage}</small>
                                     }
-                                    <button type='submit' className='flex flex-row justify-center gap-2 items-center mt-6 uppercase font-semibold bg-black-600 p-2 rounded-lg hover:bg-black-300 transition-all duration-300 dark:bg-white-300 dark:hover:bg-white-200'>
+                                    <button type='submit' className={`flex flex-row justify-center gap-2 items-center mt-6 uppercase font-semibold bg-black-600 p-2 rounded-lg hover:bg-black-300 transition-all duration-300 dark:bg-white-300 dark:hover:bg-white-200 ${sansFont.className}`}>
                                         <RiSendPlaneFill className='text-white-600 dark:text-black-500'/>
-                                        <span className='text-white-600 dark:text-black-500'>
+                                        <span className={`${proza.className} text-white-600 dark:text-black-500`}>
                                             send message
                                         </span>
                                     </button>

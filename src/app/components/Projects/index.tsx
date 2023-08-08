@@ -4,6 +4,7 @@ import { BsClock, BsEmojiHeartEyes } from 'react-icons/bs'
 import { useSelector } from 'react-redux'
 import { colors } from 'src/utils/utils'
 import { getThemeMode } from 'src/redux/ThemeSlice'
+import { proza } from 'src/utils/fonts'
 
 export default function Projects() {
     const colorState = useSelector(getThemeMode)
@@ -15,22 +16,22 @@ export default function Projects() {
                         <div className='p-3 bg-black-400 mb-2 rounded-full border-4 border-black-600 dark:border-white-600 dark:bg-white-400'>
                             <IoBriefcaseOutline className='w-8 h-8 text-white-400 dark:text-black-400'></IoBriefcaseOutline>
                         </div>
-                        <span className='text-3xl font-bold mb-1 text-secondary'>10+</span>
-                        <span className='text-base font-bold text-black-400 dark:text-white-400'>Completed Project</span>
+                        <span className={`${proza.className} text-3xl font-bold mb-1 text-secondary`}>10+</span>
+                        <span className={`${proza.className} text-base font-[500] text-black-400 dark:text-white-400`}>Completed Project</span>
                     </li>
                     <li className='flex flex-col justify-center items-center mb-6 md:mb-0'>
                         <div className='p-3 bg-black-400 mb-2 rounded-full border-4 border-black-600 dark:border-white-600 dark:bg-white-400'>
                             <BsClock className='w-8 h-8 text-white-400 dark:text-black-400'></BsClock>
                         </div>
-                        <span className='text-3xl font-bold mb-1 text-secondary'>10000+</span>
-                        <span className='text-base font-bold text-black-400 dark:text-white-400'>Working Hours</span>
+                        <span className={`${proza.className} text-3xl font-bold mb-1 text-secondary`}>10000+</span>
+                        <span className={`${proza.className} text-base font-[500] text-black-400 dark:text-white-400`}>Working Hours</span>
                     </li>
                     <li className='flex flex-col justify-center items-center mb-6 md:mb-0'>
                         <div className='p-3 bg-black-400 mb-2 rounded-full border-4 border-black-600 dark:border-white-600 dark:bg-white-400'>
                             <BsEmojiHeartEyes className='w-8 h-8 text-white-400 dark:text-black-400'></BsEmojiHeartEyes>
                         </div>
-                        <span className='text-3xl font-bold mb-1 text-secondary'>20</span>
-                        <span className='text-base font-bold text-black-400 dark:text-white-400'>Happy Clients</span>
+                        <span className={`${proza.className} text-3xl font-bold mb-1 text-secondary`}>20</span>
+                        <span className={`${proza.className} text-base font-[500] text-black-400 dark:text-white-400`}>Happy Clients</span>
                     </li>
                 </ul>
             </div>

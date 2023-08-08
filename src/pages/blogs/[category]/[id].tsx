@@ -18,6 +18,7 @@ import {
   oneDark,
 } from 'react-syntax-highlighter/dist/cjs/styles/prism'
 import SliderV2tar from 'src/app/components/SliderV2/SliderV2'
+import { carmorant, proza, sansFont } from 'src/utils/fonts'
 
 type Props = {
   blogData: any
@@ -143,10 +144,10 @@ export default function BlogDetail({ blogData, dataBlogList }: Props) {
         <link rel="icon" href="/profile.png" sizes="any" />
       </Head>
       <NavBar></NavBar>
-      <section className={`w-full md:w-[calc(100%_-_7rem)] pb-2 pt-20 lg:py-10 m-auto`}>
+      <section className={`w-full md:w-[calc(100%_-_7rem)] pb-2 pt-20 lg:py-6 lg:pt-4 m-auto`}>
         <div className='container m-auto'>
           <div className='flex'>
-            <h1 className={`text-2xl md:text-3xl lg:text-5xl uppercase font-bold tracking-normal`}>{attributes.title}</h1>
+            <h1 className={`text-2xl md:text-3xl lg:text-4xl uppercase font-semibold tracking-normal ${proza.className}`}>{attributes.title}</h1>
           </div>
         </div>
       </section>
@@ -168,10 +169,15 @@ export default function BlogDetail({ blogData, dataBlogList }: Props) {
                 <Image className='rounded-full object-cover' fill={true} src={attributes?.author?.data?.attributes?.Avatar?.data?.attributes?.url} alt={attributes?.author?.data?.attributes?.Avatar?.data?.attributes?.alternativeText}></Image>
               </figure>
               <div className='flex flex-col'>
-                <span className='text-sm text-black-300 capitalize font-semibold dark:text-white-300'>{attributes?.author?.data?.attributes?.Name}</span>
-                <span className='text-xs text-black-400 font-regular dark:text-white-400'>{attributes?.author?.data?.attributes?.Email}</span>
+                <span className={`text-sm text-black-300 capitalize font-semibold dark:text-white-300 ${proza.className}`}>{attributes?.author?.data?.attributes?.Name}</span>
+                <span className={`text-xs text-black-400 font-regular dark:text-white-400 ${sansFont.className}`}>{attributes?.author?.data?.attributes?.Email}</span>
               </div>
             </div>
+            <span className={'text-sm text-black-300 mt-2 dark:text-white-400'}><strong>Publish on:</strong> {attributes.publishedAt && new Date(attributes.publishedAt).toLocaleDateString('en-US', {
+              year: 'numeric',
+              month: 'short',
+              day: '2-digit'
+            })}</span>
           </div>
         </div>
       </section>
@@ -205,10 +211,10 @@ export default function BlogDetail({ blogData, dataBlogList }: Props) {
                                 />
                               );
                             },
-                            h1: ({children}) => <h1 className='text-2xl md:text-4xl font-bold mb-4'>{children}</h1>,
-                            h2: ({children}) => <h2 className='text-lg md:text-3xl font-bold mb-4'>{children}</h2>,
-                            h3: ({children}) => <h3 className='text-base font-semibold md:text-2xl md:font-bold mb-4'>{children}</h3>,
-                            p: ({children}) => <p className='text-base font-regular mb-4'>{children}</p>,
+                            h1: ({children}) => <h1 className={`text-2xl md:text-3xl font-bold mb-4 ${proza.className}`}>{children}</h1>,
+                            h2: ({children}) => <h2 className={`text-lg md:text-lg font-bold mb-4 ${proza.className}`}>{children}</h2>,
+                            h3: ({children}) => <h3 className={`${proza.className} text-lg font-bold md:text-lg md:font-bold mb-4`}>{children}</h3>,
+                            p: ({children}) => <p className={`${sansFont.className} text-base font-regular mb-4`}>{children}</p>,
                           }}
                         >
                           {
@@ -225,7 +231,7 @@ export default function BlogDetail({ blogData, dataBlogList }: Props) {
               }
             </div>
             <div className='w-full md:w-4/12'>
-              <h3 className={`mb-4 font-bold text-xl md:text-2xl uppercase`}>Related Blogs</h3>
+              <h3 className={`mb-4 font-[600] text-xl md:text-xl uppercase ${proza.className}`}>Related Blogs</h3>
               <ul className='rs-exp__blog-list'>
                 {
                   blogs.data.filter((blog:any) => blog.id !== attributes.category.data.id ).map((blog: any, index: number) => <li key={index}>
@@ -253,7 +259,7 @@ export default function BlogDetail({ blogData, dataBlogList }: Props) {
 
                       {
                         block.video ? <div className='mt-8'>
-                          <h2 className='text-2xl md:text-3xl font-bold font-sans uppercase mb-4'>Checkout my vlog on youtube</h2>
+                          <h2 className={`text-2xl md:text-3xl font-[600] uppercase mb-4 ${proza.className}`}>Checkout my vlog on youtube</h2>
                           <iframe
                             className={`w-full h-64 md:h-96 rounded-xl`}
                             src={`https://www.youtube.com/embed/${block.video.providerUid}`}

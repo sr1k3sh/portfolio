@@ -1,30 +1,8 @@
-import React, { MutableRefObject, useCallback, useRef, useState } from 'react'
-import { useSelector } from 'react-redux'
+import React from 'react'
 import { Refs } from '../../../pages'
-import { Righteous } from 'next/font/google'
 import Image from 'next/image'
-import '@splidejs/react-splide/css/sea-green'
-import styles from './index.module.scss'
-
-import { Swiper, SwiperClass, SwiperSlide } from 'swiper/react'
-
-import 'swiper/css'
-import 'swiper/css/effect-coverflow'
-import 'swiper/css/navigation'
-import 'swiper/css'
-
-import { Pagination, Navigation, EffectCoverflow } from 'swiper/modules'
-
-import { SiVitest, SiGoogleoptimize, SiSemanticuireact } from 'react-icons/si'
-import { PiFigmaLogoDuotone } from 'react-icons/pi'
-import { LuScreenShare } from 'react-icons/lu'
-import { FaFirefoxBrowser, FaApple } from 'react-icons/fa'
-import { GiWireframeGlobe } from 'react-icons/gi'
-import { MdOutlineIntegrationInstructions, MdAnimation } from 'react-icons/md'
-import { FiHelpCircle } from 'react-icons/fi'
-import { CgPerformance } from 'react-icons/cg'
-import { getThemeMode } from 'src/redux/ThemeSlice'
 import Link from 'next/link'
+import { proza } from 'src/utils/fonts'
 
 interface Props {
   refs?: Refs
@@ -39,7 +17,7 @@ export default function SliderV2tar({ refs, title, data }: Props) {
     <section ref={refs && refs.services.servicesRef} className={``}>
       {
         title &&
-        <h2 className={`text:2xl md:text-3xl font-bold font-sans uppercase mb-4`}>{title}</h2>
+        <h2 className={`text:2xl md:text-3xl font-[600] font-sans uppercase mb-4 ${proza.className}`}>{title}</h2>
       }
       <div className='columns-3 gap-2'>
         {
