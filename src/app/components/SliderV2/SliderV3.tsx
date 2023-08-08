@@ -1,17 +1,7 @@
-import React, { MutableRefObject, useCallback, useRef, useState } from 'react'
+import React, { MutableRefObject, useRef } from 'react'
 import { useSelector } from 'react-redux'
 import { Refs } from '../../../pages'
 import Image from 'next/image'
-import '@splidejs/react-splide/css/sea-green'
-
-import { Swiper, SwiperClass, SwiperSlide } from 'swiper/react'
-
-import 'swiper/css'
-import 'swiper/css/effect-coverflow'
-import 'swiper/css/navigation'
-import 'swiper/css'
-
-import { Pagination, Navigation } from 'swiper/modules'
 
 import { SiVitest, SiGoogleoptimize, SiSemanticuireact } from 'react-icons/si'
 import { PiFigmaLogoDuotone } from 'react-icons/pi'
@@ -23,7 +13,7 @@ import { FiHelpCircle } from 'react-icons/fi'
 import { CgPerformance } from 'react-icons/cg'
 import { colors } from 'src/utils/utils'
 import { getThemeMode } from 'src/redux/ThemeSlice'
-import { proza, sansFont } from 'src/utils/fonts'
+import { proza } from 'src/utils/fonts'
 
 interface Props {
   refs: Refs
@@ -120,123 +110,75 @@ const services = [
 
 export default function SliderV3tar({parallex=false, refs, title}:Props) {
 
-  const [activeSlide, setActiveSlide] = useState<any>(1)
   const currentSlideRef: MutableRefObject<HTMLDivElement | null> = useRef(null)
-  const [movedLeft, setMoveLeft] = useState<boolean | null>(null)
-  const [currenSwiper, setCurrentSwiper] = useState<SwiperClass | null>(null)
 
   const colorState = useSelector(getThemeMode)
 
-  const onMouseMove = useCallback((event: any) => {
-    if (currentSlideRef?.current) {
-      const currentX = event.clientX
-
-      if (currentX > window.innerWidth / 2) {
-        setMoveLeft(false)
-      } else {
-        setMoveLeft(true)
-      }
-    }
-  }, [])
-
-
-  const onMouseLeave = () => {
-    setMoveLeft(null)
-  }
-
-  const onSwiper = (swiper: SwiperClass) => {
-    setCurrentSwiper(swiper)
-  }
-
-  const onSlideChange = () => {
-    if (currenSwiper) {
-      setActiveSlide(currenSwiper.activeIndex)
-    }
-  }
 
   return (
     <section ref={refs.services.servicesRef} className={`py-10`}>
-      <div className='container-none m-auto'>
+      <div className='container-none m-auto overflow-hidden'>
         <div className='flex flex-col'>
           {
             title &&
             <h2 className={`text-center text-3xl uppercase font-bold mb-10 ${proza.className}`}>{title}</h2>
           }
-          <div className={``}>
-            <Swiper
-              effect={'coverflow'}
-              grabCursor={true}
-              // centeredSlides={true}
-              slidesPerView={1}
-              loop={true}
-              navigation
-              modules={[Pagination, Navigation]}
-              className="mySwiper"
-              onSwiper={onSwiper}
-              onSlideChange={onSlideChange}
-              autoplay={{
-                delay: 1000,
-                disableOnInteraction: false,
-                // delay: 1,
-                // disableOnInteraction: false,
-              }}
-              breakpoints={{
-                640: {
-                  slidesPerView: 2,
-                },
-                1100: {
-                  slidesPerView: 5,
-                },
-              }}
-            >
-              {
-                services.map((service: any, index: number) => {
-                  return (
 
-                    <SwiperSlide
-                      key={`swiper-index-${index}`}
-                      className={`${movedLeft === null ? '' : movedLeft ? 'left' : 'right'}`}
-                    >
-                      {({ isActive }) => {
-                        return (
-                          <div
-                            onMouseMove={(e) => isActive && onMouseMove(e)}
-                            onMouseLeave={() => isActive && onMouseLeave()}
-
-                          >
-                            <article
-                              ref={currentSlideRef}
-                              className={'flex flex-col items-center'}
-                            >
-                              <figure
-                                className={'relative mb-4 bg-white-500 p-4 w-18 h-18 rounded-full border-4 border-white-700 dark:bg-black-500 dark:border-black-600'}>
-                                {
-                                  service.icon ?
-                                  service.icon(colorState === 'dark' ? colors.white : colors.primary ) : //<LiaConnectdevelop ></LiaConnectdevelop> :
-                                    <Image src={service.url} fill style={{ objectFit: 'cover' }} alt=".."></Image>
-                                }
-                              </figure>
-                              {
-                                <div
-                                  className={``}>
-                                  <h2
-                                    className={`text-center text-primary font-[500] text-sm text-md mt-4 dark:text-white-600 ${proza.className}`}>{service.title}</h2>
-                                  {/* <h3
-                                    className={righteous.className}></h3> */}
-                                  {/* <p
-                                  >- {service.description}</p> */}
-                                </div>
-                              }
-                            </article>
-                          </div>
-                        )
+          <div className="flex flex-row scroll">
+            {
+              services.map((service: any, index: number) => {
+                return (
+                  <article
+                    ref={currentSlideRef}
+                    className={'flex flex-col items-center'}
+                  >
+                    <div className='w-56 flex justify-center items-center flex-col'>
+                      <figure
+                        className={'relative mb-4 bg-white-500 p-4 w-18 h-18 rounded-full border-4 border-white-700 dark:bg-black-500 dark:border-black-600'}>
+                        {
+                          service.icon ?
+                          service.icon(colorState === 'dark' ? colors.white : colors.primary ) : //<LiaConnectdevelop ></LiaConnectdevelop> :
+                            <Image src={service.url} fill style={{ objectFit: 'cover' }} alt=".."></Image>
+                        }
+                      </figure>
+                      {
+                        <div
+                          className={``}>
+                          <h2
+                            className={`text-center text-primary font-[500] text-sm text-md mt-4 dark:text-white-600 ${proza.className}`}>{service.title}</h2>
+                        </div>
                       }
+                    </div>
+                  </article>
+                )})
+            }
+            {
+              services.map((service: any, index: number) => {
+                return (
+                  <article
+                    ref={currentSlideRef}
+                    className={'flex flex-col items-center'}
+                  >
+                    <div className='w-56 flex justify-center items-center flex-col'>
+                      <figure
+                        className={'relative mb-4 bg-white-500 p-4 w-18 h-18 rounded-full border-4 border-white-700 dark:bg-black-500 dark:border-black-600'}>
+                        {
+                          service.icon ?
+                          service.icon(colorState === 'dark' ? colors.white : colors.primary ) : //<LiaConnectdevelop ></LiaConnectdevelop> :
+                            <Image src={service.url} fill style={{ objectFit: 'cover' }} alt=".."></Image>
+                        }
+                      </figure>
+                      {
+                        <div
+                          className={``}>
+                          <h2
+                            className={`text-center text-primary font-[500] text-sm text-md mt-4 dark:text-white-600 ${proza.className}`}>{service.title}</h2>
+                        </div>
                       }
-                    </SwiperSlide>
-                  )
-                })
-              }
-            </Swiper>
+                    </div>
+                  </article>
+                )})
+            }
           </div>
         </div>
       </div>

@@ -6,3 +6,17 @@
     font-family: var(--font-montserrat);
   }
 }
+
+@keyframes scroll {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(calc(-100% - 1rem));
+    }
+}
+
+.scroll {
+    animation: scroll 10s linear infinite;
+}
