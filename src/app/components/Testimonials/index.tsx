@@ -103,9 +103,9 @@ export default function Testimonial(props: Props) {
                                 mapboxAccessToken={REACT_MAPBOX_TOKEN}
                                 scrollZoom={false}
                                 initialViewState={{
-                                    longitude: 85.3239595,
-                                    latitude: 27.7406487,
-                                    zoom: 0.8,
+                                    longitude: 70.3239595,
+                                    latitude: 27.8406487,
+                                    zoom: 0.7,
                                 }}
                                 mapStyle={colorState === "dark" ? "mapbox://styles/mapbox/dark-v10" : "mapbox://styles/mapbox/light-v10"}
                             >
