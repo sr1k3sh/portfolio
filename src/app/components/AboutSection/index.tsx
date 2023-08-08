@@ -693,8 +693,9 @@ export default function About(props:AboutSectionProps) {
                     </div>
                     <div className='w-1/4'>
                         <div className='flex justify-center items-center w-64 height-64'>
-                            <figure className='relative rounded-full overflow-hidden w-64 h-64 border-solid border-8 border-white-400'>
-                                <Image className='w-64 h-64 rounded-full overflow-hidden object-cover' priority={true} src='/profile.png' alt="Rikesh Shrestha, Frontend Developer in japan" width={300} height={300} ></Image>
+                            <figure className='relative rounded-full w-64 h-64'>
+                                <span className="animate-wiggle absolute inline-flex h-full w-full rounded-full bg-white-600 opacity-100 z-0 dark:bg-black-400"></span>
+                                <Image className='w-64 h-64 rounded-full overflow-hidden object-cover border-white-300 border-8 z-10' priority={true} src='/profile.png' fill alt="Rikesh Shrestha, Frontend Developer in japan" ></Image>
                             </figure>
                         </div>
                     </div>
