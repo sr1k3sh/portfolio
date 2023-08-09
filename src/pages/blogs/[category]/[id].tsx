@@ -14,12 +14,13 @@ import BreadCrumb, { IbreadCrumb } from 'src/app/components/breadcrumb'
 import Layout from 'src/app/components/Layout'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import {
-  oneLight,
+  coldarkCold,
   oneDark,
 } from 'react-syntax-highlighter/dist/cjs/styles/prism'
 import SliderV2tar from 'src/app/components/SliderV2/SliderV2'
-import { carmorant, proza, sansFont } from 'src/utils/fonts'
+import { proza, sansFont } from 'src/utils/fonts'
 import Link from 'next/link'
+import rehypeRaw from "rehype-raw";
 
 type Props = {
   blogData: any
@@ -157,7 +158,7 @@ export default function BlogDetail({ blogData, dataBlogList }: Props) {
           <div className='flex flex-col'>
             <article className='px-4 md:px-10'>
               <figure className={'relative h-[200px] lg:h-[500px] rounded-2xl overflow-hidden'}>
-                <Image className='object-cover' src={attributes?.cover?.data?.attributes?.url || '/bg.avif'} placeholder='blur' blurDataURL={attributes?.cover?.data?.attributes?.url || '/bg.avif'} alt={attributes?.cover?.data?.attributes?.alternativeText || attributes?.title || ''} fill={true} style={{ objectFit: 'cover' }}></Image>
+                <Image className='object-cover' src={attributes?.cover?.data?.attributes?.url || '/bg.avif'} placeholder='blur' blurDataURL={attributes?.cover?.data?.attributes?.url || '/bg.avif'} alt={attributes?.cover?.data?.attributes?.alternativeText || attributes?.title || 'rikesh'} fill={true} style={{ objectFit: 'cover' }}></Image>
               </figure>
             </article>
           </div>
@@ -167,7 +168,7 @@ export default function BlogDetail({ blogData, dataBlogList }: Props) {
             <BreadCrumb data={breadCrumbData}></BreadCrumb>
             <div className='flex flex-row items-center mt-4'>
               <figure className='relative w-10 h-10 overflow-hidden rounded-full border-2 me-2 border-white-600'>
-                <Image className='rounded-full object-cover' fill={true} src={attributes?.author?.data?.attributes?.Avatar?.data?.attributes?.url} alt={attributes?.author?.data?.attributes?.Avatar?.data?.attributes?.alternativeText}></Image>
+                <Image className='rounded-full object-cover' fill={true} src={attributes?.author?.data?.attributes?.Avatar?.data?.attributes?.url} alt={attributes?.author?.data?.attributes?.Avatar?.data?.attributes?.alternativeText || 'rikesh'}></Image>
               </figure>
               <div className='flex flex-col'>
                 <span className={`text-sm text-black-300 capitalize font-semibold dark:text-white-300 ${proza.className}`}>{attributes?.author?.data?.attributes?.Name}</span>
@@ -188,27 +189,41 @@ export default function BlogDetail({ blogData, dataBlogList }: Props) {
             <div className='w-full md:w-7/12 mb-6 md:mb-0'>
               {
                 attributes.blocks && attributes.blocks.map((block: any, index: number) => {
+                  console.log(block)
                   return (
                     <div className={styles.content} key={index}>
+                      {/* <div
+                        dangerouslySetInnerHTML={{
+                          __html: block.body,
+                        }}
+                      /> */}
+                      {/* <ReactMarkdown children={block.body} rehypePlugins={[rehypeRaw]} /> */}
+                      {/* <Markup markup={block.body}></Markup> */}
+                      {/* <ReactMarkdown children={block.body}></ReactMarkdown> */}
                       {
                         // eslint-disable-next-line
                         <ReactMarkdown
+                          rehypePlugins={[rehypeRaw]}
                           components={{
                             // eslint-disable-next-line
                             code({ inline, className, children }) {
                               if (inline) {
                                 // eslint-disable-next-line
-                                return <code className={className}>{children}</code>;
+                                return <code className={`${className} bg-black-500 text-white text-xs py-1 px-2 rounded-md`}>{children}</code>;
                               }
                               const match = /language-(\w+)/.exec(className || '');
                               const lang = match && match[1] ? match[1] : 'tsx';
 
                               return (
                                 <SyntaxHighlighter
-                                  style={colorState === 'dark' ? oneDark : oneLight}
+                                  style={colorState === 'dark' ? oneDark : coldarkCold}
                                   language={lang === 'Dockerfile' ? 'docker' : lang}
                                   // eslint-disable-next-line
                                   children={String(children).replace(/\n$/, '')}
+                                  customStyle={{
+                                    fontSize: 14,
+                                    borderRadius: 6,
+                                  }}
                                 />
                               );
                             },
