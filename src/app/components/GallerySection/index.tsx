@@ -113,7 +113,7 @@ export default function TestGallery({ galleryData } : Props) {
       {
         galleryData?.files.data ?
         galleryData?.files.data.map((image:any,index:number) => (
-          <MainImage image={image} />
+          <MainImage key={index} image={image} />
         )) : null
       }
       <motion.div className="fixed left-0 right-0 bottom-10 h-1 rounded-full bg-secondary" style={{ scaleX }} />
