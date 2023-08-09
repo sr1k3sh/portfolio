@@ -105,16 +105,16 @@ const Home = (props: Props) => {
         <meta name="keywords" content="Rikesh Shrestha, Frontend Developer, Web Design, HTML, CSS, JavaScript, React, React Native, Ureshino, Japan, Portfolio"/>
         <meta property="og:title" content={metadata.title}/>
         <meta property="og:description" content={metadata.description}/>
-        <meta property="og:image" content="/profile.png"/>
+        <meta property="og:image" content="/profile.ico"/>
         <meta property="og:url" content="https://rikesh.codes/"/>
         <meta property="og:type" content="website"/>
         <meta name="twitter:card" content="summary"/>
         <meta name="twitter:site" content="@rikeshshrestha"/>
         <meta name="twitter:title" content={metadata.title}/>
         <meta name="twitter:description" content={metadata.description}/>
-        <meta name="twitter:image" content="/profile.png"/>
+        <meta name="twitter:image" content="/profile.ico"/>
 
-        <link rel="icon" href="/profile.png" sizes="any" />
+        <link rel="icon" href="/profile.ico" sizes="any" />
       </Head>
       <script
         type="application/ld+json"

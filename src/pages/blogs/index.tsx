@@ -91,15 +91,15 @@ export default function BlogListingPage({ categories }: Props) {
 
         <meta property="og:title" content={metadata.title} />
         <meta property="og:description" content={metadata.description} />
-        <meta property="og:image" content={'/bg.avif'} />
+        <meta property="og:image" content={'/profile.ico'} />
         <meta property="og:url" content={`/blogs`} />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:site" content="@rikeshshrestha" />
         <meta name="twitter:title" content={metadata.title} />
         <meta name="twitter:description" content={metadata.description} />
-        <meta name="twitter:image" content={'/bg.avif'} />
-        <link rel="icon" href="/profile.png" sizes="any" />
+        <meta name="twitter:image" content={'/profile.ico'} />
+        <link rel="icon" href="/profile.ico" sizes="any" />
       </Head>
       <NavBar></NavBar>
       <section className='py-10'>

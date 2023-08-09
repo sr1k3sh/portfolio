@@ -135,15 +135,15 @@ export default function BlogDetail({ blogData, dataBlogList }: Props) {
 
         <meta property="og:title" content={attributes.title} />
         <meta property="og:description" content={attributes.description} />
-        <meta property="og:image" content={attributes?.cover?.data?.attributes?.url || '/bg.avif'} />
+        <meta property="og:image" content={attributes?.cover?.data?.attributes?.url || '/profile.ico'} />
         <meta property="og:url" content={`/blogs/${attributes.category.data.id}`} />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:site" content="@rikeshshrestha" />
         <meta name="twitter:title" content={attributes.title} />
         <meta name="twitter:description" content={attributes.description} />
-        <meta name="twitter:image" content={attributes?.cover?.data?.attributes?.url || '/bg.avif'} />
-        <link rel="icon" href="/profile.png" sizes="any" />
+        <meta name="twitter:image" content={attributes?.cover?.data?.attributes?.url || '/profile.ico'} />
+        <link rel="icon" href="/profile.ico" sizes="any" />
       </Head>
       <NavBar></NavBar>
       <section className={`w-full md:w-[calc(100%_-_7rem)] pb-2 pt-20 lg:py-6 lg:pt-4 m-auto`}>
