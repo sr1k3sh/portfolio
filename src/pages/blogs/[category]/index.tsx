@@ -143,10 +143,10 @@ export default function BlogDetail({ dataBlogList, category }: Props) {
       <section className={colorState === 'dark' ? styles.darkSection : styles.lightSection}>
         <div className='container m-auto'>
           <>
-            <div className='hidden md:flex flew-row flex-wrap mb-4 gap-4'>
+            <div className='hidden columns-1 lg:flex lg:columns-3 mb-4 gap-4'>
               {
                 blogs.data.length ? blogs.data.map((blog: any, ind: any) => (
-                  <div className='w-1/3' key={`category-blog-${ind}`}>
+                  <div className='w-full' key={`category-blog-${ind}`}>
                     <BlogGridItem blog={blog}></BlogGridItem>
                   </div>
                 )) : null

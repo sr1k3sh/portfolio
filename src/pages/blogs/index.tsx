@@ -124,10 +124,10 @@ export default function BlogListingPage({ categories }: Props) {
                     <h2 className={`text-2xl uppercase font-bold ${[proza.className]}`}>{category.attributes.name}</h2>
 
                   </div>
-                  <div className='hidden md:flex flew-row flex-wrap mb-4 gap-4'>
+                  <div className='hidden md:flex md:columns-2 lg:columns-3 mb-4 gap-4'>
                     {
                       category.attributes.blogs.data.length ? category.attributes.blogs.data.map((blog: any, ind: any) => (
-                        <div className='w-1/3' key={`category-blog-${ind}`}>
+                        <div className='w-full' key={`category-blog-${ind}`}>
                           <BlogGridItem blog={blog}></BlogGridItem>
                         </div>
                       )) : null
