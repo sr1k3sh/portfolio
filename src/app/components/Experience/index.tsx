@@ -741,7 +741,7 @@ export default function Experience(props: Props) {
                                 </ul>
                             </div>
                             <div className='w-full md:w-1/2'>
-                                <div className='mb-12'>
+                                <div className='md:mb-12'>
                                     <h3 className={`${proza.className} font-bold text-2xl md:text-3xl uppercase mb-4 md:mb-8`}>SKILL AND EXPERTISE</h3>
                                     <ul className='flex flex-wrap items-center justify-start gap-4'>
                                         <li className='relative w-[calc(100%/6_-_8px)] aspect-square rounded-lg bg-white-500 flex justify-center items-center p-2 dark:bg-black-300'><Image className='object-contain w-8 h-8' priority={false} src='/images/html.svg' width={32} height={32} alt="Rikesh Shrestha, HTML"></Image></li>
@@ -768,19 +768,21 @@ export default function Experience(props: Props) {
                                         <li className='relative w-[calc(100%/6_-_8px)] aspect-square rounded-lg bg-white-500 flex justify-center items-center p-2 dark:bg-black-300'><Image className='object-contain w-8 h-8' priority={false} src={'/images/vscode.svg'} width={32} height={32} alt="Rikesh Shrestha, vscode"></Image></li>
                                     </ul>
                                 </div>
-                                <div className='rs-exp__blogs'>
-                                    <h3 className={`${proza.className} font-bold text-2xl md:text-3xl uppercase mb-8`}>Recent blogs</h3>
-                                    <ul className='flex flex-col mb-4'>
-                                        {
-                                            blogs ? blogs.data.map((blog:any,index:number) => <li key={index} className='mb-4 last:mb-0'>
-                                                <BlogListItem blogDetail={blog} ></BlogListItem>
-                                            </li>) : null
-                                        }
-                                    </ul>
-                                    <Link href={'/blogs'} className={`${proza.className} font-[400] text-sm text-secondary`}> Read more blogs.. </Link>
-                                </div>
                             </div>
                         </div>
+                    </div>
+                </div>
+                <div className='mt-10'>
+                    <div className='rs-exp__blogs'>
+                        <h3 className={`${proza.className} font-bold text-2xl md:text-3xl uppercase mb-8`}>Recent blogs</h3>
+                        <ul className='flex flex-col md:flex-row md:flex-wrap md:justify-between mb-4'>
+                            {
+                                blogs ? blogs.data.map((blog:any,index:number) => <li key={index} className='mb-4 md:w-[calc(50%__-__1rem)] last:mb-0'>
+                                    <BlogListItem blogDetail={blog} ></BlogListItem>
+                                </li>) : null
+                            }
+                        </ul>
+                        <Link href={'/blogs'} className={`${proza.className} font-[400] text-sm text-secondary`}> Read more blogs.. </Link>
                     </div>
                 </div>
             </div>
