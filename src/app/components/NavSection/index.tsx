@@ -46,8 +46,8 @@ export default function NavBar({ refs, isHome = false }: NavBarSectionProps) {
   // }
 
   return (
-    <section className='fixed w-screen z-10'>
-      <div className='container-none p-4 pe-6'>
+    <section className='fixed w-screen z-20'>
+      <div className='container-none p-4 md:pe-6'>
         <div className='flex flex-row justify-between w-full'>
           <div className={styles.sidebar}>
             {

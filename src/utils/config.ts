@@ -93,6 +93,7 @@ export const GET_BLOG_DETAIL_QUERY = gql`
   query Articles($blogId: ID) {
     blog(id: $blogId) {
       data {
+        id
         attributes {
           blocks {
             ... on ComponentSharedMedia {
@@ -217,4 +218,31 @@ export const GET_INSTA_BLOGS = gql`
     }
   }
  }
+`
+
+export const GET_GALLERY_IMAGES = gql`
+query Query($blogId: ID) {
+  blog(id: $blogId) {
+    data {
+      id
+      attributes {
+        blocks {
+          ... on ComponentSharedSlider {
+            id
+            files {
+              data {
+                id
+                attributes {
+                  url
+                  alternativeText
+                  caption
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
 `

@@ -28,7 +28,6 @@ export default function SliderV2tar({ refs, title, data }: Props) {
           })
         }
       </div>
-      <Link href="/" className='text-secondary text-sm text-right block font-regular capitalize'>more on galleries...</Link>
 
     </section>
   )

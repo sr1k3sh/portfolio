@@ -344,8 +344,8 @@ export default function Contact(props:ContactSectionProps) {
                                     <span className={`${righteous.className} text-white text-2xl`}>RS</span>
                                 </Link>
                             </div>
-                            <span className={`${righteous.className} text-6xl font-bold text-center text-black-300 mb-4 dark:text-white-300`}>Rikesh Shrestha</span>
-                            <span className='text-center uppercase text-3xl mb-4'>Frontend Developer</span>
+                            <span className={`${righteous.className} text-4xl md:text-6xl font-bold text-center text-black-300 mb-4 dark:text-white-300`}>Rikesh Shrestha</span>
+                            <span className={`${proza.className} text-center uppercase text-xl md:text-3xl mb-4`}>Frontend Developer</span>
                             <div className='flex flex-col items-center mb-4'>
                                 <ul className='flex flex-row items-center gap-4'>
                                     <li className='bg-black-400 dark:bg-white-200 p-2 rounded-full border-4 border-black-600 dark:border-white-600'>
@@ -372,11 +372,11 @@ export default function Contact(props:ContactSectionProps) {
                             </div>
                             <div className='flex flex-col items-center'>
                                 <div className='flex flex-col items-center mb-2'>
-                                    <span className='text-sm font-semibold text-black-400'>My personal contact</span>
+                                    <span className={`${proza.className} text-sm font-semibold text-black-400 dark:text-white-400`}>My personal contact</span>
                                     <span className='text-base font-bold  text-primary'>+81 080 4739 3928</span>
                                 </div>
                                 <div className='flex flex-col items-center mb-2'>
-                                    <span className='text-sm font-semibold text-black-400'>Please write me on</span>
+                                    <span className={`${proza.className} text-sm font-semibold text-black-400 dark:text-white-400`}>Please write me on</span>
                                     <span className='text-base font-bold text-primary'>sr1k3sh@gmail.com</span>
                                 </div>
                             </div>

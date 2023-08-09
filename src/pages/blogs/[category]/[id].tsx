@@ -19,6 +19,7 @@ import {
 } from 'react-syntax-highlighter/dist/cjs/styles/prism'
 import SliderV2tar from 'src/app/components/SliderV2/SliderV2'
 import { carmorant, proza, sansFont } from 'src/utils/fonts'
+import Link from 'next/link'
 
 type Props = {
   blogData: any
@@ -80,7 +81,7 @@ export default function BlogDetail({ blogData, dataBlogList }: Props) {
 
   // return <></>
 
-  const { attributes } = blogData
+  const { attributes, id } = blogData
 
   const { blogs } = dataBlogList
 
@@ -253,7 +254,10 @@ export default function BlogDetail({ blogData, dataBlogList }: Props) {
                     <div className={styles.content} key={index}>
                       {
                         block.files && block.files.data.length?
-                          <SliderV2tar title={'Checkout Galleries'} data={block.files.data}></SliderV2tar>
+                          <div className='flex flex-col'>
+                            <SliderV2tar title={'Checkout Galleries'} data={block.files.data}></SliderV2tar>
+                            <Link href={`/gallery/${id}`} className='text-secondary text-sm text-right block font-regular capitalize'>more on galleries...</Link>
+                          </div>
                         : null
                       }
 
@@ -261,7 +265,7 @@ export default function BlogDetail({ blogData, dataBlogList }: Props) {
                         block.video ? <div className='mt-8'>
                           <h2 className={`text-2xl md:text-3xl font-[600] uppercase mb-4 ${proza.className}`}>Checkout my vlog on youtube</h2>
                           <iframe
-                            className={`w-full h-64 md:h-96 rounded-xl`}
+                            className={`w-full aspect-video rounded-xl`}
                             src={`https://www.youtube.com/embed/${block.video.providerUid}`}
                             title="YouTube video player"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

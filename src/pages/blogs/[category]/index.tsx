@@ -91,6 +91,12 @@ export default function BlogDetail({ dataBlogList, category }: Props) {
 
   const { blogs } = dataBlogList
 
+  const blogData = {
+    blogTitle: 'My gallery',
+    blogSubTitle: 'Writing from my experience',
+    blogDescription: `is a captivating blog where personal stories and insightful reflections come together to offer a unique and relatable perspective. Join the author on a journey through their triumphs, challenges, and the valuable life lessons they've learned along the way. Discover inspiration, entertainment, and thought-provoking insights that invite you to reflect on your own experiences.`,
+  }
+
   return (
     <Layout className={'bg-white-700 dark:bg-black-200 dark:text-white'}>
       <Head>
@@ -125,7 +131,7 @@ export default function BlogDetail({ dataBlogList, category }: Props) {
       <section className='py-10'>
         <div className='container m-auto'>
           <div className='flex'>
-            <HeaderTitleDesc></HeaderTitleDesc>
+            <HeaderTitleDesc blog={blogData}></HeaderTitleDesc>
           </div>
           <article>
             <figure className={'relative h-[400px]'}>

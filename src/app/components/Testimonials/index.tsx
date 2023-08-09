@@ -95,7 +95,7 @@ export default function Testimonial(props: Props) {
         <section ref={refs.testimonial.testimonialRef} className={'py-10 pb-0'}>
             <div className='container-none m-auto'>
                 <div className={'flex flex-col md:h-[80vh]'}>
-                    <h2 className={`text-center text-3xl uppercase font-bold mb-10 ${proza.className}`}>What Client Says</h2>
+                    <h2 className={`text-center text-2xl md:text-3xl uppercase font-bold mb-10 ${proza.className}`}>What Client Says</h2>
                     <div className='relative h-full flex flex-col'>
                         <div className='h-96 md:h-full'>
                             <Map

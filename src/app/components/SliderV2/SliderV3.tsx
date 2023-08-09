@@ -121,7 +121,7 @@ export default function SliderV3tar({parallex=false, refs, title}:Props) {
         <div className='flex flex-col'>
           {
             title &&
-            <h2 className={`text-center text-3xl uppercase font-bold mb-10 ${proza.className}`}>{title}</h2>
+            <h2 className={`text-center text-2xl md:text-3xl uppercase font-bold mb-10 ${proza.className}`}>{title}</h2>
           }
 
           <div className="flex flex-row scroll">
