@@ -20,6 +20,7 @@ import 'swiper/css'
 import Link from 'next/link'
 import stylesMain from './index.module.scss'
 import Layout from 'src/app/components/Layout'
+import { proza } from 'src/utils/fonts'
 
 type Props = {
   categories: any
@@ -120,7 +121,7 @@ export default function BlogListingPage({ categories }: Props) {
               data.map((category: any, index: number) => (
                 category.attributes.blogs.data.length ? <div className={`flex flex-col mb-8`} key={`category-${index}`}>
                   <div className={'mb-4 flex justify-center'}>
-                    <h2 className={`text-2xl uppercase font-bold font-sans`}>{category.attributes.name}</h2>
+                    <h2 className={`text-2xl uppercase font-bold ${[proza.className]}`}>{category.attributes.name}</h2>
 
                   </div>
                   <div className='hidden md:flex flew-row flex-wrap mb-4 gap-4'>
