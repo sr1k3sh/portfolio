@@ -17,7 +17,7 @@ export default function BlogGridItem({blog}: Props) {
           <Image className='object-cover group-hover:scale-105 transition-all duration-300' loading='lazy' style={{ objectFit: 'cover' }} src={attributes?.cover?.data?.attributes?.url || '/bg.avif'} blurDataURL='/bg.avif' fill={true} alt={attributes?.cover?.data?.attributes.alternativeText || ''} />
         </figure>
         <h3 className={'text-lg mb-1 font-semibold line-clamp-2 uppercase group-hover:text-primary'}>{attributes.title}</h3>
-        <p className={'text-base mb-1'}>{attributes.description}</p>
+        <p className={'text-base mb-1 line-clamp-3'}>{attributes.description}</p>
         <span className={'text-sm text-black-500'}>{attributes.publishedAt && new Date(attributes.publishedAt).toLocaleDateString('en-US', {
           year: 'numeric',
           month: 'short',
