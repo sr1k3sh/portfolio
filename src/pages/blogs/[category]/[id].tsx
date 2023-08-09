@@ -216,6 +216,8 @@ export default function BlogDetail({ blogData, dataBlogList }: Props) {
                             h2: ({children}) => <h2 className={`text-lg md:text-lg font-bold mb-4 ${proza.className}`}>{children}</h2>,
                             h3: ({children}) => <h3 className={`${proza.className} text-lg font-bold md:text-lg md:font-bold mb-4`}>{children}</h3>,
                             p: ({children}) => <p className={`${sansFont.className} text-base font-regular mb-4`}>{children}</p>,
+                            ul: ({children}) => <ul className='ps-4 list-disc'>{children}</ul>,
+                            ol: ({children}) => <ol className='ps-4 list-disc'>{children}</ol>,
                           }}
                         >
                           {
@@ -235,7 +237,7 @@ export default function BlogDetail({ blogData, dataBlogList }: Props) {
               <h3 className={`mb-4 font-[600] text-xl md:text-xl uppercase ${proza.className}`}>Related Blogs</h3>
               <ul className='rs-exp__blog-list'>
                 {
-                  blogs.data.filter((blog:any) => blog.id !== attributes.category.data.id ).map((blog: any, index: number) => <li key={index}>
+                  blogs.data.filter((blog:any) => blog.id !== id ).map((blog: any, index: number) => <li className='mb-4' key={index}>
                     <BlogListItem blogDetail={blog} ></BlogListItem>
                   </li>)
                 }
